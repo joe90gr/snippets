@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    div(class='links')
+      p
+        a(href='/' class='home') home
+      p
+        a(href='/examples' class='examples') examples
+      p
+        a(href='/iterators', class='iterators') iterators
+    block content
+    script(type='text/javascript' src='/javascripts/main.js')
