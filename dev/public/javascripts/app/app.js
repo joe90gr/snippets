@@ -3,6 +3,12 @@ import { iteratorForEach } from './dataStructures/iterators.js';
 import { iteratorEvery } from './dataStructures/iterators.js';
 import { iteratorSome } from './dataStructures/iterators.js';
 import { iteratorReduce } from './dataStructures/iterators.js';
+
+import { adtListAppendRemove } from './dataStructures/Adtlists.js';
+import { adtListNextPrevious } from './dataStructures/Adtlists.js';
+import { adtListIterateFoward } from './dataStructures/Adtlists.js';
+import { adtListIterateBackward } from './dataStructures/Adtlists.js';
+
 import examples from './reactExamples/examples.js';
 
 var events = require('../utils/events');
@@ -33,10 +39,17 @@ events.on('examples', function (args) {
 });
 
 events.on('iterators', function (args) {
-    mainTitle.innerHTML = 'Iterators';
-    welcomeTitle.innerHTML = 'Iterators';
-    clearElements();
-    iterators();
+	mainTitle.innerHTML = 'Iterators';
+	welcomeTitle.innerHTML = 'Iterators';
+	clearElements();
+	iterators();
+});
+
+events.on('lists', function (args) {
+	mainTitle.innerHTML = 'lists';
+	welcomeTitle.innerHTML = 'lists';
+	clearElements();
+	lists();
 });
 
 require('../utils/router');
@@ -59,6 +72,29 @@ function iterators() {
 	example3.appendChild(el);
 	var el = document.createElement('div');
 	el.innerHTML = wrapDivBox('_iteratorReduce', _iteratorReduce) + '' + wrapDivBox(_iteratorReduce(printVals.bind(example4)));
+	example4.appendChild(el);
+}
+
+function lists() {
+	var _adtListadtList = adtListAppendRemove;
+	var _adtListNextPrevious = adtListNextPrevious;
+	var _adtListIterateFoward = adtListIterateFoward;
+	var _adtListIterateBackward = adtListIterateBackward;
+
+	var el = document.createElement('div');
+	el.innerHTML = wrapDivBox('adtListadtList', _adtListadtList) + '' + wrapDivBox(_adtListadtList(printVals.bind(example1)));
+	example1.appendChild(el);
+
+	var el = document.createElement('div');
+	el.innerHTML = wrapDivBox('adtListNextPrevious', _adtListNextPrevious) + '' + wrapDivBox(_adtListNextPrevious(printVals.bind(example2)));
+	example2.appendChild(el);
+
+	var el = document.createElement('div');
+	el.innerHTML = wrapDivBox('adtListIterateFoward', _adtListIterateFoward) + '' + wrapDivBox(_adtListIterateFoward(printVals.bind(example3)));
+	example3.appendChild(el);
+
+	var el = document.createElement('div');
+	el.innerHTML = wrapDivBox('adtListIterateBackward', _adtListIterateBackward) + '' + wrapDivBox(_adtListIterateBackward(printVals.bind(example4)));
 	example4.appendChild(el);
 }
 

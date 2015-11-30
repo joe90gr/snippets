@@ -4,9 +4,10 @@ var events = require('../utils/events');
 
 var Workspace = Backbone.Router.extend({
     routes: {
-        "":             "root",    // #home
-        "examples":     "examples",  // #search/kiwis
-        "iterators":    "iterators"   // #search/kiwis/p7
+        "":             "root",
+        "examples":     "examples",
+        "iterators":    "iterators",
+        "lists":    "lists"
     },
     root: function() {
         events.emit('root');
@@ -17,6 +18,10 @@ var Workspace = Backbone.Router.extend({
     iterators: function(query, page) {
         events.emit('iterators');
     }
+	,
+	lists: function(query, page) {
+		events.emit('lists');
+	}
 });
 
 var route = new Workspace;

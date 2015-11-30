@@ -10,6 +10,7 @@ var users = require('./routes/users');
 var dataStructures = require('./routes/dataStructures');
 var examples = require('./routes/examples');
 var iterators = require('./routes/iterators');
+var lists = require('./routes/lists');
 
 var app = express();
 
@@ -30,6 +31,7 @@ app.use('/users', users);
 app.use('/dataStructures', dataStructures);
 app.use('/examples', examples);
 app.use('/iterators', iterators);
+app.use('/lists', lists);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
