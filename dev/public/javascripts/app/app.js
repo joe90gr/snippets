@@ -25,27 +25,27 @@ var example6 = document.getElementById('example-6');
 var example7 = document.getElementById('example-7');
 var example8 = document.getElementById('example-8');
 
-events.on('root', function (args) {
-    mainTitle.innerHTML = 'Home Page';
-    welcomeTitle.innerHTML = 'Home Page';
-    clearElements();
+events.on('root', function () {
+	mainTitle.innerHTML = 'Home Page';
+	welcomeTitle.innerHTML = 'Home Page';
+	clearElements();
 });
 
-events.on('examples', function (args) {
-    mainTitle.innerHTML = 'ReactJS examples';
-    welcomeTitle.innerHTML = 'ReactJS examples';
-    clearElements();
-    examples();
+events.on('examples', function () {
+	mainTitle.innerHTML = 'ReactJS examples';
+	welcomeTitle.innerHTML = 'ReactJS examples';
+	clearElements();
+	examples();
 });
 
-events.on('iterators', function (args) {
+events.on('iterators', function () {
 	mainTitle.innerHTML = 'Iterators';
 	welcomeTitle.innerHTML = 'Iterators';
 	clearElements();
 	iterators();
 });
 
-events.on('lists', function (args) {
+events.on('lists', function () {
 	mainTitle.innerHTML = 'lists';
 	welcomeTitle.innerHTML = 'lists';
 	clearElements();
@@ -59,18 +59,18 @@ function iterators() {
 	var _iteratorEvery = iteratorEvery;
 	var _iteratorSome = iteratorSome;
 	var _iteratorReduce = iteratorReduce;
-
+	var el;
 
 	var el = document.createElement('div');
 	el.innerHTML = wrapDivBox('iteratorForEach', _iteratorForEach) + '' + wrapDivBox(_iteratorForEach());
 	example1.appendChild(el);
-	var el = document.createElement('div');
+	el = document.createElement('div');
 	el.innerHTML = wrapDivBox('iteratorEvery', _iteratorEvery) + '' + wrapDivBox(_iteratorEvery());
 	example2.appendChild(el);
-	var el = document.createElement('div');
+	el = document.createElement('div');
 	el.innerHTML = wrapDivBox('_iteratorSome', _iteratorSome) + '' + wrapDivBox(_iteratorSome());
 	example3.appendChild(el);
-	var el = document.createElement('div');
+	el = document.createElement('div');
 	el.innerHTML = wrapDivBox('_iteratorReduce', _iteratorReduce) + '' + wrapDivBox(_iteratorReduce(printVals.bind(example4)));
 	example4.appendChild(el);
 }
@@ -80,20 +80,21 @@ function lists() {
 	var _adtListNextPrevious = adtListNextPrevious;
 	var _adtListIterateFoward = adtListIterateFoward;
 	var _adtListIterateBackward = adtListIterateBackward;
+	var el;
 
 	var el = document.createElement('div');
 	el.innerHTML = wrapDivBox('adtListadtList', _adtListadtList) + '' + wrapDivBox(_adtListadtList(printVals.bind(example1)));
 	example1.appendChild(el);
 
-	var el = document.createElement('div');
+	el = document.createElement('div');
 	el.innerHTML = wrapDivBox('adtListNextPrevious', _adtListNextPrevious) + '' + wrapDivBox(_adtListNextPrevious(printVals.bind(example2)));
 	example2.appendChild(el);
 
-	var el = document.createElement('div');
+	el = document.createElement('div');
 	el.innerHTML = wrapDivBox('adtListIterateFoward', _adtListIterateFoward) + '' + wrapDivBox(_adtListIterateFoward(printVals.bind(example3)));
 	example3.appendChild(el);
 
-	var el = document.createElement('div');
+	el = document.createElement('div');
 	el.innerHTML = wrapDivBox('adtListIterateBackward', _adtListIterateBackward) + '' + wrapDivBox(_adtListIterateBackward(printVals.bind(example4)));
 	example4.appendChild(el);
 }
@@ -118,13 +119,13 @@ function wrapDivBox() {
 }
 
 function clearElements() {
-    example1.innerHTML = '';
-    example2.innerHTML = '';
-    example3.innerHTML = '';
-    example4.innerHTML = '';
-    example5.innerHTML = '';
-    example6.innerHTML = '';
-    example7.innerHTML = '';
-    example8.innerHTML = '';
+	example1.innerHTML = '';
+	example2.innerHTML = '';
+	example3.innerHTML = '';
+	example4.innerHTML = '';
+	example5.innerHTML = '';
+	example6.innerHTML = '';
+	example7.innerHTML = '';
+	example8.innerHTML = '';
 }
 

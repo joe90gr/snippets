@@ -40,4 +40,4 @@ export default function examples() {
 	ReactDOM.render(<TodoList joe={ [ 'Joe', 'Bharathy', 'Simon', 'Murali', 'Sai', 'Leila', 'Emanuele', 'Chris' ] } />, example3);
 
 	ReactDOM.render(el, example4);
-};
+}

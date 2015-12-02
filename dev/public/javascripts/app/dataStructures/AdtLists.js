@@ -2,18 +2,18 @@ import { List } from './lists.js';
 
 export function adtListAppendRemove(printHTML) {
 	var names = new List();
-	names.append("Joe");
-	names.append("Simon");
-	names.append("Chris");
-	names.append("Bharathy");
-	names.append("Emanuele");
-	names.append("Murali");
-	names.append("Sai");
-	names.append("Leila");
+	names.append('Joe');
+	names.append('Simon');
+	names.append('Chris');
+	names.append('Bharathy');
+	names.append('Emanuele');
+	names.append('Murali');
+	names.append('Sai');
+	names.append('Leila');
 
 	printHTML(names.toString());
 
-	names.remove("Chris");
+	names.remove('Chris');
 
 	printHTML(names.toString());
 
@@ -22,19 +22,19 @@ export function adtListAppendRemove(printHTML) {
 
 export function adtListNextPrevious(printHTML) {
 	var names = new List();
-	names.append("Joe");
-	names.append("Simon");
-	names.append("Chris");
-	names.append("Bharathy");
-	names.append("Emanuele");
-	names.append("Murali");
-	names.append("Sai");
-	names.append("Leila");
+	names.append('Joe');
+	names.append('Simon');
+	names.append('Chris');
+	names.append('Bharathy');
+	names.append('Emanuele');
+	names.append('Murali');
+	names.append('Sai');
+	names.append('Leila');
 
 	names.front();
-	printHTML(names.getElement()); //Joe
+	printHTML(names.getElement());//Joe
 
-	printHTML(names.next()); //Joe
+	printHTML(names.next());//Joe
 	printHTML(names.next()); //Simon
 	printHTML(names.next()); //Chris
 
@@ -46,16 +46,16 @@ export function adtListNextPrevious(printHTML) {
 
 export function adtListIterateFoward(printHTML) {
 	var names = new List();
-	names.append("Joe");
-	names.append("Simon");
-	names.append("Chris");
-	names.append("Bharathy");
-	names.append("Emanuele");
-	names.append("Murali");
-	names.append("Sai");
-	names.append("Leila");
+	names.append('Joe');
+	names.append('Simon');
+	names.append('Chris');
+	names.append('Bharathy');
+	names.append('Emanuele');
+	names.append('Murali');
+	names.append('Sai');
+	names.append('Leila');
 
-	for(names.front(); names.hasNext();) {
+	for (names.front(); names.hasNext();) {
 		printHTML(names.next());
 	}
 
@@ -64,16 +64,16 @@ export function adtListIterateFoward(printHTML) {
 
 export function adtListIterateBackward(printHTML) {
 	var names = new List();
-	names.append("Joe");
-	names.append("Simon");
-	names.append("Chris");
-	names.append("Bharathy");
-	names.append("Emanuele");
-	names.append("Murali");
-	names.append("Sai");
-	names.append("Leila");
+	names.append('Joe');
+	names.append('Simon');
+	names.append('Chris');
+	names.append('Bharathy');
+	names.append('Emanuele');
+	names.append('Murali');
+	names.append('Sai');
+	names.append('Leila');
 
-	for(names.end(); names.hasPrevious();) {
+	for (names.end(); names.hasPrevious();) {
 		printHTML(names.previous());
 	}
 
