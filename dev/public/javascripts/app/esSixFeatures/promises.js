@@ -31,16 +31,38 @@ export function promisesOne(printHTML) {
 			} else {
 				reject('error message!');
 			}
-			return promise;
 		}, 2000);
 	}
 
 	promise.then(function (success) {
-		printHTML(success);
-	}, function (err) {
-		printHTML(err);
+		printHTML('first thenable: ' + success);
+		return new Promise(resolver);
 	}).then(function (success) {
-		printHTML(success);
+		printHTML('second thenable: ' + success);
 	});
+}
+
+export function promisesTwo(printHTML) {
+	var now = new Date();
+	printHTML('time absolutely now: ' + now);
+
+	getTimeIn(1000).then(function (success) {
+		printHTML('first thenable: ' + success);
+		return getTimeIn(5000);
+	}).then(function (success) {
+		printHTML('second thenable: ' + success);
+	});
+}
+
+function getTimeIn(delay) {
+	var promise = new Promise(resolver);
+
+	function resolver(resolve) {
+		setTimeout(function () {
+			resolve(new Date());
+		}, delay);
+	}
+
+	return promise;
 }
 

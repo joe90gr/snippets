@@ -12,6 +12,7 @@ import { hashmaps } from './dataStructures/lists.js';
 
 import { promises } from './esSixFeatures/promises.js';
 import { promisesOne } from './esSixFeatures/promises.js';
+import { promisesTwo } from './esSixFeatures/promises.js';
 
 import examples from './reactExamples/examples.js';
 
@@ -122,6 +123,7 @@ function esSixFeatures() {
 
 	var _esSixFeatures = promises;
 	var _esSixFeaturesOne = promisesOne;
+	var _esSixFeaturesTwo = promisesTwo;
 
 	el = document.createElement('div');
 	el.innerHTML = wrapDivBox('promises', _esSixFeatures) + '' + wrapDivBox(_esSixFeatures(printVals.bind(example1)));
@@ -130,6 +132,10 @@ function esSixFeatures() {
 	el = document.createElement('div');
 	el.innerHTML = wrapDivBox('promises', _esSixFeaturesOne) + '' + wrapDivBox(_esSixFeaturesOne(printVals.bind(example2)));
 	example2.appendChild(el);
+
+	el = document.createElement('div');
+	el.innerHTML = wrapDivBox('promises', _esSixFeaturesTwo) + '' + wrapDivBox(_esSixFeaturesTwo(printVals.bind(example3)));
+	example3.appendChild(el);
 }
 
 function printVals(val) {
