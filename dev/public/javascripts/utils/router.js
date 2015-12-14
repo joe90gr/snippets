@@ -7,7 +7,9 @@ var Workspace = Backbone.Router.extend({
 		'':             'root',
 		'examples':     'examples',
 		'iterators':    'iterators',
-		'lists':    'lists'
+		'lists':        'lists',
+		'hashmap':      'hashmap',
+		'promises':      'promises'
 	},
 	root: function () {
 		events.emit('root');
@@ -20,6 +22,12 @@ var Workspace = Backbone.Router.extend({
 	},
 	lists: function () {
 		events.emit('lists');
+	},
+	hashmap: function () {
+		events.emit('hashmap');
+	},
+	promises: function () {
+		events.emit('promises');
 	}
 });
 

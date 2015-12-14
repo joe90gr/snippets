@@ -1,125 +1,101 @@
-export function List() {
-	this.listSize = 0;
-	this.position = 0;
-	this.dataStore = [];
+import { List } from '../lib/List.js';
+import { HashMap } from '../lib/Hashmap.js';
 
-	this.clear = clear;
-	this.find = find;
-	this.toString = toString;
-	this.insert = insert;
-	this.append = append;
-	this.remove = remove;
-	this.front = front;
-	this.end = end;
-	this.previous = previous;
-	this.next = next;
-	this.hasPrevious = hasPrevious;
-	this.hasNext = hasNext;
-	this.length = length;
-	this.currentPosition = currentPosition;
-	this.moveTo = moveTo;
-	this.getElement = getElement;
-	this.contains = contains;
+//ADT Lists
+export function adtListAppendRemove(printHTML) {
+	var names = new List();
+	names.append('Joe');
+	names.append('Simon');
+	names.append('Chris');
+	names.append('Bharathy');
+	names.append('Emanuele');
+	names.append('Murali');
+	names.append('Sai');
+	names.append('Leila');
+
+	printHTML(names.toString());
+
+	names.remove('Chris');
+
+	printHTML(names.toString());
+
+	return names.toString();
 }
 
-function append(element) {
-	this.dataStore[this.listSize++] = element;
+export function adtListNextPrevious(printHTML) {
+	var names = new List();
+	names.append('Joe');
+	names.append('Simon');
+	names.append('Chris');
+	names.append('Bharathy');
+	names.append('Emanuele');
+	names.append('Murali');
+	names.append('Sai');
+	names.append('Leila');
+
+	names.front();
+	printHTML(names.getElement());//Joe
+
+	printHTML(names.next());//Joe
+	printHTML(names.next()); //Simon
+	printHTML(names.next()); //Chris
+
+	printHTML(names.previous()); //Chris
+	printHTML(names.previous()); //Simon
+
+	return names.toString();
 }
 
-function remove(element) {
-	var foundAt = this.find(element);
-	if (foundAt > -1) {
-		this.dataStore.splice(foundAt, 1);
-		--this.listSize;
+export function adtListIterateFoward(printHTML) {
+	var names = new List();
+	names.append('Joe');
+	names.append('Simon');
+	names.append('Chris');
+	names.append('Bharathy');
+	names.append('Emanuele');
+	names.append('Murali');
+	names.append('Sai');
+	names.append('Leila');
 
-		return true;
+	for (names.front(); names.hasNext();) {
+		printHTML(names.next());
 	}
 
-	return false;
+	return names.toString();
 }
 
-function find(element) {
-	var i;
-	for (i = 0; i< this.dataStore.length; ++i) {
-		if (this.dataStore[i] == element) {
-			return i;
-		}
+export function adtListIterateBackward(printHTML) {
+	var names = new List();
+	names.append('Joe');
+	names.append('Simon');
+	names.append('Chris');
+	names.append('Bharathy');
+	names.append('Emanuele');
+	names.append('Murali');
+	names.append('Sai');
+	names.append('Leila');
+
+	for (names.end(); names.hasPrevious();) {
+		printHTML(names.previous());
 	}
 
-	return -1;
+	return names.toString();
 }
 
-function toString() {
-	return this.dataStore;
+//Hashmap lists
+export function hashmaps() {
+	var hashmap = new HashMap();
+
+	hashmap.add('joe', 'test1');
+	hashmap.add('joe1', 'test2');
+	hashmap.add('joe2', 'test3');
+	hashmap.add('joe1', 'test2duplicate');
+
+	console.log(hashmap.entrySet());
+	console.log(hashmap.get('joe'));
+	hashmap.remove('joe1');
+	hashmap.put('joe2', 're-written');
+	console.log(hashmap.entrySet());
+
+	return this;
 }
-
-function clear() {
-	delete this.dataStore;
-	this.dataStore = [];
-	this.listSize = this.position = 0;
-}
-
-function insert(element, after) {
-	var insertPos = this.find(after);
-	if (insertPos > -1) {
-		this.dataStore.splice(insertPos+1, 0, element);
-		++this.listSize;
-
-		return true;
-	}
-
-	return false;
-}
-
-function previous() {
-	return this.dataStore[--this.pos];
-}
-
-function next() {
-	return this.dataStore[this.pos++];
-}
-
-function hasNext() {
-	return !(this.pos > this.listSize - 1);
-}
-
-function hasPrevious() {
-	return !(this.pos <= 0);
-}
-
-function length() {
-
-}
-
-function currentPosition() {
-
-}
-
-function moveTo(position) {
-	this.pos = position;
-}
-
-function getElement() {
-	return this.dataStore[this.pos];
-
-}
-
-function front() {
-	this.pos = 0;
-}
-
-function end() {
-	this.pos = this.listSize;
-}
-
-function contains(element) {
-	var i;
-	for (i = 0; i < this.dataStore.length; ++i) {
-		if (this.dataStore[i] == element) {
-			return true;
-		}
-	}
-
-	return false;
-}
-

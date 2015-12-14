@@ -4,10 +4,14 @@ import { iteratorEvery } from './dataStructures/iterators.js';
 import { iteratorSome } from './dataStructures/iterators.js';
 import { iteratorReduce } from './dataStructures/iterators.js';
 
-import { adtListAppendRemove } from './dataStructures/Adtlists.js';
-import { adtListNextPrevious } from './dataStructures/Adtlists.js';
-import { adtListIterateFoward } from './dataStructures/Adtlists.js';
-import { adtListIterateBackward } from './dataStructures/Adtlists.js';
+import { adtListAppendRemove } from './dataStructures/lists.js';
+import { adtListNextPrevious } from './dataStructures/lists.js';
+import { adtListIterateFoward } from './dataStructures/lists.js';
+import { adtListIterateBackward } from './dataStructures/lists.js';
+import { hashmaps } from './dataStructures/lists.js';
+
+import { promises } from './esSixFeatures/promises.js';
+import { promisesOne } from './esSixFeatures/promises.js';
 
 import examples from './reactExamples/examples.js';
 
@@ -16,6 +20,7 @@ var events = require('../utils/events');
 var mainTitle = document.getElementsByClassName('main-title')[0];
 var welcomeTitle = document.getElementsByClassName('welcome-title')[0];
 
+var el;
 var example1 = document.getElementById('example-1');
 var example2 = document.getElementById('example-2');
 var example3 = document.getElementById('example-3');
@@ -52,6 +57,21 @@ events.on('lists', function () {
 	lists();
 });
 
+events.on('promises', function () {
+	mainTitle.innerHTML = 'promises';
+	welcomeTitle.innerHTML = 'promises';
+	clearElements();
+	esSixFeatures();
+});
+
+events.on('hashmap', function () {
+	var _hashmaps = hashmaps;
+	mainTitle.innerHTML = 'hashmap';
+	welcomeTitle.innerHTML = 'hashmap';
+	clearElements();
+	_hashmaps();
+});
+
 require('../utils/router');
 
 function iterators() {
@@ -59,9 +79,8 @@ function iterators() {
 	var _iteratorEvery = iteratorEvery;
 	var _iteratorSome = iteratorSome;
 	var _iteratorReduce = iteratorReduce;
-	var el;
 
-	var el = document.createElement('div');
+	el = document.createElement('div');
 	el.innerHTML = wrapDivBox('iteratorForEach', _iteratorForEach) + '' + wrapDivBox(_iteratorForEach());
 	example1.appendChild(el);
 	el = document.createElement('div');
@@ -80,7 +99,6 @@ function lists() {
 	var _adtListNextPrevious = adtListNextPrevious;
 	var _adtListIterateFoward = adtListIterateFoward;
 	var _adtListIterateBackward = adtListIterateBackward;
-	var el;
 
 	var el = document.createElement('div');
 	el.innerHTML = wrapDivBox('adtListadtList', _adtListadtList) + '' + wrapDivBox(_adtListadtList(printVals.bind(example1)));
@@ -97,6 +115,21 @@ function lists() {
 	el = document.createElement('div');
 	el.innerHTML = wrapDivBox('adtListIterateBackward', _adtListIterateBackward) + '' + wrapDivBox(_adtListIterateBackward(printVals.bind(example4)));
 	example4.appendChild(el);
+}
+
+function esSixFeatures() {
+	var el;
+
+	var _esSixFeatures = promises;
+	var _esSixFeaturesOne = promisesOne;
+
+	el = document.createElement('div');
+	el.innerHTML = wrapDivBox('promises', _esSixFeatures) + '' + wrapDivBox(_esSixFeatures(printVals.bind(example1)));
+	example1.appendChild(el);
+
+	el = document.createElement('div');
+	el.innerHTML = wrapDivBox('promises', _esSixFeaturesOne) + '' + wrapDivBox(_esSixFeaturesOne(printVals.bind(example2)));
+	example2.appendChild(el);
 }
 
 function printVals(val) {
