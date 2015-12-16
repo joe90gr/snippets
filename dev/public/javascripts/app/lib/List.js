@@ -92,7 +92,7 @@ function length() {
 }
 
 function currentPosition() {
-
+	return this.pos;
 }
 
 function moveTo(position) {

@@ -10,6 +10,9 @@ import { adtListIterateFoward } from './dataStructures/lists.js';
 import { adtListIterateBackward } from './dataStructures/lists.js';
 import { hashmaps } from './dataStructures/lists.js';
 
+import { pushToStack } from './dataStructures/stacks.js';
+import { palinDromes } from './dataStructures/stacks.js';
+
 import { promises } from './esSixFeatures/promises.js';
 import { promisesOne } from './esSixFeatures/promises.js';
 import { promisesTwo } from './esSixFeatures/promises.js';
@@ -21,121 +24,91 @@ var events = require('../utils/events');
 var mainTitle = document.getElementsByClassName('main-title')[0];
 var welcomeTitle = document.getElementsByClassName('welcome-title')[0];
 
-var el;
-var example1 = document.getElementById('example-1');
-var example2 = document.getElementById('example-2');
-var example3 = document.getElementById('example-3');
-var example4 = document.getElementById('example-4');
-var example5 = document.getElementById('example-5');
-var example6 = document.getElementById('example-6');
-var example7 = document.getElementById('example-7');
-var example8 = document.getElementById('example-8');
-
 events.on('root', function () {
 	mainTitle.innerHTML = 'Home Page';
 	welcomeTitle.innerHTML = 'Home Page';
-	clearElements();
 });
 
 events.on('examples', function () {
 	mainTitle.innerHTML = 'ReactJS examples';
 	welcomeTitle.innerHTML = 'ReactJS examples';
-	clearElements();
 	examples();
 });
 
-events.on('iterators', function () {
-	mainTitle.innerHTML = 'Iterators';
-	welcomeTitle.innerHTML = 'Iterators';
-	clearElements();
-	iterators();
-});
-
-events.on('lists', function () {
-	mainTitle.innerHTML = 'lists';
-	welcomeTitle.innerHTML = 'lists';
-	clearElements();
-	lists();
-});
-
-events.on('promises', function () {
-	mainTitle.innerHTML = 'promises';
-	welcomeTitle.innerHTML = 'promises';
-	clearElements();
-	esSixFeatures();
-});
-
-events.on('hashmap', function () {
-	var _hashmaps = hashmaps;
-	mainTitle.innerHTML = 'hashmap';
-	welcomeTitle.innerHTML = 'hashmap';
-	clearElements();
-	_hashmaps();
-});
+events.on('iterators', iterators);
+events.on('lists', lists);
+events.on('promises', esSixFeatures);
+events.on('stack', stacksExample);
+events.on('hashmap', hashTables);
 
 require('../utils/router');
 
 function iterators() {
-	var _iteratorForEach = iteratorForEach;
-	var _iteratorEvery = iteratorEvery;
-	var _iteratorSome = iteratorSome;
-	var _iteratorReduce = iteratorReduce;
+	mainTitle.innerHTML = 'Iterators';
+	welcomeTitle.innerHTML = 'Iterators';
 
-	el = document.createElement('div');
-	el.innerHTML = wrapDivBox('iteratorForEach', _iteratorForEach) + '' + wrapDivBox(_iteratorForEach());
-	example1.appendChild(el);
-	el = document.createElement('div');
-	el.innerHTML = wrapDivBox('iteratorEvery', _iteratorEvery) + '' + wrapDivBox(_iteratorEvery());
-	example2.appendChild(el);
-	el = document.createElement('div');
-	el.innerHTML = wrapDivBox('_iteratorSome', _iteratorSome) + '' + wrapDivBox(_iteratorSome());
-	example3.appendChild(el);
-	el = document.createElement('div');
-	el.innerHTML = wrapDivBox('_iteratorReduce', _iteratorReduce) + '' + wrapDivBox(_iteratorReduce(printVals.bind(example4)));
-	example4.appendChild(el);
+	renderToDom({
+		iteratorForEach: iteratorForEach,
+		iteratorEvery: iteratorEvery,
+		iteratorSome: iteratorSome,
+		iteratorReduce: iteratorReduce
+	});
 }
 
 function lists() {
-	var _adtListadtList = adtListAppendRemove;
-	var _adtListNextPrevious = adtListNextPrevious;
-	var _adtListIterateFoward = adtListIterateFoward;
-	var _adtListIterateBackward = adtListIterateBackward;
+	mainTitle.innerHTML = 'lists';
+	welcomeTitle.innerHTML = 'lists';
 
-	var el = document.createElement('div');
-	el.innerHTML = wrapDivBox('adtListadtList', _adtListadtList) + '' + wrapDivBox(_adtListadtList(printVals.bind(example1)));
-	example1.appendChild(el);
+	renderToDom({
+		adtListAppendRemove: adtListAppendRemove,
+		adtListNextPrevious: adtListNextPrevious,
+		adtListIterateFoward: adtListIterateFoward,
+		adtListIterateBackward: adtListIterateBackward
+	});
+}
 
-	el = document.createElement('div');
-	el.innerHTML = wrapDivBox('adtListNextPrevious', _adtListNextPrevious) + '' + wrapDivBox(_adtListNextPrevious(printVals.bind(example2)));
-	example2.appendChild(el);
+function hashTables() {
+	mainTitle.innerHTML = 'hashmap';
+	welcomeTitle.innerHTML = 'hashmap';
 
-	el = document.createElement('div');
-	el.innerHTML = wrapDivBox('adtListIterateFoward', _adtListIterateFoward) + '' + wrapDivBox(_adtListIterateFoward(printVals.bind(example3)));
-	example3.appendChild(el);
+	renderToDom({
+		hashmaps: hashmaps
+	});
+}
 
-	el = document.createElement('div');
-	el.innerHTML = wrapDivBox('adtListIterateBackward', _adtListIterateBackward) + '' + wrapDivBox(_adtListIterateBackward(printVals.bind(example4)));
-	example4.appendChild(el);
+function stacksExample() {
+	mainTitle.innerHTML = 'stacks Example';
+	welcomeTitle.innerHTML = 'Stack example';
+
+	renderToDom({
+		pushToStack: pushToStack,
+		palinDromes: palinDromes
+	});
 }
 
 function esSixFeatures() {
-	var el;
+	mainTitle.innerHTML = 'promises';
+	welcomeTitle.innerHTML = 'promises';
 
-	var _esSixFeatures = promises;
-	var _esSixFeaturesOne = promisesOne;
-	var _esSixFeaturesTwo = promisesTwo;
+	renderToDom({
+		promises: promises,
+		promisesOne: promisesOne,
+		promisesTwo: promisesTwo
+	});
+}
 
-	el = document.createElement('div');
-	el.innerHTML = wrapDivBox('promises', _esSixFeatures) + '' + wrapDivBox(_esSixFeatures(printVals.bind(example1)));
-	example1.appendChild(el);
+function renderToDom(elements) {
+	var key, el, _el;
+	var i = 0;
 
-	el = document.createElement('div');
-	el.innerHTML = wrapDivBox('promises', _esSixFeaturesOne) + '' + wrapDivBox(_esSixFeaturesOne(printVals.bind(example2)));
-	example2.appendChild(el);
-
-	el = document.createElement('div');
-	el.innerHTML = wrapDivBox('promises', _esSixFeaturesTwo) + '' + wrapDivBox(_esSixFeaturesTwo(printVals.bind(example3)));
-	example3.appendChild(el);
+	for (key in elements) {
+		_el = document.getElementById('example-' + (i + 1));
+		_el.innerHTML = '';
+		el = document.createElement('div');
+		el.innerHTML = wrapDivBox(key, elements[key]) + '' + wrapDivBox(elements[key](printVals.bind(_el)));
+		_el.appendChild(el);
+		i++;
+	}
 }
 
 function printVals(val) {
@@ -156,15 +129,3 @@ function wrapDivBox() {
 
 	return str;
 }
-
-function clearElements() {
-	example1.innerHTML = '';
-	example2.innerHTML = '';
-	example3.innerHTML = '';
-	example4.innerHTML = '';
-	example5.innerHTML = '';
-	example6.innerHTML = '';
-	example7.innerHTML = '';
-	example8.innerHTML = '';
-}
-

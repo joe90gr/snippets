@@ -12,6 +12,7 @@ var examples = require('./routes/examples');
 var iterators = require('./routes/iterators');
 var lists = require('./routes/lists');
 var hashmap = require('./routes/hashmap');
+var stack = require('./routes/stack');
 var promises = require('./routes/promises');
 
 var app = express();
@@ -35,6 +36,7 @@ app.use('/examples', examples);
 app.use('/iterators', iterators);
 app.use('/lists', lists);
 app.use('/hashmap', hashmap);
+app.use('/stack', stack);
 app.use('/promises', promises);
 
 // catch 404 and forward to error handler
