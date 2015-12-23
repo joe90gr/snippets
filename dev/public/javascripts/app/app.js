@@ -112,11 +112,13 @@ function renderToDom(elements) {
 	clearAll();
 
 	for (key in elements) {
-		_el = document.getElementById('example-' + (i + 1));
-		el = document.createElement('div');
-		el.innerHTML = wrapDivBox(key, elements[key]) + '' + wrapDivBox(elements[key](printVals.bind(_el)));
-		_el.appendChild(el);
-		i++;
+		if (elements.hasOwnProperty(key)) {
+			_el = document.getElementById('example-' + (i + 1));
+			el = document.createElement('div');
+			el.innerHTML = wrapDivBox(key, elements[key]) + '' + wrapDivBox(elements[key](printVals.bind(_el)));
+			_el.appendChild(el);
+			i++;
+		}
 	}
 }
 
