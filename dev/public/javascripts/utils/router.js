@@ -10,7 +10,9 @@ var Workspace = Backbone.Router.extend({
 		'lists':        'lists',
 		'hashmap':      'hashmap',
 		'stack':        'stack',
-		'promises':      'promises'
+		'queue':        'queue',
+		'promises':      'promises',
+		'format-messages':      'formatMessages'
 	},
 	root: function () {
 		events.emit('root');
@@ -30,8 +32,14 @@ var Workspace = Backbone.Router.extend({
 	stack: function () {
 		events.emit('stack');
 	},
+	queue: function () {
+		events.emit('queue');
+	},
 	promises: function () {
 		events.emit('promises');
+	},
+	formatMessages: function () {
+		events.emit('format-messages');
 	}
 });
 
