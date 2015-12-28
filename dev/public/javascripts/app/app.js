@@ -12,7 +12,7 @@ var events = require('../utils/events');
 var mainTitle = document.getElementsByClassName('main-title')[0];
 var welcomeTitle = document.getElementsByClassName('welcome-title')[0];
 
-events.on('root', function () {
+events.on('index', function () {
 	mainTitle.innerHTML = 'Home Page';
 	welcomeTitle.innerHTML = 'Home Page';
 });
@@ -115,8 +115,8 @@ function renderToDom(elements) {
 		if (elements.hasOwnProperty(key)) {
 			_el = document.getElementById('example-' + (i + 1));
 			el = document.createElement('div');
-			el.innerHTML = wrapDivBox(key, elements[key]) + '' + wrapDivBox(elements[key](printVals.bind(_el)));
 			_el.appendChild(el);
+			el.innerHTML = wrapDivBox(key, elements[key]) + '' + wrapDivBox(elements[key](printVals.bind(_el)));
 			i++;
 		}
 	}

@@ -3,3 +3,4 @@ node_modules
 .idea
 dev/public/javascripts/main.js
 dev/public/javascripts/main.js.map
+npm-debug.log

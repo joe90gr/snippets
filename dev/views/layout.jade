@@ -4,24 +4,25 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    div(class='links')
-      p
-        a(href='/' class='home') home
-      p
-        a(href='/examples' class='examples') examples
-      p
-        a(href='/iterators', class='iterators') iterators
-      p
-        a(href='/lists', class='lists') lists
-      p
-        a(href='/hashmap', class='hashmap') hashmap
-      p
-        a(href='/stack', class='stack') stack
-      p
-        a(href='/promises', class='promises') promises
-      p
-        a(href='/queue', class='queues') queues
-      p
-        a(href='/format-messages', class='format-messages') format messages
-    block content
+    div(class='parent-wrapper')
+      ul(class='links')
+        li
+          a(href='/' class='home') home
+        li
+          a(href='/examples' class='examples') examples
+        li
+          a(href='/iterators', class='iterators') iterators
+        li
+          a(href='/lists', class='lists') lists
+        li
+          a(href='/hashmap', class='hashmap') hashmap
+        li
+          a(href='/stack', class='stack') stack
+        li
+          a(href='/promises', class='promises') promises
+        li
+          a(href='/queue', class='queues') queues
+        li
+          a(href='/format-messages', class='format-messages') format messages
+      block content
     script(type='text/javascript' src='/javascripts/main.js')

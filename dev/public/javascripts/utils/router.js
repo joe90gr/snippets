@@ -1,53 +1,33 @@
 var $ = require('jquery');
 var Backbone = require('backbone');
 var events = require('../utils/events');
+var routes = require('../../../configuration/routes');
+var BackboneRouter;
 
-var Workspace = Backbone.Router.extend({
-	routes: {
-		'':             'root',
-		'examples':     'examples',
-		'iterators':    'iterators',
-		'lists':        'lists',
-		'hashmap':      'hashmap',
-		'stack':        'stack',
-		'queue':        'queue',
-		'promises':      'promises',
-		'format-messages':      'formatMessages'
-	},
-	root: function () {
-		events.emit('root');
-	},
-	examples: function () {
-		events.emit('examples');
-	},
-	iterators: function () {
-		events.emit('iterators');
-	},
-	lists: function () {
-		events.emit('lists');
-	},
-	hashmap: function () {
-		events.emit('hashmap');
-	},
-	stack: function () {
-		events.emit('stack');
-	},
-	queue: function () {
-		events.emit('queue');
-	},
-	promises: function () {
-		events.emit('promises');
-	},
-	formatMessages: function () {
-		events.emit('format-messages');
+var bindEvents = {
+	routes: routes
+};
+
+for (let route in routes) {
+	if (routes.hasOwnProperty(route)) {
+		let _route = route === '' ? routes[route] : route;
+		let callback = new CallbackObj(_route);
+		bindEvents[routes[route]] = callback.fn;
 	}
-});
+}
 
-new Workspace;
+function CallbackObj(_route) {
+	this.fn = function () {
+		events.emit(_route);
+	};
+}
+
+BackboneRouter = Backbone.Router.extend(bindEvents);
+new BackboneRouter;
 
 Backbone.history.start({ pushState: true, root: '/' });
 
-$('div.links').delegate('a', 'click', function (e) {
+$('ul.links').delegate('a', 'click', function (e) {
 	var href = $(this).attr('href');
 	e.preventDefault();
 	Backbone.history.navigate(href, { trigger: true });

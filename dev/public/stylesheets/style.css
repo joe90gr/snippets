@@ -4,6 +4,34 @@ body {
   background-color: #E8E0CC;
 }
 
+.parent-wrapper {
+  margin: 0 auto;
+  width: 800px;
+  overflow: hidden;
+}
+
+.links,
+.example {
+    background-color: #FFF;
+}
+
+.links {
+  list-style-type: none;
+  padding: 10px;
+  position: fixed;
+  width: 140px;
+}
+
+.content {
+  margin: 0 0 0 170px;
+}
+
+.content .example p {
+  background-color: #eee;
+  margin: 4px 0;
+  padding-left: 10px;
+}
+
 a {
   color: #00B7FF;
 }
