@@ -7,6 +7,7 @@ module.exports = {
 	'hashmap': 'hashmap',
 	'stack': 'stack',
 	'queue': 'queue',
+	'linked-lists': 'linkedLists',
 	'promises': 'promises',
 	'format-messages': 'formatMessages'
 };

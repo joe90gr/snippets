@@ -1,7 +1,8 @@
 import { arraysOne } from './dataStructures/arrays.js';
 import { iteratorForEach, iteratorEvery, iteratorSome, iteratorReduce } from './dataStructures/iterators.js';
 import { adtListAppendRemove, adtListNextPrevious, adtListIterateFoward, adtListIterateBackward, hashmaps } from './dataStructures/lists.js';
-import { queues } from './dataStructures/queues.js';
+import { queues, dancers, radixSort, priorityQueue } from './dataStructures/queues.js';
+import { linkedLists, circularLinkedList } from './dataStructures/linkedLists.js';
 import { pushToStack, palinDromes } from './dataStructures/stacks.js';
 import { promises, promisesOne, promisesTwo } from './esSixFeatures/promises.js';
 import { formatMessages } from './formatMessage/formatMessages.js';
@@ -12,26 +13,30 @@ var events = require('../utils/events');
 var mainTitle = document.getElementsByClassName('main-title')[0];
 var welcomeTitle = document.getElementsByClassName('welcome-title')[0];
 
-events.on('index', function () {
-	mainTitle.innerHTML = 'Home Page';
-	welcomeTitle.innerHTML = 'Home Page';
-});
-
-events.on('examples', function () {
-	mainTitle.innerHTML = 'ReactJS examples';
-	welcomeTitle.innerHTML = 'ReactJS examples';
-	examples();
-});
-
+events.on('index', home);
+events.on('examples', reactExamples);
 events.on('iterators', iterators);
 events.on('lists', lists);
 events.on('promises', esSixFeatures);
 events.on('stack', stacksExample);
 events.on('hashmap', hashTables);
 events.on('queue', queuesExample);
+events.on('linked-lists', linkedListsExample);
 events.on('format-messages', formatMessagesExample);
 
 require('../utils/router');
+
+function home() {
+	mainTitle.innerHTML = 'Home Page';
+	welcomeTitle.innerHTML = 'Home Page';
+	clearAll();
+}
+
+function reactExamples() {
+	mainTitle.innerHTML = 'ReactJS examples';
+	welcomeTitle.innerHTML = 'ReactJS examples';
+	examples();
+}
 
 function iterators() {
 	mainTitle.innerHTML = 'Iterators';
@@ -81,7 +86,20 @@ function queuesExample() {
 	welcomeTitle.innerHTML = 'queues example';
 
 	renderToDom({
-		queues: queues
+		queues: queues,
+		dancers: dancers,
+		radixSort: radixSort,
+		priorityQueue: priorityQueue
+	});
+}
+
+function linkedListsExample() {
+	mainTitle.innerHTML = 'linkedLists Example';
+	welcomeTitle.innerHTML = 'linkedLists example';
+
+	renderToDom({
+		linkedLists: linkedLists,
+		circularLinkedList: circularLinkedList
 	});
 }
 
@@ -106,15 +124,14 @@ function formatMessagesExample() {
 }
 
 function renderToDom(elements) {
-	var key, el, _el;
 	var i = 0;
 
 	clearAll();
 
-	for (key in elements) {
+	for (let key in elements) {
 		if (elements.hasOwnProperty(key)) {
-			_el = document.getElementById('example-' + (i + 1));
-			el = document.createElement('div');
+			let _el = document.getElementById('example-' + (i + 1));
+			let el = document.createElement('div');
 			_el.appendChild(el);
 			el.innerHTML = wrapDivBox(key, elements[key]) + '' + wrapDivBox(elements[key](printVals.bind(_el)));
 			i++;
