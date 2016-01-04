@@ -1,5 +1,4 @@
 import { List } from '../lib/List.js';
-import { HashMap } from '../lib/Hashmap.js';
 
 //ADT Lists
 export function adtListAppendRemove(printHTML) {
@@ -82,20 +81,3 @@ export function adtListIterateBackward(printHTML) {
 	return names.toString();
 }
 
-//Hashmap lists
-export function hashmaps() {
-	var hashmap = new HashMap();
-
-	hashmap.add('joe', 'test1');
-	hashmap.add('joe1', 'test2');
-	hashmap.add('joe2', 'test3');
-	hashmap.add('joe1', 'test2duplicate');
-
-	console.log(hashmap.entrySet());
-	console.log(hashmap.get('joe'));
-	hashmap.remove('joe1');
-	hashmap.put('joe2', 're-written');
-	console.log(hashmap.entrySet());
-
-	return this;
-}

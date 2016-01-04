@@ -1,6 +1,7 @@
 import { arraysOne } from './dataStructures/arrays.js';
 import { iteratorForEach, iteratorEvery, iteratorSome, iteratorReduce } from './dataStructures/iterators.js';
-import { adtListAppendRemove, adtListNextPrevious, adtListIterateFoward, adtListIterateBackward, hashmaps } from './dataStructures/lists.js';
+import { adtListAppendRemove, adtListNextPrevious, adtListIterateFoward, adtListIterateBackward} from './dataStructures/lists.js';
+import { hashMaps, hashMapIntegers } from './dataStructures/hashMaps.js';
 import { queues, dancers, radixSort, priorityQueue } from './dataStructures/queues.js';
 import { linkedLists, circularLinkedList } from './dataStructures/linkedLists.js';
 import { pushToStack, palinDromes } from './dataStructures/stacks.js';
@@ -67,7 +68,8 @@ function hashTables() {
 	welcomeTitle.innerHTML = 'hashmap';
 
 	renderToDom({
-		hashmaps: hashmaps
+		hashMaps: hashMaps,
+		hashMapIntegers: hashMapIntegers
 	});
 }
 

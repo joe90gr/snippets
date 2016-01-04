@@ -1,11 +1,16 @@
 export function LinkedList() {
 	this.head = new Node('head');
+	this.head.next = this.head;
 	this.find = find;
 	this.insert = insert;
 	this.remove = remove;
 	this.findLast = findLast;
+	this.advance = advance;
+	this.back = back;
+	this.show = show;
 	this.display = display;
 	this.displayReverse = displayReverse;
+	this.currentNode = this.head;
 }
 
 function Node(element) {
@@ -29,6 +34,7 @@ function insert(newElement, item) {
 	newNode.next = currentNode.next;
 	newNode.previous = currentNode;
 	currentNode.next = newNode;
+	this.head.previous = newNode;
 }
 
 function remove(item) {
@@ -43,16 +49,40 @@ function remove(item) {
 
 function findLast() {
 	var currentNode = this.head;
-	while (!(currentNode.next === null)) {
+	while (!(currentNode.next === null) && !(currentNode.next.element == 'head')) {
 		currentNode = currentNode.next;
 	}
 
 	return currentNode;
 }
 
+function advance(byNth) {
+	var i = byNth;
+	while (!(i <= 0)) {
+		this.currentNode = this.currentNode.next;
+		i--;
+	}
+
+	return this.currentNode;
+}
+
+function back(byNth) {
+	var i = byNth;
+	while (!(i <= 0)) {
+		this.currentNode = this.currentNode.previous;
+		i--;
+	}
+
+	return this.currentNode;
+}
+
+function show(print) {
+	print('The current node is: ' + this.currentNode.element);
+}
+
 function display(print) {
 	var currentNode = this.head;
-	while (!(currentNode.next === null)) {
+	while (!(currentNode.next === null) && !(currentNode.next.element == 'head')) {
 		print(currentNode.next.element);
 		currentNode = currentNode.next;
 	}
@@ -60,7 +90,7 @@ function display(print) {
 
 function displayReverse(print) {
 	var currentNode = this.findLast();
-	while (!(currentNode.previous === null)) {
+	while (!(currentNode.element == 'head')) {
 		print(currentNode.element);
 		currentNode = currentNode.previous;
 	}

@@ -18,5 +18,33 @@ export function linkedLists(printHTML) {
 }
 
 export function circularLinkedList(printHTML) {
+	var cities = new LinkedList();
 
+	cities.insert('Joe', 'head');
+	cities.insert('Simon', 'Joe');
+	cities.insert('Chris', 'Simon');
+	cities.insert('Bharathy', 'Chris');
+	cities.insert('Emanuele', 'Bharathy');
+	cities.insert('Murali', 'Emanuele');
+	cities.insert('Sai', 'Murali');
+	cities.insert('Leila', 'Sai');
+
+	cities.display(printHTML);
+	printHTML('----------------------------');
+
+	cities.show(printHTML);
+	cities.advance(1);
+	cities.show(printHTML);
+	cities.advance(2);
+	cities.show(printHTML);
+	cities.back(1);
+	cities.show(printHTML);
+	cities.back(1);
+	cities.show(printHTML);
+	cities.back(1);
+	cities.show(printHTML);
+	cities.back(1);
+	cities.show(printHTML);
+
+	return '';
 }
