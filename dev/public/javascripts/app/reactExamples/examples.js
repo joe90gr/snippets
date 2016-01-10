@@ -8,6 +8,8 @@ export default function examples() {
 	var example2 = document.getElementById('example-2');
 	var example3 = document.getElementById('example-3');
 	var example4 = document.getElementById('example-4');
+	var example5 = document.getElementById('example-5');
+	var example6 = document.getElementById('example-6');
 
 	var reactElementH1 = React.createElement('h1', { className: 'h1-c', key: 'header' }, 'Hello World');
 	var reactElementP = React.createElement('p', { className: 'p-el', key: 'p' }, 'hi p tag');
@@ -33,6 +35,32 @@ export default function examples() {
 
 	var el = React.createElement(ReactClass, { myprop: 'dddd' });
 
+	var Clock = React.createClass({
+		getInitialState: function () {
+			return { time: this._getTime() };
+		},
+		tick: function () {
+			this.setState({ time: this._getTime() });
+		},
+		componentDidMount: function () {
+			this.interval = setInterval(this.tick, 1000);
+		},
+		componentWillUnmount: function () {
+			clearInterval(this.interval);
+		},
+		render: function () {
+			return (
+				<div>Time is: {this.state.time}</div>
+			);
+		},
+		_getTime() {
+			var date = new Date();
+			return date.getHours() + ':' + date.getMinutes() + '.' + date.getSeconds();
+		}
+	});
+
+	var tt = React.createElement(Clock, null);
+
 	ReactDOM.render(reactElementP, example1);
 
 	ReactDOM.render(container, example2);
@@ -40,4 +68,6 @@ export default function examples() {
 	ReactDOM.render(<TodoList joe={ [ 'Joe', 'Bharathy', 'Simon', 'Murali', 'Sai', 'Leila', 'Emanuele', 'Chris' ] } />, example3);
 
 	ReactDOM.render(el, example4);
+
+	ReactDOM.render(tt, example5);
 }

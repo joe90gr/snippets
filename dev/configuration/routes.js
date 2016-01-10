@@ -8,6 +8,7 @@ module.exports = {
 	'stack': 'stack',
 	'queue': 'queue',
 	'linked-lists': 'linkedLists',
+	'algorithms': 'algorithms',
 	'promises': 'promises',
 	'format-messages': 'formatMessages'
 };

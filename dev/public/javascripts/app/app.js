@@ -1,12 +1,15 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
 import { arraysOne } from './dataStructures/arrays.js';
 import { iteratorForEach, iteratorEvery, iteratorSome, iteratorReduce } from './dataStructures/iterators.js';
-import { adtListAppendRemove, adtListNextPrevious, adtListIterateFoward, adtListIterateBackward} from './dataStructures/lists.js';
+import { adtListAppendRemove, adtListNextPrevious, adtListIterateFoward, adtListIterateBackward } from './dataStructures/lists.js';
 import { hashMaps, hashMapIntegers } from './dataStructures/hashMaps.js';
 import { queues, dancers, radixSort, priorityQueue } from './dataStructures/queues.js';
 import { linkedLists, circularLinkedList } from './dataStructures/linkedLists.js';
 import { pushToStack, palinDromes } from './dataStructures/stacks.js';
 import { promises, promisesOne, promisesTwo } from './esSixFeatures/promises.js';
 import { formatMessages } from './formatMessage/formatMessages.js';
+import { graphAlgorithm } from './algorithms/algorithms.js';
 import examples from './reactExamples/examples.js';
 
 var events = require('../utils/events');
@@ -22,6 +25,7 @@ events.on('promises', esSixFeatures);
 events.on('stack', stacksExample);
 events.on('hashmap', hashTables);
 events.on('queue', queuesExample);
+events.on('algorithms', graphAlgorithmExample);
 events.on('linked-lists', linkedListsExample);
 events.on('format-messages', formatMessagesExample);
 
@@ -125,6 +129,15 @@ function formatMessagesExample() {
 	});
 }
 
+function graphAlgorithmExample() {
+	mainTitle.innerHTML = 'Algorithm example';
+	welcomeTitle.innerHTML = 'Algorithm example';
+
+	renderToDom({
+		graphAlgorithm: graphAlgorithm
+	});
+}
+
 function renderToDom(elements) {
 	var i = 0;
 
@@ -142,8 +155,9 @@ function renderToDom(elements) {
 }
 
 function clearAll() {
-	var i;
-	var elements = document.getElementsByClassName('example');
+	var i, elements;
+	ReactDOM.unmountComponentAtNode(document.getElementById('example-5'));
+	elements = document.getElementsByClassName('example');
 
 	for (i = 0; i < elements.length; i++) {
 		elements[i].innerHTML = '';
