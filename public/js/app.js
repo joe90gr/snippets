@@ -1,18 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { arraysOne } from './dataStructures/arrays.js';
-import { iteratorForEach, iteratorEvery, iteratorSome, iteratorReduce } from './dataStructures/iterators.js';
-import { adtListAppendRemove, adtListNextPrevious, adtListIterateFoward, adtListIterateBackward } from './dataStructures/lists.js';
-import { hashMaps, hashMapIntegers } from './dataStructures/hashMaps.js';
-import { queues, dancers, radixSort, priorityQueue } from './dataStructures/queues.js';
-import { linkedLists, circularLinkedList } from './dataStructures/linkedLists.js';
-import { pushToStack, palinDromes } from './dataStructures/stacks.js';
-import { promises, promisesOne, promisesTwo } from './esSixFeatures/promises.js';
-import { formatMessages } from './formatMessage/formatMessages.js';
-import { graphAlgorithm } from './algorithms/algorithms.js';
-import examples from './reactExamples/examples.js';
+import { arraysOne } from '../../src/common/dataStructures/arrays.js';
+import { iteratorForEach, iteratorEvery, iteratorSome, iteratorReduce } from '../../src/common/dataStructures/iterators.js';
+import { adtListAppendRemove, adtListNextPrevious, adtListIterateFoward, adtListIterateBackward } from '../../src/common/dataStructures/lists.js';
+import { hashMaps, hashMapIntegers } from '../../src/common/dataStructures/hashMaps.js';
+import { queues, dancers, radixSort, priorityQueue } from '../../src/common/dataStructures/queues.js';
+import { linkedLists, circularLinkedList } from '../../src/common/dataStructures/linkedLists.js';
+import { pushToStack, palinDromes } from '../../src/common/dataStructures/stacks.js';
+import { promises, promisesOne, promisesTwo } from '../../src/common/esSixFeatures/promises.js';
+import { formatMessages } from '../../src/common/formatMessage/formatMessages.js';
+import { graphAlgorithm } from '../../src/common/algorithms/algorithms.js';
+import examples from '../../src/common/reactExamples/examples.js';
 
-var events = require('../utils/events');
+var events = require('./utils/events');
 
 var mainTitle = document.getElementsByClassName('main-title')[0];
 var welcomeTitle = document.getElementsByClassName('welcome-title')[0];
@@ -29,7 +29,7 @@ events.on('algorithms', graphAlgorithmExample);
 events.on('linked-lists', linkedListsExample);
 events.on('format-messages', formatMessagesExample);
 
-require('../utils/router');
+require('./utils/router');
 
 function home() {
 	mainTitle.innerHTML = 'Home Page';

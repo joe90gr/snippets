@@ -8,11 +8,11 @@ var DefaultLayout = React.createClass({
 			<html>
 				<head>
 					<title>{this.props.title}</title>
-					<link rel="stylesheet" href="/stylesheets/style.css" />
+					<link rel="stylesheet" href="/styles/style.css" />
 				</head>
 				<body>
 					{this.props.children}
-					<script type="text/javascript" src="/javascripts/main.js" />
+					<script type="text/javascript" src="/js/main.js" />
 				</body>
 			</html>
 		);
