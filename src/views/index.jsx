@@ -1,7 +1,7 @@
 var React = require('react');
 var DefaultLayout = require('./layouts/default');
-var Navigation = require('./components/Navigation.jsx');
-var PrimaryContent = require('./PrimaryContent.jsx');
+var Navigation = require('./components/Navigation');
+var PrimaryContent = require('./PrimaryContent');
 
 var HelloMessage = React.createClass({
 	render: function () {
