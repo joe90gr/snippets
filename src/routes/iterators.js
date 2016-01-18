@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
+import { iteratorForEach, iteratorEvery, iteratorSome, iteratorReduce } from '../common/dataStructures/iterators.js';
 
-/* GET home page. */
 router.get('/', function (req, res, next) {
-	res.render('index', { title: 'iterators from server' });
+	res.render('index', { title: 'Iterators', model: [ iteratorForEach, iteratorEvery, iteratorSome, iteratorReduce ] });
 });
 
 module.exports = router;

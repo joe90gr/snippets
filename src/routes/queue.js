@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
+import { queues, dancers, radixSort, priorityQueue } from '../common/dataStructures/queues.js';
 
-/* GET home page. */
 router.get('/', function (req, res, next) {
-	res.render('index', { title: 'queues from server' });
+	res.render('index', { title: 'Queues', model: [ queues, dancers, radixSort, priorityQueue ] });
 });
 
 module.exports = router;

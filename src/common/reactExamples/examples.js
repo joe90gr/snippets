@@ -3,19 +3,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-export default function examples() {
-	var example1 = document.getElementById('example-1');
-	var example2 = document.getElementById('example-2');
-	var example3 = document.getElementById('example-3');
-	var example4 = document.getElementById('example-4');
-	var example5 = document.getElementById('example-5');
-	var example6 = document.getElementById('example-6');
+export function examples() {
+}
 
-	var reactElementH1 = React.createElement('h1', { className: 'h1-c', key: 'header' }, 'Hello World');
+export function example1() {
 	var reactElementP = React.createElement('p', { className: 'p-el', key: 'p' }, 'hi p tag');
+	//ReactDOM.render(reactElementP, example1);
 
-	var container = React.createElement('section', null, [ reactElementH1, reactElementP ]);
+}
 
+export function example2() {
+	//var container = React.createElement('section', null, [ reactElementH1, reactElementP ]);
+	//ReactDOM.render(container, example2);
+}
+
+export function example3() {
 	var TodoList = React.createClass({
 		render: function () {
 			var createItem = function (itemText, index) {
@@ -26,15 +28,10 @@ export default function examples() {
 		}
 	});
 
-	var ReactClass = React.createClass({
-		render: function () {
-		//return <p>test - {this.props.myprop}</p>;
-			return React.createElement('p', { className: this.props.myprop, key: 'p' }, this.props.myprop);
-		}
-	});
+	//ReactDOM.render(<TodoList joe={ [ 'Joe', 'Bharathy', 'Simon', 'Murali', 'Sai', 'Leila', 'Emanuele', 'Chris' ] } />, example3);
+}
 
-	var el = React.createElement(ReactClass, { myprop: 'dddd' });
-
+export function example4() {
 	var Clock = React.createClass({
 		getInitialState: function () {
 			return { time: this._getTime() };
@@ -59,15 +56,6 @@ export default function examples() {
 		}
 	});
 
-	var tt = React.createElement(Clock, null);
-
-	ReactDOM.render(reactElementP, example1);
-
-	ReactDOM.render(container, example2);
-
-	ReactDOM.render(<TodoList joe={ [ 'Joe', 'Bharathy', 'Simon', 'Murali', 'Sai', 'Leila', 'Emanuele', 'Chris' ] } />, example3);
-
-	ReactDOM.render(el, example4);
-
-	ReactDOM.render(tt, example5);
+	//var tt = React.createElement(Clock, null);
 }
+

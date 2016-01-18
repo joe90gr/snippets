@@ -3,7 +3,6 @@
 
 module.exports = {
 	'': 'index',
-	'users': 'users',
 	'examples': 'examples',
 	'iterators': 'iterators',
 	'lists': 'lists',
@@ -34077,12 +34076,10 @@ var _srcCommonAlgorithmsAlgorithmsJs = require('../../src/common/algorithms/algo
 
 var _srcCommonReactExamplesExamplesJs = require('../../src/common/reactExamples/examples.js');
 
-var _srcCommonReactExamplesExamplesJs2 = _interopRequireDefault(_srcCommonReactExamplesExamplesJs);
-
 var events = require('./utils/events');
 
-var mainTitle = document.getElementsByClassName('main-title')[0];
-var welcomeTitle = document.getElementsByClassName('welcome-title')[0];
+var PrimaryContent = require('../../src/views/PrimaryContent.jsx');
+var reactWrapper = document.getElementsByClassName('content')[0];
 
 events.on('index', home);
 events.on('examples', reactExamples);
@@ -34099,158 +34096,61 @@ events.on('format-messages', formatMessagesExample);
 require('./utils/router');
 
 function home() {
-	mainTitle.innerHTML = 'Home Page';
-	welcomeTitle.innerHTML = 'Home Page';
-	clearAll();
+	_reactDom2['default'].unmountComponentAtNode(reactWrapper);
+	_reactDom2['default'].render(_react2['default'].createElement(PrimaryContent, { title: 'Home', model: [_srcCommonReactExamplesExamplesJs.examples] }), reactWrapper);
 }
 
 function reactExamples() {
-	mainTitle.innerHTML = 'ReactJS examples';
-	welcomeTitle.innerHTML = 'ReactJS examples';
-	(0, _srcCommonReactExamplesExamplesJs2['default'])();
+	_reactDom2['default'].unmountComponentAtNode(reactWrapper);
+	_reactDom2['default'].render(_react2['default'].createElement(PrimaryContent, { title: 'REACT JS example', model: [_srcCommonReactExamplesExamplesJs.examples, _srcCommonReactExamplesExamplesJs.example1, _srcCommonReactExamplesExamplesJs.example2, _srcCommonReactExamplesExamplesJs.example3, _srcCommonReactExamplesExamplesJs.example4] }), reactWrapper);
 }
 
 function iterators() {
-	mainTitle.innerHTML = 'Iterators';
-	welcomeTitle.innerHTML = 'Iterators';
-
-	renderToDom({
-		iteratorForEach: _srcCommonDataStructuresIteratorsJs.iteratorForEach,
-		iteratorEvery: _srcCommonDataStructuresIteratorsJs.iteratorEvery,
-		iteratorSome: _srcCommonDataStructuresIteratorsJs.iteratorSome,
-		iteratorReduce: _srcCommonDataStructuresIteratorsJs.iteratorReduce
-	});
+	_reactDom2['default'].unmountComponentAtNode(reactWrapper);
+	_reactDom2['default'].render(_react2['default'].createElement(PrimaryContent, { title: 'Iterators', model: [_srcCommonDataStructuresIteratorsJs.iteratorForEach, _srcCommonDataStructuresIteratorsJs.iteratorEvery, _srcCommonDataStructuresIteratorsJs.iteratorSome, _srcCommonDataStructuresIteratorsJs.iteratorReduce] }), reactWrapper);
 }
 
 function lists() {
-	mainTitle.innerHTML = 'lists';
-	welcomeTitle.innerHTML = 'lists';
-
-	renderToDom({
-		adtListAppendRemove: _srcCommonDataStructuresListsJs.adtListAppendRemove,
-		adtListNextPrevious: _srcCommonDataStructuresListsJs.adtListNextPrevious,
-		adtListIterateFoward: _srcCommonDataStructuresListsJs.adtListIterateFoward,
-		adtListIterateBackward: _srcCommonDataStructuresListsJs.adtListIterateBackward
-	});
+	_reactDom2['default'].unmountComponentAtNode(reactWrapper);
+	_reactDom2['default'].render(_react2['default'].createElement(PrimaryContent, { title: 'Lists', model: [_srcCommonDataStructuresListsJs.adtListAppendRemove, _srcCommonDataStructuresListsJs.adtListNextPrevious, _srcCommonDataStructuresListsJs.adtListIterateFoward, _srcCommonDataStructuresListsJs.adtListIterateBackward] }), reactWrapper);
 }
 
 function hashTables() {
-	mainTitle.innerHTML = 'hashmap';
-	welcomeTitle.innerHTML = 'hashmap';
-
-	renderToDom({
-		hashMaps: _srcCommonDataStructuresHashMapsJs.hashMaps,
-		hashMapIntegers: _srcCommonDataStructuresHashMapsJs.hashMapIntegers
-	});
+	_reactDom2['default'].unmountComponentAtNode(reactWrapper);
+	_reactDom2['default'].render(_react2['default'].createElement(PrimaryContent, { title: 'HashTables', model: [_srcCommonDataStructuresHashMapsJs.hashMaps, _srcCommonDataStructuresHashMapsJs.hashMapIntegers] }), reactWrapper);
 }
 
 function stacksExample() {
-	mainTitle.innerHTML = 'stacks Example';
-	welcomeTitle.innerHTML = 'Stack example';
-
-	renderToDom({
-		pushToStack: _srcCommonDataStructuresStacksJs.pushToStack,
-		palinDromes: _srcCommonDataStructuresStacksJs.palinDromes
-	});
+	_reactDom2['default'].unmountComponentAtNode(reactWrapper);
+	_reactDom2['default'].render(_react2['default'].createElement(PrimaryContent, { title: 'Stacks', model: [_srcCommonDataStructuresStacksJs.pushToStack, _srcCommonDataStructuresStacksJs.palinDromes] }), reactWrapper);
 }
 
 function queuesExample() {
-	mainTitle.innerHTML = 'queues Example';
-	welcomeTitle.innerHTML = 'queues example';
-
-	renderToDom({
-		queues: _srcCommonDataStructuresQueuesJs.queues,
-		dancers: _srcCommonDataStructuresQueuesJs.dancers,
-		radixSort: _srcCommonDataStructuresQueuesJs.radixSort,
-		priorityQueue: _srcCommonDataStructuresQueuesJs.priorityQueue
-	});
+	_reactDom2['default'].unmountComponentAtNode(reactWrapper);
+	_reactDom2['default'].render(_react2['default'].createElement(PrimaryContent, { title: 'Queues', model: [_srcCommonDataStructuresQueuesJs.queues, _srcCommonDataStructuresQueuesJs.dancers, _srcCommonDataStructuresQueuesJs.radixSort, _srcCommonDataStructuresQueuesJs.priorityQueue] }), reactWrapper);
 }
 
 function linkedListsExample() {
-	mainTitle.innerHTML = 'linkedLists Example';
-	welcomeTitle.innerHTML = 'linkedLists example';
-
-	renderToDom({
-		linkedLists: _srcCommonDataStructuresLinkedListsJs.linkedLists,
-		circularLinkedList: _srcCommonDataStructuresLinkedListsJs.circularLinkedList
-	});
+	_reactDom2['default'].unmountComponentAtNode(reactWrapper);
+	_reactDom2['default'].render(_react2['default'].createElement(PrimaryContent, { title: 'LinkedLists', model: [_srcCommonDataStructuresLinkedListsJs.linkedLists, _srcCommonDataStructuresLinkedListsJs.circularLinkedList] }), reactWrapper);
 }
 
 function esSixFeatures() {
-	mainTitle.innerHTML = 'promises';
-	welcomeTitle.innerHTML = 'promises';
-
-	renderToDom({
-		promises: _srcCommonEsSixFeaturesPromisesJs.promises,
-		promisesOne: _srcCommonEsSixFeaturesPromisesJs.promisesOne,
-		promisesTwo: _srcCommonEsSixFeaturesPromisesJs.promisesTwo
-	});
+	_reactDom2['default'].unmountComponentAtNode(reactWrapper);
+	_reactDom2['default'].render(_react2['default'].createElement(PrimaryContent, { title: 'Promises', model: [_srcCommonEsSixFeaturesPromisesJs.promises, _srcCommonEsSixFeaturesPromisesJs.promisesOne, _srcCommonEsSixFeaturesPromisesJs.promisesTwo] }), reactWrapper);
 }
 
 function formatMessagesExample() {
-	mainTitle.innerHTML = 'format messages example';
-	welcomeTitle.innerHTML = 'format messages example';
-
-	renderToDom({
-		formatMessages: _srcCommonFormatMessageFormatMessagesJs.formatMessages
-	});
+	_reactDom2['default'].unmountComponentAtNode(reactWrapper);
+	_reactDom2['default'].render(_react2['default'].createElement(PrimaryContent, { title: 'FormatMessages', model: [_srcCommonFormatMessageFormatMessagesJs.formatMessages] }), reactWrapper);
 }
 
 function graphAlgorithmExample() {
-	mainTitle.innerHTML = 'Algorithm example';
-	welcomeTitle.innerHTML = 'Algorithm example';
-
-	renderToDom({
-		graphAlgorithm: _srcCommonAlgorithmsAlgorithmsJs.graphAlgorithm
-	});
+	_reactDom2['default'].unmountComponentAtNode(reactWrapper);
+	_reactDom2['default'].render(_react2['default'].createElement(PrimaryContent, { title: 'Algorithms', model: [_srcCommonAlgorithmsAlgorithmsJs.graphAlgorithm] }), reactWrapper);
 }
 
-function renderToDom(elements) {
-	var i = 0;
-
-	clearAll();
-
-	for (var key in elements) {
-		if (elements.hasOwnProperty(key)) {
-			var _el = document.getElementById('example-' + (i + 1));
-			var el = document.createElement('div');
-			_el.appendChild(el);
-			el.innerHTML = wrapDivBox(key, elements[key]) + '' + wrapDivBox(elements[key](printVals.bind(_el)));
-			i++;
-		}
-	}
-}
-
-function clearAll() {
-	var i, elements;
-	_reactDom2['default'].unmountComponentAtNode(document.getElementById('example-5'));
-	elements = document.getElementsByClassName('example');
-
-	for (i = 0; i < elements.length; i++) {
-		elements[i].innerHTML = '';
-	}
-}
-
-function printVals(val) {
-	var el = document.createElement('p');
-	el.innerHTML = val;
-	this.appendChild(el);
-}
-
-function wrapDivBox() {
-	var args = Array.prototype.slice.call(arguments);
-	var str;
-
-	if (args.length > 1) {
-		str = '<h2>' + args[0] + '</h2><div class="example">' + args[1] + '</div>';
-	} else {
-		str = '<div class="example">' + args[0] + '</div>';
-	}
-
-	return str;
-}
-
-},{"../../src/common/algorithms/algorithms.js":188,"../../src/common/dataStructures/arrays.js":189,"../../src/common/dataStructures/hashMaps.js":190,"../../src/common/dataStructures/iterators.js":191,"../../src/common/dataStructures/linkedLists.js":192,"../../src/common/dataStructures/lists.js":193,"../../src/common/dataStructures/queues.js":194,"../../src/common/dataStructures/stacks.js":195,"../../src/common/esSixFeatures/promises.js":196,"../../src/common/formatMessage/formatMessages.js":197,"../../src/common/reactExamples/examples.js":204,"./utils/events":186,"./utils/router":187,"react":184,"react-dom":28}],186:[function(require,module,exports){
+},{"../../src/common/algorithms/algorithms.js":188,"../../src/common/dataStructures/arrays.js":189,"../../src/common/dataStructures/hashMaps.js":190,"../../src/common/dataStructures/iterators.js":191,"../../src/common/dataStructures/linkedLists.js":192,"../../src/common/dataStructures/lists.js":193,"../../src/common/dataStructures/queues.js":194,"../../src/common/dataStructures/stacks.js":195,"../../src/common/esSixFeatures/promises.js":196,"../../src/common/formatMessage/formatMessages.js":197,"../../src/common/reactExamples/examples.js":204,"../../src/views/PrimaryContent.jsx":205,"./utils/events":186,"./utils/router":187,"react":184,"react-dom":28}],186:[function(require,module,exports){
 'use strict';
 
 var ee = require('event-emitter');
@@ -35454,7 +35354,11 @@ function displayReverse(print) {
 Object.defineProperty(exports, '__esModule', {
 	value: true
 });
-exports['default'] = examples;
+exports.examples = examples;
+exports.example1 = example1;
+exports.example2 = example2;
+exports.example3 = example3;
+exports.example4 = example4;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
@@ -35466,19 +35370,19 @@ var _reactDom = require('react-dom');
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-function examples() {
-	var example1 = document.getElementById('example-1');
-	var example2 = document.getElementById('example-2');
-	var example3 = document.getElementById('example-3');
-	var example4 = document.getElementById('example-4');
-	var example5 = document.getElementById('example-5');
-	var example6 = document.getElementById('example-6');
+function examples() {}
 
-	var reactElementH1 = _react2['default'].createElement('h1', { className: 'h1-c', key: 'header' }, 'Hello World');
+function example1() {
 	var reactElementP = _react2['default'].createElement('p', { className: 'p-el', key: 'p' }, 'hi p tag');
+	//ReactDOM.render(reactElementP, example1);
+}
 
-	var container = _react2['default'].createElement('section', null, [reactElementH1, reactElementP]);
+function example2() {
+	//var container = React.createElement('section', null, [ reactElementH1, reactElementP ]);
+	//ReactDOM.render(container, example2);
+}
 
+function example3() {
 	var TodoList = _react2['default'].createClass({
 		displayName: 'TodoList',
 
@@ -35502,17 +35406,10 @@ function examples() {
 		}
 	});
 
-	var ReactClass = _react2['default'].createClass({
-		displayName: 'ReactClass',
+	//ReactDOM.render(<TodoList joe={ [ 'Joe', 'Bharathy', 'Simon', 'Murali', 'Sai', 'Leila', 'Emanuele', 'Chris' ] } />, example3);
+}
 
-		render: function render() {
-			//return <p>test - {this.props.myprop}</p>;
-			return _react2['default'].createElement('p', { className: this.props.myprop, key: 'p' }, this.props.myprop);
-		}
-	});
-
-	var el = _react2['default'].createElement(ReactClass, { myprop: 'dddd' });
-
+function example4() {
 	var Clock = _react2['default'].createClass({
 		displayName: 'Clock',
 
@@ -35542,22 +35439,100 @@ function examples() {
 		}
 	});
 
-	var tt = _react2['default'].createElement(Clock, null);
-
-	_reactDom2['default'].render(reactElementP, example1);
-
-	_reactDom2['default'].render(container, example2);
-
-	_reactDom2['default'].render(_react2['default'].createElement(TodoList, { joe: ['Joe', 'Bharathy', 'Simon', 'Murali', 'Sai', 'Leila', 'Emanuele', 'Chris'] }), example3);
-
-	_reactDom2['default'].render(el, example4);
-
-	_reactDom2['default'].render(tt, example5);
+	//var tt = React.createElement(Clock, null);
 }
 
-module.exports = exports['default'];
+},{"react":184,"react-dom":28}],205:[function(require,module,exports){
+'use strict';
 
-},{"react":184,"react-dom":28}]},{},[185])
+var React = require('react');
+var events = require('../../public/js/utils/events');
+
+var PrintLine = React.createClass({
+	displayName: 'PrintLine',
+
+	render: function render() {
+		var createItem = function createItem(line, index) {
+			return React.createElement('p', { className: 'line' + index }, line);
+		};
+
+		return React.createElement(
+			'div',
+			null,
+			this.props.items.map(createItem)
+		);
+	}
+});
+
+var PrintConsole = React.createClass({
+	displayName: 'PrintConsole',
+
+	getInitialState: function getInitialState() {
+		return { items: [] };
+	},
+
+	componentDidMount: function componentDidMount() {
+		events.on(this.props.context, this._onChange);
+	},
+
+	componentWillUnmount: function componentWillUnmount() {
+		events.off(this.props.context, this._onChange);
+	},
+
+	render: function render() {
+		return React.createElement(PrintLine, { items: this.state.items });
+	},
+
+	_onChange: function _onChange(result) {
+		var nextItems = this.state.items.concat([result]);
+		this.setState({ items: nextItems });
+	}
+});
+
+var PrimaryContent = React.createClass({
+	displayName: 'PrimaryContent',
+
+	render: function render() {
+		var arr;
+
+		var executeBlock = function executeBlock(itemText, index) {
+			return itemText(function (result) {
+				console.log('test: ', result);
+				events.emit('example' + index, result);
+				arr.push(React.createElement('p', {}, result));
+			});
+		};
+
+		var createItem = function createItem(itemText, index) {
+			arr = [];
+			var h2 = React.createElement('h2', {}, 'subheading');
+			var divExample = React.createElement('div', { className: 'example' }, itemText + '');
+			var returnedResult = executeBlock(itemText, index);
+
+			var divExampleResult = React.createElement('div', { className: 'example' }, returnedResult);
+			var section = React.createElement('div', {}, [h2, divExample, divExampleResult, React.createElement(PrintConsole, { context: 'example' + index })].concat(arr));
+
+			return React.createElement('pre', { id: 'example-' + (index + 1), className: 'example', key: 'r' + (index + 1) }, section);
+		};
+
+		return React.createElement(
+			'div',
+			null,
+			React.createElement(
+				'h1',
+				{ className: 'main-title' },
+				' ',
+				this.props.title,
+				' '
+			),
+			this.props.model.map(createItem)
+		);
+	}
+});
+
+module.exports = PrimaryContent;
+
+},{"../../public/js/utils/events":186,"react":184}]},{},[185])
 
 
 //# sourceMappingURL=main.js.map

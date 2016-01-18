@@ -1,4 +1,5 @@
 var React = require('react');
+var ReactWrapper = require('../ReactWrapper');
 
 var DefaultLayout = React.createClass({
 	displayName: 'mainContainer',
@@ -11,7 +12,7 @@ var DefaultLayout = React.createClass({
 					<link rel="stylesheet" href="/styles/style.css" />
 				</head>
 				<body>
-					{this.props.children}
+					<ReactWrapper title={this.props.title} model={this.props.model}/>
 					<script type="text/javascript" src="/js/main.js" />
 				</body>
 			</html>

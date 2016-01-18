@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
+import { formatMessages } from '../common/formatMessage/formatMessages.js';
 
-/* GET home page. */
 router.get('/', function (req, res, next) {
-	res.render('index', { title: 'format messages from server' });
+	res.render('index', { title: 'FormatMessages', model: [ formatMessages ] });
 });
 
 module.exports = router;

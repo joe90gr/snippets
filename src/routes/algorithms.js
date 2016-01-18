@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
+import { graphAlgorithm } from '../common/algorithms/algorithms.js';
 
-/* GET home page. */
 router.get('/', function (req, res, next) {
-	res.render('index', { title: 'algorithms from server' });
+	res.render('index', { title: 'Algorithms', model: [ graphAlgorithm ] });
 });
 
 module.exports = router;

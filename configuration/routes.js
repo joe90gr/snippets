@@ -1,6 +1,5 @@
 module.exports = {
 	'': 'index',
-	'users': 'users',
 	'examples': 'examples',
 	'iterators': 'iterators',
 	'lists': 'lists',
