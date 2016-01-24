@@ -1,7 +1,7 @@
-var React = require('react');
-var ReactWrapper = require('../ReactWrapper');
+import React from 'react';
+import ReactWrapper from '../ReactWrapper';
 
-var DefaultLayout = React.createClass({
+export default React.createClass({
 	displayName: 'mainContainer',
 
 	render: function () {
@@ -19,6 +19,3 @@ var DefaultLayout = React.createClass({
 		);
 	}
 });
-
-module.exports = DefaultLayout;
-

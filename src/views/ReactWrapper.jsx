@@ -1,8 +1,8 @@
-var React = require('react');
-var Navigation = require('./components/Navigation');
-var PrimaryContent = require('./PrimaryContent');
+import React from 'react';
+import Navigation from './components/Navigation';
+import PrimaryContent from './PrimaryContent';
 
-var ReactWrapper = React.createClass({
+export default React.createClass({
 	displayName: 'reactWrapper',
 
 	render: function () {
@@ -16,5 +16,3 @@ var ReactWrapper = React.createClass({
 		);
 	}
 });
-
-module.exports = ReactWrapper;

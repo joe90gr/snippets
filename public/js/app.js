@@ -14,7 +14,7 @@ import { examples, example1, example2, example3, example4 } from '../../src/comm
 
 import events from '../../src/utils/events';
 
-var PrimaryContent = require('../../src/views/PrimaryContent');
+import PrimaryContent from '../../src/views/PrimaryContent';
 var reactWrapper = document.getElementsByClassName('content')[0];
 
 events.on('index', home);

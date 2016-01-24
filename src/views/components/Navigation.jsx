@@ -1,6 +1,6 @@
-var React = require('react');
+import React from 'react';
 
-var Navigation = React.createClass({
+export default React.createClass({
 	displayName: 'Navigation',
 
 	render: function () {
@@ -21,5 +21,3 @@ var Navigation = React.createClass({
 		);
 	}
 });
-
-module.exports = Navigation;

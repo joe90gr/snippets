@@ -1,44 +1,12 @@
-var React = require('react');
+import React from 'react';
 import events from '../utils/events';
+import PrintConsole from './components/PrintConsole';
 
-var PrintLine = React.createClass({
-	render: function () {
-		var createItem = function (line, index) {
-			return React.createElement('p', { className: 'line' + index }, line);
-		};
-
-		return <div>{this.props.items.map(createItem)}</div>;
-	}
-});
-
-var PrintConsole = React.createClass({
-	getInitialState: function () {
-		return { items: [] };
-	},
-
-	componentDidMount: function () {
-		events.on(this.props.context, this._onChange);
-	},
-
-	componentWillUnmount: function () {
-		events.off(this.props.context, this._onChange);
-	},
+export default React.createClass({
+	displayName: 'PrimaryContent',
 
 	render: function () {
-		return <PrintLine items={this.state.items}/>;
-	},
-
-	_onChange: function (result) {
-		var nextItems = this.state.items.concat([ result ]);
-		this.setState({ items: nextItems });
-	}
-});
-
-var PrimaryContent = React.createClass({
-	render: function () {
-		var arr;
-
-		var executeBlock = function (itemText, index) {
+		var executeBlock = function (itemText, index, arr) {
 			return itemText(function (result) {
 				console.log('test: ', result);
 				events.emit('example' + index, result);
@@ -47,10 +15,10 @@ var PrimaryContent = React.createClass({
 		};
 
 		var createItem = function (itemText, index) {
-			arr = [];
+			var arr = [];
 			var h2 = React.createElement('h2', {}, 'subheading');
 			var divExample = React.createElement('div', { className: 'example' }, itemText + '');
-			var returnedResult = executeBlock(itemText, index);
+			var returnedResult = executeBlock(itemText, index, arr);
 
 			var divExampleResult = React.createElement('div', { className: 'example' }, returnedResult);
 			var section = React.createElement('div', {}, [ h2, divExample, divExampleResult, React.createElement(PrintConsole, { context: 'example' + index }) ].concat(arr));
@@ -67,4 +35,3 @@ var PrimaryContent = React.createClass({
 	}
 });
 
-module.exports = PrimaryContent;

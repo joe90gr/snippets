@@ -34061,13 +34061,16 @@ var _events = require('../../src/utils/events');
 
 var _events2 = _interopRequireDefault(_events);
 
+var _PrimaryContent = require('../../src/views/PrimaryContent');
+
+var _PrimaryContent2 = _interopRequireDefault(_PrimaryContent);
+
 var _router = require('./utils/router');
 
 var _router2 = _interopRequireDefault(_router);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var PrimaryContent = require('../../src/views/PrimaryContent');
 var reactWrapper = document.getElementsByClassName('content')[0];
 
 _events2.default.on('index', home);
@@ -34084,57 +34087,57 @@ _events2.default.on('format-messages', formatMessagesExample);
 
 function home() {
 	_reactDom2.default.unmountComponentAtNode(reactWrapper);
-	_reactDom2.default.render(_react2.default.createElement(PrimaryContent, { title: 'Home', model: [_examples.examples] }), reactWrapper);
+	_reactDom2.default.render(_react2.default.createElement(_PrimaryContent2.default, { title: 'Home', model: [_examples.examples] }), reactWrapper);
 }
 
 function reactExamples() {
 	_reactDom2.default.unmountComponentAtNode(reactWrapper);
-	_reactDom2.default.render(_react2.default.createElement(PrimaryContent, { title: 'REACT JS example', model: [_examples.examples, _examples.example1, _examples.example2, _examples.example3, _examples.example4] }), reactWrapper);
+	_reactDom2.default.render(_react2.default.createElement(_PrimaryContent2.default, { title: 'REACT JS example', model: [_examples.examples, _examples.example1, _examples.example2, _examples.example3, _examples.example4] }), reactWrapper);
 }
 
 function iterators() {
 	_reactDom2.default.unmountComponentAtNode(reactWrapper);
-	_reactDom2.default.render(_react2.default.createElement(PrimaryContent, { title: 'Iterators', model: [_iterators.iteratorForEach, _iterators.iteratorEvery, _iterators.iteratorSome, _iterators.iteratorReduce] }), reactWrapper);
+	_reactDom2.default.render(_react2.default.createElement(_PrimaryContent2.default, { title: 'Iterators', model: [_iterators.iteratorForEach, _iterators.iteratorEvery, _iterators.iteratorSome, _iterators.iteratorReduce] }), reactWrapper);
 }
 
 function lists() {
 	_reactDom2.default.unmountComponentAtNode(reactWrapper);
-	_reactDom2.default.render(_react2.default.createElement(PrimaryContent, { title: 'Lists', model: [_lists.adtListAppendRemove, _lists.adtListNextPrevious, _lists.adtListIterateFoward, _lists.adtListIterateBackward] }), reactWrapper);
+	_reactDom2.default.render(_react2.default.createElement(_PrimaryContent2.default, { title: 'Lists', model: [_lists.adtListAppendRemove, _lists.adtListNextPrevious, _lists.adtListIterateFoward, _lists.adtListIterateBackward] }), reactWrapper);
 }
 
 function hashTables() {
 	_reactDom2.default.unmountComponentAtNode(reactWrapper);
-	_reactDom2.default.render(_react2.default.createElement(PrimaryContent, { title: 'HashTables', model: [_hashMaps.hashMaps, _hashMaps.hashMapIntegers] }), reactWrapper);
+	_reactDom2.default.render(_react2.default.createElement(_PrimaryContent2.default, { title: 'HashTables', model: [_hashMaps.hashMaps, _hashMaps.hashMapIntegers] }), reactWrapper);
 }
 
 function stacksExample() {
 	_reactDom2.default.unmountComponentAtNode(reactWrapper);
-	_reactDom2.default.render(_react2.default.createElement(PrimaryContent, { title: 'Stacks', model: [_stacks.pushToStack, _stacks.palinDromes] }), reactWrapper);
+	_reactDom2.default.render(_react2.default.createElement(_PrimaryContent2.default, { title: 'Stacks', model: [_stacks.pushToStack, _stacks.palinDromes] }), reactWrapper);
 }
 
 function queuesExample() {
 	_reactDom2.default.unmountComponentAtNode(reactWrapper);
-	_reactDom2.default.render(_react2.default.createElement(PrimaryContent, { title: 'Queues', model: [_queues.queues, _queues.dancers, _queues.radixSort, _queues.priorityQueue] }), reactWrapper);
+	_reactDom2.default.render(_react2.default.createElement(_PrimaryContent2.default, { title: 'Queues', model: [_queues.queues, _queues.dancers, _queues.radixSort, _queues.priorityQueue] }), reactWrapper);
 }
 
 function linkedListsExample() {
 	_reactDom2.default.unmountComponentAtNode(reactWrapper);
-	_reactDom2.default.render(_react2.default.createElement(PrimaryContent, { title: 'LinkedLists', model: [_linkedLists.linkedLists, _linkedLists.circularLinkedList] }), reactWrapper);
+	_reactDom2.default.render(_react2.default.createElement(_PrimaryContent2.default, { title: 'LinkedLists', model: [_linkedLists.linkedLists, _linkedLists.circularLinkedList] }), reactWrapper);
 }
 
 function esSixFeatures() {
 	_reactDom2.default.unmountComponentAtNode(reactWrapper);
-	_reactDom2.default.render(_react2.default.createElement(PrimaryContent, { title: 'Promises', model: [_promises.promises, _promises.promisesOne, _promises.promisesTwo] }), reactWrapper);
+	_reactDom2.default.render(_react2.default.createElement(_PrimaryContent2.default, { title: 'Promises', model: [_promises.promises, _promises.promisesOne, _promises.promisesTwo] }), reactWrapper);
 }
 
 function formatMessagesExample() {
 	_reactDom2.default.unmountComponentAtNode(reactWrapper);
-	_reactDom2.default.render(_react2.default.createElement(PrimaryContent, { title: 'FormatMessages', model: [_formatMessages.formatMessages] }), reactWrapper);
+	_reactDom2.default.render(_react2.default.createElement(_PrimaryContent2.default, { title: 'FormatMessages', model: [_formatMessages.formatMessages] }), reactWrapper);
 }
 
 function graphAlgorithmExample() {
 	_reactDom2.default.unmountComponentAtNode(reactWrapper);
-	_reactDom2.default.render(_react2.default.createElement(PrimaryContent, { title: 'Algorithms', model: [_algorithms.graphAlgorithm] }), reactWrapper);
+	_reactDom2.default.render(_react2.default.createElement(_PrimaryContent2.default, { title: 'Algorithms', model: [_algorithms.graphAlgorithm] }), reactWrapper);
 }
 
 },{"../../src/common/algorithms/algorithms.js":186,"../../src/common/dataStructures/arrays.js":187,"../../src/common/dataStructures/hashMaps.js":188,"../../src/common/dataStructures/iterators.js":189,"../../src/common/dataStructures/linkedLists.js":190,"../../src/common/dataStructures/lists.js":191,"../../src/common/dataStructures/queues.js":192,"../../src/common/dataStructures/stacks.js":193,"../../src/common/esSixFeatures/promises.js":194,"../../src/common/formatMessage/formatMessages.js":195,"../../src/common/reactExamples/examples.js":202,"../../src/utils/events":204,"../../src/views/PrimaryContent":205,"./utils/router":185,"react":183,"react-dom":27}],185:[function(require,module,exports){
@@ -35452,31 +35455,85 @@ exports.default = ee({});
 },{"event-emitter":4}],205:[function(require,module,exports){
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
 var _events = require('../utils/events');
 
 var _events2 = _interopRequireDefault(_events);
 
+var _PrintConsole = require('./components/PrintConsole');
+
+var _PrintConsole2 = _interopRequireDefault(_PrintConsole);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var React = require('react');
-
-var PrintLine = React.createClass({
-	displayName: 'PrintLine',
+exports.default = _react2.default.createClass({
+	displayName: 'PrimaryContent',
 
 	render: function render() {
-		var createItem = function createItem(line, index) {
-			return React.createElement('p', { className: 'line' + index }, line);
+		var executeBlock = function executeBlock(itemText, index, arr) {
+			return itemText(function (result) {
+				console.log('test: ', result);
+				_events2.default.emit('example' + index, result);
+				arr.push(_react2.default.createElement('p', {}, result));
+			});
 		};
 
-		return React.createElement(
+		var createItem = function createItem(itemText, index) {
+			var arr = [];
+			var h2 = _react2.default.createElement('h2', {}, 'subheading');
+			var divExample = _react2.default.createElement('div', { className: 'example' }, itemText + '');
+			var returnedResult = executeBlock(itemText, index, arr);
+
+			var divExampleResult = _react2.default.createElement('div', { className: 'example' }, returnedResult);
+			var section = _react2.default.createElement('div', {}, [h2, divExample, divExampleResult, _react2.default.createElement(_PrintConsole2.default, { context: 'example' + index })].concat(arr));
+
+			return _react2.default.createElement('pre', { id: 'example-' + (index + 1), className: 'example', key: 'r' + (index + 1) }, section);
+		};
+
+		return _react2.default.createElement(
 			'div',
 			null,
-			this.props.items.map(createItem)
+			_react2.default.createElement(
+				'h1',
+				{ className: 'main-title' },
+				' ',
+				this.props.title,
+				' '
+			),
+			this.props.model.map(createItem)
 		);
 	}
 });
 
-var PrintConsole = React.createClass({
+},{"../utils/events":204,"./components/PrintConsole":206,"react":183}],206:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _events = require('../../utils/events');
+
+var _events2 = _interopRequireDefault(_events);
+
+var _PrintLine = require('./PrintLine');
+
+var _PrintLine2 = _interopRequireDefault(_PrintLine);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _react2.default.createClass({
 	displayName: 'PrintConsole',
 
 	getInitialState: function getInitialState() {
@@ -35492,7 +35549,7 @@ var PrintConsole = React.createClass({
 	},
 
 	render: function render() {
-		return React.createElement(PrintLine, { items: this.state.items });
+		return _react2.default.createElement(_PrintLine2.default, { items: this.state.items });
 	},
 
 	_onChange: function _onChange(result) {
@@ -35501,50 +35558,36 @@ var PrintConsole = React.createClass({
 	}
 });
 
-var PrimaryContent = React.createClass({
-	displayName: 'PrimaryContent',
+},{"../../utils/events":204,"./PrintLine":207,"react":183}],207:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _react2.default.createClass({
+	displayName: 'PrintLine',
 
 	render: function render() {
-		var arr;
-
-		var executeBlock = function executeBlock(itemText, index) {
-			return itemText(function (result) {
-				console.log('test: ', result);
-				_events2.default.emit('example' + index, result);
-				arr.push(React.createElement('p', {}, result));
-			});
+		var createItem = function createItem(line, index) {
+			return _react2.default.createElement('p', { className: 'line' + index }, line);
 		};
 
-		var createItem = function createItem(itemText, index) {
-			arr = [];
-			var h2 = React.createElement('h2', {}, 'subheading');
-			var divExample = React.createElement('div', { className: 'example' }, itemText + '');
-			var returnedResult = executeBlock(itemText, index);
-
-			var divExampleResult = React.createElement('div', { className: 'example' }, returnedResult);
-			var section = React.createElement('div', {}, [h2, divExample, divExampleResult, React.createElement(PrintConsole, { context: 'example' + index })].concat(arr));
-
-			return React.createElement('pre', { id: 'example-' + (index + 1), className: 'example', key: 'r' + (index + 1) }, section);
-		};
-
-		return React.createElement(
+		return _react2.default.createElement(
 			'div',
 			null,
-			React.createElement(
-				'h1',
-				{ className: 'main-title' },
-				' ',
-				this.props.title,
-				' '
-			),
-			this.props.model.map(createItem)
+			this.props.items.map(createItem)
 		);
 	}
 });
 
-module.exports = PrimaryContent;
-
-},{"../utils/events":204,"react":183}]},{},[184])
+},{"react":183}]},{},[184])
 
 
 //# sourceMappingURL=main.js.map
