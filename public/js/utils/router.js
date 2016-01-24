@@ -1,10 +1,9 @@
-var $ = require('jquery');
-var Backbone = require('backbone');
+import $ from 'jquery';
+import Backbone from 'backbone';
 import events from '../../../src/utils/events';
 import routes from '../../../src/configuration/routes';
-var BackboneRouter;
 
-var bindEvents = {
+let bindEvents = {
 	routes: routes
 };
 
@@ -22,7 +21,7 @@ function CallbackObj(_route) {
 	};
 }
 
-BackboneRouter = Backbone.Router.extend(bindEvents);
+let BackboneRouter = Backbone.Router.extend(bindEvents);
 new BackboneRouter;
 
 Backbone.history.start({ pushState: true, root: '/' });
