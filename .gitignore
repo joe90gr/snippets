@@ -2,6 +2,6 @@ node_modules
 *.iml
 .idea
 lib
-public/javascripts/main.js
-public/javascripts/main.js.map
+public/js/main.js
+public/js/main.js.map
 npm-debug.log
