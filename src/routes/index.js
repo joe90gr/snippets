@@ -1,9 +1,10 @@
-var express = require('express');
+import express from 'express';
+import { examples } from '../common/reactExamples/examples.js';
+
 var router = express.Router();
-import { examples, example1, example2, example3, example4 } from '../common/reactExamples/examples.js';
 
 router.get('/', function (req, res, next) {
-	res.render('index', { title: 'Home', model: [ examples, example1, example2, example3, example4 ] });
+	res.render('index', { title: 'Home', model: [ examples ] });
 });
 
 module.exports = router;
