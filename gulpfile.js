@@ -6,8 +6,8 @@ var buffer = require('vinyl-buffer');
 var sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('browserify', function () {
-	return browserify([ './public/js/app.js' ], { debug: true })
-		.transform(babelify)
+	return browserify([ './public/js/app.js' ], { debug: true, extensions: [ '.jsx' ] })
+		.transform(babelify, { presets: [ 'es2015', 'react' ] })
 		.bundle()
 		.pipe(source('main.js'))
 		.pipe(buffer())

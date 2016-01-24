@@ -1,5 +1,5 @@
 var React = require('react');
-var events = require('../../public/js/utils/events');
+import events from '../utils/events';
 
 var PrintLine = React.createClass({
 	render: function () {

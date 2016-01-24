@@ -1,7 +1,7 @@
 var $ = require('jquery');
 var Backbone = require('backbone');
-var events = require('../utils/events');
-var routes = require('../../../configuration/routes');
+import events from '../../../src/utils/events';
+import routes from '../../../src/configuration/routes';
 var BackboneRouter;
 
 var bindEvents = {

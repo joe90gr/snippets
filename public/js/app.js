@@ -12,9 +12,9 @@ import { formatMessages } from '../../src/common/formatMessage/formatMessages.js
 import { graphAlgorithm } from '../../src/common/algorithms/algorithms.js';
 import { examples, example1, example2, example3, example4 } from '../../src/common/reactExamples/examples.js';
 
-var events = require('./utils/events');
+import events from '../../src/utils/events';
 
-var PrimaryContent = require('../../src/views/PrimaryContent.jsx');
+var PrimaryContent = require('../../src/views/PrimaryContent');
 var reactWrapper = document.getElementsByClassName('content')[0];
 
 events.on('index', home);
@@ -29,7 +29,7 @@ events.on('algorithms', graphAlgorithmExample);
 events.on('linked-lists', linkedListsExample);
 events.on('format-messages', formatMessagesExample);
 
-require('./utils/router');
+import router from './utils/router';
 
 function home() {
 	ReactDOM.unmountComponentAtNode(reactWrapper);

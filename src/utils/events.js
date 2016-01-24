@@ -1,2 +1,2 @@
 var ee = require('event-emitter');
-module.exports = ee({});
+export default ee({});

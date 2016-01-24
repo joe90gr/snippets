@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	'': 'index',
 	'examples': 'examples',
 	'iterators': 'iterators',
