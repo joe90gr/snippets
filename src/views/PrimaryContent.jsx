@@ -16,7 +16,7 @@ export default React.createClass({
 
 		var createItem = function (itemText, index) {
 			var arr = [];
-			var h2 = React.createElement('h2', {}, 'subheading');
+			var h2 = React.createElement('h2', {}, itemText.name );
 			var divExample = React.createElement('div', { className: 'example' }, itemText + '');
 			var returnedResult = executeBlock(itemText, index, arr);
 
