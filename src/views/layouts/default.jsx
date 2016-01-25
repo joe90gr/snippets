@@ -4,6 +4,11 @@ import ReactWrapper from '../ReactWrapper';
 export default React.createClass({
 	displayName: 'mainContainer',
 
+	propTypes: {
+		title: React.PropTypes.string,
+		model: React.PropTypes.array
+	},
+
 	render: function () {
 		return (
 			<html>

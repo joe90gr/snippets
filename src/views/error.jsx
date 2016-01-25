@@ -3,6 +3,12 @@ import React from 'react';
 export default React.createClass({
 	displayName: 'Error',
 
+	propTypes: {
+		title: React.PropTypes.string,
+		message: React.PropTypes.string,
+		error: React.PropTypes.object
+	},
+
 	render: function () {
 		return (
 			<html>

@@ -5,6 +5,11 @@ import PrintConsole from './components/PrintConsole';
 export default React.createClass({
 	displayName: 'PrimaryContent',
 
+	propTypes: {
+		title: React.PropTypes.string,
+		model: React.PropTypes.array
+	},
+
 	render: function () {
 		var executeBlock = function (itemText, index, arr) {
 			return itemText(function (result) {
@@ -16,7 +21,7 @@ export default React.createClass({
 
 		var createItem = function (itemText, index) {
 			var arr = [];
-			var h2 = React.createElement('h2', {}, itemText.name );
+			var h2 = React.createElement('h2', {}, itemText.name);
 			var divExample = React.createElement('div', { className: 'example' }, itemText + '');
 			var returnedResult = executeBlock(itemText, index, arr);
 

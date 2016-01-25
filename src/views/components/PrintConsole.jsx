@@ -5,6 +5,10 @@ import PrintLine from './PrintLine';
 export default React.createClass({
 	displayName: 'PrintConsole',
 
+	propTypes: {
+		context: React.PropTypes.object
+	},
+
 	getInitialState: function () {
 		return { items: [] };
 	},
