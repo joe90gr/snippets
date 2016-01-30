@@ -17,6 +17,7 @@ export default React.createClass({
 				<li><a href="/queue" className="queues"> Queues</a></li>
 				<li><a href="/format-messages" className="format-messages"> Format Messages</a></li>
 				<li><a href="/algorithms" className="algorithms"> Algorithms</a></li>
+				<li><a href="/factory" className="factory"> Factory</a></li>
 			</ul>
 		);
 	}

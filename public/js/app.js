@@ -10,6 +10,7 @@ import { pushToStack, palinDromes } from '../../src/common/dataStructures/stacks
 import { promises, promisesOne, promisesTwo } from '../../src/common/esSixFeatures/promises.js';
 import { formatMessages } from '../../src/common/formatMessage/formatMessages.js';
 import { graphAlgorithm } from '../../src/common/algorithms/algorithms.js';
+import { factory } from '../../src/common/patterns/factory.js';
 import { examples, example1, example2, example3, example4 } from '../../src/common/reactExamples/examples.js';
 
 import events from '../../src/utils/events';
@@ -28,6 +29,7 @@ events.on('queue', queuesExample);
 events.on('algorithms', graphAlgorithmExample);
 events.on('linked-lists', linkedListsExample);
 events.on('format-messages', formatMessagesExample);
+events.on('factory', factoryExample);
 
 import router from './utils/router';
 
@@ -83,6 +85,11 @@ function formatMessagesExample() {
 
 function graphAlgorithmExample() {
 	ReactDOM.unmountComponentAtNode(reactWrapper);
-	ReactDOM.render(<PrimaryContent title='Algorithms' model= {[ graphAlgorithm ]}/>, reactWrapper);
+	ReactDOM.render(<PrimaryContent title="Algorithms" model= {[ graphAlgorithm ]}/>, reactWrapper);
+}
+
+function factoryExample() {
+	ReactDOM.unmountComponentAtNode(reactWrapper);
+	ReactDOM.render(<PrimaryContent title="Factory" model= {[ factory ]}/>, reactWrapper);
 }
 
