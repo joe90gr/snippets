@@ -6,7 +6,7 @@ export default React.createClass({
 	displayName: 'PrintConsole',
 
 	propTypes: {
-		context: React.PropTypes.object
+		context: React.PropTypes.string
 	},
 
 	getInitialState: function () {

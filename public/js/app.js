@@ -12,8 +12,8 @@ import { formatMessages } from '../../src/common/formatMessage/formatMessages.js
 import { graphAlgorithm } from '../../src/common/algorithms/algorithms.js';
 import { factory } from '../../src/common/patterns/factory.js';
 import { examples, example1, example2, example3, example4 } from '../../src/common/reactExamples/examples.js';
-
 import events from '../../src/utils/events';
+import router from './utils/router';
 
 import PrimaryContent from '../../src/views/PrimaryContent';
 var reactWrapper = document.getElementsByClassName('content')[0];
@@ -31,7 +31,7 @@ events.on('linked-lists', linkedListsExample);
 events.on('format-messages', formatMessagesExample);
 events.on('factory', factoryExample);
 
-import router from './utils/router';
+router();
 
 function home() {
 	ReactDOM.unmountComponentAtNode(reactWrapper);
