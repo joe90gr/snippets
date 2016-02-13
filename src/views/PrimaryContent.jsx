@@ -1,6 +1,11 @@
 import React from 'react';
 import events from '../utils/events';
 import PrintConsole from './components/PrintConsole';
+import RoutingStore from '../stores/RoutingStore';
+
+function getMapState() {
+	return RoutingStore.getData();
+}
 
 export default React.createClass({
 	displayName: 'PrimaryContent',
@@ -10,11 +15,23 @@ export default React.createClass({
 		model: React.PropTypes.array
 	},
 
+	getInitialState: function () {
+		return { data: this.props.model };
+	},
+
+	componentDidMount: function () {
+		RoutingStore.addChangeListener(this._onChange);
+	},
+
+	componentWillMount: function () {
+		RoutingStore.removeChangeListener(this._onChange);
+	},
+
 	render: function () {
 		var executeBlock = function (itemText, index, arr) {
 			return itemText(function (result) {
 				console.log('test: ', result);
-				events.emit('example' + index, result);
+				// events.emit('example' + index, result);
 				arr.push(React.createElement('p', {}, result));
 			});
 		};
@@ -34,9 +51,13 @@ export default React.createClass({
 		return (
 			<div>
 				<h1 className="main-title"> {this.props.title} </h1>
-				{this.props.model.map(createItem)}
+				{this.state.data.map(createItem)}
 			</div>
 		);
+	},
+
+	_onChange: function () {
+		this.setState({ data: getMapState() });
 	}
 });
 

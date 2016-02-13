@@ -16,7 +16,9 @@ import events from '../../src/utils/events';
 import router from './utils/router';
 
 import PrimaryContent from '../../src/views/PrimaryContent';
-var reactWrapper = document.getElementsByClassName('content')[0];
+import RoutingAction from '../../src/actions/RoutingAction';
+
+ReactDOM.render(<PrimaryContent title="Home" model= {[]} />, document.getElementsByClassName('content')[0]);
 
 events.on('index', home);
 events.on('examples', reactExamples);
@@ -34,62 +36,50 @@ events.on('factory', factoryExample);
 router();
 
 function home() {
-	ReactDOM.unmountComponentAtNode(reactWrapper);
-	ReactDOM.render(<PrimaryContent title="Home" model= {[ examples ]}/>, reactWrapper);
+	RoutingAction.create([ examples ]);
 }
 
 function reactExamples() {
-	ReactDOM.unmountComponentAtNode(reactWrapper);
-	ReactDOM.render(<PrimaryContent title="REACT JS example" model= {[ examples, example1, example2, example3, example4 ]}/>, reactWrapper);
+	RoutingAction.create([ examples, example1, example2, example3, example4 ]);
 }
 
 function iterators() {
-	ReactDOM.unmountComponentAtNode(reactWrapper);
-	ReactDOM.render(<PrimaryContent title="Iterators" model= {[ iteratorForEach, iteratorEvery, iteratorSome, iteratorReduce ]}/>, reactWrapper);
+	RoutingAction.create([ iteratorForEach, iteratorEvery, iteratorSome, iteratorReduce ]);
 }
 
 function lists() {
-	ReactDOM.unmountComponentAtNode(reactWrapper);
-	ReactDOM.render(<PrimaryContent title="Lists" model= {[ adtListAppendRemove, adtListNextPrevious, adtListIterateFoward, adtListIterateBackward ]}/>, reactWrapper);
+	RoutingAction.create([ adtListAppendRemove, adtListNextPrevious, adtListIterateFoward, adtListIterateBackward ]);
 }
 
 function hashTables() {
-	ReactDOM.unmountComponentAtNode(reactWrapper);
-	ReactDOM.render(<PrimaryContent title="HashTables" model= {[ hashMaps, hashMapIntegers ]}/>, reactWrapper);
+	RoutingAction.create([ hashMaps, hashMapIntegers ]);
 }
 
 function stacksExample() {
-	ReactDOM.unmountComponentAtNode(reactWrapper);
-	ReactDOM.render(<PrimaryContent title="Stacks" model= {[ pushToStack, palinDromes ]}/>, reactWrapper);
+	RoutingAction.create([ pushToStack, palinDromes ]);
 }
 
 function queuesExample() {
-	ReactDOM.unmountComponentAtNode(reactWrapper);
-	ReactDOM.render(<PrimaryContent title="Queues" model= {[ queues, dancers, radixSort, priorityQueue ]}/>, reactWrapper);
+	RoutingAction.create([ queues, dancers, radixSort, priorityQueue ]);
 }
 
 function linkedListsExample() {
-	ReactDOM.unmountComponentAtNode(reactWrapper);
-	ReactDOM.render(<PrimaryContent title="LinkedLists" model= {[ linkedLists, circularLinkedList ]}/>, reactWrapper);
+	RoutingAction.create([ linkedLists, circularLinkedList ]);
 }
 
 function esSixFeatures() {
-	ReactDOM.unmountComponentAtNode(reactWrapper);
-	ReactDOM.render(<PrimaryContent title="Promises" model= {[ promises, promisesOne, promisesTwo ]}/>, reactWrapper);
+	RoutingAction.create([ promises, promisesOne, promisesTwo ]);
 }
 
 function formatMessagesExample() {
-	ReactDOM.unmountComponentAtNode(reactWrapper);
-	ReactDOM.render(<PrimaryContent title="FormatMessages" model= {[ formatMessages ]}/>, reactWrapper);
+	RoutingAction.create([ formatMessages ]);
 }
 
 function graphAlgorithmExample() {
-	ReactDOM.unmountComponentAtNode(reactWrapper);
-	ReactDOM.render(<PrimaryContent title="Algorithms" model= {[ graphAlgorithm ]}/>, reactWrapper);
+	RoutingAction.create([ graphAlgorithm ]);
 }
 
 function factoryExample() {
-	ReactDOM.unmountComponentAtNode(reactWrapper);
-	ReactDOM.render(<PrimaryContent title="Factory" model= {[ factory ]}/>, reactWrapper);
+	RoutingAction.create([ factory ]);
 }
 
