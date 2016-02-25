@@ -23,7 +23,7 @@ export default React.createClass({
 		RoutingStore.addChangeListener(this._onChange);
 	},
 
-	componentWillMount: function () {
+	componentWillUnmount: function () {
 		RoutingStore.removeChangeListener(this._onChange);
 	},
 
