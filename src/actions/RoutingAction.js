@@ -2,10 +2,9 @@ import Dispatcher from'../utils/Dispatcher';
 import RoutingConstants from '../constants/RoutingConstants';
 
 export default {
-	create: function (data) {
-		console.log('routingaction:' + data);
+	createPage: function (data) {
 		Dispatcher.dispatch({
-			actionType: RoutingConstants.JOE_CREATE,
+			actionType: RoutingConstants.CREATE_PAGE,
 			data: data
 		});
 	}

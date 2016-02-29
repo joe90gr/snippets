@@ -24,15 +24,14 @@ var RoutingStore = Object.assign({}, EventEmitter.prototype, {
 	}
 });
 
-function create(data) {
-	console.log('text: ' + data);
+function createPageContent(data) {
 	_data = data;
 }
 
 Dispatcher.register(function (action) {
 	switch (action.actionType) {
-		case RoutingConstants.JOE_CREATE:
-			create(action.data);
+		case RoutingConstants.CREATE_PAGE:
+			createPageContent(action.data);
 			RoutingStore.emitChange();
 			break;
 		default:

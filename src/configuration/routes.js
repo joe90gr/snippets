@@ -9,6 +9,7 @@ export default {
 	'linked-lists': 'linkedLists',
 	'algorithms': 'algorithms',
 	'promises': 'promises',
+	'classes': 'classes',
 	'format-messages': 'formatMessages',
 	'factory': 'factory'
 };

@@ -1,5 +1,5 @@
 import keyMirror from 'keymirror';
 
 export default keyMirror({
-	JOE_CREATE: null
+	CREATE_PAGE: null
 });

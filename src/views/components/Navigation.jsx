@@ -14,6 +14,7 @@ export default React.createClass({
 				<li><a href="/hashmap" className="hashmap"> Hashmap</a></li>
 				<li><a href="/stack" className="stack"> Stack</a></li>
 				<li><a href="/promises" className="promises"> Promises</a></li>
+				<li><a href="/classes" className="classes"> Classes</a></li>
 				<li><a href="/queue" className="queues"> Queues</a></li>
 				<li><a href="/format-messages" className="format-messages"> Format Messages</a></li>
 				<li><a href="/algorithms" className="algorithms"> Algorithms</a></li>

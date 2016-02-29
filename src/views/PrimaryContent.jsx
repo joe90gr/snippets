@@ -3,10 +3,6 @@ import events from '../utils/events';
 import PrintConsole from './components/PrintConsole';
 import RoutingStore from '../stores/RoutingStore';
 
-function getMapState() {
-	return RoutingStore.getData();
-}
-
 export default React.createClass({
 	displayName: 'PrimaryContent',
 
@@ -31,12 +27,9 @@ export default React.createClass({
 		var arr = [];
 
 		var returnedFromFunction = itemText(function (result) {
-			console.log('test: ', result);
 			//events.emit('example' + index, result);
 			arr.push(<p>{result}</p>);
 		});
-
-		console.log('test returnd' + returnedFromFunction);
 
 		return {
 			returnedFromFunction: returnedFromFunction,
@@ -74,7 +67,12 @@ export default React.createClass({
 	},
 
 	_onChange: function () {
-		this.setState({ data: getMapState() });
+		this.setState({ data: this._getMapState() });
+	},
+
+	_getMapState: function () {
+		return RoutingStore.getData();
 	}
+
 });
 

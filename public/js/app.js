@@ -8,6 +8,7 @@ import { queues, dancers, radixSort, priorityQueue } from '../../src/common/data
 import { linkedLists, circularLinkedList } from '../../src/common/dataStructures/linkedLists.js';
 import { pushToStack, palinDromes } from '../../src/common/dataStructures/stacks.js';
 import { promises, promisesOne, promisesTwo } from '../../src/common/esSixFeatures/promises.js';
+import { classInheritance } from '../../src/common/esSixFeatures/classes.js';
 import { formatMessages } from '../../src/common/formatMessage/formatMessages.js';
 import { graphAlgorithm } from '../../src/common/algorithms/algorithms.js';
 import { factory } from '../../src/common/patterns/factory.js';
@@ -20,66 +21,57 @@ import RoutingAction from '../../src/actions/RoutingAction';
 
 ReactDOM.render(<PrimaryContent title="Home" model= {[]} />, document.getElementsByClassName('content')[0]);
 
-events.on('index', home);
-events.on('examples', reactExamples);
-events.on('iterators', iterators);
-events.on('lists', lists);
-events.on('promises', esSixFeatures);
-events.on('stack', stacksExample);
-events.on('hashmap', hashTables);
-events.on('queue', queuesExample);
-events.on('algorithms', graphAlgorithmExample);
-events.on('linked-lists', linkedListsExample);
-events.on('format-messages', formatMessagesExample);
-events.on('factory', factoryExample);
+events.on('index', function () {
+	RoutingAction.createPage([ examples ]);
+});
+
+events.on('examples', function () {
+	RoutingAction.createPage([ examples, example1, example2, example3, example4 ]);
+});
+
+events.on('iterators', function () {
+	RoutingAction.createPage([ iteratorForEach, iteratorEvery, iteratorSome, iteratorReduce ]);
+});
+
+events.on('lists', function () {
+	RoutingAction.createPage([ adtListAppendRemove, adtListNextPrevious, adtListIterateFoward, adtListIterateBackward ]);
+});
+
+events.on('promises', function () {
+	RoutingAction.createPage([ promises, promisesOne, promisesTwo ]);
+});
+
+events.on('classes', function () {
+	RoutingAction.createPage([ classInheritance ]);
+});
+
+events.on('stack', function () {
+	RoutingAction.createPage([ pushToStack, palinDromes ]);
+});
+
+events.on('hashmap', function () {
+	RoutingAction.createPage([ hashMaps, hashMapIntegers ]);
+});
+
+events.on('queue', function () {
+	RoutingAction.createPage([ queues, dancers, radixSort, priorityQueue ]);
+});
+
+events.on('algorithms', function () {
+	RoutingAction.createPage([ graphAlgorithm ]);
+});
+
+events.on('linked-lists', function () {
+	RoutingAction.createPage([ linkedLists, circularLinkedList ]);
+});
+
+events.on('format-messages', function () {
+	RoutingAction.createPage([ formatMessages ]);
+});
+
+events.on('factory', function () {
+	RoutingAction.createPage([ factory ]);
+});
 
 router();
-
-function home() {
-	RoutingAction.create([ examples ]);
-}
-
-function reactExamples() {
-	RoutingAction.create([ examples, example1, example2, example3, example4 ]);
-}
-
-function iterators() {
-	RoutingAction.create([ iteratorForEach, iteratorEvery, iteratorSome, iteratorReduce ]);
-}
-
-function lists() {
-	RoutingAction.create([ adtListAppendRemove, adtListNextPrevious, adtListIterateFoward, adtListIterateBackward ]);
-}
-
-function hashTables() {
-	RoutingAction.create([ hashMaps, hashMapIntegers ]);
-}
-
-function stacksExample() {
-	RoutingAction.create([ pushToStack, palinDromes ]);
-}
-
-function queuesExample() {
-	RoutingAction.create([ queues, dancers, radixSort, priorityQueue ]);
-}
-
-function linkedListsExample() {
-	RoutingAction.create([ linkedLists, circularLinkedList ]);
-}
-
-function esSixFeatures() {
-	RoutingAction.create([ promises, promisesOne, promisesTwo ]);
-}
-
-function formatMessagesExample() {
-	RoutingAction.create([ formatMessages ]);
-}
-
-function graphAlgorithmExample() {
-	RoutingAction.create([ graphAlgorithm ]);
-}
-
-function factoryExample() {
-	RoutingAction.create([ factory ]);
-}
 

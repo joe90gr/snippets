@@ -8,6 +8,7 @@ import { pushToStack, palinDromes } from '../common/dataStructures/stacks.js';
 import { hashMaps, hashMapIntegers } from '../common/dataStructures/hashMaps.js';
 import { formatMessages } from '../common/formatMessage/formatMessages.js';
 import { promises, promisesOne, promisesTwo } from '../common/esSixFeatures/promises.js';
+import { classInheritance } from '../common/esSixFeatures/classes.js';
 import { graphAlgorithm } from '../common/algorithms/algorithms.js';
 import { factory } from '../common/patterns/factory.js';
 
@@ -55,6 +56,10 @@ router.get('/format-messages', function (req, res, next) {
 
 router.get('/promises', function (req, res, next) {
 	res.render('index', { title: 'Promises', model: [ promises, promisesOne, promisesTwo ] });
+});
+
+router.get('/classes', function (req, res, next) {
+	res.render('index', { title: 'Classes', model: [ classInheritance ] });
 });
 
 router.get('/algorithms', function (req, res, next) {
