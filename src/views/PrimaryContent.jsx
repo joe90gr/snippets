@@ -1,7 +1,9 @@
 import React from 'react';
-import events from '../utils/events';
 import PrintConsole from './components/PrintConsole';
-import RoutingStore from '../stores/RoutingStore';
+import ContentStore from '../stores/ContentStore';
+import router from '../services/routingService';
+
+var contentStore = new ContentStore();
 
 export default React.createClass({
 	displayName: 'PrimaryContent',
@@ -16,11 +18,12 @@ export default React.createClass({
 	},
 
 	componentDidMount: function () {
-		RoutingStore.addChangeListener(this._onChange);
+		router.init();
+		contentStore.addChangeListener(this._onChange);
 	},
 
 	componentWillUnmount: function () {
-		RoutingStore.removeChangeListener(this._onChange);
+		contentStore.removeChangeListener(this._onChange);
 	},
 
 	_executeBlock: function (itemText, index) {
@@ -71,7 +74,7 @@ export default React.createClass({
 	},
 
 	_getMapState: function () {
-		return RoutingStore.getData();
+		return contentStore.getData();
 	}
 
 });

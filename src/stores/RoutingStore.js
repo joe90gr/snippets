@@ -1,42 +1,32 @@
 import Dispatcher from '../utils/Dispatcher';
-import EventEmitter from 'events';
-import RoutingConstants from '../constants/RoutingConstants';
+import routingConstants from '../constants/RoutingConstants';
+import router from '../services/routingService';
+import AbstractStore from './AbstractStore';
 
-var CHANGE_EVENT = 'change';
-
-var _data = null;
-
-var RoutingStore = Object.assign({}, EventEmitter.prototype, {
-	getData: function () {
-		return _data;
-	},
-
-	emitChange: function () {
-		this.emit(CHANGE_EVENT);
-	},
-
-	addChangeListener: function (callback) {
-		this.on(CHANGE_EVENT, callback);
-	},
-
-	removeChangeListener: function (callback) {
-		this.removeListener(CHANGE_EVENT, callback);
+class RoutingStore extends AbstractStore {
+	constructor() {
+		super();
+		this.CHANGE_EVENT = 'routing-change';
+		this.dispatchToken = this._dispatchToken();
 	}
-});
 
-function createPageContent(data) {
-	_data = data;
+	setRoute(data) {
+		this._data = data;
+	}
+
+	_dispatchToken() {
+		return Dispatcher.register((action) => {
+			switch (action.actionType) {
+				case routingConstants.NAVIGATE_INTERNAL:
+					this.setRoute(action.data);
+					router.setRoute(action.data);
+					this.emitChange(action.data);
+					break;
+				default:
+					console.log('Route none found');
+			}
+		});
+	}
 }
-
-Dispatcher.register(function (action) {
-	switch (action.actionType) {
-		case RoutingConstants.CREATE_PAGE:
-			createPageContent(action.data);
-			RoutingStore.emitChange();
-			break;
-		default:
-			console.log('none found');
-	}
-});
 
 export default RoutingStore;

@@ -13,7 +13,9 @@ export default React.createClass({
 	render: function () {
 		return (
 			<div className="react-wrapper">
-				<Navigation />
+				<div className="nav-menu">
+					<Navigation />
+				</div>
 				<div className="content">
 					<PrimaryContent title={this.props.title} model= {this.props.model} />
 				</div>

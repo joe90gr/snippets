@@ -2,9 +2,9 @@ import Dispatcher from'../utils/Dispatcher';
 import RoutingConstants from '../constants/RoutingConstants';
 
 export default {
-	createPage: function (data) {
+	navigateInternal: function (data) {
 		Dispatcher.dispatch({
-			actionType: RoutingConstants.CREATE_PAGE,
+			actionType: RoutingConstants.NAVIGATE_INTERNAL,
 			data: data
 		});
 	}

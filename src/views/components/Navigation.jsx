@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from './Link';
 
 export default React.createClass({
 	displayName: 'Navigation',
@@ -6,19 +7,18 @@ export default React.createClass({
 	render: function () {
 		return (
 			<ul className="links">
-				<li><a href="/" className="home"> Home </a></li>
-				<li><a href="/examples" className="examples"> React Examples</a></li>
-				<li><a href="/iterators" className="iterators"> Iterators</a></li>
-				<li><a href="/lists" className="lists"> Lists</a></li>
-				<li><a href="/linked-lists" className="linked-list"> Linked List</a></li>
-				<li><a href="/hashmap" className="hashmap"> Hashmap</a></li>
-				<li><a href="/stack" className="stack"> Stack</a></li>
-				<li><a href="/promises" className="promises"> Promises</a></li>
-				<li><a href="/classes" className="classes"> Classes</a></li>
-				<li><a href="/queue" className="queues"> Queues</a></li>
-				<li><a href="/format-messages" className="format-messages"> Format Messages</a></li>
-				<li><a href="/algorithms" className="algorithms"> Algorithms</a></li>
-				<li><a href="/factory" className="factory"> Factory</a></li>
+				<li><Link name="Examples" location="" /></li>
+				<li><Link name="Iterators" location="iterators" /></li>
+				<li><Link name="Lists" location="lists" /></li>
+				<li><Link name="Linked Lists" location="linked-lists" /></li>
+				<li><Link name="Hashmap" location="hashmap" /></li>
+				<li><Link name="Stack" location="stack" /></li>
+				<li><Link name="Promises" location="promises" /></li>
+				<li><Link name="Classes" location="classes" /></li>
+				<li><Link name="Queue" location="queue" /></li>
+				<li><Link name="Format Fessages" location="format-messages" /></li>
+				<li><Link name="Algorithms" location="algorithms" /></li>
+				<li><Link name="Factory" location="factory" /></li>
 			</ul>
 		);
 	}

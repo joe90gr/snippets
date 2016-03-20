@@ -7,7 +7,7 @@ var sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('browserify', function () {
 	return browserify([ './public/js/app.js' ], { debug: true, extensions: [ '.jsx' ] })
-		.transform(babelify, { presets: [ 'es2015', 'react' ] })
+		.transform(babelify, { presets: [ 'es2015', 'react' ], sourceMaps: false })
 		.bundle()
 		.pipe(source('main.js'))
 		.pipe(buffer())
