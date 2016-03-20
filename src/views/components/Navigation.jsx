@@ -7,7 +7,8 @@ export default React.createClass({
 	render: function () {
 		return (
 			<ul className="links">
-				<li><Link name="Examples" location="" /></li>
+				<li><Link name="Home" location="/" /></li>
+				<li><Link name="Examples" location="examples" /></li>
 				<li><Link name="Iterators" location="iterators" /></li>
 				<li><Link name="Lists" location="lists" /></li>
 				<li><Link name="Linked Lists" location="linked-lists" /></li>
