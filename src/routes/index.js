@@ -1,73 +1,62 @@
 import express from 'express';
-import { examples, example1, example2, example3, example4 } from '../common/reactExamples/examples.js';
-import { adtListAppendRemove, adtListNextPrevious, adtListIterateFoward, adtListIterateBackward } from '../common/dataStructures/lists.js';
-import { linkedLists, circularLinkedList } from '../common/dataStructures/linkedLists.js';
-import { iteratorForEach, iteratorEvery, iteratorSome, iteratorReduce } from '../common/dataStructures/iterators.js';
-import { queues, dancers, radixSort, priorityQueue } from '../common/dataStructures/queues.js';
-import { pushToStack, palinDromes } from '../common/dataStructures/stacks.js';
-import { hashMaps, hashMapIntegers } from '../common/dataStructures/hashMaps.js';
-import { formatMessages } from '../common/formatMessage/formatMessages.js';
-import { promises, promisesOne, promisesTwo } from '../common/esSixFeatures/promises.js';
-import { classInheritance } from '../common/esSixFeatures/classes.js';
-import { graphAlgorithm } from '../common/algorithms/algorithms.js';
-import { factory } from '../common/patterns/factory.js';
+import contentService from '../services/contentService';
 
 var router = express.Router();
 
 router.get('/', function (req, res, next) {
-	res.render('index', { title: 'Home', model: [ examples ] });
+	res.render('index', { title: 'Home', model: contentService('index') });
 });
 
 router.get('/examples', function (req, res, next) {
-	res.render('index', { title: 'REACT JS example', model: [ examples, example1, example2, example3, example4 ] });
+	res.render('index', { title: 'REACT JS example', model: contentService('examples') });
 });
 
 router.get('/lists', function (req, res, next) {
-	res.render('index', { title: 'Lists', model: [ adtListAppendRemove, adtListNextPrevious, adtListIterateFoward, adtListIterateBackward ] });
+	res.render('index', { title: 'Lists', model: contentService('lists') });
 });
 
 router.get('/linked-lists', function (req, res, next) {
-	res.render('index', { title: 'LinkedLists', model: [ linkedLists, circularLinkedList ] });
+	res.render('index', { title: 'LinkedLists', model: contentService('linked-lists') });
 });
 
 router.get('/iterators', function (req, res, next) {
-	res.render('index', { title: 'Iterators', model: [ iteratorForEach, iteratorEvery, iteratorSome, iteratorReduce ] });
+	res.render('index', { title: 'Iterators', model: contentService('iterators') });
 });
 
 router.get('/queue', function (req, res, next) {
-	res.render('index', { title: 'Queues', model: [ queues, dancers, radixSort, priorityQueue ] });
+	res.render('index', { title: 'Queues', model: contentService('queue') });
 });
 
 router.get('/stack', function (req, res, next) {
-	res.render('index', { title: 'Stacks', model: [ pushToStack, palinDromes ] });
+	res.render('index', { title: 'Stacks', model: contentService('stack') });
 });
 
 router.get('/queues', function (req, res, next) {
-	res.render('index', { title: 'Queues', model: [ queues, dancers, radixSort, priorityQueue ] });
+	res.render('index', { title: 'Queues', model: contentService('queues') });
 });
 
 router.get('/hashmap', function (req, res, next) {
-	res.render('index', { title: 'Hashmaps', model: [ hashMaps, hashMapIntegers ] });
+	res.render('index', { title: 'Hashmaps', model: contentService('hashmap') });
 });
 
 router.get('/format-messages', function (req, res, next) {
-	res.render('index', { title: 'FormatMessages', model: [ formatMessages ] });
+	res.render('index', { title: 'FormatMessages', model: contentService('format-messages') });
 });
 
 router.get('/promises', function (req, res, next) {
-	res.render('index', { title: 'Promises', model: [ promises, promisesOne, promisesTwo ] });
+	res.render('index', { title: 'Promises', model: contentService('promises') });
 });
 
 router.get('/classes', function (req, res, next) {
-	res.render('index', { title: 'Classes', model: [ classInheritance ] });
+	res.render('index', { title: 'Classes', model: contentService('classes') });
 });
 
 router.get('/algorithms', function (req, res, next) {
-	res.render('index', { title: 'Algorithms', model: [ graphAlgorithm ] });
+	res.render('index', { title: 'Algorithms', model: contentService('algorithms') });
 });
 
 router.get('/factory', function (req, res, next) {
-	res.render('index', { title: 'Factory', model: [ factory ] });
+	res.render('index', { title: 'Factory', model: contentService('factory') });
 });
 
 export default router;
