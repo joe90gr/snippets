@@ -32,6 +32,4 @@ class AbstractStore {
 	}
 }
 
-//var abstractStore = new AbstractStore()
-
 export default AbstractStore;
