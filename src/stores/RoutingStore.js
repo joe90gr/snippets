@@ -1,4 +1,3 @@
-import Dispatcher from '../utils/Dispatcher';
 import routingConstants from '../constants/RoutingConstants';
 import router from '../services/routingService';
 import AbstractStore from './AbstractStore';
@@ -15,7 +14,7 @@ class RoutingStore extends AbstractStore {
 	}
 
 	_dispatchToken() {
-		return Dispatcher.register((action) => {
+		return this.dispatcher.register((action) => {
 			switch (action.actionType) {
 				case routingConstants.NAVIGATE_INTERNAL:
 					this.setRoute(action.data);

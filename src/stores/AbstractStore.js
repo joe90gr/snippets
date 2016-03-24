@@ -3,12 +3,10 @@ import EventEmitter from 'events';
 
 class AbstractStore {
 	constructor() {
+		this.dispatcher = Dispatcher;
+		this.eventEmitter = EventEmitter.prototype;
 		this.CHANGE_EVENT = 'change';
 		this._data = null;
-	}
-
-	eventEmitter() {
-		return EventEmitter.prototype;
 	}
 
 	getData() {
@@ -16,19 +14,15 @@ class AbstractStore {
 	}
 
 	emitChange() {
-		this.eventEmitter().emit(this.CHANGE_EVENT);
+		this.eventEmitter.emit(this.CHANGE_EVENT);
 	}
 
 	addChangeListener(callback) {
-		this.eventEmitter().on(this.CHANGE_EVENT, callback);
+		this.eventEmitter.on(this.CHANGE_EVENT, callback);
 	}
 
 	removeChangeListener(callback) {
-		this.eventEmitter().removeListener(this.CHANGE_EVENT, callback);
-	}
-
-	dispatcher() {
-		return Dispatcher;
+		this.eventEmitter.removeListener(this.CHANGE_EVENT, callback);
 	}
 }
 
