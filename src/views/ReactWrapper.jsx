@@ -5,6 +5,13 @@ import PrimaryContent from './PrimaryContent';
 export default React.createClass({
 	displayName: 'reactWrapper',
 
+	getDefaultProps: function () {
+		return {
+			title: '',
+			model: []
+		};
+	},
+
 	propTypes: {
 		title: React.PropTypes.string,
 		model: React.PropTypes.array
@@ -13,9 +20,7 @@ export default React.createClass({
 	render: function () {
 		return (
 			<div className="react-wrapper">
-				<div className="nav-menu">
-					<Navigation />
-				</div>
+				<Navigation />
 				<div className="content">
 					<PrimaryContent title={this.props.title} model= {this.props.model} />
 				</div>

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactWrapper from '../ReactWrapper';
 
 export default React.createClass({
-	displayName: 'mainContainer',
+	displayName: 'Root',
 
 	propTypes: {
 		title: React.PropTypes.string,
@@ -17,7 +17,7 @@ export default React.createClass({
 					<link rel="stylesheet" href="/styles/style.css" />
 				</head>
 				<body>
-					<ReactWrapper title={this.props.title} model={this.props.model}/>
+					<ReactWrapper className="react-wrapper" title={this.props.title} model={this.props.model}/>
 					<script type="text/javascript" src="/js/main.js" />
 				</body>
 			</html>

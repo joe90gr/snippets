@@ -14,7 +14,10 @@ export default React.createClass({
 	},
 
 	getInitialState: function () {
-		return { data: this.props.model || [] };
+		return {
+			title: this.props.title || '',
+			data: this.props.model || []
+		};
 	},
 
 	componentDidMount: function () {
@@ -63,19 +66,16 @@ export default React.createClass({
 	render: function () {
 		return (
 			<div>
-				<h1 className="main-title"> {this.props.title} </h1>
+				<h1 className="main-title"> {this.state.title} </h1>
 				{this.state.data.map(this._createItem)}
 			</div>
 		);
 	},
 
 	_onChange: function () {
-		this.setState({ data: this._getMapState() });
-	},
+		var { title, content } = contentStore.getData();
 
-	_getMapState: function () {
-		return contentStore.getData();
+		this.setState({ title: title, data: content });
 	}
-
 });
 

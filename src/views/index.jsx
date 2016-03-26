@@ -1,5 +1,5 @@
 import React from 'react';
-import DefaultLayout from './layouts/default';
+import Root from './layouts/root';
 
 export default React.createClass({
 	displayName: 'Error',
@@ -11,7 +11,7 @@ export default React.createClass({
 
 	render: function () {
 		return (
-			<DefaultLayout title={this.props.title} model={this.props.model}/>
+			<Root title={this.props.title} model={this.props.model}/>
 		);
 	}
 });

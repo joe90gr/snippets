@@ -4,59 +4,87 @@ import contentService from '../services/contentService';
 var router = express.Router();
 
 router.get('/', function (req, res, next) {
-	res.render('index', { title: 'Home', model: contentService('index') });
+	var data = contentService('index');
+
+	res.render('index', { title: data.title, model: data.content });
 });
 
 router.get('/examples', function (req, res, next) {
-	res.render('index', { title: 'REACT JS example', model: contentService('examples') });
+	var data = contentService('examples');
+
+	res.render('index', { title: data.title, model: data.content });
 });
 
 router.get('/lists', function (req, res, next) {
-	res.render('index', { title: 'Lists', model: contentService('lists') });
+	var data = contentService('lists');
+
+	res.render('index', { title: data.title, model: data.content });
 });
 
 router.get('/linked-lists', function (req, res, next) {
-	res.render('index', { title: 'LinkedLists', model: contentService('linked-lists') });
+	var data = contentService('linked-lists');
+
+	res.render('index', { title: data.title, model: data.content });
 });
 
 router.get('/iterators', function (req, res, next) {
-	res.render('index', { title: 'Iterators', model: contentService('iterators') });
+	var data = contentService('iterators');
+
+	res.render('index', { title: data.title, model: data.content });
 });
 
 router.get('/queue', function (req, res, next) {
-	res.render('index', { title: 'Queues', model: contentService('queue') });
+	var data = contentService('queue');
+
+	res.render('index', { title: data.title, model: data.content });
 });
 
 router.get('/stack', function (req, res, next) {
-	res.render('index', { title: 'Stacks', model: contentService('stack') });
+	var data = contentService('stack');
+
+	res.render('index', { title: data.title, model: data.content });
 });
 
 router.get('/queues', function (req, res, next) {
-	res.render('index', { title: 'Queues', model: contentService('queues') });
+	var data = contentService('queues');
+
+	res.render('index', { title: data.title, model: data.content });
 });
 
 router.get('/hashmap', function (req, res, next) {
-	res.render('index', { title: 'Hashmaps', model: contentService('hashmap') });
+	var data = contentService('hashmap');
+
+	res.render('index', { title: data.title, model: data.content });
 });
 
 router.get('/format-messages', function (req, res, next) {
-	res.render('index', { title: 'FormatMessages', model: contentService('format-messages') });
+	var data = contentService('format-messages');
+
+	res.render('index', { title: data.title, model: data.content });
 });
 
 router.get('/promises', function (req, res, next) {
-	res.render('index', { title: 'Promises', model: contentService('promises') });
+	var data = contentService('promises');
+
+	res.render('index', { title: data.title, model: data.content });
 });
 
 router.get('/classes', function (req, res, next) {
-	res.render('index', { title: 'Classes', model: contentService('classes') });
+	var data = contentService('classes');
+
+	res.render('index', { title: data.title, model: data.content });
 });
 
 router.get('/algorithms', function (req, res, next) {
-	res.render('index', { title: 'Algorithms', model: contentService('algorithms') });
+	var data = contentService('algorithms');
+
+	res.render('index', { title: data.title, model: data.content });
 });
 
 router.get('/factory', function (req, res, next) {
-	res.render('index', { title: 'Factory', model: contentService('factory') });
+	var data = contentService('factory');
+
+	res.render('index', { title: data.title, model: data.content });
 });
 
 export default router;

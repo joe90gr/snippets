@@ -13,19 +13,58 @@ import { factory } from '../common/patterns/factory.js';
 import { examples, example1, example2, example3, example4 } from '../common/reactExamples/examples.js';
 
 var contents = {
-	'index': [ examples ],
-	'examples': [ examples, example1, example2, example3, example4 ],
-	'iterators': [ iteratorForEach, iteratorEvery, iteratorSome, iteratorReduce ],
-	'lists': [ adtListAppendRemove, adtListNextPrevious, adtListIterateFoward, adtListIterateBackward ],
-	'promises': [ promises, promisesOne, promisesTwo ],
-	'classes': [ classInheritance ],
-	'stack': [ pushToStack, palinDromes ],
-	'hashmap': [ hashMaps, hashMapIntegers ],
-	'queue': [ queues, dancers, radixSort, priorityQueue ],
-	'algorithms': [ testBedAlgorithm, graphAlgorithm ],
-	'linked-lists': [ linkedLists, circularLinkedList ],
-	'format-messages': [ formatMessages ],
-	'factory': [ factory ]
+	'index': {
+		title: 'Examples',
+		content: [ examples ]
+	},
+	'examples': {
+		title: 'More Examples',
+		content: [ examples, example1, example2, example3, example4 ]
+	},
+	'iterators': {
+		title: 'Iterators',
+		content: [ iteratorForEach, iteratorEvery, iteratorSome, iteratorReduce ]
+	},
+	'lists': {
+		title: 'Lists',
+		content: [ adtListAppendRemove, adtListNextPrevious, adtListIterateFoward, adtListIterateBackward ]
+	},
+	'promises': {
+		title: 'Promises',
+		content: [ promises, promisesOne, promisesTwo ]
+	},
+	'classes': {
+		title: 'Classes',
+		content: [ classInheritance ]
+	},
+	'stack': {
+		title: 'Stack',
+		content: [ pushToStack, palinDromes ]
+	},
+	'hashmap': {
+		title: 'Hash Tables',
+		content: [ hashMaps, hashMapIntegers ]
+	},
+	'queue': {
+		title: 'Queues',
+		content: [ queues, dancers, radixSort, priorityQueue ]
+	},
+	'algorithms': {
+		title: 'Algorithms',
+		content: [ testBedAlgorithm, graphAlgorithm ]
+	},
+	'linked-lists': {
+		title: 'Linked Lists',
+		content: [ linkedLists, circularLinkedList ]
+	},
+	'format-messages': {
+		title: 'Format Messages',
+		content: [ formatMessages ]
+	},
+	'factory': {
+		title: 'Factory Pattern',
+		content: [ factory ]
+	}
 };
 
 export default (url) => contents[url];
