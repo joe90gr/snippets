@@ -1,9 +1,16 @@
 import React from 'react';
 import Navigation from './components/Navigation';
 import PrimaryContent from './PrimaryContent';
+import contentStore from '../stores/ContentStore';
+import router from '../services/routingService';
 
 export default React.createClass({
 	displayName: 'reactWrapper',
+
+	propTypes: {
+		title: React.PropTypes.string,
+		model: React.PropTypes.array
+	},
 
 	getDefaultProps: function () {
 		return {
@@ -12,9 +19,20 @@ export default React.createClass({
 		};
 	},
 
-	propTypes: {
-		title: React.PropTypes.string,
-		model: React.PropTypes.array
+	getInitialState: function () {
+		return {
+			title: this.props.title,
+			data: this.props.model
+		};
+	},
+
+	componentDidMount: function () {
+		router.init();
+		contentStore.addChangeListener(this._onChange);
+	},
+
+	componentWillUnmount: function () {
+		contentStore.removeChangeListener(this._onChange);
 	},
 
 	render: function () {
@@ -22,9 +40,15 @@ export default React.createClass({
 			<div className="react-wrapper">
 				<Navigation />
 				<div className="content">
-					<PrimaryContent title={this.props.title} model= {this.props.model} />
+					<PrimaryContent title={this.state.title} model= {this.state.data} />
 				</div>
 			</div>
 		);
+	},
+
+	_onChange: function () {
+		var { title, content } = contentStore.getData();
+
+		this.setState({ title: title, data: content });
 	}
 });

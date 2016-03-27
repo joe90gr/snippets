@@ -2,9 +2,7 @@ import Dispatcher from '../utils/Dispatcher';
 import contentConstants from '../constants/ContentConstants';
 import contentService from '../services/contentService';
 import AbstractStore from './AbstractStore';
-import RoutingStore from './RoutingStore';
-
-var routingStore = new RoutingStore();
+import routingStore from './RoutingStore';
 
 class ContentStore extends AbstractStore {
 	constructor() {
@@ -32,4 +30,4 @@ class ContentStore extends AbstractStore {
 	}
 }
 
-export default ContentStore;
+export default new ContentStore();

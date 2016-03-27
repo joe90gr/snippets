@@ -1,9 +1,5 @@
 import React from 'react';
 import PrintConsole from './components/PrintConsole';
-import ContentStore from '../stores/ContentStore';
-import router from '../services/routingService';
-
-var contentStore = new ContentStore();
 
 export default React.createClass({
 	displayName: 'PrimaryContent',
@@ -11,22 +7,6 @@ export default React.createClass({
 	propTypes: {
 		title: React.PropTypes.string,
 		model: React.PropTypes.array
-	},
-
-	getInitialState: function () {
-		return {
-			title: this.props.title || '',
-			data: this.props.model || []
-		};
-	},
-
-	componentDidMount: function () {
-		router.init();
-		contentStore.addChangeListener(this._onChange);
-	},
-
-	componentWillUnmount: function () {
-		contentStore.removeChangeListener(this._onChange);
 	},
 
 	_executeBlock: function (itemText, index) {
@@ -66,16 +46,10 @@ export default React.createClass({
 	render: function () {
 		return (
 			<div>
-				<h1 className="main-title"> {this.state.title} </h1>
-				{this.state.data.map(this._createItem)}
+				<h1 className="main-title"> {this.props.title} </h1>
+				{this.props.model.map(this._createItem)}
 			</div>
 		);
-	},
-
-	_onChange: function () {
-		var { title, content } = contentStore.getData();
-
-		this.setState({ title: title, data: content });
 	}
 });
 

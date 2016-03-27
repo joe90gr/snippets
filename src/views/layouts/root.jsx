@@ -17,7 +17,7 @@ export default React.createClass({
 					<link rel="stylesheet" href="/styles/style.css" />
 				</head>
 				<body>
-					<ReactWrapper className="react-wrapper" title={this.props.title} model={this.props.model}/>
+					<ReactWrapper title={this.props.title} model={this.props.model}/>
 					<script type="text/javascript" src="/js/main.js" />
 				</body>
 			</html>

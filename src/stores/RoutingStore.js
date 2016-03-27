@@ -28,4 +28,4 @@ class RoutingStore extends AbstractStore {
 	}
 }
 
-export default RoutingStore;
+export default new RoutingStore();
