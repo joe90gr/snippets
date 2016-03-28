@@ -1,8 +1,9 @@
 import React from 'react';
-import Root from './layouts/root';
+import Head from './components/Head';
+import Body from './components/Body';
 
 export default React.createClass({
-	displayName: 'Error',
+	displayName: 'Index',
 
 	propTypes: {
 		title: React.PropTypes.string,
@@ -11,7 +12,10 @@ export default React.createClass({
 
 	render: function () {
 		return (
-			<Root title={this.props.title} model={this.props.model}/>
+			<html>
+				<Head />
+				<Body title={this.props.title} model={this.props.model}/>
+			</html>
 		);
 	}
 });
