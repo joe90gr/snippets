@@ -7,6 +7,7 @@ export function CArray(numElements) {
 	this.clear = clear;
 	this.setData = setData;
 	this.swap = swap;
+	this.bubbleSort = bubbleSort;
 }
 
 function setData() {
@@ -46,4 +47,17 @@ function swap(arr, index1, index2) {
 	var temp = arr[index1];
 	arr[index1] = arr[index2];
 	arr[index2] = temp;
+}
+
+function bubbleSort() {
+	var numElements = this.dataStore.length;
+	var temp, outer, inner;
+
+	for (outer = numElements; outer >= 2; --outer) {
+		for (inner = 0; inner <= outer-1; ++inner) {
+			if (this.dataStore[inner] > this.dataStore[inner+1]) {
+				swap(this.dataStore, inner, inner+1);
+			}
+		}
+	}
 }

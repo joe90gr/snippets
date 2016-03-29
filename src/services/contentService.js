@@ -8,7 +8,7 @@ import { pushToStack, palinDromes } from '../common/dataStructures/stacks.js';
 import { promises, promisesOne, promisesTwo } from '../common/esSixFeatures/promises.js';
 import { classInheritance } from '../common/esSixFeatures/classes.js';
 import { formatMessages } from '../common/formatMessage/formatMessages.js';
-import { testBedAlgorithm, graphAlgorithm } from '../common/algorithms/algorithms.js';
+import { testBedAlgorithm, bubbleSort, graphAlgorithm } from '../common/algorithms/algorithms.js';
 import { factory } from '../common/patterns/factory.js';
 import { examples, example1, example2, example3, example4 } from '../common/reactExamples/examples.js';
 
@@ -51,7 +51,7 @@ var contents = {
 	},
 	'algorithms': {
 		title: 'Algorithms',
-		content: [ testBedAlgorithm, graphAlgorithm ]
+		content: [ testBedAlgorithm, bubbleSort, graphAlgorithm ]
 	},
 	'linked-lists': {
 		title: 'Linked Lists',
