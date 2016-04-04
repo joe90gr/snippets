@@ -4,6 +4,13 @@ var source = require('vinyl-source-stream');
 var browserify = require('browserify');
 var buffer = require('vinyl-buffer');
 var sourcemaps = require('gulp-sourcemaps');
+var Server = require('karma').Server;
+
+gulp.task('test', function (done) {
+	new Server({
+		configFile: __dirname + '/karma.conf.js'
+	}, done).start();
+});
 
 gulp.task('browserify', function () {
 	return browserify([ './public/js/app.js' ], { debug: true, extensions: [ '.jsx' ] })
