@@ -1,0 +1,32 @@
+body {
+  padding: 50px;
+  background-color: #E8E0CC;
+}
+
+.parent-wrapper {
+  margin: 0 auto;
+  width: 800px;
+  overflow: hidden;
+}
+
+.links {
+  list-style-type: none;
+  padding: 10px;
+  position: fixed;
+  width: 140px;
+}
+
+.content {
+  margin: 0 0 0 170px;
+
+  .example {
+    border: 1px solid grey;
+    margin: 10px 0;
+    padding: 10px;
+
+    p {
+      margin: 4px 0;
+      padding-left: 10px;
+    }
+  }
+}

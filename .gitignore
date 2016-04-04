@@ -4,4 +4,5 @@ node_modules
 /lib
 public/js/main.js
 public/js/main.js.map
+public/styles/style.css
 npm-debug.log
