@@ -17,7 +17,7 @@ export default React.createClass({
 				<li><Link name="Promises" location="promises" /></li>
 				<li><Link name="Classes" location="classes" /></li>
 				<li><Link name="Queue" location="queue" /></li>
-				<li><Link name="Format Fessages" location="format-messages" /></li>
+				<li><Link name="Format Messages" location="format-messages" /></li>
 				<li><Link name="Algorithms" location="algorithms" /></li>
 				<li><Link name="Factory" location="factory" /></li>
 			</ul>

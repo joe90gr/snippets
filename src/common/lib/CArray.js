@@ -27,14 +27,14 @@ function clear() {
 }
 
 function insert(element) {
-	this.dataStore[this.pos++] = element;
+	this.dataStore[this.position++] = element;
 }
 
 function toString() {
 	var retstr = '', i;
 
 	for (i = 0; i < this.dataStore.length; ++i) {
-		retstr += this.dataStore[i] + ' ';
+		retstr += this.dataStore[i] + (i + 1 < this.dataStore.length ? ' ' : '');
 		if (i > 0 && i % 10 == 0) {
 			retstr += '\n';
 		}
