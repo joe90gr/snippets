@@ -33,7 +33,7 @@ describe('Given the CArray module', () => {
 				return val === '0';
 			});
 
-			expect(result).to.be.true;
+			expect(result).to.equal(true);
 		});
 	});
 
@@ -80,7 +80,7 @@ describe('Given the CArray module', () => {
 				return val <= (arr[index + 1] || val);
 			});
 
-			expect(result).to.be.true;
+			expect(result).to.equal(true);
 		});
 	});
 });
