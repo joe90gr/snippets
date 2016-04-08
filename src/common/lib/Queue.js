@@ -21,6 +21,7 @@ function dequeue() {
 
 function dequeuePriority() {
 	var entry = 0;
+
 	for (let i =0; i < this.dataStore.length; ++i) {
 		if (this.dataStore[i].code < this.dataStore[entry].code) {
 			entry = i;
@@ -40,6 +41,7 @@ function back() {
 
 function toString() {
 	let str = '';
+
 	for (let i = 0; i < this.dataStore.length; i++) {
 		str += this.dataStore[i] + '\n';
 	}
@@ -48,6 +50,7 @@ function toString() {
 
 function toStringPriority() {
 	let str = '';
+
 	for (let i = 0; i < this.dataStore.length; i++) {
 		str += this.dataStore[i].name + ' code: ' + this.dataStore[i].code + '\n';
 	}
