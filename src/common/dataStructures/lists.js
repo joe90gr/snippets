@@ -2,7 +2,8 @@ import { List } from '../lib/List.js';
 
 //ADT Lists
 export function adtListAppendRemove(printHTML) {
-	var names = new List();
+	let names = new List();
+
 	names.append('Joe');
 	names.append('Simon');
 	names.append('Chris');
@@ -22,7 +23,8 @@ export function adtListAppendRemove(printHTML) {
 }
 
 export function adtListNextPrevious(printHTML) {
-	var names = new List();
+	let names = new List();
+
 	names.append('Joe');
 	names.append('Simon');
 	names.append('Chris');
@@ -33,20 +35,21 @@ export function adtListNextPrevious(printHTML) {
 	names.append('Leila');
 
 	names.front();
-	printHTML(names.getElement());//Joe
+	printHTML(names.getElement()); // Joe
 
-	printHTML(names.next());//Joe
-	printHTML(names.next()); //Simon
-	printHTML(names.next()); //Chris
+	printHTML(names.next()); // Joe
+	printHTML(names.next()); // Simon
+	printHTML(names.next()); // Chris
 
-	printHTML(names.previous()); //Chris
-	printHTML(names.previous()); //Simon
+	printHTML(names.previous()); // Chris
+	printHTML(names.previous()); // Simon
 
 	return names.toString();
 }
 
 export function adtListIterateFoward(printHTML) {
-	var names = new List();
+	let names = new List();
+
 	names.append('Joe');
 	names.append('Simon');
 	names.append('Chris');
@@ -64,7 +67,8 @@ export function adtListIterateFoward(printHTML) {
 }
 
 export function adtListIterateBackward(printHTML) {
-	var names = new List();
+	let names = new List();
+
 	names.append('Joe');
 	names.append('Simon');
 	names.append('Chris');

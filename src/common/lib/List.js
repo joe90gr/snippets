@@ -1,6 +1,6 @@
 export function List() {
 	this.listSize = 0;
-	this.position = 0;
+	this.pos = 0;
 	this.dataStore = [];
 
 	this.clear = clear;
@@ -27,7 +27,8 @@ function append(element) {
 }
 
 function remove(element) {
-	var foundAt = this.find(element);
+	let foundAt = this.find(element);
+
 	if (foundAt > -1) {
 		this.dataStore.splice(foundAt, 1);
 		--this.listSize;
@@ -39,8 +40,7 @@ function remove(element) {
 }
 
 function find(element) {
-	var i;
-	for (i = 0; i< this.dataStore.length; ++i) {
+	for (let i = 0; i< this.dataStore.length; ++i) {
 		if (this.dataStore[i] == element) {
 			return i;
 		}
@@ -50,7 +50,7 @@ function find(element) {
 }
 
 function toString() {
-	return this.dataStore;
+	return this.dataStore + '';
 }
 
 function clear() {
@@ -60,7 +60,8 @@ function clear() {
 }
 
 function insert(element, after) {
-	var insertPos = this.find(after);
+	let insertPos = this.find(after);
+
 	if (insertPos > -1) {
 		this.dataStore.splice(insertPos+1, 0, element);
 		++this.listSize;
@@ -88,7 +89,7 @@ function hasPrevious() {
 }
 
 function length() {
-
+	return this.dataStore.length;
 }
 
 function currentPosition() {
@@ -101,7 +102,6 @@ function moveTo(position) {
 
 function getElement() {
 	return this.dataStore[this.pos];
-
 }
 
 function front() {
@@ -109,12 +109,11 @@ function front() {
 }
 
 function end() {
-	this.pos = this.listSize;
+	this.pos = this.listSize -1;
 }
 
 function contains(element) {
-	var i;
-	for (i = 0; i < this.dataStore.length; ++i) {
+	for (let i = 0; i < this.dataStore.length; ++i) {
 		if (this.dataStore[i] == element) {
 			return true;
 		}
