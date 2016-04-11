@@ -1,13 +1,19 @@
 import { Stack } from '../../../../../src/common/lib/Stack.js';
 
+const STACK_ONE = '10';
+const STACK_TWO = '12';
+const STACK_THREE = '15';
+const STACK_FOUR = '23';
+const STACK_FIVE = '20';
+
 describe('Given the Stack module', () => {
 	let stack;
 
 	beforeEach(() => {
 		stack = new Stack();
-		stack.push('10');
-		stack.push('12');
-		stack.push('15');
+		stack.push(STACK_ONE);
+		stack.push(STACK_TWO);
+		stack.push(STACK_THREE);
 	});
 
 	describe('when the stack has pushed a predefined amount of elements', () => {
@@ -18,8 +24,8 @@ describe('Given the Stack module', () => {
 
 	describe('when the stack has pushed a predefined amount (5) elements and popped one', () => {
 		beforeEach(() => {
-			stack.push('23');
-			stack.push('20');
+			stack.push(STACK_FOUR);
+			stack.push(STACK_FIVE);
 		});
 
 		it('should have the predefined length of elements minus one.', () => {
@@ -31,7 +37,7 @@ describe('Given the Stack module', () => {
 		it('should return the last element on the stack.', () => {
 			let element = stack.pop();
 
-			expect(element).to.equal('20');
+			expect(element).to.equal(STACK_FIVE);
 		});
 
 	});
@@ -40,7 +46,16 @@ describe('Given the Stack module', () => {
 		it('should provide the last element of the stack.', () => {
 			let element = stack.peek();
 
-			expect(element).to.equal('15');
+			expect(element).to.equal(STACK_THREE);
+		});
+	});
+
+	describe('and popped from the stack', () => {
+		it('should provide the last element of the stack', () => {
+			stack.pop();
+			let element = stack.peek();
+
+			expect(element).to.equal(STACK_TWO);
 		});
 	});
 
@@ -48,7 +63,7 @@ describe('Given the Stack module', () => {
 		it('should provide NO elements.', () => {
 			stack.clear();
 
-			expect(stack.toString().length).to.equal(0);
+			expect(stack.toString()).to.be.empty;
 			expect(stack.length()).to.equal(0);
 		});
 	});
