@@ -20,7 +20,8 @@ function Node(element) {
 }
 
 function find(item) {
-	var currentNode = this.head;
+	let currentNode = this.head;
+
 	while (currentNode.element != item) {
 		currentNode = currentNode.next;
 	}
@@ -29,8 +30,9 @@ function find(item) {
 }
 
 function insert(newElement, item) {
-	var newNode = new Node(newElement);
-	var currentNode = this.find(item);
+	let newNode = new Node(newElement);
+	let currentNode = this.find(item);
+
 	newNode.next = currentNode.next;
 	newNode.previous = currentNode;
 	currentNode.next = newNode;
@@ -38,7 +40,8 @@ function insert(newElement, item) {
 }
 
 function remove(item) {
-	var currentNode = this.find(item);
+	let currentNode = this.find(item);
+
 	if (!(currentNode.next === null)) {
 		currentNode.previous.next = currentNode.next;
 		currentNode.next.previous = currentNode.previous;
@@ -48,7 +51,8 @@ function remove(item) {
 }
 
 function findLast() {
-	var currentNode = this.head;
+	let currentNode = this.head;
+
 	while (!(currentNode.next === null) && !(currentNode.next.element == 'head')) {
 		currentNode = currentNode.next;
 	}
@@ -57,7 +61,8 @@ function findLast() {
 }
 
 function advance(byNth) {
-	var i = byNth;
+	let i = byNth;
+
 	while (!(i <= 0)) {
 		this.currentNode = this.currentNode.next;
 		i--;
@@ -67,7 +72,8 @@ function advance(byNth) {
 }
 
 function back(byNth) {
-	var i = byNth;
+	let i = byNth;
+
 	while (!(i <= 0)) {
 		this.currentNode = this.currentNode.previous;
 		i--;
@@ -81,7 +87,8 @@ function show(print) {
 }
 
 function display(print) {
-	var currentNode = this.head;
+	let currentNode = this.head;
+
 	while (!(currentNode.next === null) && !(currentNode.next.element == 'head')) {
 		print(currentNode.next.element);
 		currentNode = currentNode.next;
@@ -89,7 +96,8 @@ function display(print) {
 }
 
 function displayReverse(print) {
-	var currentNode = this.findLast();
+	let currentNode = this.findLast();
+
 	while (!(currentNode.element == 'head')) {
 		print(currentNode.element);
 		currentNode = currentNode.previous;
