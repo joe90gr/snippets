@@ -4,11 +4,11 @@ export function HashMap() {
 	this.betterHash = betterHash;
 	this.showDistro = showDistro;
 	this.put = put;
-	//this.get = get;
 }
 
 function simpleHash(data) {
-	var total = 0;
+	let total = 0;
+
 	for (let i = 0; i < data.length; i++) {
 		total += data.charCodeAt(i);
 	}
@@ -17,8 +17,9 @@ function simpleHash(data) {
 }
 
 function betterHash(string) {
-	var H = 31;
-	var total = 0;
+	let H = 31;
+	let total = 0;
+
 	for (let i = 0; i < string.length; i++) {
 		total += H * total + string.charCodeAt(i);
 	}
@@ -33,9 +34,9 @@ function betterHash(string) {
 }
 
 function showDistro(print) {
-	let n = 0;
 	for (let i = 0; i < this.table.length; i++) {
 		if (this.table[i] != undefined) {
+			console.log('test', i + ': ' + this.table[i]);
 			print(i + ': ' + this.table[i]);
 		}
 	}
@@ -43,9 +44,6 @@ function showDistro(print) {
 
 function put(data) {
 	let pos = this.betterHash(data);
+
 	this.table[pos] = data;
 }
-
-// function get() {
-
-// }

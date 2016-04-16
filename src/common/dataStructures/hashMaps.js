@@ -52,7 +52,7 @@ export function hashMapIntegers(printHTML) {
 	printHTML('\n\nData distribution: \n');
 
 	for (let i = 0; i < students.length; i++) {
-		hashTable.put(students[i])
+		hashTable.put(students[i]);
 	}
 
 	hashTable.showDistro(printHTML);
