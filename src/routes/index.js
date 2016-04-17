@@ -1,5 +1,5 @@
 import express from 'express';
-import contentService from '../services/contentService';
+import contentService from 'services/contentService';
 
 var router = express.Router();
 

@@ -1,4 +1,4 @@
-import Dispatcher from '../utils/Dispatcher';
+import Dispatcher from 'utils/Dispatcher';
 import EventEmitter from 'events';
 
 class AbstractStore {

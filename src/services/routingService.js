@@ -1,6 +1,6 @@
 import director from 'director';
-import routes from '../configuration/routes';
-import ContentAction from '../actions/ContentAction';
+import routes from 'configuration/routes';
+import ContentAction from 'actions/ContentAction';
 
 let bindEvents = {
 	routes: routes

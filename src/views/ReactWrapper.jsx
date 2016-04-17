@@ -1,8 +1,8 @@
 import React from 'react';
 import Navigation from './components/Navigation';
 import PrimaryContent from './PrimaryContent';
-import contentStore from '../stores/ContentStore';
-import router from '../services/routingService';
+import contentStore from 'stores/ContentStore';
+import router from 'services/routingService';
 
 export default React.createClass({
 	displayName: 'reactWrapper',

@@ -1,0 +1,19 @@
+{
+	"presets": [
+	  "es2015",
+	  "react"
+	],
+	"plugins": [
+		["babel-plugin-module-alias", [
+			{ "src": "./src/actions", "expose": "actions" },
+			{ "src": "./src/common", "expose": "common" },
+			{ "src": "./src/configuration", "expose": "configuration" },
+			{ "src": "./src/constants", "expose": "constants" },
+			{ "src": "./src/routes", "expose": "routes" },
+			{ "src": "./src/services", "expose": "services" },
+			{ "src": "./src/stores", "expose": "stores" },
+			{ "src": "./src/utils", "expose": "utils" },
+			{ "src": "./src/views", "expose": "views" },
+		]]
+	]
+}

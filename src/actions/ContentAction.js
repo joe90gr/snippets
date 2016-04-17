@@ -1,5 +1,5 @@
-import Dispatcher from'../utils/Dispatcher';
-import ContentConstants from '../constants/ContentConstants';
+import Dispatcher from 'utils/Dispatcher';
+import ContentConstants from 'constants/ContentConstants';
 
 export default {
 	createPage: function (data) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import events from '../../utils/events';
+import events from 'utils/events';
 import PrintLine from './PrintLine';
 
 export default React.createClass({

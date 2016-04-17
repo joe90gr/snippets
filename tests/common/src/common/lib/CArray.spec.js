@@ -1,4 +1,4 @@
-import { CArray } from '../../../../../src/common/lib/CArray.js';
+import { CArray } from 'common/lib/CArray.js';
 
 describe('Given the CArray module', () => {
 	const LENGTH_OF_FIVE = 5;

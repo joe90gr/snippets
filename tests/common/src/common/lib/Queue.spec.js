@@ -1,4 +1,4 @@
-import { Queue } from '../../../../../src/common/lib/Queue.js';
+import { Queue } from 'common/lib/Queue.js';
 
 const NUMBER_1 = 'number 1';
 const NUMBER_2 = 'number 2';

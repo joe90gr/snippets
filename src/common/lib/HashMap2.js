@@ -36,7 +36,6 @@ function betterHash(string) {
 function showDistro(print) {
 	for (let i = 0; i < this.table.length; i++) {
 		if (this.table[i] != undefined) {
-			console.log('test', i + ': ' + this.table[i]);
 			print(i + ': ' + this.table[i]);
 		}
 	}

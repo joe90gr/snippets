@@ -1,4 +1,4 @@
-import { Stack } from '../../../../../src/common/lib/Stack.js';
+import { Stack } from 'common/lib/Stack.js';
 
 const STACK_ONE = '10';
 const STACK_TWO = '12';

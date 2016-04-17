@@ -1,4 +1,4 @@
-import { List } from '../../../../../src/common/lib/List.js';
+import { List } from 'common/lib/List.js';
 
 const FIRST_ELEMENT = 43;
 const SECOND_ELEMENT = 41;

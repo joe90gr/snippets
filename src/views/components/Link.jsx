@@ -1,5 +1,5 @@
 import React from 'react';
-import RoutingAction from '../../actions/RoutingAction';
+import RoutingAction from 'actions/RoutingAction';
 
 export default React.createClass({
 	displayName: 'Link',

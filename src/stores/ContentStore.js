@@ -1,6 +1,6 @@
-import Dispatcher from '../utils/Dispatcher';
-import contentConstants from '../constants/ContentConstants';
-import contentService from '../services/contentService';
+import Dispatcher from 'utils/Dispatcher';
+import contentConstants from 'constants/ContentConstants';
+import contentService from 'services/contentService';
 import AbstractStore from './AbstractStore';
 import routingStore from './RoutingStore';
 

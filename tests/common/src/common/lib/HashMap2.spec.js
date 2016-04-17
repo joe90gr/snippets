@@ -1,4 +1,4 @@
-import { HashMap } from '../../../../../src/common/lib/HashMap2.js';
+import { HashMap } from 'common/lib/HashMap2.js';
 
 const FOUR_TIMES = 4;
 const FIRST_ELEMENT = 'name1';
