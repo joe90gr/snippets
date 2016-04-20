@@ -47,7 +47,7 @@ export default React.createClass({
 	},
 
 	_onChange: function () {
-		var { title, content } = contentStore.getData();
+		var { title, content } = contentStore.getPageContent();
 
 		this.setState({ title: title, data: content });
 	}

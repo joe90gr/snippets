@@ -6,11 +6,6 @@ class AbstractStore {
 		this.dispatcher = Dispatcher;
 		this.eventEmitter = EventEmitter.prototype;
 		this.CHANGE_EVENT = 'change';
-		this._data = null;
-	}
-
-	getData() {
-		return this._data;
 	}
 
 	emitChange() {

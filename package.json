@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "node-babel": "babel src --out-dir lib"
+    "serve": "babel src --out-dir lib && gulp browserify && npm start"
   },
   "dependencies": {
     "body-parser": "~1.12.4",

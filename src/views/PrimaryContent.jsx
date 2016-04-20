@@ -27,7 +27,7 @@ export default React.createClass({
 		var result = this._executeBlock(itemText, index);
 
 		return (
-			<pre id={'example-' + (index + 1)} className={'example'} key={'r' + (index + 1)}>
+			<pre id={'example-' + (index + 1)} className="example" key={'r' + (index + 1)}>
 				<div>
 					<h2>{itemText.name}</h2>
 					<div className="example">

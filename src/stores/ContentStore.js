@@ -11,7 +11,11 @@ class ContentStore extends AbstractStore {
 		this.dispatchToken = this._dispatchToken();
 	}
 
-	createPageContent(data) {
+	getPageContent() {
+		return this._data;
+	}
+
+	_createPageContent(data) {
 		this._data = contentService(data);
 	}
 
@@ -20,7 +24,7 @@ class ContentStore extends AbstractStore {
 			switch (action.actionType) {
 				case contentConstants.CREATE_PAGE:
 					Dispatcher.waitFor([ routingStore.dispatchToken ]);
-					this.createPageContent(action.data);
+					this._createPageContent(action.data);
 					this.emitChange();
 					break;
 				default:

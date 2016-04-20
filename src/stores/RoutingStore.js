@@ -9,7 +9,11 @@ class RoutingStore extends AbstractStore {
 		this.dispatchToken = this._dispatchToken();
 	}
 
-	setRoute(data) {
+	getRoute() {
+		return this._data;
+	}
+
+	_setRoute(data) {
 		this._data = data;
 	}
 
@@ -17,7 +21,7 @@ class RoutingStore extends AbstractStore {
 		return this.dispatcher.register((action) => {
 			switch (action.actionType) {
 				case routingConstants.NAVIGATE_INTERNAL:
-					this.setRoute(action.data);
+					this._setRoute(action.data);
 					router.setRoute(action.data);
 					this.emitChange(action.data);
 					break;
