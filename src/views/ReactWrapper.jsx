@@ -1,8 +1,9 @@
 import React from 'react';
+
 import Navigation from './components/Navigation';
 import PrimaryContent from './PrimaryContent';
-import contentStore from 'stores/ContentStore';
 import router from 'services/routingService';
+import { use } from 'utils/use';
 
 export default React.createClass({
 	displayName: 'reactWrapper',
@@ -12,6 +13,8 @@ export default React.createClass({
 		model: React.PropTypes.array
 	},
 
+	mixins: [ use('ContentStore', '_onChange') ],
+
 	getDefaultProps: function () {
 		return {
 			title: '',
@@ -19,20 +22,15 @@ export default React.createClass({
 		};
 	},
 
+	componentDidMount: function () {
+		router.init();
+	},
+
 	getInitialState: function () {
 		return {
 			title: this.props.title,
 			data: this.props.model
 		};
-	},
-
-	componentDidMount: function () {
-		router.init();
-		contentStore.addChangeListener(this._onChange);
-	},
-
-	componentWillUnmount: function () {
-		contentStore.removeChangeListener(this._onChange);
 	},
 
 	render: function () {
@@ -47,7 +45,7 @@ export default React.createClass({
 	},
 
 	_onChange: function () {
-		var { title, content } = contentStore.getPageContent();
+		var { title, content } = this.ContentStore.getPageContent();
 
 		this.setState({ title: title, data: content });
 	}

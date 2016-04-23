@@ -5,8 +5,6 @@ import AbstractStore from './AbstractStore';
 class RoutingStore extends AbstractStore {
 	constructor() {
 		super();
-		this.CHANGE_EVENT = 'routing-change';
-		this.dispatchToken = this._dispatchToken();
 	}
 
 	getRoute() {
@@ -32,4 +30,4 @@ class RoutingStore extends AbstractStore {
 	}
 }
 
-export default new RoutingStore();
+export default RoutingStore;
