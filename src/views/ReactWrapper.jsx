@@ -3,7 +3,7 @@ import React from 'react';
 import Navigation from './components/Navigation';
 import PrimaryContent from './PrimaryContent';
 import router from 'services/routingService';
-import { use } from 'utils/use';
+import { use } from 'mixins/use';
 
 export default React.createClass({
 	displayName: 'reactWrapper',

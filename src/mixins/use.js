@@ -1,4 +1,4 @@
-import { useStore } from '../storeRegistry';
+import { useStore } from 'src/storeRegistry';
 
 export function use(storeName, onChangeHandler) {
 	return {

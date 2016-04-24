@@ -5,10 +5,12 @@
 	],
 	"plugins": [
 		["babel-plugin-module-alias", [
+			{ "src": "./src", "expose": "src" },
 			{ "src": "./src/actions", "expose": "actions" },
 			{ "src": "./src/common", "expose": "common" },
 			{ "src": "./src/configuration", "expose": "configuration" },
 			{ "src": "./src/constants", "expose": "constants" },
+			{ "src": "./src/mixins", "expose": "mixins" },
 			{ "src": "./src/routes", "expose": "routes" },
 			{ "src": "./src/services", "expose": "services" },
 			{ "src": "./src/stores", "expose": "stores" },
