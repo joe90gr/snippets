@@ -6,7 +6,6 @@ class StoreRepository {
 	register(Store) {
 		let store = new Store();
 
-		store.CHANGE_EVENT = Store.name + 'change';
 		store.dispatchToken = store._dispatchToken();
 		this.stores[Store.name] = store;
 

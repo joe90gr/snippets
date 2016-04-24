@@ -1,23 +1,23 @@
 import Dispatcher from 'utils/Dispatcher';
-import EventEmitter from 'events';
+import events from'event-emitter';
 
 class AbstractStore {
 	constructor() {
 		this.dispatcher = Dispatcher;
-		this.eventEmitter = EventEmitter.prototype;
+		this.event = events({});
 		this.CHANGE_EVENT = 'change';
 	}
 
 	emitChange() {
-		this.eventEmitter.emit(this.CHANGE_EVENT);
+		this.event.emit(this.CHANGE_EVENT);
 	}
 
 	addChangeListener(callback) {
-		this.eventEmitter.on(this.CHANGE_EVENT, callback);
+		this.event.on(this.CHANGE_EVENT, callback);
 	}
 
 	removeChangeListener(callback) {
-		this.eventEmitter.removeListener(this.CHANGE_EVENT, callback);
+		this.event.removeListener(this.CHANGE_EVENT, callback);
 	}
 }
 
