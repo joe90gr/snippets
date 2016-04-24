@@ -16,6 +16,16 @@ class StoreRepository {
 	getStore(storeName) {
 		return this.stores[storeName];
 	}
+
+	bindStoreUsages() {
+		for (let _store in this.stores) {
+			if (this.stores.hasOwnProperty(_store) && this.stores[_store].use) {
+				this.stores[_store].use.forEach((store) => {
+					this.stores[_store][store] = this.getStore(store);
+				});
+			}
+		}
+	}
 }
 
 export default new StoreRepository();

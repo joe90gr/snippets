@@ -5,7 +5,8 @@ import ContentStore from 'stores/ContentStore';
 
 storeRepository
 	.register(RoutingStore)
-	.register(ContentStore);
+	.register(ContentStore)
+	.bindStoreUsages();
 
 export function useStore(storeName) {
 	return storeRepository.getStore(storeName);
