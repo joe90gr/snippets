@@ -1,5 +1,5 @@
-import routingConstants from '../constants/RoutingConstants';
-import router from '../services/routingService';
+import routingConstants from 'constants/RoutingConstants';
+import router from 'services/routingService';
 import AbstractStore from './AbstractStore';
 
 class RoutingStore extends AbstractStore {
