@@ -14,6 +14,7 @@ export function use(storeName, onChangeHandler) {
 
 		componentWillUnmount: function () {
 			this[storeName].removeChangeListener(this[onChangeHandler]);
+			delete this[storeName];
 		}
 	};
 }
