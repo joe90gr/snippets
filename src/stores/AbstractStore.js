@@ -17,7 +17,7 @@ class AbstractStore {
 	}
 
 	removeChangeListener(callback) {
-		this.event.removeListener(this.CHANGE_EVENT, callback);
+		this.event.off(this.CHANGE_EVENT, callback);
 	}
 }
 
