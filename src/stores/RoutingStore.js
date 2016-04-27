@@ -15,18 +15,16 @@ class RoutingStore extends AbstractStore {
 		this._data = data;
 	}
 
-	_dispatchToken() {
-		return this.dispatcher.register((action) => {
-			switch (action.actionType) {
-				case routingConstants.NAVIGATE_INTERNAL:
-					this._setRoute(action.data);
-					router.setRoute(action.data);
-					this.emitChange(action.data);
-					break;
-				default:
-					console.log('Route none found');
-			}
-		});
+	_dispatch(action) {
+		switch (action.actionType) {
+			case routingConstants.NAVIGATE_INTERNAL:
+				this._setRoute(action.data);
+				router.setRoute(action.data);
+				this.emitChange(action.data);
+				break;
+			default:
+				console.log('Route none found');
+		}
 	}
 }
 

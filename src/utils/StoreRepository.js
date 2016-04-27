@@ -1,15 +1,25 @@
+import Dispatcher from 'utils/Dispatcher';
+
 class StoreRepository {
 	constructor() {
 		this.stores = {};
+		this.dispatcher = Dispatcher;
 	}
 
 	register(Store) {
 		let store = new Store();
 
-		store.dispatchToken = store._dispatchToken();
+		store.dispatcher = Dispatcher;
+		store.dispatchToken = this._registerDispatcher(store);
 		this.stores[Store.name] = store;
 
 		return this;
+	}
+
+	_registerDispatcher(store) {
+		return store.dispatcher.register((action) => {
+			store._dispatch(action);
+		});
 	}
 
 	getStore(storeName) {

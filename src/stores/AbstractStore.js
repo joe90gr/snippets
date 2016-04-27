@@ -1,9 +1,7 @@
-import Dispatcher from 'utils/Dispatcher';
 import events from'event-emitter';
 
 class AbstractStore {
 	constructor() {
-		this.dispatcher = Dispatcher;
 		this.event = events({});
 		this.CHANGE_EVENT = 'change';
 	}

@@ -16,18 +16,16 @@ class ContentStore extends AbstractStore {
 		this._data = contentService(data);
 	}
 
-	_dispatchToken() {
-		return this.dispatcher.register((action) => {
-			switch (action.actionType) {
-				case contentConstants.CREATE_PAGE:
-					this.dispatcher.waitFor([ this.RoutingStore.dispatchToken ]);
-					this._createPageContent(action.data);
-					this.emitChange();
-					break;
-				default:
-					console.log('Content none found');
-			}
-		});
+	_dispatch(action) {
+		switch (action.actionType) {
+			case contentConstants.CREATE_PAGE:
+				this.dispatcher.waitFor([ this.RoutingStore.dispatchToken ]);
+				this._createPageContent(action.data);
+				this.emitChange();
+				break;
+			default:
+				console.log('Content none found');
+		}
 	}
 }
 
