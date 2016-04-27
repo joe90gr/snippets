@@ -13,7 +13,7 @@ export default React.createClass({
 		model: React.PropTypes.array
 	},
 
-	mixins: [ use('ContentStore', '_onChange') ],
+	mixins: [ use('contentStore', '_onChange') ],
 
 	getDefaultProps: function () {
 		return {
@@ -45,7 +45,7 @@ export default React.createClass({
 	},
 
 	_onChange: function () {
-		var { title, content } = this.ContentStore.getPageContent();
+		var { title, content } = this.contentStore.getPageContent();
 
 		this.setState({ title: title, data: content });
 	}

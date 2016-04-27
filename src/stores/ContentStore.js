@@ -5,7 +5,7 @@ import AbstractStore from './AbstractStore';
 class ContentStore extends AbstractStore {
 	constructor() {
 		super();
-		this.use = [ 'RoutingStore' ];
+		this.use = [ 'routingStore' ];
 	}
 
 	getPageContent() {
@@ -19,7 +19,7 @@ class ContentStore extends AbstractStore {
 	_dispatch(action) {
 		switch (action.actionType) {
 			case contentConstants.CREATE_PAGE:
-				this.dispatcher.waitFor([ this.RoutingStore.dispatchToken ]);
+				this.dispatcher.waitFor([ this.routingStore.dispatchToken ]);
 				this._createPageContent(action.data);
 				this.emitChange();
 				break;

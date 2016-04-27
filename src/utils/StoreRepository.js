@@ -11,7 +11,7 @@ class StoreRepository {
 
 		store.dispatcher = Dispatcher;
 		store.dispatchToken = this._registerDispatcher(store);
-		this.stores[Store.name] = store;
+		this.stores[this.storeInstanceName(Store.name)] = store;
 
 		return this;
 	}
@@ -34,6 +34,10 @@ class StoreRepository {
 				});
 			}
 		}
+	}
+
+	storeInstanceName(storeName) {
+		return `${storeName.charAt(0).toLowerCase()}${storeName.slice(1)}`;
 	}
 }
 
