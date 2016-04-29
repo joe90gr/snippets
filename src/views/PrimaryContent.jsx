@@ -13,8 +13,8 @@ export default React.createClass({
 		var arr = [];
 
 		var returnedFromFunction = itemText(function (result) {
-			//events.emit('example' + index, result);
-			arr.push(<p>{result}</p>);
+			// events.emit('example' + index, result);
+			arr.push(<p key={ 'line-' + arr.length } >{result}</p>);
 		});
 
 		return {
@@ -27,11 +27,11 @@ export default React.createClass({
 		var result = this._executeBlock(itemText, index);
 
 		return (
-			<pre id={'example-' + (index + 1)} className="example" key={'r' + (index + 1)}>
+			<pre id={'example-' + (index + 1)} className="example" key={'code-block-' + (index + 1)}>
 				<div>
 					<h2>{itemText.name}</h2>
 					<div className="example">
-						{itemText + ''}
+						{itemText.toString()}
 					</div>
 					<div className="example">
 						{result.returnedFromFunction}
