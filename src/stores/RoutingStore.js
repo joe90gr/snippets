@@ -4,22 +4,41 @@ import AbstractStore from './AbstractStore';
 
 class RoutingStore extends AbstractStore {
 	constructor() {
+		var route;
+
 		super();
+
+		try {
+			route = window.SERIALIZED_STORE_CACHE[this.storeName].route;
+		} catch (e) {
+
+		}
+
+		this._route = route;
 	}
 
 	getRoute() {
-		return this._data;
+		return this._route;
 	}
 
-	_setRoute(data) {
-		this._data = data;
+	_setRoute(route) {
+		this._route = route;
+	}
+
+	serialize() {
+		return {
+			route: this.getRoute()
+		};
 	}
 
 	_dispatch(action) {
+		console.log('whats the store route', this._route);
 		switch (action.actionType) {
 			case routingConstants.NAVIGATE_INTERNAL:
 				this._setRoute(action.data);
-				router.setRoute(action.data);
+				if (router.setRoute) {
+					router.setRoute(action.data);
+				}
 				this.emitChange(action.data);
 				break;
 			default:

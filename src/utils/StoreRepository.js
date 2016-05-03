@@ -7,6 +7,7 @@ class StoreRepository {
 	}
 
 	register(Store) {
+		Store.prototype.storeName = this.storeInstanceName(Store.name);
 		let store = new Store();
 
 		store.dispatcher = Dispatcher;
@@ -24,6 +25,10 @@ class StoreRepository {
 
 	getStore(storeName) {
 		return this.stores[storeName];
+	}
+
+	getRegisteredStores() {
+		return this.stores;
 	}
 
 	bindStoreUsages() {

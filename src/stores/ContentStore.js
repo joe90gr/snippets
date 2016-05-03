@@ -4,8 +4,18 @@ import AbstractStore from './AbstractStore';
 
 class ContentStore extends AbstractStore {
 	constructor() {
+		var content;
 		super();
 		this.use = [ 'routingStore' ];
+
+		try {
+			console.log('whats in the content', window.SERIALIZED_STORE_CACHE[this.storeName].content.title, content);
+			content = window.SERIALIZED_STORE_CACHE[this.storeName].content;
+		} catch (e) {
+
+		}
+
+		this._data = content;
 	}
 
 	getPageContent() {
@@ -14,6 +24,12 @@ class ContentStore extends AbstractStore {
 
 	_createPageContent(data) {
 		this._data = contentService(data);
+	}
+
+	serialize() {
+		return {
+			content: this.getPageContent()
+		};
 	}
 
 	_dispatch(action) {
