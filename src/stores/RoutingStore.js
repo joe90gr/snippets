@@ -2,18 +2,10 @@ import routingConstants from 'constants/RoutingConstants';
 import AbstractStore from './AbstractStore';
 
 class RoutingStore extends AbstractStore {
-	constructor() {
-		var route;
-
+	constructor(deserializedState) {
 		super();
 
-		try {
-			route = window.SERIALIZED_STORE_CACHE[this.storeName].route;
-		} catch (e) {
-
-		}
-
-		this._route = route;
+		this._route = deserializedState.route || '';
 	}
 
 	getRoute() {
@@ -31,7 +23,6 @@ class RoutingStore extends AbstractStore {
 	}
 
 	_dispatch(action) {
-		console.log('whats the store route', this._route);
 		switch (action.actionType) {
 			case routingConstants.NAVIGATE_INTERNAL:
 				this._setRoute(action.data);

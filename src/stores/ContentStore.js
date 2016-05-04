@@ -2,20 +2,12 @@ import contentConstants from 'constants/ContentConstants';
 import AbstractStore from './AbstractStore';
 
 class ContentStore extends AbstractStore {
-	constructor() {
-		var content;
+	constructor(deserializedState) {
 		super();
 		this.use = [ 'routingStore' ];
 
-		try {
-			console.log('whats in the content', window.SERIALIZED_STORE_CACHE[this.storeName].content.title, content);
-			content = window.SERIALIZED_STORE_CACHE[this.storeName].content;
-			content.content = content.content.filter((element) => element !== null);
-		} catch (e) {
-
-		}
-
-		this._content = content;
+		this._content = deserializedState.content || { title: '', content: [] };
+		this._content.content = this._content.content.filter((element) => element !== null);
 	}
 
 	getPageContent() {

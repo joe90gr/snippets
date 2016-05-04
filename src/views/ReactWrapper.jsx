@@ -36,7 +36,6 @@ export default React.createClass({
 
 	_onContentStoreChange: function () {
 		var { title, content } = this.contentStore.getPageContent();
-		console.log('WHAT IS TITLE FROM ONCHANGE', title);
 
 		this.setState({ title: title, data: content });
 	}

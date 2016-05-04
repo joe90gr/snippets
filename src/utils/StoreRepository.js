@@ -7,8 +7,15 @@ class StoreRepository {
 	}
 
 	register(Store) {
-		Store.prototype.storeName = this.storeInstanceName(Store.name);
-		let store = new Store();
+		let deserializedState;
+
+		try {
+			deserializedState = window.SERIALIZED_STORE_CACHE[this.storeInstanceName(Store.name)];
+		} catch (e) {
+			deserializedState = {};
+		}
+
+		let store = new Store(deserializedState);
 
 		store.dispatcher = Dispatcher;
 		store.dispatchToken = this._registerDispatcher(store);
