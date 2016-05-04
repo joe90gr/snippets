@@ -1,5 +1,4 @@
 import contentConstants from 'constants/ContentConstants';
-import contentService from 'services/contentService';
 import AbstractStore from './AbstractStore';
 
 class ContentStore extends AbstractStore {
@@ -11,19 +10,20 @@ class ContentStore extends AbstractStore {
 		try {
 			console.log('whats in the content', window.SERIALIZED_STORE_CACHE[this.storeName].content.title, content);
 			content = window.SERIALIZED_STORE_CACHE[this.storeName].content;
+			content.content = content.content.filter((element) => element !== null);
 		} catch (e) {
 
 		}
 
-		this._data = content;
+		this._content = content;
 	}
 
 	getPageContent() {
-		return this._data;
+		return this._content;
 	}
 
-	_createPageContent(data) {
-		this._data = contentService(data);
+	_createPageContent(content) {
+		this._content = content;
 	}
 
 	serialize() {

@@ -8,28 +8,18 @@ import { use } from 'mixins/use';
 export default React.createClass({
 	displayName: 'reactWrapper',
 
-	propTypes: {
-		title: React.PropTypes.string,
-		model: React.PropTypes.array
-	},
-
 	mixins: [ use('contentStore') ],
-
-	getDefaultProps: function () {
-		return {
-			title: '',
-			model: []
-		};
-	},
 
 	componentDidMount: function () {
 		router.init();
 	},
 
 	getInitialState: function () {
+		var { title, content } = this.contentStore.getPageContent();
+
 		return {
-			title: this.props.title,
-			data: this.props.model
+			title: title,
+			data: content
 		};
 	},
 
@@ -46,6 +36,7 @@ export default React.createClass({
 
 	_onContentStoreChange: function () {
 		var { title, content } = this.contentStore.getPageContent();
+		console.log('WHAT IS TITLE FROM ONCHANGE', title);
 
 		this.setState({ title: title, data: content });
 	}

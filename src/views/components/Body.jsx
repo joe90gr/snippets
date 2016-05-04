@@ -12,7 +12,7 @@ export default React.createClass({
 	render: function () {
 		return (
 			<body>
-				<ReactWrapper title={this.props.title} model={this.props.model}/>
+				<ReactWrapper />
 				<script type="text/javascript" src="/js/main.js" />
 			</body>
 		);

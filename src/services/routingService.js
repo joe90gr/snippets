@@ -1,6 +1,6 @@
 import director from 'director';
 import routes from 'configuration/routes';
-import ContentAction from 'actions/ContentAction';
+import NavigateAction from 'actions/NavigateAction';
 
 let bindEvents = {
 	routes: routes
@@ -17,7 +17,9 @@ for (let route in routes) {
 delete bindEvents.routes;
 
 function CallbackObj(_route) {
-	this.fn = () => process.nextTick(() => ContentAction.createPage(_route));
+	this.fn = () => {
+		NavigateAction.navigateTo(_route);
+	};
 }
 
 export default new director.Router(bindEvents).configure({ html5history: true });

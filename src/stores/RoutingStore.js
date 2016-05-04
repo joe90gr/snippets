@@ -1,5 +1,4 @@
 import routingConstants from 'constants/RoutingConstants';
-import router from 'services/routingService';
 import AbstractStore from './AbstractStore';
 
 class RoutingStore extends AbstractStore {
@@ -36,9 +35,6 @@ class RoutingStore extends AbstractStore {
 		switch (action.actionType) {
 			case routingConstants.NAVIGATE_INTERNAL:
 				this._setRoute(action.data);
-				if (router.setRoute) {
-					router.setRoute(action.data);
-				}
 				this.emitChange(action.data);
 				break;
 			default:
