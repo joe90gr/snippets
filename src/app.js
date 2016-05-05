@@ -5,8 +5,19 @@ import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import routesServer from './routes/index';
+import storeRepository from 'utils/StoreRepository';
+
+import DocumentMetaDataStore from 'stores/DocumentMetaDataStore';
+import RoutingStore from 'stores/RoutingStore';
+import ContentStore from 'stores/ContentStore';
 
 var app = express();
+
+storeRepository
+	.register(DocumentMetaDataStore)
+	.register(RoutingStore)
+	.register(ContentStore)
+	.bindStoreUsages();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

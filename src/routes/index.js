@@ -1,5 +1,4 @@
 import express from 'express';
-import { useStore } from 'src/storeRegistry';
 import NavigateAction from 'actions/NavigateAction';
 
 var router = express.Router();
