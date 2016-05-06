@@ -6,7 +6,7 @@ import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import routesServer from './routes/index';
 import error404 from './routes/404';
-import error from './routes/error';
+import { devError, error } from './routes/error';
 
 export default function () {
 	var app = express();
@@ -25,9 +25,11 @@ export default function () {
 	app.use(cookieParser());
 	app.use(express.static(path.join(__dirname, '../public')));
 	app.use('/', routesServer);
-
-	error404(app);
-	error(app);
+	app.use(error404);
+	if (app.get('env') === 'development') {
+		app.use(devError);
+	}
+	app.use(error);
 
 	return app;
 }
