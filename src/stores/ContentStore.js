@@ -24,7 +24,7 @@ class ContentStore extends AbstractStore {
 		};
 	}
 
-	_dispatch(action) {
+	_onDispatch(action) {
 		switch (action.actionType) {
 			case contentConstants.CREATE_PAGE:
 				this.dispatcher.waitFor([ this.routingStore.dispatchToken ]);

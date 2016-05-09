@@ -27,7 +27,7 @@ class DocumentMetaDataStore extends AbstractStore {
 
 	}
 
-	_dispatch() {}
+	_onDispatch() {}
 }
 
 export default DocumentMetaDataStore;

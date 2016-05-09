@@ -22,7 +22,7 @@ class RoutingStore extends AbstractStore {
 		};
 	}
 
-	_dispatch(action) {
+	_onDispatch(action) {
 		switch (action.actionType) {
 			case routingConstants.NAVIGATE_INTERNAL:
 				this._setRoute(action.data);

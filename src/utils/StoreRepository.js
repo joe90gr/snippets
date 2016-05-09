@@ -26,7 +26,7 @@ class StoreRepository {
 
 	_registerDispatcher(store) {
 		return store.dispatcher.register((action) => {
-			store._dispatch(action);
+			store._onDispatch(action);
 		});
 	}
 
