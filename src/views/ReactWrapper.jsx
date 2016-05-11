@@ -3,6 +3,8 @@ import React from 'react';
 import Navigation from './components/Navigation';
 import PrimaryContent from './PrimaryContent';
 import router from 'services/routingService';
+import contentService from 'services/contentService';
+
 import { use } from 'mixins/use';
 
 export default React.createClass({
@@ -15,12 +17,18 @@ export default React.createClass({
 	},
 
 	getInitialState: function () {
-		var { title, content } = this.contentStore.getPageContent();
+		return this.extractPageContent();
+	},
 
-		return {
-			title: title,
-			data: content
-		};
+	extractPageContent: function () {
+		var { title, content } = this.contentStore.getPageContent();
+		var page = { title: title, content: [] };
+
+		content.forEach((content, index) => {
+			page.content[index] = contentService[content];
+		});
+
+		return page;
 	},
 
 	render: function () {
@@ -28,15 +36,13 @@ export default React.createClass({
 			<div className="react-wrapper">
 				<Navigation />
 				<div className="content">
-					<PrimaryContent title={this.state.title} model= {this.state.data} />
+					<PrimaryContent title={ this.state.title } model= { this.state.content } />
 				</div>
 			</div>
 		);
 	},
 
 	_onContentStoreChange: function () {
-		var { title, content } = this.contentStore.getPageContent();
-
-		this.setState({ title: title, data: content });
+		this.setState(this.extractPageContent());
 	}
 });

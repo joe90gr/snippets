@@ -13,58 +13,39 @@ import { factory } from 'common/patterns/factory.js';
 import { examples, example1, example2, example3, example4 } from 'common/reactExamples/examples.js';
 
 var contents = {
-	'index': {
-		title: 'Examples',
-		content: [ examples ]
-	},
-	'examples': {
-		title: 'More Examples',
-		content: [ examples, example1, example2, example3, example4 ]
-	},
-	'iterators': {
-		title: 'Iterators',
-		content: [ iteratorForEach, iteratorEvery, iteratorSome, iteratorReduce ]
-	},
-	'lists': {
-		title: 'Lists',
-		content: [ adtListAppendRemove, adtListNextPrevious, adtListIterateFoward, adtListIterateBackward ]
-	},
-	'promises': {
-		title: 'Promises',
-		content: [ promises, promisesOne, promisesTwo ]
-	},
-	'classes': {
-		title: 'Classes',
-		content: [ classInheritance ]
-	},
-	'stack': {
-		title: 'Stack',
-		content: [ pushToStack, palinDromes ]
-	},
-	'hashmap': {
-		title: 'Hash Tables',
-		content: [ hashMaps, hashMapIntegers ]
-	},
-	'queue': {
-		title: 'Queues',
-		content: [ queues, dancers, radixSort, priorityQueue ]
-	},
-	'algorithms': {
-		title: 'Algorithms',
-		content: [ testBedAlgorithm, bubbleSort, graphAlgorithm ]
-	},
-	'linked-lists': {
-		title: 'Linked Lists',
-		content: [ linkedLists, circularLinkedList ]
-	},
-	'format-messages': {
-		title: 'Format Messages',
-		content: [ formatMessages ]
-	},
-	'factory': {
-		title: 'Factory Pattern',
-		content: [ factory ]
-	}
+	'arraysOne': arraysOne,
+	'iteratorForEach': iteratorForEach,
+	'iteratorEvery': iteratorEvery,
+	'iteratorSome': iteratorSome,
+	'iteratorReduce': iteratorReduce,
+	'adtListAppendRemove': adtListAppendRemove,
+	'adtListNextPrevious': adtListNextPrevious,
+	'adtListIterateFoward': adtListIterateFoward,
+	'adtListIterateBackward': adtListIterateBackward,
+	'hashMaps': hashMaps,
+	'hashMapIntegers': hashMapIntegers,
+	'queues': queues,
+	'dancers': dancers,
+	'radixSort': radixSort,
+	'priorityQueue': priorityQueue,
+	'linkedLists': linkedLists,
+	'circularLinkedList': circularLinkedList,
+	'pushToStack': pushToStack,
+	'palinDromes': palinDromes,
+	'promises': promises,
+	'promisesOne': promisesOne,
+	'promisesTwo': promisesTwo,
+	'classInheritance': classInheritance,
+	'formatMessages': formatMessages,
+	'testBedAlgorithm': testBedAlgorithm,
+	'bubbleSort': bubbleSort,
+	'graphAlgorithm': graphAlgorithm,
+	'factory': factory,
+	'examples': examples,
+	'example1': example1,
+	'example2': example2,
+	'example3': example3,
+	'example4': example4
 };
 
-export default (url) => contents[url];
+export default contents;

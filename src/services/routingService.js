@@ -6,9 +6,9 @@ let bindEvents = { routes: routes };
 
 for (let route in routes) {
 	if (routes.hasOwnProperty(route)) {
-		let _route = route === '' ? routes[route] : route;
-		let callback = new CallbackObj(_route);
-		bindEvents[route] = callback.fn;
+		let _route = route === 'index' ? '' : route;
+		let callback = new CallbackObj(route);
+		bindEvents[_route] = callback.fn;
 	}
 }
 

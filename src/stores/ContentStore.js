@@ -1,13 +1,13 @@
 import contentConstants from 'constants/ContentConstants';
 import AbstractStore from './AbstractStore';
+import routes from 'configuration/routes';
 
 class ContentStore extends AbstractStore {
 	constructor(deserializedState) {
 		super();
 		this.use = [ 'routingStore' ];
 
-		this._content = deserializedState.content || { title: '', content: [] };
-		this._content.content = this._content.content.filter((element) => element !== null);
+		this._content = deserializedState.page || { title: '', content: [] };
 	}
 
 	getPageContent() {
@@ -19,16 +19,14 @@ class ContentStore extends AbstractStore {
 	}
 
 	serialize() {
-		return {
-			content: this.getPageContent()
-		};
+		return { page: this._content };
 	}
 
 	_onDispatch(action) {
 		switch (action.actionType) {
 			case contentConstants.CREATE_PAGE:
 				this.dispatcher.waitFor([ this.routingStore.dispatchToken ]);
-				this._createPageContent(action.data);
+				this._createPageContent(routes[action.data]);
 				this.emitChange();
 				break;
 			default:
