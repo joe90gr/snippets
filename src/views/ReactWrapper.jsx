@@ -3,7 +3,7 @@ import React from 'react';
 import Navigation from './components/Navigation';
 import PrimaryContent from './PrimaryContent';
 import router from 'services/routingService';
-import contentService from 'services/contentService';
+import snippets from 'common/snippets';
 
 import { use } from 'mixins/use';
 
@@ -25,7 +25,7 @@ export default React.createClass({
 		var page = { title: title, content: [] };
 
 		content.forEach((content, index) => {
-			page.content[index] = contentService[content];
+			page.content[index] = snippets[content];
 		});
 
 		return page;
