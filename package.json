@@ -23,7 +23,8 @@
     "object-assign": "^4.0.1",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
-    "serve-favicon": "~2.2.1"
+    "serve-favicon": "~2.2.1",
+    "superagent": "^1.8.3"
   },
   "devDependencies": {
     "babel-cli": "^6.6.5",
