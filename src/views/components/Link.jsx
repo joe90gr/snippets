@@ -11,12 +11,12 @@ export default React.createClass({
 
 	render: function () {
 		return (
-			<a href={this.props.location} onClick={this.clickFunction}> {this.props.name} </a>
+			<a href={ this.props.location } onClick={ this.clickFunction }> { this.props.name } </a>
 		);
 	},
 
 	clickFunction: function (e) {
 		e.preventDefault();
-		router.setRoute(e.target.parentNode.getAttribute('href'));
+		router.setRoute(e.target.getAttribute('href'));
 	}
 });
