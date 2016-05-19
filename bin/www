@@ -4,9 +4,16 @@
  * Module dependencies.
  */
 
+var fs = require('fs');
 var app = require('../lib/app');
 var debug = require('debug')('gulp-browserify-react:server');
 var http = require('http');
+var https = require('https');
+
+var https_options = {
+  key: fs.readFileSync('./certificates/14961049-localhost.key'),
+  cert: fs.readFileSync('./certificates/14961049-localhost.cert')
+};
 
 /**
  * Get port from environment and store in Express.
@@ -20,12 +27,14 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
+var httpsServer = https.createServer(https_options, app);
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
 server.listen(port);
+httpsServer.listen(3443, 'localhost');
 server.on('error', onError);
 server.on('listening', onListening);
 
