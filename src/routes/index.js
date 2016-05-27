@@ -1,5 +1,5 @@
 import express from 'express';
-import NavigateAction from 'actions/NavigateAction';
+import NavigateAction from 'actions/NavigateActionCreator';
 
 var router = express.Router();
 

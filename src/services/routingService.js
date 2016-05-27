@@ -1,6 +1,6 @@
 import director from 'director';
 import routes from 'configuration/routes';
-import NavigateAction from 'actions/NavigateAction';
+import NavigateAction from 'actions/NavigateActionCreator';
 
 let bindEvents = { routes: routes };
 
