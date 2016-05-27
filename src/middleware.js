@@ -4,6 +4,7 @@ import favicon from 'serve-favicon';
 import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
+import session from 'express-session';
 import routesServer from './routes/index';
 import error404 from './routes/404';
 import { devError, error } from './routes/error';
@@ -24,6 +25,17 @@ export default function () {
 	app.use(bodyParser.urlencoded({ extended: false }));
 	app.use(cookieParser());
 	app.use(express.static(path.join(__dirname, '../public')));
+	app.use(session({
+		name: 'JOEID',
+		cookie: {
+			path: '/',
+			httpsOnly: true,
+			maxAge: null,
+			secure: true
+		},
+		'saveUninitialized': false,
+		secret: '1234567890QWERTY'
+	}));
 	app.use('/', routesServer);
 	app.use(error404);
 	if (app.get('env') === 'development') {
