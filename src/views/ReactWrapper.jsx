@@ -1,7 +1,12 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+
+import userAction from 'actions/userAction';
 
 import Navigation from './components/Navigation';
 import PrimaryContent from './PrimaryContent';
+import LoggedIn from './components/LoggedIn';
+import LoggedOut from './components/LoggedOut';
 import router from 'services/routingService';
 import snippets from 'common/snippets';
 
@@ -34,12 +39,41 @@ export default React.createClass({
 	render: function () {
 		return (
 			<div className="react-wrapper">
+				<LoggedOut>
+					<form method="get" action="/login" onSubmit={ this._onSubmitLogin }>
+						<input type="text" ref="username" defaultValue="joe" />
+						<input type="text" ref="password" defaultValue="1234" />
+						<button type="submit">Login</button>
+					</form>
+				</LoggedOut>
+				<LoggedIn>
+					<form method="get" action="/logout" onSubmit={ this._onSubmitLogout }>
+						<button type="submit">Logout</button>
+					</form>
+				</LoggedIn>
 				<Navigation />
 				<div className="content">
 					<PrimaryContent title={ this.state.title } model= { this.state.content } />
 				</div>
 			</div>
 		);
+	},
+
+	_onSubmitLogin: function (e) {
+		e.preventDefault();
+
+		userAction.authenticateUser({
+			body: {
+				userName: ReactDOM.findDOMNode(this.refs.username).value,
+				password: ReactDOM.findDOMNode(this.refs.password).value
+			}
+		});
+	},
+
+	_onSubmitLogout: function (e) {
+		e.preventDefault();
+
+		userAction.invalidateUser();
 	},
 
 	_onContentStoreChange: function () {

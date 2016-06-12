@@ -1,4 +1,4 @@
-import { useStore } from 'src/storeRegistry';
+import { useStore } from 'src/registry';
 
 export function use(storeName) {
 

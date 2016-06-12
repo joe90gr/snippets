@@ -1,7 +1,12 @@
 import storeRepository from 'utils/StoreRepository';
+import serviceRepository from 'utils/ServiceRepository';
 
 export function useStore(storeName) {
 	return storeRepository.getStore(storeName);
+}
+
+export function useService(serviceName) {
+	return serviceRepository.getService(serviceName);
 }
 
 export function serialize() {
