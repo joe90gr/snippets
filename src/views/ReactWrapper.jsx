@@ -15,14 +15,17 @@ import { use } from 'mixins/use';
 export default React.createClass({
 	displayName: 'reactWrapper',
 
-	mixins: [ use('contentStore') ],
+	mixins: [ use('contentStore'), use('userSessionStore') ],
 
 	componentDidMount: function () {
 		router.init();
 	},
 
 	getInitialState: function () {
-		return this.extractPageContent();
+		let state = this.extractPageContent();
+		state.user = this.userSessionStore.getUserInfo();
+
+		return state;
 	},
 
 	extractPageContent: function () {
@@ -40,16 +43,22 @@ export default React.createClass({
 		return (
 			<div className="react-wrapper">
 				<LoggedOut>
-					<form method="get" action="/login" onSubmit={ this._onSubmitLogin }>
-						<input type="text" ref="username" defaultValue="joe" />
-						<input type="text" ref="password" defaultValue="1234" />
-						<button type="submit">Login</button>
-					</form>
+					<div>
+						<h1>Hello Guest</h1>
+						<form method="get" action="/login" onSubmit={ this._onSubmitLogin }>
+							<input type="text" ref="username" defaultValue="joe" />
+							<input type="text" ref="password" defaultValue="1234" />
+							<button type="submit">Login</button>
+						</form>
+					</div>
 				</LoggedOut>
 				<LoggedIn>
-					<form method="get" action="/logout" onSubmit={ this._onSubmitLogout }>
-						<button type="submit">Logout</button>
-					</form>
+					<div>
+						<h1>Hello {this.state.user.name}</h1>
+						<form method="get" action="/logout" onSubmit={ this._onSubmitLogout }>
+							<button type="submit">Logout</button>
+						</form>
+					</div>
 				</LoggedIn>
 				<Navigation />
 				<div className="content">
@@ -78,5 +87,9 @@ export default React.createClass({
 
 	_onContentStoreChange: function () {
 		this.setState(this.extractPageContent());
+	},
+
+	_onUserSessionStoreChange: function () {
+		this.setState({ user: this.userSessionStore.getUserInfo() });
 	}
 });

@@ -56,6 +56,7 @@ export function loginRequest(req, res, cb) {
 
 export function logoutRequest(req, res, cb) {
 	req.session.isAuthenticated = false;
+	req.session.regenerate(() => {});
 	req.session.user = invalidatedUserSession();
 	cb(null, req.session.user);
 
