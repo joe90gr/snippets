@@ -4,7 +4,7 @@ import ReactWrapper from 'views/ReactWrapper';
 import serviceRepository from 'utils/ServiceRepository';
 import storeRepository from 'utils/StoreRepository';
 
-import { loginRequest, logoutRequest } from 'services/sessionService.client';
+import SessionService from 'services/SessionService.client';
 
 import DocumentMetaDataStore from 'stores/DocumentMetaDataStore';
 import RoutingStore from 'stores/RoutingStore';
@@ -12,8 +12,7 @@ import ContentStore from 'stores/ContentStore';
 import UserSessionStore from 'stores/UserSessionStore';
 
 serviceRepository
-	.register(loginRequest)
-	.register(logoutRequest);
+	.register(SessionService);
 
 storeRepository
 	.register(DocumentMetaDataStore)

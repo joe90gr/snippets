@@ -11,9 +11,9 @@ export default {
 	},
 
 	authenticateUser: function (_req, _res) {
-		let loginRequest = useService('loginRequest');
+		var sessionService = useService('sessionService');
 
-		loginRequest(_req, _res, (err, res) => {
+		sessionService.loginRequest(_req, _res, (err, res) => {
 			let action = UserConstants.AUTHENTICATE_USER;
 
 			if (err) {
@@ -28,9 +28,9 @@ export default {
 	},
 
 	invalidateUser: function (_req, _res) {
-		let logoutRequest = useService('logoutRequest');
+		var sessionService = useService('sessionService');
 
-		logoutRequest(_req, _res, (err, res) => {
+		sessionService.logoutRequest(_req, _res, (err, res) => {
 			Dispatcher.dispatch({
 				actionType: UserConstants.INVALIDATE_USER,
 				data: err || res

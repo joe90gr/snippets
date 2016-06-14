@@ -17,8 +17,6 @@ export function serialize() {
 
 		if (_store && _store.serialize) {
 			serialized[storeName] = _store.serialize();
-		} else {
-			serialized[storeName] = 'null';
 		}
 
 		return serialized;

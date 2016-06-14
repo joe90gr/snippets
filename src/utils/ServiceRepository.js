@@ -4,7 +4,7 @@ class ServiceRepository {
 	}
 
 	register(Service) {
-		this.services[Service.name] = Service;
+		this.services[this.serviceInstanceName(Service.name)] = new Service();
 
 		return this;
 	}
@@ -15,6 +15,10 @@ class ServiceRepository {
 
 	getRegisteredServices() {
 		return this.services;
+	}
+
+	serviceInstanceName(storeName) {
+		return `${storeName.charAt(0).toLowerCase()}${storeName.slice(1)}`;
 	}
 }
 

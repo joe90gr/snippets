@@ -1,7 +1,7 @@
 import serviceRepository from 'utils/ServiceRepository';
 import storeRepository from 'utils/StoreRepository';
 
-import { loginRequest, logoutRequest } from 'services/sessionService.server';
+import SessionService from 'services/SessionService.server';
 
 import DocumentMetaDataStore from 'stores/DocumentMetaDataStore';
 import RoutingStore from 'stores/RoutingStore';
@@ -10,8 +10,7 @@ import UserSessionStore from 'stores/UserSessionStore';
 import app from './middleware';
 
 serviceRepository
-	.register(loginRequest)
-	.register(logoutRequest);
+	.register(SessionService);
 
 storeRepository
 	.register(DocumentMetaDataStore)
