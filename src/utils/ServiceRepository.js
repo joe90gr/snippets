@@ -17,8 +17,8 @@ class ServiceRepository {
 		return this.services;
 	}
 
-	serviceInstanceName(storeName) {
-		return `${storeName.charAt(0).toLowerCase()}${storeName.slice(1)}`;
+	serviceInstanceName(serviceName) {
+		return `${serviceName.charAt(0).toLowerCase()}${serviceName.slice(1)}`;
 	}
 }
 

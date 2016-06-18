@@ -18,15 +18,19 @@ class StoreRepository {
 		let store = new Store(deserializedState);
 
 		store.dispatcher = Dispatcher;
-		store.dispatchToken = this._registerDispatcher(store);
+		store.dispatchToken = this._registerDispatcher(store, Store.name);
 		this.stores[this.storeInstanceName(Store.name)] = store;
 
 		return this;
 	}
 
-	_registerDispatcher(store) {
+	_registerDispatcher(store, name) {
 		return store.dispatcher.register((action) => {
-			store._onDispatch(action);
+			if (store._onDispatch) {
+				store._onDispatch(action);
+			} else {
+				throw new Error(`The store ${name} must implement and _onDispatch method`);
+			}
 		});
 	}
 

@@ -25,23 +25,32 @@ describe('Given the ..', () => {
 			MockSerialize();
 			return MOCK_SERIALIZED_OBJECT1;
 		}
+		_onDispatch() {}
 	};
 	var MockStoreClass2 = class MockStoreClass2 {
 		serialize() {
 			return MOCK_SERIALIZED_OBJECT2;
 		}
+		_onDispatch() {}
 	};
-	var MockStoreClass3 = class MockStoreClass3 {};
+	var MockStoreClass3 = class MockStoreClass3 {_onDispatch() {}};
 
-	serviceRepository
-		.register(MockService1)
-		.register(MockService2);
+	before(() => {
+		serviceRepository
+			.register(MockService1)
+			.register(MockService2);
 
-	storeRepository
-		.register(MockStoreClass1)
-		.register(MockStoreClass2)
-		.register(MockStoreClass3)
-		.bindStoreUsages();
+		storeRepository
+			.register(MockStoreClass1)
+			.register(MockStoreClass2)
+			.register(MockStoreClass3)
+			.bindStoreUsages();
+	});
+
+	after(() => {
+		serviceRepository.services = {};
+		storeRepository.stores = {};
+	});
 
 	describe('given a set of registered services', () => {
 		describe('when a service is instantiated', () => {
