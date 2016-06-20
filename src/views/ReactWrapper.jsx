@@ -60,6 +60,7 @@ export default React.createClass({
 						</form>
 					</div>
 				</LoggedIn>
+				<p>{ this.userSessionStore.getErrors() }</p>
 				<Navigation />
 				<div className="content">
 					<PrimaryContent title={ this.state.title } model= { this.state.content } />

@@ -34,6 +34,10 @@ class UserSessionStore extends AbstractStore {
 		return !!this.user.error;
 	}
 
+	getErrors() {
+		return this.user.error;
+	}
+
 	updateUserInfo(user) {
 		this.user = user.text ? JSON.parse(user.text) : user;
 	}

@@ -13,7 +13,17 @@ class SessionService {
 			})
 			.set('Content-Type', 'application/x-www-form-urlencoded')
 			.set('Accept', 'application/json')
-			.end(cb);
+			.end((err, res) => {
+				let _err;
+
+				if (err) {
+					_err = err.message;
+				} else if (res.error) {
+					_err = res.error;
+				}
+
+				cb(_err, res);
+			});
 	}
 
 	logoutRequest(req, res, cb) {

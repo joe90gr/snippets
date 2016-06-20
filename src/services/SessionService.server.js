@@ -13,12 +13,11 @@ function invalidatedUserSession() {
 	};
 }
 
-function populateUserSession(req) {
+function populateUserSession(req, userData) {
 	let userSession = req.session.user;
 
-	userSession.userId = 'userId';
+	userSession.userId = userData.userID;
 	userSession.name = req.body.userName;
-	userSession.password = req.body.password;
 	userSession.surname = 'surname';
 	userSession.email = 'email';
 	userSession.accessLevel = 'accessLevel';
@@ -26,36 +25,23 @@ function populateUserSession(req) {
 	userSession.error = null;
 }
 
-function sanatiseSessionData(userSession) {
-	var sanatisedCopy = assign({}, userSession);
-	delete sanatisedCopy.password;
-
-	return sanatisedCopy;
-}
-
 class SessionService {
 	constructor() {
 	}
 
 	loginRequest(req, res, cb) {
-		let isCredentialsVerified = isAuthenticated(req.body.userName, req.body.password);
+		let submittedCredentials = {
+			userName: req.body.userName,
+			password: req.body.password
+		};
+		let _onSuccess = this._onSuccess.bind(this, req, res, cb);
+		let _onFail = this._onFail.bind(this, req, res, cb);
 
 		if (!req.session.user) {
 			req.session.user = invalidatedUserSession();
 		}
 
-		if (isCredentialsVerified) {
-			req.session.isAuthenticated = true;
-			populateUserSession(req);
-
-			cb(null, sanatiseSessionData(req.session.user));
-		} else {
-			req.session.user = invalidatedUserSession();
-
-			cb({ error: 'invalidcredentials' }, null);
-		}
-
-		res.json(sanatiseSessionData(req.session.user));
+		isAuthenticated(submittedCredentials).then(_onSuccess, _onFail);
 	}
 
 	logoutRequest(req, res, cb) {
@@ -67,6 +53,24 @@ class SessionService {
 		if (!req.overide) {
 			res.json(req.session.user);
 		}
+	}
+
+	_onSuccess(req, res, cb, userData) {
+		req.session.isAuthenticated = true;
+		populateUserSession(req, userData);
+
+		cb(null, req.session.user);
+
+		res.json(req.session.user);
+	}
+
+	_onFail(req, res, cb, userData) {
+		req.session.user = invalidatedUserSession();
+		req.session.user.error = userData.error;
+
+		cb({ error: userData.code }, null);
+
+		res.json(req.session.user);
 	}
 }
 
