@@ -4,21 +4,13 @@ import UserAction from 'actions/UserAction';
 
 var router = express.Router();
 
-function checkUserSessionValid(req, res) {
-	if (!req.session.isAuthenticated) {
-		req.overide = true;
-		UserAction.invalidateUser(req, res);
-	}
-}
-
 router.post('/login', UserAction.authenticateUser);
 router.get('/logout', UserAction.invalidateUser);
 
 router.get('*', function (req, res) {
 	var path = req.path.substr(1) === '' ? 'index' : req.path.substr(1);
 
-	checkUserSessionValid(req);
-	UserAction.initiateUser(req.session.user);
+	UserAction.initiateUser(req, res);
 	NavigateAction.navigateTo(path);
 
 	res.render('index');

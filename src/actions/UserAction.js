@@ -3,10 +3,12 @@ import UserConstants from 'constants/UserConstants';
 import { useService } from 'src/registry';
 
 export default {
-	initiateUser: function (session) {
+	initiateUser: function (req, res) {
+		this._checkUserSessionValid(req, res);
+
 		Dispatcher.dispatch({
 			actionType: UserConstants.INIT_SESSION_DATA,
-			data: session
+			data: req.session.user
 		});
 	},
 
@@ -36,5 +38,12 @@ export default {
 				data: err || res
 			});
 		});
+	},
+
+	_checkUserSessionValid: function (req, res) {
+		if (!req.session.isAuthenticated) {
+			req.overide = true;
+			this.invalidateUser(req, res);
+		}
 	}
 };
