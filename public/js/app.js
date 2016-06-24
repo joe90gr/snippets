@@ -4,6 +4,7 @@ import ReactWrapper from 'views/ReactWrapper';
 import serviceRepository from 'utils/ServiceRepository';
 import storeRepository from 'utils/StoreRepository';
 
+import RoutingService from 'services/RoutingService.client';
 import SessionService from 'services/SessionService.client';
 
 import DocumentMetaDataStore from 'stores/DocumentMetaDataStore';
@@ -12,6 +13,7 @@ import ContentStore from 'stores/ContentStore';
 import UserSessionStore from 'stores/UserSessionStore';
 
 serviceRepository
+	.register(RoutingService)
 	.register(SessionService);
 
 storeRepository

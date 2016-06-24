@@ -7,19 +7,13 @@ import Navigation from './components/Navigation';
 import PrimaryContent from './PrimaryContent';
 import LoggedIn from './components/LoggedIn';
 import LoggedOut from './components/LoggedOut';
-import router from 'services/routingService';
 import snippets from 'common/snippets';
-
 import { use } from 'mixins/use';
 
 export default React.createClass({
 	displayName: 'reactWrapper',
 
 	mixins: [ use('contentStore'), use('userSessionStore') ],
-
-	componentDidMount: function () {
-		router.init();
-	},
 
 	getInitialState: function () {
 		let state = this.extractPageContent();

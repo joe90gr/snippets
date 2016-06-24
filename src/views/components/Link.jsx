@@ -1,5 +1,5 @@
 import React from 'react';
-import router from 'services/routingService';
+import NavigateAction from 'actions/NavigateActionCreator';
 
 export default React.createClass({
 	displayName: 'Link',
@@ -17,6 +17,6 @@ export default React.createClass({
 
 	clickFunction: function (e) {
 		e.preventDefault();
-		router.setRoute(e.target.getAttribute('href'));
+		NavigateAction.navigateTo(e.target.getAttribute('href'));
 	}
 });
