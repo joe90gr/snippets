@@ -5,8 +5,7 @@ import userAction from 'actions/userAction';
 
 import Navigation from './components/Navigation';
 import PrimaryContent from './PrimaryContent';
-import LoggedIn from './components/LoggedIn';
-import LoggedOut from './components/LoggedOut';
+import AccessControl from './components/AccessControl';
 import snippets from 'common/snippets';
 import { use } from 'mixins/use';
 
@@ -36,7 +35,7 @@ export default React.createClass({
 	render: function () {
 		return (
 			<div className="react-wrapper">
-				<LoggedOut>
+				<AccessControl loggedIn={ false }>
 					<div>
 						<h1>Hello Guest</h1>
 						<form method="get" action="/login" onSubmit={ this._onSubmitLogin }>
@@ -45,15 +44,15 @@ export default React.createClass({
 							<button type="submit">Login</button>
 						</form>
 					</div>
-				</LoggedOut>
-				<LoggedIn>
+				</AccessControl>
+				<AccessControl loggedIn>
 					<div>
 						<h1>Hello {this.state.user.name}</h1>
 						<form method="get" action="/logout" onSubmit={ this._onSubmitLogout }>
 							<button type="submit">Logout</button>
 						</form>
 					</div>
-				</LoggedIn>
+				</AccessControl>
 				<p>{ this.userSessionStore.getErrors() }</p>
 				<Navigation />
 				<div className="content">
