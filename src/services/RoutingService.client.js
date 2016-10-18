@@ -7,13 +7,13 @@ class RoutingService {
 	constructor() {
 		this._bindEvents = { routes: routes };
 
-		for (let route in routes) {
-			if (routes.hasOwnProperty(route)) {
-				let _route = route === 'index' ? '' : route;
-				let callback = new this.CallbackObj(route);
-				this._bindEvents[_route] = callback.fn;
-			}
-		}
+		Object.keys(routes).forEach((route) => {
+			let _route = route === 'index' ? '' : route;
+			let callback = new this.CallbackObj(route);
+
+			this._bindEvents[_route] = callback.fn;
+		});
+
 		delete this._bindEvents.routes;
 
 		this._router = new director.Router(this._bindEvents).configure({ html5history: true });
