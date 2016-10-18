@@ -4,7 +4,7 @@ import NavigateAction from 'actions/NavigateActionCreator';
 export default React.createClass({
 	displayName: 'Link',
 
-	PropTypes: {
+	propTypes: {
 		name: React.PropTypes.string,
 		location: React.PropTypes.string
 	},

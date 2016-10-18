@@ -1,6 +1,7 @@
 import contentConstants from 'constants/ContentConstants';
 import AbstractStore from './AbstractStore';
 import routes from 'configuration/routes';
+import snippets from 'common/snippets';
 
 class ContentStore extends AbstractStore {
 	constructor(deserializedState) {
@@ -10,11 +11,18 @@ class ContentStore extends AbstractStore {
 		this._content = deserializedState.page || { title: '', content: [] };
 	}
 
-	getPageContent() {
-		return this._content;
+	page() {
+		let { title, content } = this._content;
+		let page = { title: title, content: [] };
+
+		content.forEach((content, index) => {
+			page.content[index] = snippets[content];
+		});
+
+		return page;
 	}
 
-	_createPageContent(content) {
+	_setPageContent(content) {
 		this._content = content;
 	}
 
@@ -26,7 +34,7 @@ class ContentStore extends AbstractStore {
 		switch (action.actionType) {
 			case contentConstants.CREATE_PAGE:
 				this.dispatcher.waitFor([ this.routingStore.dispatchToken ]);
-				this._createPageContent(routes[action.data]);
+				this._setPageContent(routes[action.data]);
 				this.emitChange();
 				break;
 			default:

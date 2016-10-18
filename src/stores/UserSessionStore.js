@@ -18,11 +18,7 @@ class UserSessionStore extends AbstractStore {
 		this.user = deserializedState.user || this.blankUser;
 	}
 
-	setSessionData(userSession) {
-		this.user = userSession || this.blankUser;
-	}
-
-	getUserInfo() {
+	user() {
 		return this.user;
 	}
 
@@ -34,15 +30,19 @@ class UserSessionStore extends AbstractStore {
 		return !!this.user.error;
 	}
 
-	getErrors() {
+	errors() {
 		return this.user.error;
 	}
 
-	updateUserInfo(user) {
+	_setInitialSessionData(userSession) {
+		this.user = userSession || this.blankUser;
+	}
+
+	_updateUserInfo(user) {
 		this.user = user.text ? JSON.parse(user.text) : user;
 	}
 
-	updateUserError(user) {
+	_updateUserError(user) {
 		this.user.error = user;
 	}
 
@@ -53,18 +53,18 @@ class UserSessionStore extends AbstractStore {
 	_onDispatch(action) {
 		switch (action.actionType) {
 			case userConstants.INIT_SESSION_DATA:
-				this.setSessionData(action.data);
+				this._setInitialSessionData(action.data);
 				break;
 			case userConstants.AUTHENTICATE_USER:
-				this.updateUserInfo(action.data);
+				this._updateUserInfo(action.data);
 				this.emitChange();
 				break;
 			case userConstants.INVALIDATE_USER:
-				this.updateUserInfo(action.data);
+				this._updateUserInfo(action.data);
 				this.emitChange();
 				break;
 			case userConstants.AUTHENTICATION_ERROR:
-				this.updateUserError(action.data);
+				this._updateUserError(action.data);
 				this.emitChange();
 				break;
 			default:
