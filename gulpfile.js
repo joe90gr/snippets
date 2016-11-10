@@ -23,7 +23,7 @@ gulp.task('test', function (done) {
 
 gulp.task('browserify', function () {
 	return browserify([ './public/js/app.js' ], { debug: true, extensions: [ '.jsx' ] })
-		.transform(babelify, { sourceMaps: false })
+		.transform(babelify, { sourceMaps: true })
 		.bundle()
 		.pipe(source('main.js'))
 		.pipe(buffer())
