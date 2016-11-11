@@ -34,7 +34,8 @@ export default function () {
 			secure: true
 		},
 		'saveUninitialized': false,
-		secret: '1234567890QWERTY'
+		secret: '1234567890QWERTY',
+		resave: false
 	}));
 	app.use('/', routesServer);
 	app.use(error404);

@@ -4,18 +4,22 @@
 	  "react"
 	],
 	"plugins": [
-		["babel-plugin-module-alias", [
-			{ "src": "./src", "expose": "src" },
-			{ "src": "./src/actions", "expose": "actions" },
-			{ "src": "./src/common", "expose": "common" },
-			{ "src": "./src/configuration", "expose": "configuration" },
-			{ "src": "./src/constants", "expose": "constants" },
-			{ "src": "./src/mixins", "expose": "mixins" },
-			{ "src": "./src/routes", "expose": "routes" },
-			{ "src": "./src/services", "expose": "services" },
-			{ "src": "./src/stores", "expose": "stores" },
-			{ "src": "./src/utils", "expose": "utils" },
-			{ "src": "./src/views", "expose": "views" },
-		]]
+		["module-resolver", {
+				"root": ["./src"],
+				"alias": {
+					"src": "./src" ,
+					"actions": "./src/actions",
+					"common": "./src/common",
+					"configuration": "./src/configuration",
+					"constants": "./src/constants",
+					"mixins": "./src/mixins",
+					"routes": "./src/routes",
+					"services": "./src/services",
+					"stores": "./src/stores",
+					"utils": "./src/utils",
+					"views": "./src/views",
+				}
+			}
+		]
 	]
 }
