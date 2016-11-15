@@ -1,15 +1,12 @@
 import React from 'react';
 import PrintConsole from './components/PrintConsole';
 
-export default React.createClass({
-	displayName: 'PrimaryContent',
+class PrimaryContent extends React.Component {
+	constructor(props) {
+		super(props);
+	}
 
-	propTypes: {
-		title: React.PropTypes.string,
-		model: React.PropTypes.array
-	},
-
-	_executeBlock: function (itemText, index) {
+	_executeBlock(itemText, index) {
 		var arr = [];
 
 		var returnedFromFunction = itemText(function (result) {
@@ -21,9 +18,9 @@ export default React.createClass({
 			returnedFromFunction: returnedFromFunction,
 			arr: arr
 		};
-	},
+	}
 
-	_createItem: function (itemText, index) {
+	_createItem(itemText, index) {
 		var result = this._executeBlock(itemText, index);
 
 		return (
@@ -41,15 +38,23 @@ export default React.createClass({
 				</div>
 			</pre>
 		);
-	},
+	}
 
-	render: function () {
+	render() {
 		return (
 			<div>
 				<h1 className="main-title"> {this.props.title} </h1>
-				{this.props.model.map(this._createItem)}
+				{this.props.model.map((itemText, index) => this._createItem(itemText, index))}
 			</div>
 		);
 	}
-});
+}
 
+PrimaryContent.displayName = 'PrimaryContent';
+
+PrimaryContent.propTypes = {
+	title: React.PropTypes.string,
+	model: React.PropTypes.array
+};
+
+export default PrimaryContent;
