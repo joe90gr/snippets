@@ -1,15 +1,11 @@
 import React from 'react';
 
-export default React.createClass({
-	displayName: 'Error',
+class Error extends React.Component {
+	constructor(props) {
+		super(props);
+	}
 
-	propTypes: {
-		title: React.PropTypes.string,
-		message: React.PropTypes.string,
-		error: React.PropTypes.object
-	},
-
-	render: function () {
+	render() {
 		return (
 			<html>
 				<head>
@@ -26,4 +22,14 @@ export default React.createClass({
 			</html>
 		);
 	}
-});
+}
+
+Error.displayName ='Error';
+
+Error.propTypes = {
+	title: React.PropTypes.string,
+	message: React.PropTypes.string,
+	error: React.PropTypes.object
+};
+
+export default Error;
