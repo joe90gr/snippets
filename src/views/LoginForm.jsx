@@ -5,15 +5,12 @@ import userAction from 'actions/userAction';
 
 import AccessControl from './components/AccessControl';
 
-export default React.createClass({
-	displayName: 'LoginForm',
+class LoginForm extends React.Component {
+	constructor() {
+		super();
+	}
 
-	propTypes: {
-		user: React.PropTypes.object,
-		errors: React.PropTypes.string
-	},
-
-	render: function () {
+	render() {
 		let { name } = this.props.user;
 		let errors = this.props.errors;
 
@@ -28,33 +25,33 @@ export default React.createClass({
 				<p>{ errors }</p>
 			</div>
 		);
-	},
+	}
 
-	_loggedInForm: function (name) {
+	_loggedInForm(name) {
 		return (
 			<div>
 				<h1>Hello { name }</h1>
-				<form method="get" action="/logout" onSubmit={ this._onSubmitLogout }>
+				<form method="get" action="/logout" onSubmit={ (e) => this._onSubmitLogout(e) }>
 					<button type="submit">Logout</button>
 				</form>
 			</div>
 		);
-	},
+	}
 
-	_loggedOutForm: function () {
+	_loggedOutForm() {
 		return (
 			<div>
 				<h1>Hello Guest</h1>
-				<form method="get" action="/login" onSubmit={ this._onSubmitLogin }>
+				<form method="get" action="/login" onSubmit={ (e) => this._onSubmitLogin(e) }>
 					<input type="text" ref="username" defaultValue="joe" />
 					<input type="text" ref="password" defaultValue="1234" />
 					<button type="submit">Login</button>
 				</form>
 			</div>
 		);
-	},
+	}
 
-	_onSubmitLogin: function (e) {
+	_onSubmitLogin(e) {
 		e.preventDefault();
 
 		userAction.authenticateUser({
@@ -63,11 +60,20 @@ export default React.createClass({
 				password: ReactDOM.findDOMNode(this.refs.password).value
 			}
 		});
-	},
+	}
 
-	_onSubmitLogout: function (e) {
+	_onSubmitLogout(e) {
 		e.preventDefault();
 
 		userAction.invalidateUser();
 	}
-});
+}
+
+LoginForm.displayName ='LoginForm';
+
+LoginForm.propTypes = {
+	user: React.PropTypes.object,
+	errors: React.PropTypes.string
+};
+
+export default LoginForm;
