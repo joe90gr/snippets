@@ -1,15 +1,12 @@
 import React from 'react';
 import ReactWrapper from '../ReactWrapper';
 
-export default React.createClass({
-	displayName: 'Body',
+class Body extends React.Component {
+	constructor(props) {
+		super(props);
+	}
 
-	propTypes: {
-		title: React.PropTypes.string,
-		model: React.PropTypes.array
-	},
-
-	render: function () {
+	render() {
 		return (
 			<body>
 				<ReactWrapper />
@@ -17,4 +14,13 @@ export default React.createClass({
 			</body>
 		);
 	}
-});
+}
+
+Body.displayName = 'Body';
+
+Body.propTypes = {
+	title: React.PropTypes.string,
+	model: React.PropTypes.array
+};
+
+export default Body;
