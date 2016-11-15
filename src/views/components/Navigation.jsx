@@ -2,6 +2,10 @@ import React from 'react';
 import Link from './Link';
 
 class Navigation extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+
 	render() {
 		return (
 			<ul className="links">

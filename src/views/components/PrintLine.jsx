@@ -1,6 +1,10 @@
 import React from 'react';
 
 class PrintLine extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+
 	render() {
 		var createItem = function (line, index) {
 			return React.createElement('p', { className: 'line' + index, key: 'pl' + (index + 1) }, line);

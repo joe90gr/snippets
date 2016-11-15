@@ -2,6 +2,10 @@ import React from 'react';
 import NavigateAction from 'actions/NavigateActionCreator';
 
 class Link extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+
 	render() {
 		return (
 			<a href={ this.props.location } onClick={ this.clickFunction }> { this.props.name } </a>

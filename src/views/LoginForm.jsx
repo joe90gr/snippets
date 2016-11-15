@@ -6,8 +6,8 @@ import userAction from 'actions/userAction';
 import AccessControl from './components/AccessControl';
 
 class LoginForm extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 	}
 
 	render() {

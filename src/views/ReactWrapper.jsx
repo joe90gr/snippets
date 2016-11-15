@@ -7,8 +7,8 @@ import PrimaryContent from './PrimaryContent';
 import LoginForm from './LoginForm';
 
 class ReactWrapper extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 	}
 
 	render() {

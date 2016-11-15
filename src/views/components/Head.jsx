@@ -2,6 +2,10 @@ import React from 'react';
 import SubscribeToStores from 'utils/SubscribeToStores';
 
 class Head extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+
 	render() {
 		return (
 			<head>
