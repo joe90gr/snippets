@@ -2,10 +2,12 @@ import React from 'react';
 import Head from './components/Head';
 import Body from './components/Body';
 
-export default React.createClass({
-	displayName: 'Index',
+class Index extends React.Component {
+	constructor(props) {
+		super(props);
+	}
 
-	render: function () {
+	render() {
 		return (
 			<html>
 				<Head />
@@ -13,4 +15,8 @@ export default React.createClass({
 			</html>
 		);
 	}
-});
+}
+
+Index.displayName = 'Index';
+
+export default Index;
