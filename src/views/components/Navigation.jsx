@@ -1,10 +1,8 @@
 import React from 'react';
 import Link from './Link';
 
-export default React.createClass({
-	displayName: 'Navigation',
-
-	render: function () {
+class Navigation extends React.Component {
+	render() {
 		return (
 			<ul className="links">
 				<li><Link name="Home" location="/" /></li>
@@ -23,4 +21,8 @@ export default React.createClass({
 			</ul>
 		);
 	}
-});
+}
+
+Navigation.displayName = 'Navigation';
+
+export default Navigation;
