@@ -1,20 +1,12 @@
 import React from 'react';
 import SubscribeToStores from 'utils/SubscribeToStores';
 
-const storeManifest = {
-	userSessionStore: [ 'isAuthenticated' ]
-};
+class AccessControl extends React.Component {
+	constructor(props) {
+		super(props);
+	}
 
-export default SubscribeToStores(React.createClass({
-	displayName: 'AccessControl',
-
-	propTypes: {
-		children: React.PropTypes.object,
-		loggedIn: React.PropTypes.bool,
-		userSessionStore: React.PropTypes.object
-	},
-
-	render: function () {
+	render() {
 		const { children, loggedIn, userSessionStore } = this.props;
 
 		if (userSessionStore.isAuthenticated === loggedIn) {
@@ -23,4 +15,16 @@ export default SubscribeToStores(React.createClass({
 
 		return null;
 	}
-}), storeManifest);
+}
+
+AccessControl.displayName = 'AccessControl';
+
+AccessControl.propTypes = {
+	children: React.PropTypes.object,
+	loggedIn: React.PropTypes.bool,
+	userSessionStore: React.PropTypes.object
+};
+
+export default SubscribeToStores(AccessControl, {
+	userSessionStore: [ 'isAuthenticated' ]
+});
