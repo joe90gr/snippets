@@ -1,22 +1,24 @@
 import React from 'react';
 import NavigateAction from 'actions/NavigateActionCreator';
 
-export default React.createClass({
-	displayName: 'Link',
-
-	propTypes: {
-		name: React.PropTypes.string,
-		location: React.PropTypes.string
-	},
-
-	render: function () {
+class Link extends React.Component {
+	render() {
 		return (
 			<a href={ this.props.location } onClick={ this.clickFunction }> { this.props.name } </a>
 		);
-	},
+	}
 
-	clickFunction: function (e) {
+	clickFunction(e) {
 		e.preventDefault();
 		NavigateAction.navigateTo(e.target.getAttribute('href'));
 	}
-});
+}
+
+Link.displayName = 'Link';
+
+Link.propTypes = {
+	name: React.PropTypes.string,
+	location: React.PropTypes.string
+};
+
+export default Link;
