@@ -1,10 +1,6 @@
 import React from 'react';
 import SubscribeToStores from 'utils/SubscribeToStores';
 
-const storeManifest = {
-	documentMetaDataStore: [ 'pageTitle', 'styleSheetPath', 'serialisedScripts' ]
-};
-
 class Head extends React.Component {
 	render() {
 		return (
@@ -32,4 +28,6 @@ Head.propTypes = {
 	documentMetaDataStore: React.PropTypes.object
 };
 
-export default SubscribeToStores(Head, storeManifest);
+export default SubscribeToStores(Head, {
+	documentMetaDataStore: [ 'pageTitle', 'styleSheetPath', 'serialisedScripts' ]
+});
