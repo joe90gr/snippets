@@ -5,15 +5,8 @@ const storeManifest = {
 	documentMetaDataStore: [ 'pageTitle', 'styleSheetPath', 'serialisedScripts' ]
 };
 
-export default SubscribeToStores(React.createClass({
-	displayName: 'Head',
-
-	propTypes: {
-		title: React.PropTypes.string,
-		documentMetaDataStore: React.PropTypes.object
-	},
-
-	render: function () {
+class Head extends React.Component {
+	render() {
 		return (
 			<head>
 				<title></title>
@@ -21,13 +14,22 @@ export default SubscribeToStores(React.createClass({
 				<script data-embedded id="serialised" dangerouslySetInnerHTML={ this.getSerializedScript() }/>
 			</head>
 		);
-	},
+	}
 
-	getMetaTitle: function () {
+	getMetaTitle() {
 		return this.props.documentMetaDataStore.pageTitle;
-	},
+	}
 
-	getSerializedScript: function () {
+	getSerializedScript() {
 		return { __html: `window.SERIALIZED_STORE_CACHE = ${this.props.documentMetaDataStore.serialisedScripts}` };
 	}
-}), storeManifest);
+}
+
+Head.displayName = 'Head';
+
+Head.propTypes = {
+	title: React.PropTypes.string,
+	documentMetaDataStore: React.PropTypes.object
+};
+
+export default SubscribeToStores(Head, storeManifest);
