@@ -9,7 +9,9 @@ class Body extends React.Component {
 	render() {
 		return (
 			<body>
-				<ReactWrapper />
+				<div className="react-root">
+					<ReactWrapper />
+				</div>
 				<script type="text/javascript" src="/js/main.js" />
 			</body>
 		);

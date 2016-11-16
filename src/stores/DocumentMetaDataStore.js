@@ -8,7 +8,7 @@ class DocumentMetaDataStore extends AbstractStore {
 	}
 
 	pageTitle() {
-		return this.routingStore.getRoute();
+		return this.routingStore.route();
 	}
 
 	styleSheetPath() {

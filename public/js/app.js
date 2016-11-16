@@ -4,4 +4,4 @@ import {} from 'utils/serviceRegistration.client';
 import {} from 'utils/storeRegistration';
 import ReactWrapper from 'views/ReactWrapper';
 
-ReactDOM.render(<ReactWrapper />, document.getElementsByClassName('react-wrapper')[0]);
+ReactDOM.render(<ReactWrapper />, document.getElementsByClassName('react-root')[0]);

@@ -8,7 +8,7 @@ class RoutingStore extends AbstractStore {
 		this._route = deserializedState.route || '';
 	}
 
-	getRoute() {
+	route() {
 		return this._route;
 	}
 
@@ -18,7 +18,7 @@ class RoutingStore extends AbstractStore {
 
 	serialize() {
 		return {
-			route: this.getRoute()
+			route: this.route()
 		};
 	}
 
