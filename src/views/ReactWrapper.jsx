@@ -2,9 +2,7 @@ import React from 'react';
 
 import SubscribeToStores from 'utils/SubscribeToStores';
 
-import Navigation from './components/Navigation';
-import Snippets from './content/Snippets';
-import LoginForm from './LoginForm';
+import LeftNav from './templates/LeftNav';
 
 class ReactWrapper extends React.Component {
 	constructor(props) {
@@ -13,16 +11,10 @@ class ReactWrapper extends React.Component {
 
 	render() {
 		let { contentStore, userSessionStore } = this.props;
-		let { page } = contentStore;
-		let { user, errors } = userSessionStore;
 
 		return (
 			<div className="react-wrapper">
-				<LoginForm user={ user } errors={ errors } />
-				<Navigation />
-				<div className="content">
-					<Snippets title={ page.title } model={ page.content }/>
-				</div>
+				<LeftNav contentStore={ contentStore } userSessionStore={ userSessionStore } />
 			</div>
 		);
 	}
