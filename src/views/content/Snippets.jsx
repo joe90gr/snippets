@@ -1,7 +1,7 @@
 import React from 'react';
-import PrintConsole from './components/PrintConsole/PrintConsole';
+import PrintConsole from '../components/PrintConsole/PrintConsole';
 
-class PrimaryContent extends React.Component {
+class Snippets extends React.Component {
 	constructor(props) {
 		super(props);
 	}
@@ -50,11 +50,11 @@ class PrimaryContent extends React.Component {
 	}
 }
 
-PrimaryContent.displayName = 'PrimaryContent';
+Snippets.displayName = 'Snippets';
 
-PrimaryContent.propTypes = {
+Snippets.propTypes = {
 	title: React.PropTypes.string,
 	model: React.PropTypes.array
 };
 
-export default PrimaryContent;
+export default Snippets;

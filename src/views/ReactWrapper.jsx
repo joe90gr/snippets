@@ -3,7 +3,7 @@ import React from 'react';
 import SubscribeToStores from 'utils/SubscribeToStores';
 
 import Navigation from './components/Navigation';
-import PrimaryContent from './PrimaryContent';
+import Snippets from './content/Snippets';
 import LoginForm from './LoginForm';
 
 class ReactWrapper extends React.Component {
@@ -21,7 +21,7 @@ class ReactWrapper extends React.Component {
 				<LoginForm user={ user } errors={ errors } />
 				<Navigation />
 				<div className="content">
-					<PrimaryContent title={ page.title } model= { page.content } />
+					<Snippets title={ page.title } model={ page.content }/>
 				</div>
 			</div>
 		);
