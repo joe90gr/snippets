@@ -2,7 +2,7 @@ import React from 'react';
 
 import SubscribeToStores from 'utils/SubscribeToStores';
 
-import LeftNav from './templates/LeftNav';
+import LeftNavLayout from './templates/LeftNavLayout';
 
 class ReactWrapper extends React.Component {
 	constructor(props) {
@@ -14,7 +14,7 @@ class ReactWrapper extends React.Component {
 
 		return (
 			<div id={ routingStore.route } className="react-wrapper">
-				<LeftNav contentStore={ contentStore } userSessionStore={ userSessionStore } />
+				<LeftNavLayout contentStore={ contentStore } userSessionStore={ userSessionStore } />
 			</div>
 		);
 	}
