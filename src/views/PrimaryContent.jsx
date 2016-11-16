@@ -1,5 +1,5 @@
 import React from 'react';
-import PrintConsole from './components/PrintConsole';
+import PrintConsole from './components/PrintConsole/PrintConsole';
 
 class PrimaryContent extends React.Component {
 	constructor(props) {
