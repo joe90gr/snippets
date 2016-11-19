@@ -8,7 +8,7 @@ class Link extends React.Component {
 
 	render() {
 		return (
-			<a href={ this.props.location } onClick={ this.clickFunction }> { this.props.name } </a>
+			<a href={ this.props.to } onClick={ this.clickFunction }> { this.props.children } </a>
 		);
 	}
 
@@ -21,8 +21,8 @@ class Link extends React.Component {
 Link.displayName = 'Link';
 
 Link.propTypes = {
-	name: React.PropTypes.string,
-	location: React.PropTypes.string
+	children: React.PropTypes.string,
+	to: React.PropTypes.string
 };
 
 export default Link;

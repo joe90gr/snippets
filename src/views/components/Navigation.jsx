@@ -9,19 +9,19 @@ class Navigation extends React.Component {
 	render() {
 		return (
 			<ul className="links">
-				<li><Link name="Home" location="/" /></li>
-				<li><Link name="Examples" location="examples" /></li>
-				<li><Link name="Iterators" location="iterators" /></li>
-				<li><Link name="Lists" location="lists" /></li>
-				<li><Link name="Linked Lists" location="linked-lists" /></li>
-				<li><Link name="Hashmap" location="hashmap" /></li>
-				<li><Link name="Stack" location="stack" /></li>
-				<li><Link name="Promises" location="promises" /></li>
-				<li><Link name="Classes" location="classes" /></li>
-				<li><Link name="Queue" location="queue" /></li>
-				<li><Link name="Format Messages" location="format-messages" /></li>
-				<li><Link name="Algorithms" location="algorithms" /></li>
-				<li><Link name="Factory" location="factory" /></li>
+				<li><Link to="/">Home</Link></li>
+				<li><Link to="examples">Examples</Link></li>
+				<li><Link to="iterators">Iterators</Link></li>
+				<li><Link to="lists">Lists</Link></li>
+				<li><Link to="linked-lists">Linked Lists</Link></li>
+				<li><Link to="hashmap">Hashmap</Link></li>
+				<li><Link to="stack">Stack</Link></li>
+				<li><Link to="promises">Promises</Link></li>
+				<li><Link to="classes">Classes</Link></li>
+				<li><Link to="queue">Queue</Link></li>
+				<li><Link to="format-messages">Format Messages</Link></li>
+				<li><Link to="algorithms">Algorithms</Link></li>
+				<li><Link to="factory">Factory</Link></li>
 			</ul>
 		);
 	}
