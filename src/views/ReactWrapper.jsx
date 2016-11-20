@@ -10,11 +10,15 @@ class ReactWrapper extends React.Component {
 	}
 
 	render() {
-		let { routingStore, contentStore, userSessionStore } = this.props;
+		const { locationStore, routingStore, contentStore, userSessionStore } = this.props;
 
 		return (
 			<div id={ routingStore.route } className="react-wrapper">
-				<LeftNavLayout contentStore={ contentStore } userSessionStore={ userSessionStore } />
+				<LeftNavLayout
+					locationStore= { locationStore }
+					contentStore={ contentStore }
+					userSessionStore={ userSessionStore }
+				/>
 			</div>
 		);
 	}
@@ -25,11 +29,13 @@ ReactWrapper.displayName = 'reactWrapper';
 ReactWrapper.propTypes = {
 	userSessionStore: React.PropTypes.object,
 	routingStore: React.PropTypes.object,
-	contentStore: React.PropTypes.object
+	contentStore: React.PropTypes.object,
+	locationStore: React.PropTypes.object
 };
 
 export default SubscribeToStores(ReactWrapper, {
 	userSessionStore: [ 'user', 'errors' ],
 	routingStore: [ 'route' ],
-	contentStore: [ 'page' ]
+	contentStore: [ 'page' ],
+	locationStore: [ 'registeredRoutes' ]
 });

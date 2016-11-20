@@ -9,24 +9,25 @@ class Navigation extends React.Component {
 	render() {
 		return (
 			<ul className="links">
-				<li><Link to="/">Home</Link></li>
-				<li><Link to="examples">Examples</Link></li>
-				<li><Link to="iterators">Iterators</Link></li>
-				<li><Link to="lists">Lists</Link></li>
-				<li><Link to="linked-lists">Linked Lists</Link></li>
-				<li><Link to="hashmap">Hashmap</Link></li>
-				<li><Link to="stack">Stack</Link></li>
-				<li><Link to="promises">Promises</Link></li>
-				<li><Link to="classes">Classes</Link></li>
-				<li><Link to="queue">Queue</Link></li>
-				<li><Link to="format-messages">Format Messages</Link></li>
-				<li><Link to="algorithms">Algorithms</Link></li>
-				<li><Link to="factory">Factory</Link></li>
+				{this.props.linkList.map((itemText, index) => this._createItem(itemText, index))}
 			</ul>
+		);
+	}
+
+	_createItem(itemText, index) {
+		const { title, external } = this.props.registeredRoutes[itemText];
+
+		return (
+			<li key={`link-${index + 1}`}><Link to={ itemText } external={ external }>{ title }</Link></li>
 		);
 	}
 }
 
 Navigation.displayName = 'Navigation';
+
+Navigation.propTypes = {
+	registeredRoutes: React.PropTypes.object,
+	linkList: React.PropTypes.array
+};
 
 export default Navigation;
