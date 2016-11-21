@@ -15,7 +15,7 @@ class Navigation extends React.Component {
 	}
 
 	_createItem(itemText, index) {
-		const { title, external } = this.props.registeredRoutes[itemText];
+		const { title, external } = this.props.routes[itemText];
 
 		return (
 			<li key={`link-${index + 1}`}><Link to={ itemText } external={ external }>{ title }</Link></li>
@@ -26,8 +26,8 @@ class Navigation extends React.Component {
 Navigation.displayName = 'Navigation';
 
 Navigation.propTypes = {
-	registeredRoutes: React.PropTypes.object,
-	linkList: React.PropTypes.array
+	linkList: React.PropTypes.array,
+	routes: React.PropTypes.object
 };
 
 export default Navigation;

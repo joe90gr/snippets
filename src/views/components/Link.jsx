@@ -7,11 +7,8 @@ class Link extends React.Component {
 	}
 
 	render() {
-		// TODO: to be revisited, normalise the / and index.
-		const to = this.props.to === 'index' ? '/' : this.props.to;
-
 		return (
-			<a href={ to } onClick={ this.clickFunction.bind(this) }> { this.props.children } </a>
+			<a href={ this.props.to } onClick={ this.clickFunction.bind(this) }> { this.props.children } </a>
 		);
 	}
 

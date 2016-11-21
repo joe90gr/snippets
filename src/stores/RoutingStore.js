@@ -1,15 +1,22 @@
 import routingConstants from 'constants/RoutingConstants';
 import AbstractStore from './AbstractStore';
 
+import routes from 'configuration/routes';
+
 class RoutingStore extends AbstractStore {
 	constructor(deserializedState) {
 		super();
 
 		this._route = deserializedState.route || '';
+		this._routes = routes;
 	}
 
 	route() {
 		return this._route;
+	}
+
+	routes() {
+		return this._routes;
 	}
 
 	_setRoute(route) {

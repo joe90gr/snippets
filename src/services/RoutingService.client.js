@@ -1,17 +1,15 @@
-import director from 'director';
 import routes from 'configuration/routes';
 import RoutingAction from 'actions/RoutingAction';
 import ContentAction from 'actions/ContentAction';
 
 class RoutingService {
-	constructor() {
+	constructor(director) {
 		this._bindEvents = { routes: routes };
 
 		Object.keys(routes).forEach((route) => {
-			let _route = route === 'index' ? '' : route;
-			let callback = new this.CallbackObj(route);
+			const callback = new this._handleRoute(route);
 
-			this._bindEvents[_route] = callback.fn;
+			this._bindEvents[route] = callback.fn;
 		});
 
 		delete this._bindEvents.routes;
@@ -20,17 +18,15 @@ class RoutingService {
 		this._router.init();
 	}
 
-	CallbackObj(_route) {
+	_handleRoute(route) {
 		this.fn = () => {
-			RoutingAction.routeTo(_route);
-			ContentAction.createPage(_route);
+			RoutingAction.routeTo(route);
+			ContentAction.createPage(route);
 		};
 	}
 
-	bindRoutingActions() {}
-
-	getRouter() {
-		return this._router;
+	exec(route) {
+		this._router.setRoute(route);
 	}
 }
 

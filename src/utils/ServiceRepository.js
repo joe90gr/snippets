@@ -3,8 +3,8 @@ class ServiceRepository {
 		this.services = {};
 	}
 
-	register(Service) {
-		this.services[this.serviceInstanceName(Service.name)] = new Service();
+	register(Service, ...params) {
+		this.services[this.serviceInstanceName(Service.name)] = new Service(...params);
 
 		return this;
 	}

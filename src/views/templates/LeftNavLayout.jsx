@@ -10,17 +10,17 @@ class LeftNav extends React.Component {
 	}
 
 	render() {
-		const links = [ 'index', 'examples', 'iterators', 'lists', 'linked-lists', 'hashmap',
-			'stack', 'promises', 'classes', 'queue', 'format-messages', 'algorithms', 'factory' ];
-		const { contentStore, locationStore, userSessionStore } = this.props;
+		const links = [ '/', '/examples', '/iterators', '/lists', '/linked-lists', '/hashmap',
+			'/stack', '/promises', '/classes', '/queue', '/format-messages', '/algorithms', '/factory' ];
+		const { routingStore, contentStore, userSessionStore } = this.props;
+		const { routes } = routingStore;
 		const { page } = contentStore;
-		const { registeredRoutes } = locationStore;
 		const { user, errors } = userSessionStore;
 
 		return (
 			<div className="left-nav-layout">
 				<LoginForm user={ user } errors={ errors } />
-				<Navigation registeredRoutes={ registeredRoutes } linkList= { links } />
+				<Navigation linkList= { links } routes={ routes } />
 				<div className="content">
 					<Snippets title={ page.title } model={ page.content }/>
 				</div>
@@ -32,8 +32,8 @@ class LeftNav extends React.Component {
 LeftNav.displayName = 'LeftNav';
 
 LeftNav.propTypes = {
+	routingStore: React.PropTypes.object,
 	userSessionStore: React.PropTypes.object,
-	locationStore: React.PropTypes.object,
 	contentStore: React.PropTypes.object
 };
 
