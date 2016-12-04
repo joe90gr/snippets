@@ -8,7 +8,7 @@ module.exports = function (config) {
 		basePath: './',
 
 		// frameworks to use
-		frameworks: [ 'browserify', 'mocha', 'chai', 'sinon', 'sinon-chai' ],
+		frameworks: [ 'mocha', 'chai', 'sinon', 'sinon-chai' ],
 
 		// list of files / patterns to load in the browser
 		files: [
@@ -55,15 +55,38 @@ module.exports = function (config) {
 		// if true, it capture browsers, run tests and exit
 		singleRun: false,
 
-		// Browserify config (all optional)
-		browserify: {
-			debug: true,
-			transform: [ 'babelify' ]
+		webpack: {
+			devtool: 'inline-source-map', // just do inline source maps instead of the default
+			module: {
+				loaders: [
+					{
+						test: '',
+						loader: 'babel-loader',
+						exclude: '',
+						query: {
+							presets: [ 'airbnb' ]
+						}
+					},
+					{
+						test: /\.json$/,
+						loader: 'json'
+					}
+				]
+			},
+			externals: {
+				'react/lib/ExecutionEnvironment': true,
+				'react/lib/ReactContext': true,
+				'react/addons': true,
+				'jsdom': 'window',
+				'cheerio': 'window'
+			},
+			resolve: {
+				extensions: [ '', '.js', '.jsx' ]
+			}
 		},
 
-		// Add browserify to preprocessors
 		preprocessors: {
-			'tests/**/*.js': [ 'browserify' ]
+			'tests/**/*.js': [ 'webpack' ]
 		}
 
 	});
