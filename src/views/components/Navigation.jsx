@@ -25,6 +25,15 @@ class Navigation extends React.Component {
 
 Navigation.displayName = 'Navigation';
 
+Navigation.defaultProps = {
+	linkList: [],
+	routes: {
+		'': {
+			title: '', external: false
+		}
+	}
+};
+
 Navigation.propTypes = {
 	linkList: React.PropTypes.array,
 	routes: React.PropTypes.object
