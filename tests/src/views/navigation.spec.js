@@ -28,9 +28,19 @@ const ROUTINGDATA = {
 };
 
 describe('given a Navigation component', () => {
-	describe('when it is provided with a set of routes', () => {
-		let navigation;
+	let navigation;
 
+	describe('when it NOT provided with a set of URI`s', () => {
+		before(() => {
+			navigation = shallow(<Navigation linkList={ [] } routes={ {} } />);
+		});
+
+		it('should NOT render any links', () => {
+			assert(navigation.find('li').isEmpty());
+		});
+	});
+
+	describe('when it is provided with a set of URI`s', () => {
 		before(() => {
 			navigation = shallow(<Navigation linkList={ LINKS } routes={ ROUTINGDATA } />);
 		});
@@ -45,7 +55,7 @@ describe('given a Navigation component', () => {
 			});
 		});
 
-		it('should correctly render the title for each link', () => {
+		it('should render the correct title for each link', () => {
 			navigation.find('Link').forEach((node, index) => {
 				expect(node.children().text()).to.equal(ROUTINGDATA[LINKS[index]].title);
 			});
