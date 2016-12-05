@@ -12,12 +12,11 @@ module.exports = function (config) {
 
 		// list of files / patterns to load in the browser
 		files: [
-			'tests/**/*.js'
+			'tests/**/*.spec.js'
 		],
 
 		// list of files to exclude
-		exclude: [
-		],
+		exclude: [ '/lib/**/*' ],
 
 		// test results reporter to use
 		// possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
@@ -46,7 +45,7 @@ module.exports = function (config) {
 		// - Safari (only Mac)
 		// - PhantomJS
 		// - IE (only Windows)
-		browsers: [ 'Chrome' ],
+		browsers: [ 'PhantomJS' ],
 
 		// If browser does not capture in given timeout [ms], kill it
 		captureTimeout: 60000,
@@ -86,7 +85,7 @@ module.exports = function (config) {
 		},
 
 		preprocessors: {
-			'tests/**/*.js': [ 'webpack' ]
+			'tests/**/*.spec.js': [ 'webpack' ]
 		}
 
 	});
