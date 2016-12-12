@@ -1,21 +1,26 @@
 import React from 'react';
+
+import InjectActions from 'utils/InjectActions';
+
 import NavigateAction from 'actions/NavigateActionCreator';
 
-class Link extends React.Component {
+export class Link extends React.Component {
 	constructor(props) {
 		super(props);
 	}
 
 	render() {
 		return (
-			<a href={ this.props.to } onClick={ this.clickFunction.bind(this) }> { this.props.children } </a>
+			<a href={ this.props.to } onClick={ this.clickFunction.bind(this) }>{ this.props.children }</a>
 		);
 	}
 
 	clickFunction(e) {
+		const { navigateTo } = this.props.NavigateAction;
+
 		if (!this.props.external) {
 			e.preventDefault();
-			NavigateAction.navigateTo(e.target.getAttribute('href'));
+			navigateTo(e.target.getAttribute('href'));
 		}
 	}
 }
@@ -25,7 +30,8 @@ Link.displayName = 'Link';
 Link.propTypes = {
 	children: React.PropTypes.string,
 	to: React.PropTypes.string,
-	external: React.PropTypes.bool
+	external: React.PropTypes.bool,
+	NavigateAction: React.PropTypes.object
 };
 
-export default Link;
+export default InjectActions(Link, { NavigateAction });
