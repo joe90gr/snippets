@@ -30,9 +30,7 @@ describe('Given a Link component', () => {
 	}
 
 	describe('when rendered', function () {
-		before(() => {
-			link = shallow(<Link to={ TO } external={ INBOUND_LINK } { ...actions }>{ TITLE }</Link>);
-		});
+		before(() => link = shallow(<Link to={ TO } external={ INBOUND_LINK } { ...actions }>{ TITLE }</Link>));
 
 		it('should have one anchor tag', () => {
 			expect(link.find('a')).to.have.length(1);
@@ -48,9 +46,7 @@ describe('Given a Link component', () => {
 
 		describe('and the link is internal', () => {
 			describe('when the user clicks the link', () => {
-				before(() => {
-					link.find('a').simulate('click', eventMock);
-				});
+				before(() => link.find('a').simulate('click', eventMock));
 
 				it('should call the preventDefault', () => {
 					assert(eventMock.preventDefault.calledOnce);
@@ -73,9 +69,7 @@ describe('Given a Link component', () => {
 			});
 
 			describe('when the user clicks the link', () => {
-				before(() => {
-					link.find('a').simulate('click', eventMock);
-				});
+				before(() => link.find('a').simulate('click', eventMock));
 
 				it('should NOT call the preventDefault', () => {
 					assert(eventMock.preventDefault.notCalled);

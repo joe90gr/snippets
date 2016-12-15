@@ -31,9 +31,7 @@ describe('given a Navigation component', () => {
 	let navigation;
 
 	describe('when it NOT provided with a set of URI`s', () => {
-		before(() => {
-			navigation = shallow(<Navigation linkList={ [] } routes={ {} } />);
-		});
+		before(() => navigation = shallow(<Navigation linkList={ [] } routes={ {} } />));
 
 		it('should NOT render any links', () => {
 			assert(navigation.find('li').isEmpty());
@@ -41,9 +39,7 @@ describe('given a Navigation component', () => {
 	});
 
 	describe('when it is provided with a set of URI`s', () => {
-		before(() => {
-			navigation = shallow(<Navigation linkList={ LINKS } routes={ ROUTINGDATA } />);
-		});
+		before(() => navigation = shallow(<Navigation linkList={ LINKS } routes={ ROUTINGDATA } />));
 
 		it('should render the correct number of links', () => {
 			expect(navigation.find('li')).to.have.length(LINKS.length);
