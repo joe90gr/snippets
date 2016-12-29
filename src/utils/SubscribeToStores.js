@@ -27,15 +27,14 @@ export default function SubscribeToStores(Component, storeManifest) {
 			var storeStates = {};
 
 			Object.keys(storeManifest).forEach(store => {
-				storeStates[store] = {};
 				storeManifest[store].forEach(storeProperty => {
 					let storeInstance = useStore(store);
 
 					if (storeInstance) {
 						if (this._isFunction(storeInstance[storeProperty])) {
-							storeStates[store][storeProperty] = storeInstance[storeProperty]();
+							storeStates[storeProperty] = storeInstance[storeProperty]();
 						} else {
-							storeStates[store][storeProperty] = storeInstance[storeProperty];
+							storeStates[storeProperty] = storeInstance[storeProperty];
 						}
 					} else {
 						throw new Error(`${store} does not exist in the repository`);

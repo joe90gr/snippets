@@ -12,10 +12,7 @@ class LeftNav extends React.Component {
 	render() {
 		const links = [ '/', '/examples', '/iterators', '/lists', '/linked-lists', '/hashmap',
 			'/stack', '/promises', '/classes', '/queue', '/format-messages', '/algorithms', '/factory' ];
-		const { routingStore, contentStore, userSessionStore } = this.props;
-		const { routes } = routingStore;
-		const { page } = contentStore;
-		const { user, errors } = userSessionStore;
+		const { routes, page, user, errors } = this.props;
 
 		return (
 			<div className="left-nav-layout">
@@ -32,9 +29,10 @@ class LeftNav extends React.Component {
 LeftNav.displayName = 'LeftNav';
 
 LeftNav.propTypes = {
-	routingStore: React.PropTypes.object,
-	userSessionStore: React.PropTypes.object,
-	contentStore: React.PropTypes.object
+	routes: React.PropTypes.object,
+	page: React.PropTypes.object,
+	user: React.PropTypes.object,
+	errors: React.PropTypes.string
 };
 
 export default LeftNav;

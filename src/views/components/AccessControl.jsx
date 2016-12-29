@@ -7,9 +7,9 @@ class AccessControl extends React.Component {
 	}
 
 	render() {
-		const { children, loggedIn, userSessionStore } = this.props;
+		const { children, loggedIn, isAuthenticated } = this.props;
 
-		if (userSessionStore.isAuthenticated === loggedIn) {
+		if (isAuthenticated === loggedIn) {
 			return children;
 		}
 
@@ -22,7 +22,7 @@ AccessControl.displayName = 'AccessControl';
 AccessControl.propTypes = {
 	children: React.PropTypes.object,
 	loggedIn: React.PropTypes.bool,
-	userSessionStore: React.PropTypes.object
+	isAuthenticated: React.PropTypes.bool
 };
 
 export default SubscribeToStores(AccessControl, {
