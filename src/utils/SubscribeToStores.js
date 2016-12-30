@@ -1,6 +1,8 @@
 import React from 'react';
 import { useStore } from 'src/registry';
 
+import deepEqual from 'deep-equal';
+
 export default function SubscribeToStores(Component, storeManifest) {
 	return React.createClass({
 		displayName: 'SubscribeToStores',
@@ -18,8 +20,11 @@ export default function SubscribeToStores(Component, storeManifest) {
 		},
 
 		storeUpdateHandler() {
-			if (this.isMounted()) {
-				this.setState(this.getStateFromStores(this.props));
+			const stateFromStores = this.getStateFromStores(this.props);
+			const isEqual = deepEqual(this.state, stateFromStores);
+
+			if (this.isMounted() && !isEqual) {
+				this.setState(stateFromStores);
 			}
 		},
 
