@@ -1,5 +1,5 @@
 import React from 'react';
-import SubscribeToStores from 'utils/SubscribeToStores';
+import SubscribeToStores from 'views/components/viewControllers/SubscribeToStores';
 
 class AccessControl extends React.Component {
 	constructor(props) {

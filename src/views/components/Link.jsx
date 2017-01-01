@@ -1,6 +1,6 @@
 import React from 'react';
 
-import InjectActions from 'utils/InjectActions';
+import InjectActions from 'views/components/viewControllers/InjectActions';
 
 import NavigateAction from 'actions/NavigateActionCreator';
 
