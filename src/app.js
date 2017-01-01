@@ -1,5 +1,5 @@
-import {} from 'utils/serviceRegistration.server';
-import {} from 'utils/storeRegistration';
+import {} from 'contribution/serviceRegistration.server';
+import {} from 'contribution/storeRegistration';
 import app from './middleware';
 
 module.exports = app();

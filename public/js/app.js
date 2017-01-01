@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {} from 'utils/serviceRegistration.client';
-import {} from 'utils/storeRegistration';
+import {} from 'contribution/serviceRegistration.client';
+import {} from 'contribution/storeRegistration';
 import ReactWrapper from 'views/ReactWrapper';
 
 ReactDOM.render(<ReactWrapper />, document.getElementsByClassName('react-root')[0]);

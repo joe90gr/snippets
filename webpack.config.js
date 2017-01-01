@@ -30,6 +30,7 @@ module.exports = {
 			'common': './src/common',
 			'configuration': './src/configuration',
 			'constants': './src/constants',
+			'contribution': './src/contribution',
 			'mixins': './src/mixins',
 			'routes': './src/routes',
 			'services': './src/services',
