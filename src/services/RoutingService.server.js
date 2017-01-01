@@ -18,7 +18,7 @@ class RoutingService {
 		RoutingAction.routeTo(path);
 		ContentAction.createPage(routes[getUrlSuffix(path)]);
 
-		res.render('index');
+		res.render('Index');
 	}
 
 	exec() {}
