@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SubscribeToStores from 'views/components/viewControllers/SubscribeToStores';
+import SubscribeToStores from 'views/viewControllers/SubscribeToStores';
 
 import LeftNavLayout from './templates/LeftNavLayout';
 

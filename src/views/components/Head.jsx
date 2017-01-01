@@ -1,5 +1,5 @@
 import React from 'react';
-import SubscribeToStores from 'views/components/viewControllers/SubscribeToStores';
+import SubscribeToStores from 'views/viewControllers/SubscribeToStores';
 
 class Head extends React.Component {
 	constructor(props) {
