@@ -1,3 +1,4 @@
+import { getUrlSuffix } from 'utils/utilFunctions';
 import routes from 'configuration/routes';
 import RoutingAction from 'actions/RoutingAction';
 import ContentAction from 'actions/ContentAction';
@@ -21,7 +22,7 @@ class RoutingService {
 	_handleRoute(route) {
 		this.fn = () => {
 			RoutingAction.routeTo(route);
-			ContentAction.createPage(route);
+			ContentAction.createPage(routes[getUrlSuffix(route)]);
 		};
 	}
 

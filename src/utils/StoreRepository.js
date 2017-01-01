@@ -1,4 +1,5 @@
 import Dispatcher from 'utils/Dispatcher';
+import { deCapitalise } from 'utils/utilFunctions';
 
 class StoreRepository {
 	constructor() {
@@ -7,10 +8,12 @@ class StoreRepository {
 	}
 
 	register(Store) {
+		const storeName = deCapitalise(Store.name);
+
 		let deserializedState;
 
 		try {
-			deserializedState = window.SERIALIZED_STORE_CACHE[this.storeInstanceName(Store.name)];
+			deserializedState = window.SERIALIZED_STORE_CACHE[storeName];
 		} catch (e) {
 			deserializedState = {};
 		}
@@ -19,7 +22,7 @@ class StoreRepository {
 
 		store.dispatcher = Dispatcher;
 		store.dispatchToken = this._registerDispatcher(store, Store.name);
-		this.stores[this.storeInstanceName(Store.name)] = store;
+		this.stores[storeName] = store;
 
 		return this;
 	}
@@ -50,10 +53,6 @@ class StoreRepository {
 				});
 			}
 		}
-	}
-
-	storeInstanceName(storeName) {
-		return `${storeName.charAt(0).toLowerCase()}${storeName.slice(1)}`;
 	}
 }
 

@@ -1,4 +1,5 @@
 import storeRepository from 'utils/StoreRepository';
+import { deCapitalise } from 'utils/utilFunctions';
 
 var MockStoreWithDependantStores = class Test1 {
 	constructor() {
@@ -34,7 +35,7 @@ describe('Given the StoreRepository', () => {
 		});
 
 		it('should able to retrieve a particular store using a decapitalized class name indentifier', () => {
-			var unCapitalizedStoreName = unCapitalise(MockStore2.name);
+			var unCapitalizedStoreName = deCapitalise(MockStore2.name);
 			expect(storeRepository.getStore(unCapitalizedStoreName)).to.be.an.instanceOf(MockStore2);
 		});
 
@@ -62,13 +63,10 @@ describe('Given the StoreRepository', () => {
 
 		describe('and the store uses another store', function () {
 			it('should contain that store as a property of the class', () => {
-				expect(storeMock[unCapitalise(DependantMockStore.name)]).to.exist;
-				expect(storeMock[unCapitalise(MockStore2.name)]).to.exist;
+				expect(storeMock[deCapitalise(DependantMockStore.name)]).to.exist;
+				expect(storeMock[deCapitalise(MockStore2.name)]).to.exist;
 			});
 		});
 	});
 });
 
-function unCapitalise(name) {
-	return `${name.charAt(0).toLowerCase()}${name.slice(1)}`;
-}

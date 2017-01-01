@@ -1,3 +1,4 @@
+import { getUrlSuffix } from 'utils/utilFunctions';
 import routes from 'configuration/routes';
 import UserAction from 'actions/UserAction';
 import RoutingAction from 'actions/RoutingAction';
@@ -15,7 +16,7 @@ class RoutingService {
 
 		UserAction.initiateUser(req, res);
 		RoutingAction.routeTo(path);
-		ContentAction.createPage(path);
+		ContentAction.createPage(routes[getUrlSuffix(path)]);
 
 		res.render('index');
 	}

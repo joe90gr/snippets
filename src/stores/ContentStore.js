@@ -25,12 +25,6 @@ class ContentStore extends AbstractStore {
 		this._content = content;
 	}
 
-	_getUrlSuffix(data) {
-		var arr= data.split('/');
-
-		return `/${arr[arr.length - 1]}`;
-	}
-
 	serialize() {
 		return { page: this._content };
 	}
@@ -39,7 +33,7 @@ class ContentStore extends AbstractStore {
 		switch (action.actionType) {
 			case contentConstants.CREATE_PAGE:
 				this.dispatcher.waitFor([ this.routingStore.dispatchToken ]);
-				this._setPageContent(this.routingStore.routes()[this._getUrlSuffix(action.data)]);
+				this._setPageContent(action.data);
 				this.emitChange();
 				break;
 			default:

@@ -1,10 +1,12 @@
+import { deCapitalise } from 'utils/utilFunctions';
+
 class ServiceRepository {
 	constructor() {
 		this.services = {};
 	}
 
 	register(Service, ...params) {
-		this.services[this.serviceInstanceName(Service.name)] = new Service(...params);
+		this.services[deCapitalise(Service.name)] = new Service(...params);
 
 		return this;
 	}
@@ -15,10 +17,6 @@ class ServiceRepository {
 
 	getRegisteredServices() {
 		return this.services;
-	}
-
-	serviceInstanceName(serviceName) {
-		return `${serviceName.charAt(0).toLowerCase()}${serviceName.slice(1)}`;
 	}
 }
 
