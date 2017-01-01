@@ -20,9 +20,4 @@ class Body extends React.Component {
 
 Body.displayName = 'Body';
 
-Body.propTypes = {
-	title: React.PropTypes.string,
-	model: React.PropTypes.array
-};
-
 export default Body;
