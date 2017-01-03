@@ -1,8 +1,10 @@
 import React from 'react';
+import assign from 'object-assign';
+import { hyphenate } from 'utils/utilFunctions';
 
 import SubscribeToStores from 'views/viewControllers/SubscribeToStores';
 
-import LeftNavLayout from './templates/LeftNavLayout';
+import Layouts from './templates/Layouts';
 
 class ReactWrapper extends React.Component {
 	constructor(props) {
@@ -10,11 +12,12 @@ class ReactWrapper extends React.Component {
 	}
 
 	render() {
-		const { route } = this.props;
+		const { route, routes } = this.props;
+		const props = assign({}, this.props, { layoutClass: hyphenate(routes[route].layout) });
 
 		return (
-			<div id={ route } className="react-wrapper">
-				<LeftNavLayout { ...this.props } />
+			<div id={ routes[route].id } className="react-wrapper">
+				{ React.createElement(Layouts[routes[route].layout], props) }
 			</div>
 		);
 	}
@@ -23,7 +26,8 @@ class ReactWrapper extends React.Component {
 ReactWrapper.displayName = 'reactWrapper';
 
 ReactWrapper.propTypes = {
-	route: React.PropTypes.string
+	route: React.PropTypes.string,
+	routes: React.PropTypes.object
 };
 
 export default SubscribeToStores(ReactWrapper, {

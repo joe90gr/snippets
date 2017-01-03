@@ -1,6 +1,6 @@
 import contentConstants from 'constants/ContentConstants';
 import AbstractStore from './AbstractStore';
-import snippets from 'common/snippets';
+import contentRepository from 'common/contentRepository';
 
 class ContentStore extends AbstractStore {
 	constructor(deserializedState) {
@@ -15,7 +15,9 @@ class ContentStore extends AbstractStore {
 		let page = { title: title, content: [] };
 
 		content.forEach((content, index) => {
-			page.content[index] = snippets[content];
+			const contentType = this.routingStore.routes()[this.routingStore.route()].contentType;
+
+			page.content[index] = contentRepository[contentType][content];
 		});
 
 		return page;

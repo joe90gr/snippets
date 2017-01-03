@@ -4,7 +4,7 @@ import Navigation from 'views/components/Navigation';
 import LoginForm from 'views/LoginForm';
 import ContentTypes from '../contentTypes/ContentTypes';
 
-class LeftNav extends React.Component {
+class RightNav extends React.Component {
 	constructor(props) {
 		super(props);
 	}
@@ -17,21 +17,21 @@ class LeftNav extends React.Component {
 		return (
 			<div>
 				<LoginForm user={ user } errors={ errors } />
-				<Navigation linkList= { links } routes={ routes } />
 				<div className={ `content ${layoutClass }`}>
 					{ React.createElement(ContentTypes[routes[route].contentType], {
 						title: page.title,
 						model: page.content
-					})}
+					}) }
 				</div>
+				<Navigation linkList= { links } routes={ routes } />
 			</div>
 		);
 	}
 }
 
-LeftNav.displayName = 'LeftNav';
+RightNav.displayName = 'RightNav';
 
-LeftNav.propTypes = {
+RightNav.propTypes = {
 	route: React.PropTypes.string,
 	routes: React.PropTypes.object,
 	user: React.PropTypes.object,
@@ -40,4 +40,4 @@ LeftNav.propTypes = {
 	layoutClass: React.PropTypes.string
 };
 
-export default LeftNav;
+export default RightNav;

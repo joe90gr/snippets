@@ -12,11 +12,9 @@ class RoutingService {
 	}
 
 	_handleRoute(req, res) {
-		const path = req.path.substr(1);
-
 		UserAction.initiateUser(req, res);
-		RoutingAction.routeTo(path);
-		ContentAction.createPage(routes[getUrlSuffix(path)]);
+		RoutingAction.routeTo(req.path);
+		ContentAction.createPage(routes[getUrlSuffix(req.path)]);
 
 		res.render('Index');
 	}
