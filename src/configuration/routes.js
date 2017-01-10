@@ -4,111 +4,139 @@ export default {
 		external: false,
 		title: 'Examples',
 		layout: 'LeftNavLayout',
-		content: [ 'examples' ],
-		contentType: 'Snippets'
+		page: {
+			type: 'Snippets',
+			content: [ 'examples' ]
+		}
 	},
 	'/examples': {
 		id: 'more-examples',
 		external: false,
 		title: 'More Examples',
 		layout: 'LeftNavLayout',
-		content: [ 'examples', 'example1', 'example2', 'example3', 'example4' ],
-		contentType: 'Snippets'
+		page: {
+			type: 'Snippets',
+			content: [ 'examples', 'example1', 'example2', 'example3', 'example4' ]
+		}
 	},
 	'/iterators': {
 		id: 'iterators',
 		external: false,
 		title: 'Iterators',
 		layout: 'LeftNavLayout',
-		content: [ 'iteratorForEach', 'iteratorEvery', 'iteratorSome', 'iteratorReduce' ],
-		contentType: 'Snippets'
+		page: {
+			type: 'Snippets',
+			content: [ 'iteratorForEach', 'iteratorEvery', 'iteratorSome', 'iteratorReduce' ]
+		}
 	},
 	'/lists': {
 		id: 'lists',
 		external: false,
 		title: 'Lists',
 		layout: 'LeftNavLayout',
-		content: [ 'adtListAppendRemove', 'adtListNextPrevious', 'adtListIterateFoward', 'adtListIterateBackward' ],
-		contentType: 'Snippets'
+		page: {
+			type: 'Snippets',
+			content: [ 'adtListAppendRemove', 'adtListNextPrevious', 'adtListIterateFoward', 'adtListIterateBackward' ]
+		}
 	},
 	'/hashmap': {
 		id: 'hashmap',
 		external: false,
 		title: 'Hash Tables',
 		layout: 'LeftNavLayout',
-		content: [ 'hashMaps', 'hashMapIntegers' ],
-		contentType: 'Snippets'
+		page: {
+			type: 'Snippets',
+			content: [ 'hashMaps', 'hashMapIntegers' ]
+		}
 	},
 	'/stack': {
 		id: 'stack',
 		external: false,
 		title: 'Stack',
 		layout: 'LeftNavLayout',
-		content: [ 'pushToStack', 'palinDromes' ],
-		contentType: 'Snippets'
+		page: {
+			type: 'Snippets',
+			content: [ 'pushToStack', 'palinDromes' ]
+		}
 	},
 	'/queue': {
 		id: 'queue',
 		external: false,
 		title: 'Queues',
 		layout: 'LeftNavLayout',
-		content: [ 'queues', 'dancers', 'radixSort', 'priorityQueue' ],
-		contentType: 'Snippets'
+		page: {
+			type: 'Snippets',
+			content: [ 'queues', 'dancers', 'radixSort', 'priorityQueue' ]
+		}
 	},
 	'/linked-lists': {
 		id: 'linked-lists',
 		external: false,
 		title: 'Linked Lists',
 		layout: 'LeftNavLayout',
-		content: [ 'linkedLists', 'circularLinkedList' ],
-		contentType: 'Snippets'
+		page: {
+			type: 'Snippets',
+			content: [ 'linkedLists', 'circularLinkedList' ]
+		}
 	},
 	'/algorithms': {
 		id: 'algorithms',
 		external: false,
 		title: 'Algorithms',
 		layout: 'LeftNavLayout',
-		content: [ 'testBedAlgorithm', 'bubbleSort', 'graphAlgorithm' ],
-		contentType: 'Snippets'
+		page: {
+			type: 'Snippets',
+			content: [ 'testBedAlgorithm', 'bubbleSort', 'graphAlgorithm' ]
+		}
 	},
 	'/promises': {
 		id: 'promises',
 		external: false,
 		title: 'Promises',
 		layout: 'LeftNavLayout',
-		content: [ 'promises', 'promisesOne', 'promisesTwo' ],
-		contentType: 'Snippets'
+		page: {
+			type: 'Snippets',
+			content: [ 'promises', 'promisesOne', 'promisesTwo' ]
+		}
 	},
 	'/classes': {
 		id: 'classes',
 		external: false,
 		title: 'Classes',
 		layout: 'LeftNavLayout',
-		content: [ 'classInheritance' ],
-		contentType: 'Snippets'
+		page: {
+			type: 'Snippets',
+			content: [ 'classInheritance' ]
+		}
 	},
 	'/format-messages': {
 		id: 'format-messages',
 		external: false,
 		title: 'Format Messages',
 		layout: 'LeftNavLayout',
-		content: [ 'formatMessages' ],
-		contentType: 'Snippets'
+		page: {
+			type: 'Snippets',
+			content: [ 'formatMessages' ]
+		}
 	},
 	'/factory': {
 		id: 'factory',
 		external: false,
 		title: 'Factory Pattern',
 		layout: 'LeftNavLayout',
-		content: [ 'factory' ],
-		contentType: 'Snippets'
+		page: {
+			type: 'Snippets',
+			content: [ 'factory' ]
+		}
 	},
 	'/test': {
 		id: 'testing',
 		external: false,
 		title: 'Testing',
 		layout: 'RightNavLayout',
-		content: [ '/testing-url' ],
-		contentType: 'ExternalContent'
+		page: {
+			type: 'ExternalContent',
+			content: [ '/testing-url' ]
+		}
 	}
 };

@@ -13,13 +13,14 @@ class LeftNav extends React.Component {
 		const { route, routes, user, errors, page, layoutClass } = this.props;
 		const links = [ '/', '/examples', '/iterators', '/lists', '/linked-lists', '/hashmap',
 			'/stack', '/promises', '/classes', '/queue', '/format-messages', '/algorithms', '/factory', '/test' ];
+		const { page: { type } } = routes[route];
 
 		return (
 			<div>
 				<LoginForm user={ user } errors={ errors } />
 				<Navigation linkList= { links } routes={ routes } />
 				<div className={ `content ${layoutClass }`}>
-					{ React.createElement(ContentTypes[routes[route].contentType], {
+					{ React.createElement(ContentTypes[type], {
 						title: page.title,
 						model: page.content
 					})}

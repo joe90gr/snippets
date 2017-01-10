@@ -11,13 +11,13 @@ class ContentStore extends AbstractStore {
 	}
 
 	page() {
-		let { title, content } = this._content;
+		let { title, page: { content } } = this._content;
 		let page = { title: title, content: [] };
 
 		content.forEach((content, index) => {
-			const contentType = this.routingStore.routes()[this.routingStore.route()].contentType;
+			const type = this.routingStore.routes()[this.routingStore.route()].page.type;
 
-			page.content[index] = contentRepository[contentType][content];
+			page.content[index] = contentRepository[type][content];
 		});
 
 		return page;
