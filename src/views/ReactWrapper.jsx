@@ -13,11 +13,12 @@ class ReactWrapper extends React.Component {
 
 	render() {
 		const { route, routes } = this.props;
-		const props = assign({}, this.props, { layoutClass: hyphenate(routes[route].layout) });
+		const { page: { layout } } = routes[route];
+		const props = assign({}, this.props, { layoutClass: hyphenate(layout) });
 
 		return (
 			<div id={ routes[route].id } className="react-wrapper">
-				{ React.createElement(Layouts[routes[route].layout], props) }
+				{ React.createElement(Layouts[layout], props) }
 			</div>
 		);
 	}

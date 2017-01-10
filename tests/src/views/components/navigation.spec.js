@@ -7,23 +7,33 @@ const LINKS = [ '/', '/route1', '/route3' ];
 const ROUTINGDATA = {
 	'/': {
 		external: false,
-		title: 'Home'
+		page: {
+			title: 'Home'
+		}
 	},
 	'/route1': {
 		external: false,
-		title: 'Contact'
+		page: {
+			title: 'Contact'
+		}
 	},
 	'/route2': {
 		external: false,
-		title: 'About'
+		page: {
+			title: 'About'
+		}
 	},
 	'/route3': {
 		external: true,
-		title: 'Info'
+		page: {
+			title: 'Info'
+		}
 	},
 	'/route4': {
 		external: false,
-		title: 'More info'
+		page: {
+			title: 'More info'
+		}
 	}
 };
 
