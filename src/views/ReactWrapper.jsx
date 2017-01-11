@@ -12,13 +12,12 @@ class ReactWrapper extends React.Component {
 	}
 
 	render() {
-		const { route, routes } = this.props;
-		const { page: { layout } } = routes[route];
-		const props = assign({}, this.props, { layoutClass: hyphenate(layout) });
+		const { route, page } = this.props;
+		const props = assign({}, this.props, { layoutClass: hyphenate(page.layout) });
 
 		return (
-			<div id={ routes[route].id } className="react-wrapper">
-				{ React.createElement(Layouts[layout], props) }
+			<div id={ route.id } className="react-wrapper">
+				{ React.createElement(Layouts[page.layout], props) }
 			</div>
 		);
 	}
@@ -27,8 +26,8 @@ class ReactWrapper extends React.Component {
 ReactWrapper.displayName = 'reactWrapper';
 
 ReactWrapper.propTypes = {
-	route: React.PropTypes.string,
-	routes: React.PropTypes.object
+	route: React.PropTypes.object,
+	page: React.PropTypes.object
 };
 
 export default SubscribeToStores(ReactWrapper, {

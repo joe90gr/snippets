@@ -10,16 +10,15 @@ class RightNav extends React.Component {
 	}
 
 	render() {
-		const { route, routes, user, errors, page, layoutClass } = this.props;
+		const { routes, user, errors, page, layoutClass } = this.props;
 		const links = [ '/', '/examples', '/iterators', '/lists', '/linked-lists', '/hashmap',
 			'/stack', '/promises', '/classes', '/queue', '/format-messages', '/algorithms', '/factory', '/test' ];
-		const { page: { type } } = routes[route];
 
 		return (
 			<div>
 				<LoginForm user={ user } errors={ errors } />
 				<div className={ `content ${layoutClass }`}>
-					{ React.createElement(ContentTypes[type], {
+					{ React.createElement(ContentTypes[page.type], {
 						title: page.title,
 						model: page.content
 					}) }
@@ -33,7 +32,6 @@ class RightNav extends React.Component {
 RightNav.displayName = 'RightNav';
 
 RightNav.propTypes = {
-	route: React.PropTypes.string,
 	routes: React.PropTypes.object,
 	user: React.PropTypes.object,
 	errors: React.PropTypes.string,

@@ -11,7 +11,7 @@ class ContentStore extends AbstractStore {
 	}
 
 	page() {
-		let { title, content, type, layout } = this._page;
+		const { title, content, type, layout } = this._page;
 		let page = { title, type, layout, content: [] };
 
 		content.forEach((content, index) => {

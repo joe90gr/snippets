@@ -19,10 +19,12 @@ class RoutingService {
 		this._router.init();
 	}
 
-	_handleRoute(route) {
+	_handleRoute(path) {
+		const { id, external } = routes[path];
+
 		this.fn = () => {
-			RoutingAction.routeTo(route);
-			ContentAction.createPage(routes[getUrlSuffix(route)].page);
+			RoutingAction.routeTo({ path, id, external });
+			ContentAction.createPage(routes[getUrlSuffix(path)].page);
 		};
 	}
 

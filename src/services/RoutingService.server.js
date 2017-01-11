@@ -12,8 +12,10 @@ class RoutingService {
 	}
 
 	_handleRoute(req, res) {
+		const { id, external } = routes[req.path];
+
 		UserAction.initiateUser(req, res);
-		RoutingAction.routeTo(req.path);
+		RoutingAction.routeTo({ path: req.path, id, external });
 		ContentAction.createPage(routes[getUrlSuffix(req.path)].page);
 
 		res.render('Index');

@@ -9,16 +9,16 @@ class Navigation extends React.Component {
 	render() {
 		return (
 			<ul className="links">
-				{this.props.linkList.map((itemText, index) => this._createItem(itemText, index))}
+				{this.props.linkList.map((route, index) => this._createLink(route, index))}
 			</ul>
 		);
 	}
 
-	_createItem(itemText, index) {
-		const { external, page: { title } } = this.props.routes[itemText];
+	_createLink(route, index) {
+		const { external, page: { title } } = this.props.routes[route];
 
 		return (
-			<li key={`link-${index + 1}`}><Link to={ itemText } external={ external }>{ title }</Link></li>
+			<li key={`link-${index + 1}`}><Link to={ route } external={ external }>{ title }</Link></li>
 		);
 	}
 }
