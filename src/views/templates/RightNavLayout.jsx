@@ -1,5 +1,7 @@
 import React from 'react';
 
+import linkList from 'configuration/main-navigation';
+
 import Navigation from 'views/components/Navigation';
 import LoginForm from 'views/LoginForm';
 import ContentTypes from '../contentTypes/ContentTypes';
@@ -11,8 +13,6 @@ class RightNav extends React.Component {
 
 	render() {
 		const { routes, user, errors, page, layoutClass } = this.props;
-		const links = [ '/', '/examples', '/iterators', '/lists', '/linked-lists', '/hashmap',
-			'/stack', '/promises', '/classes', '/queue', '/format-messages', '/algorithms', '/factory', '/test' ];
 
 		return (
 			<div>
@@ -23,7 +23,7 @@ class RightNav extends React.Component {
 						model: page.content
 					}) }
 				</div>
-				<Navigation linkList= { links } routes={ routes } />
+				<Navigation linkList= { linkList } routes={ routes } />
 			</div>
 		);
 	}
