@@ -7,11 +7,13 @@ class Head extends React.Component {
 	}
 
 	render() {
+		const { pageTitle, styleSheetPath, serialisedScripts } = this.props;
+
 		return (
 			<head>
-				<title></title>
-				<link rel="stylesheet" href={ this.props.styleSheetPath } />
-				<script data-embedded id="serialised" dangerouslySetInnerHTML={ this.getSerializedScript() }/>
+				<title>{ pageTitle }</title>
+				<link rel="stylesheet" href={ styleSheetPath } />
+				<script data-embedded id="serialised" dangerouslySetInnerHTML={ this.getSerializedScript(serialisedScripts) }/>
 			</head>
 		);
 	}
@@ -20,15 +22,14 @@ class Head extends React.Component {
 		return this.props.pageTitle;
 	}
 
-	getSerializedScript() {
-		return { __html: `window.SERIALIZED_STORE_CACHE = ${this.props.serialisedScripts}` };
+	getSerializedScript(serialisedScripts) {
+		return { __html: `window.SERIALIZED_STORE_CACHE = ${serialisedScripts}` };
 	}
 }
 
 Head.displayName = 'Head';
 
 Head.propTypes = {
-	title: React.PropTypes.string,
 	pageTitle: React.PropTypes.string,
 	styleSheetPath: React.PropTypes.string,
 	serialisedScripts: React.PropTypes.string

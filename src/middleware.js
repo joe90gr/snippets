@@ -12,12 +12,6 @@ import { devError, error } from './routes/error';
 export default function () {
 	var app = express();
 
-	// view engine setup
-	app.set('views', path.join(__dirname, 'views'));
-	app.set('view engine', 'js');
-
-	app.engine('js', require('express-react-views').createEngine());
-
 	// uncomment after placing your favicon in /public
 	// app.use(favicon(__dirname + '/public/favicon.ico'));
 	app.use(logger('dev'));

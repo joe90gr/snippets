@@ -14,7 +14,6 @@
     "director": "^1.2.8",
     "event-emitter": "^0.3.4",
     "express": "~4.12.4",
-    "express-react-views": "^0.10.1",
     "express-session": "^1.13.0",
     "flux": "^2.1.1",
     "format-message": "^4.0.0",

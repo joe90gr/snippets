@@ -1,3 +1,7 @@
+import React from 'react';
+import ReactDom from 'react-dom/server';
+
+import Index from 'views/Index';
 import { getUrlSuffix } from 'utils/utilFunctions';
 import routes from 'configuration/routes';
 import UserAction from 'actions/UserAction';
@@ -18,7 +22,7 @@ class RoutingService {
 		RoutingAction.routeTo({ path: req.path, id, external });
 		ContentAction.createPage(routes[getUrlSuffix(req.path)].page);
 
-		res.render('Index');
+		res.send(ReactDom.renderToString(<Index />));
 	}
 
 	exec() {}

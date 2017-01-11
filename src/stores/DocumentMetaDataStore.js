@@ -8,7 +8,7 @@ class DocumentMetaDataStore extends AbstractStore {
 	}
 
 	pageTitle() {
-		return this.routingStore.route();
+		return this.routingStore.route().id;
 	}
 
 	styleSheetPath() {
@@ -19,7 +19,9 @@ class DocumentMetaDataStore extends AbstractStore {
 		return JSON.stringify(serialize());
 	}
 
-	_onDispatch() {}
+	_onDispatch() {
+		this.emitChange();
+	}
 }
 
 export default DocumentMetaDataStore;
