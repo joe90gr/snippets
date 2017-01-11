@@ -22,7 +22,7 @@ class RoutingService {
 	_handleRoute(route) {
 		this.fn = () => {
 			RoutingAction.routeTo(route);
-			ContentAction.createPage(routes[getUrlSuffix(route)]);
+			ContentAction.createPage(routes[getUrlSuffix(route)].page);
 		};
 	}
 

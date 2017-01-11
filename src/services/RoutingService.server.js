@@ -14,7 +14,7 @@ class RoutingService {
 	_handleRoute(req, res) {
 		UserAction.initiateUser(req, res);
 		RoutingAction.routeTo(req.path);
-		ContentAction.createPage(routes[getUrlSuffix(req.path)]);
+		ContentAction.createPage(routes[getUrlSuffix(req.path)].page);
 
 		res.render('Index');
 	}
