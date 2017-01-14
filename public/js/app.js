@@ -2,6 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {} from 'contribution/serviceRegistration.client';
 import {} from 'contribution/storeRegistration';
-import Index from 'views/Index';
+import ReactWrapper from 'views/ReactWrapper';
 
-ReactDOM.render(<Index />, document);
+ReactDOM.render(<ReactWrapper />, document.getElementsByClassName('react-root')[0]);

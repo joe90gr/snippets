@@ -22,7 +22,7 @@ class RoutingService {
 		RoutingAction.routeTo({ path: req.path, id, external });
 		ContentAction.createPage(routes[getUrlSuffix(req.path)].page);
 
-		res.send(ReactDom.renderToString(<Index />));
+		res.send(ReactDom.renderToStaticMarkup(<Index />));
 	}
 
 	exec() {}
