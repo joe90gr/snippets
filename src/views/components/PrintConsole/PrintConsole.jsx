@@ -10,11 +10,11 @@ class PrintConsole extends React.Component {
 	}
 
 	componentDidMount() {
-		events.on(this.props.context, this._onChange);
+		events.on(this.props.context, this._onChange.bind(this));
 	}
 
 	componentWillUnmount() {
-		events.off(this.props.context, this._onChange);
+		events.off(this.props.context, this._onChange.bind(this));
 	}
 
 	render() {
@@ -29,7 +29,6 @@ class PrintConsole extends React.Component {
 }
 
 PrintConsole.displayName = 'PrintConsole';
-
 PrintConsole.propTypes = {
 	context: React.PropTypes.string
 };

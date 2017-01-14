@@ -1,24 +1,15 @@
 import React from 'react';
 import SubscribeToStores from 'views/viewControllers/SubscribeToStores';
 
-class AccessControl extends React.Component {
-	constructor(props) {
-		super(props);
+function AccessControl({ children, loggedIn, isAuthenticated }) {
+	if (isAuthenticated === loggedIn) {
+		return children;
 	}
 
-	render() {
-		const { children, loggedIn, isAuthenticated } = this.props;
-
-		if (isAuthenticated === loggedIn) {
-			return children;
-		}
-
-		return null;
-	}
+	return null;
 }
 
 AccessControl.displayName = 'AccessControl';
-
 AccessControl.propTypes = {
 	children: React.PropTypes.object,
 	loggedIn: React.PropTypes.bool,
