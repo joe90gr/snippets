@@ -8,7 +8,7 @@ class StoreRepository {
 	}
 
 	register(Store) {
-		const storeName = deCapitalise(Store.name);
+		const storeName = deCapitalise(Store.storeName);
 
 		let deserializedState;
 

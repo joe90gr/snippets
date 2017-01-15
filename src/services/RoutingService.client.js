@@ -33,4 +33,6 @@ class RoutingService {
 	}
 }
 
+RoutingService.serviceName = 'RoutingService';
+
 export default RoutingService;

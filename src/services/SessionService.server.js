@@ -74,4 +74,6 @@ class SessionService {
 	}
 }
 
+SessionService.serviceName = 'SessionService';
+
 export default SessionService;

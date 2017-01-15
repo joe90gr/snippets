@@ -41,4 +41,6 @@ class RoutingStore extends AbstractStore {
 	}
 }
 
+RoutingStore.storeName = 'routingStore';
+
 export default RoutingStore;

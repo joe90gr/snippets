@@ -42,4 +42,6 @@ class ContentStore extends AbstractStore {
 	}
 }
 
+ContentStore.storeName = 'contentStore';
+
 export default ContentStore;

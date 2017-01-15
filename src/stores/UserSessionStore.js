@@ -73,4 +73,6 @@ class UserSessionStore extends AbstractStore {
 	}
 }
 
+UserSessionStore.storeName = 'userSessionStore';
+
 export default UserSessionStore;

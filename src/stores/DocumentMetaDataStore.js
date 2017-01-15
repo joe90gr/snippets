@@ -24,4 +24,6 @@ class DocumentMetaDataStore extends AbstractStore {
 	}
 }
 
+DocumentMetaDataStore.storeName = 'documentMetaDataStore';
+
 export default DocumentMetaDataStore;

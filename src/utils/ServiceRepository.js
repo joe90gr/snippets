@@ -6,7 +6,7 @@ class ServiceRepository {
 	}
 
 	register(Service, ...params) {
-		this.services[deCapitalise(Service.name)] = new Service(...params);
+		this.services[deCapitalise(Service.serviceName)] = new Service(...params);
 
 		return this;
 	}

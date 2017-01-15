@@ -28,4 +28,6 @@ class RoutingService {
 	exec() {}
 }
 
+RoutingService.serviceName = 'RoutingService';
+
 export default RoutingService;
