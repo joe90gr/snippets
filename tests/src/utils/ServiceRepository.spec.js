@@ -3,6 +3,9 @@ import serviceRepository from 'utils/ServiceRepository';
 var MockService1 = class Test1 {};
 var MockService2 = class Test2 {};
 
+MockService1.serviceName = 'Test1';
+MockService2.serviceName = 'Test2';
+
 describe('Given the ServiceRepository', () => {
 	before(() => {
 		serviceRepository

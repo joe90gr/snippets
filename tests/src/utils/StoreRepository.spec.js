@@ -13,6 +13,11 @@ var MockStore3 = class Test3 {_onDispatch() {}};
 
 var DependantMockStore = class Test4 {_onDispatch() {}};
 
+MockStoreWithDependantStores.storeName = 'Test1';
+MockStore2.storeName = 'Test2';
+MockStore3.storeName = 'Test3';
+DependantMockStore.storeName = 'Test4';
+
 describe('Given the StoreRepository', () => {
 	before(() => {
 		storeRepository

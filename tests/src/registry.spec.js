@@ -10,12 +10,12 @@ describe('Given the ..', () => {
 	var MOCK_SERIALIZED_OBJECT1 = { test1: 'test MockStoreClass1' };
 	var MOCK_SERIALIZED_OBJECT2 = { test2: 'test MockStoreClass2' };
 
-	var MockService1 = class mockService1 {
+	var MockService1 = class MockService1 {
 		constructor() {
 			MockServiceClassConstructor();
 		}
 	};
-	var MockService2 = class mockService2 {};
+	var MockService2 = class MockService2 {};
 
 	var MockStoreClass1 = class MockStoreClass1 {
 		constructor() {
@@ -34,6 +34,13 @@ describe('Given the ..', () => {
 		_onDispatch() {}
 	};
 	var MockStoreClass3 = class MockStoreClass3 {_onDispatch() {}};
+
+	MockService1.serviceName = 'MockService1';
+	MockService2.serviceName = 'MockService2';
+
+	MockStoreClass1.storeName = 'MockStoreClass1';
+	MockStoreClass2.storeName = 'MockStoreClass2';
+	MockStoreClass3.storeName = 'MockStoreClass3';
 
 	before(() => {
 		serviceRepository
