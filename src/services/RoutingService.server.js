@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDom from 'react-dom/server';
 
 import Index from 'views/Index';
-import { getUrlSuffix } from 'utils/utilFunctions';
+import { resolveSubPages, transformPathToKey } from 'utils/utilFunctions';
 import routes from 'configuration/routes';
 import UserAction from 'actions/UserAction';
 import RoutingAction from 'actions/RoutingAction';
@@ -11,16 +11,22 @@ import ContentAction from 'actions/ContentAction';
 class RoutingService {
 	constructor(expressRouter) {
 		Object.keys(routes).forEach((route) => {
-			expressRouter.get(route, this._handleRoute);
+			expressRouter.get(route, this._handleRoute.bind(this));
 		});
 	}
 
 	_handleRoute(req, res) {
-		const { id, external } = routes[req.path];
+		const path = transformPathToKey(req.path, req.params);
+		const { page, id } = resolveSubPages(routes[path], req.params);
 
 		UserAction.initiateUser(req, res);
-		RoutingAction.routeTo({ path: req.path, id, external });
-		ContentAction.createPage(routes[getUrlSuffix(req.path)].page);
+		RoutingAction.routeTo({
+			id,
+			path: req.path,
+			pathSigniture: path,
+			params: req.params
+		});
+		ContentAction.createPage(page);
 
 		res.send(ReactDom.renderToStaticMarkup(<Index />));
 	}

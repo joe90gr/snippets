@@ -1,11 +1,11 @@
 import React from 'react';
 import Link from './Link';
 
-function Navigation({ linkList = [], routes = { '': { title: '', external: false } } }) {
+function Navigation({ linkList = {} }) {
 	return (
 		<ul className="links">
-			{linkList.map((route, index) => {
-				const { external, page: { title } } = routes[route];
+			{Object.keys(linkList).map((route, index) => {
+				const { title, external } = linkList[route];
 
 				return (
 					<li key={`link-${index + 1}`}><Link to={ route } external={ external }>{ title }</Link></li>
@@ -17,8 +17,7 @@ function Navigation({ linkList = [], routes = { '': { title: '', external: false
 
 Navigation.displayName = 'Navigation';
 Navigation.propTypes = {
-	linkList: React.PropTypes.array,
-	routes: React.PropTypes.object
+	linkList: React.PropTypes.object
 };
 
 export default Navigation;

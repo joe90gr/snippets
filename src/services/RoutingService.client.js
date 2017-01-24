@@ -1,4 +1,4 @@
-import { getUrlSuffix } from 'utils/utilFunctions';
+import { resolveSubPages, transformPathValueWithKeys, transformKeyToPath } from 'utils/utilFunctions';
 import routes from 'configuration/routes';
 import RoutingAction from 'actions/RoutingAction';
 import ContentAction from 'actions/ContentAction';
@@ -20,11 +20,18 @@ class RoutingService {
 	}
 
 	_handleRoute(path) {
-		const { id, external } = routes[path];
+		this.fn = (...params) => {
+			const _path= transformKeyToPath(path, params);
+			const keyValueParams = transformPathValueWithKeys(path, params);
+			const { page, id } = resolveSubPages(routes[path], keyValueParams);
 
-		this.fn = () => {
-			RoutingAction.routeTo({ path, id, external });
-			ContentAction.createPage(routes[getUrlSuffix(path)].page);
+			RoutingAction.routeTo({
+				id,
+				path: _path,
+				pathSigniture: path,
+				params: keyValueParams
+			});
+			ContentAction.createPage(page);
 		};
 	}
 
