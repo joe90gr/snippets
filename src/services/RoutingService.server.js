@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDom from 'react-dom/server';
 
 import Index from 'views/Index';
-import { resolveSubPages, transformPathToKey } from 'utils/utilFunctions';
+import { resolveDeepPages, transformPathToKey } from 'utils/utilFunctions';
 import routes from 'configuration/routes';
 import UserAction from 'actions/UserAction';
 import RoutingAction from 'actions/RoutingAction';
@@ -17,7 +17,7 @@ class RoutingService {
 
 	_handleRoute(req, res) {
 		const path = transformPathToKey(req.path, req.params);
-		const { page, id } = resolveSubPages(routes[path], req.params);
+		const { page, id } = resolveDeepPages(routes, path, req.params);
 
 		UserAction.initiateUser(req, res);
 		RoutingAction.routeTo({

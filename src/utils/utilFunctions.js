@@ -13,6 +13,8 @@ export function hyphenate(string) {
 }
 
 export function resolveSubPages(routes, params) {
+	console.warn('resolveSubPages: deprecated, please use resolveDeepPages');
+
 	const { id, page, pages } = routes;
 	let _id = id;
 
@@ -60,4 +62,65 @@ export function transformPathValueWithKeys(path, params) {
 		});
 
 	return pathsparams;
+}
+
+export function extractParamsPreserved(pathSigniture) {
+	return pathSigniture.split('/')
+		.filter(key => key.charAt(0) === ':'); // [':snippetA', ':snippetB']
+}
+
+export function extractParamKeys(pathSigniture) {
+	return pathSigniture.split('/')
+		.filter(key => key.charAt(0) === ':')
+		.map(key => key.substring(1)); // ['snippetA', 'snippetB']
+}
+
+export function splitPathSignitureToArray(pathSigniture) {
+	let result = pathSigniture.replace(/\//g, '').split(':'); // ["snippets", "snippetA", "snippetB"]
+
+	result[0] = pathSigniture;
+
+	return result;
+}
+
+export function buildRequestedPathParams(pathSigniture, keyValueParams) {
+	let result = {};
+
+	result[pathSigniture] = pathSigniture;
+
+	Object.keys(keyValueParams).forEach((key) => {
+		result[key] = keyValueParams[key];
+	});
+
+	return result;
+}
+
+export function resolveDeepPages(routes, pathSigniture, keyValueParams) {
+	var _page;
+	var params = splitPathSignitureToArray(pathSigniture);
+	var _params = buildRequestedPathParams(pathSigniture, keyValueParams);
+
+	function resolve(routes, params) {
+		Object.keys(routes).some((path) => {
+			const { page, pages } = routes[path];
+			const firstParamValue = _params[params[0]];
+			const pathEqualCurrentParam = path === firstParamValue;
+			const isLastParam = params.length <= 1;
+			const nextParams = params.slice(1);
+
+			if (page && pathEqualCurrentParam && isLastParam) {
+				_page = routes[firstParamValue];
+				return;
+			}
+
+			if (pages && pathEqualCurrentParam) {
+				_page = resolve(pages, nextParams);
+				return;
+			}
+		});
+
+		return _page;
+	}
+
+	return resolve(routes, params);
 }

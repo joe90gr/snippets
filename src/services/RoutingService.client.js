@@ -1,4 +1,4 @@
-import { resolveSubPages, transformPathValueWithKeys, transformKeyToPath } from 'utils/utilFunctions';
+import { resolveDeepPages, transformPathValueWithKeys, transformKeyToPath } from 'utils/utilFunctions';
 import routes from 'configuration/routes';
 import RoutingAction from 'actions/RoutingAction';
 import ContentAction from 'actions/ContentAction';
@@ -23,7 +23,7 @@ class RoutingService {
 		this.fn = (...params) => {
 			const _path= transformKeyToPath(path, params);
 			const keyValueParams = transformPathValueWithKeys(path, params);
-			const { page, id } = resolveSubPages(routes[path], keyValueParams);
+			const { page, id } = resolveDeepPages(routes, path, keyValueParams);
 
 			RoutingAction.routeTo({
 				id,
