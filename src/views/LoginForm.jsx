@@ -1,6 +1,6 @@
 import React from 'react';
 
-import userAction from 'actions/userAction';
+import userAction from 'actions/UserAction';
 
 import AccessControl from './components/AccessControl';
 
