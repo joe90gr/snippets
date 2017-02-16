@@ -32,7 +32,6 @@ module.exports = {
 			'constants': './src/constants',
 			'contribution': './src/contribution',
 			'mixins': './src/mixins',
-			'routes': './src/routes',
 			'services': './src/services',
 			'stores': './src/stores',
 			'utils': './src/utils',

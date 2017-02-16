@@ -1,13 +1,10 @@
-import express from 'express';
 import path from 'path';
 import favicon from 'serve-favicon';
 import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import session from 'express-session';
-import routesServer from './routes/index';
-import error404 from './routes/404';
-import { devError, error } from './routes/error';
+import { express, router } from './utils/express-utils';
 
 export default function () {
 	var app = express();
@@ -31,12 +28,9 @@ export default function () {
 		secret: '1234567890QWERTY',
 		resave: false
 	}));
-	app.use('/', routesServer);
-	app.use(error404);
-	if (app.get('env') === 'development') {
-		app.use(devError);
-	}
-	app.use(error);
+	app.use('/', router);
+	app.use(router['404']);
+	app.use(router['500']);
 
 	return app;
 }

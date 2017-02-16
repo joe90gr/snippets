@@ -11,7 +11,16 @@ import ContentAction from 'actions/ContentAction';
 class RoutingService {
 	constructor(expressRouter) {
 		Object.keys(routes).forEach((route) => {
-			expressRouter.get(route, this._handleRoute.bind(this));
+			const { method, page, pages, action, errorPage } = routes[route];
+
+			if (page || pages) {
+				expressRouter[method](route, this._handleRoute.bind(this));
+			} else if (action) {
+				expressRouter[method](route, action);
+			} else {
+				console.log('server 404 and 500', method);
+				expressRouter[route] = errorPage;
+			}
 		});
 	}
 
@@ -28,7 +37,7 @@ class RoutingService {
 		});
 		ContentAction.createPage(page);
 
-		res.send(ReactDom.renderToStaticMarkup(<Index />));
+		res.send('<!doctype html>\n' + ReactDom.renderToStaticMarkup(<Index />));
 	}
 
 	exec() {}

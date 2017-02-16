@@ -8,9 +8,15 @@ class RoutingService {
 		this._bindEvents = { routes: routes };
 
 		Object.keys(routes).forEach((route) => {
-			const callback = new this._handleRoute(route);
+			const { method, pages, page, action } = routes[route];
 
-			this._bindEvents[route] = callback.fn;
+			if (pages || page) {
+				const callback = new this._handleRoute(route);
+
+				this._bindEvents[route] = callback.fn;
+			} else if (!action) {
+				console.log('server 404 and 500', method);
+			}
 		});
 
 		delete this._bindEvents.routes;
