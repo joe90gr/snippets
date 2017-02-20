@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { arraysOne } from 'common/dataStructures/arrays.js';
 import { iteratorForEach, iteratorEvery, iteratorSome, iteratorReduce } from 'common/dataStructures/iterators.js';
 import { adtListAppendRemove, adtListNextPrevious, adtListIterateFoward, adtListIterateBackward } from 'common/dataStructures/lists.js';
@@ -12,23 +14,25 @@ import { testBedAlgorithm, bubbleSort, graphAlgorithm } from 'common/algorithms/
 import { factory } from 'common/patterns/factory.js';
 import { examples, example1, example2, example3, example4 } from 'common/reactExamples/examples.js';
 
+import LoginForm from 'views/LoginForm';
+
 export default {
 	Snippets: {
-		arraysOne,
-		iteratorForEach, iteratorEvery, iteratorSome, iteratorReduce,
-		adtListAppendRemove, adtListNextPrevious, adtListIterateFoward, adtListIterateBackward,
-		hashMaps, hashMapIntegers,
-		queues, dancers, radixSort, priorityQueue,
-		linkedLists, circularLinkedList,
-		pushToStack, palinDromes,
-		promises, promisesOne, promisesTwo,
-		classInheritance,
-		formatMessages,
-		testBedAlgorithm, bubbleSort, graphAlgorithm,
-		factory,
-		examples, example1, example2, example3, example4
+		'examples': [ arraysOne ],
+		'iterators': [ iteratorForEach, iteratorEvery, iteratorSome, iteratorReduce ],
+		'lists': [ adtListAppendRemove, adtListNextPrevious, adtListIterateFoward, adtListIterateBackward ],
+		'hashmap': [ hashMaps, hashMapIntegers ],
+		'queue': [ queues, dancers, radixSort, priorityQueue ],
+		'linked-lists': [ linkedLists, circularLinkedList ],
+		'stack': [ pushToStack, palinDromes ],
+		'promises': [ promises, promisesOne, promisesTwo ],
+		'classes': [ classInheritance ],
+		'format-messages': [ formatMessages ],
+		'algorithms': [ testBedAlgorithm, bubbleSort, graphAlgorithm ],
+		'factory': [ factory ],
+		'more-examples': [ examples, example1, example2, example3, example4 ]
 	},
 	ExternalContent: {
-		'/testing-url': 'hi from my content'
+		'/testing-url': <LoginForm user={ { name: '' } }/>
 	}
 };

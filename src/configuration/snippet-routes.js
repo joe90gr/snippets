@@ -5,7 +5,7 @@ export default {
 			type: 'Snippets',
 			title: 'More Examples',
 			layout: 'LeftNavLayout',
-			content: [ 'examples', 'example1', 'example2', 'example3', 'example4' ]
+			content: 'more-examples'
 		}
 	},
 	'iterators': {
@@ -14,7 +14,7 @@ export default {
 			type: 'Snippets',
 			title: 'Iterators',
 			layout: 'LeftNavLayout',
-			content: [ 'iteratorForEach', 'iteratorEvery', 'iteratorSome', 'iteratorReduce' ]
+			content: 'iterators'
 		}
 	},
 	'lists': {
@@ -23,7 +23,7 @@ export default {
 			type: 'Snippets',
 			title: 'Lists',
 			layout: 'LeftNavLayout',
-			content: [ 'adtListAppendRemove', 'adtListNextPrevious', 'adtListIterateFoward', 'adtListIterateBackward' ]
+			content: 'lists'
 		}
 	},
 	'hashmap': {
@@ -32,16 +32,16 @@ export default {
 			type: 'Snippets',
 			title: 'Hash Tables',
 			layout: 'LeftNavLayout',
-			content: [ 'hashMaps', 'hashMapIntegers' ]
+			content: 'hashmap'
 		}
 	},
 	'stack': {
-		id: 'stack',
+		id: 'hashmap',
 		page: {
 			type: 'Snippets',
 			title: 'Stack',
 			layout: 'LeftNavLayout',
-			content: [ 'pushToStack', 'palinDromes' ]
+			content: 'hashmap'
 		}
 	},
 	'queue': {
@@ -50,7 +50,7 @@ export default {
 			type: 'Snippets',
 			title: 'Queues',
 			layout: 'LeftNavLayout',
-			content: [ 'queues', 'dancers', 'radixSort', 'priorityQueue' ]
+			content: 'queue'
 		}
 	},
 	'linked-lists': {
@@ -59,7 +59,7 @@ export default {
 			type: 'Snippets',
 			title: 'Linked Lists',
 			layout: 'LeftNavLayout',
-			content: [ 'linkedLists', 'circularLinkedList' ]
+			content: 'linked-lists'
 		}
 	},
 	'algorithms': {
@@ -68,7 +68,7 @@ export default {
 			type: 'Snippets',
 			title: 'Algorithms',
 			layout: 'LeftNavLayout',
-			content: [ 'testBedAlgorithm', 'bubbleSort', 'graphAlgorithm' ]
+			content: 'algorithms'
 		}
 	},
 	'promises': {
@@ -77,7 +77,7 @@ export default {
 			type: 'Snippets',
 			title: 'Promises',
 			layout: 'LeftNavLayout',
-			content: [ 'promises', 'promisesOne', 'promisesTwo' ]
+			content: 'promises'
 		}
 	},
 	'classes': {
@@ -86,7 +86,7 @@ export default {
 			type: 'Snippets',
 			title: 'Classes',
 			layout: 'LeftNavLayout',
-			content: [ 'classInheritance' ]
+			content: 'classes'
 		}
 	},
 	'format-messages': {
@@ -95,7 +95,7 @@ export default {
 			type: 'Snippets',
 			title: 'Format Messages',
 			layout: 'LeftNavLayout',
-			content: [ 'formatMessages' ]
+			content: 'format-messages'
 		}
 	},
 	'factory': {
@@ -104,7 +104,7 @@ export default {
 			type: 'Snippets',
 			title: 'Factory Pattern',
 			layout: 'LeftNavLayout',
-			content: [ 'factory' ]
+			content: 'factory'
 		}
 	}
 };
