@@ -9,20 +9,20 @@ export default {
 		id: 'examples',
 		method: 'get',
 		page: {
+			key: 'examples',
 			type: 'Snippets',
 			title: 'Examples',
-			layout: 'LeftNavLayout',
-			content: 'examples'
+			layout: 'LeftNavLayout'
 		}
 	},
 	'/snippets': {
 		id: 'snippets',
 		method: 'get',
 		page: {
+			key: 'testing-url',
 			type: 'ExternalContent',
 			title: 'Testing',
-			layout: 'RightNavLayout',
-			content: '/testing-url'
+			layout: 'RightNavLayout'
 		}
 	},
 	'/snippets/:snippet': {

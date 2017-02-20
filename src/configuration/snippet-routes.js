@@ -2,109 +2,109 @@ export default {
 	'examples': {
 		id: 'more-examples',
 		page: {
+			key: 'more-examples',
 			type: 'Snippets',
 			title: 'More Examples',
-			layout: 'LeftNavLayout',
-			content: 'more-examples'
+			layout: 'LeftNavLayout'
 		}
 	},
 	'iterators': {
 		id: 'iterators',
 		page: {
+			key: 'iterators',
 			type: 'Snippets',
 			title: 'Iterators',
-			layout: 'LeftNavLayout',
-			content: 'iterators'
+			layout: 'LeftNavLayout'
 		}
 	},
 	'lists': {
 		id: 'lists',
 		page: {
+			key: 'lists',
 			type: 'Snippets',
 			title: 'Lists',
-			layout: 'LeftNavLayout',
-			content: 'lists'
+			layout: 'LeftNavLayout'
 		}
 	},
 	'hashmap': {
 		id: 'hashmap',
 		page: {
+			key: 'hashmap',
 			type: 'Snippets',
 			title: 'Hash Tables',
-			layout: 'LeftNavLayout',
-			content: 'hashmap'
+			layout: 'LeftNavLayout'
 		}
 	},
 	'stack': {
 		id: 'hashmap',
 		page: {
+			key: 'hashmap',
 			type: 'Snippets',
 			title: 'Stack',
-			layout: 'LeftNavLayout',
-			content: 'hashmap'
+			layout: 'LeftNavLayout'
 		}
 	},
 	'queue': {
 		id: 'queue',
 		page: {
+			key: 'queue',
 			type: 'Snippets',
 			title: 'Queues',
-			layout: 'LeftNavLayout',
-			content: 'queue'
+			layout: 'LeftNavLayout'
 		}
 	},
 	'linked-lists': {
 		id: 'linked-lists',
 		page: {
+			key: 'linked-lists',
 			type: 'Snippets',
 			title: 'Linked Lists',
-			layout: 'LeftNavLayout',
-			content: 'linked-lists'
+			layout: 'LeftNavLayout'
 		}
 	},
 	'algorithms': {
 		id: 'algorithms',
 		page: {
+			key: 'algorithms',
 			type: 'Snippets',
 			title: 'Algorithms',
-			layout: 'LeftNavLayout',
-			content: 'algorithms'
+			layout: 'LeftNavLayout'
 		}
 	},
 	'promises': {
 		id: 'promises',
 		page: {
+			key: 'promises',
 			type: 'Snippets',
 			title: 'Promises',
-			layout: 'LeftNavLayout',
-			content: 'promises'
+			layout: 'LeftNavLayout'
 		}
 	},
 	'classes': {
 		id: 'classes',
 		page: {
+			key: 'classes',
 			type: 'Snippets',
 			title: 'Classes',
-			layout: 'LeftNavLayout',
-			content: 'classes'
+			layout: 'LeftNavLayout'
 		}
 	},
 	'format-messages': {
 		id: 'format-messages',
 		page: {
+			key: 'format-messages',
 			type: 'Snippets',
 			title: 'Format Messages',
-			layout: 'LeftNavLayout',
-			content: 'format-messages'
+			layout: 'LeftNavLayout'
 		}
 	},
 	'factory': {
 		id: 'factory',
 		page: {
+			key: 'factory',
 			type: 'Snippets',
 			title: 'Factory Pattern',
-			layout: 'LeftNavLayout',
-			content: 'factory'
+			layout: 'LeftNavLayout'
 		}
 	}
 };

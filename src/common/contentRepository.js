@@ -33,6 +33,6 @@ export default {
 		'more-examples': [ examples, example1, example2, example3, example4 ]
 	},
 	ExternalContent: {
-		'/testing-url': <LoginForm user={ { name: '' } }/>
+		'testing-url': <LoginForm user={ { name: '' } }/>
 	}
 };
