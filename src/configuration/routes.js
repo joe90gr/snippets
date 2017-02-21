@@ -10,8 +10,8 @@ export default {
 		method: 'get',
 		page: {
 			key: 'examples',
-			type: 'Snippets',
 			title: 'Examples',
+			contentType: 'Snippets',
 			baseLayout: 'LeftNavLayout'
 		}
 	},
@@ -20,8 +20,8 @@ export default {
 		method: 'get',
 		page: {
 			key: 'testing-url',
-			type: 'ExternalContent',
 			title: 'Testing',
+			contentType: 'ExternalContent',
 			baseLayout: 'RightNavLayout'
 		}
 	},

@@ -3,8 +3,8 @@ export default {
 		id: 'more-examples',
 		page: {
 			key: 'more-examples',
-			type: 'Snippets',
 			title: 'More Examples',
+			contentType: 'Snippets',
 			baseLayout: 'LeftNavLayout'
 		}
 	},
@@ -12,8 +12,8 @@ export default {
 		id: 'iterators',
 		page: {
 			key: 'iterators',
-			type: 'Snippets',
 			title: 'Iterators',
+			contentType: 'Snippets',
 			baseLayout: 'LeftNavLayout'
 		}
 	},
@@ -21,8 +21,8 @@ export default {
 		id: 'lists',
 		page: {
 			key: 'lists',
-			type: 'Snippets',
 			title: 'Lists',
+			contentType: 'Snippets',
 			baseLayout: 'LeftNavLayout'
 		}
 	},
@@ -30,17 +30,17 @@ export default {
 		id: 'hashmap',
 		page: {
 			key: 'hashmap',
-			type: 'Snippets',
 			title: 'Hash Tables',
+			contentType: 'Snippets',
 			baseLayout: 'LeftNavLayout'
 		}
 	},
 	'stack': {
-		id: 'hashmap',
+		id: 'stack',
 		page: {
-			key: 'hashmap',
-			type: 'Snippets',
+			key: 'stack',
 			title: 'Stack',
+			contentType: 'Snippets',
 			baseLayout: 'LeftNavLayout'
 		}
 	},
@@ -48,8 +48,8 @@ export default {
 		id: 'queue',
 		page: {
 			key: 'queue',
-			type: 'Snippets',
 			title: 'Queues',
+			contentType: 'Snippets',
 			baseLayout: 'LeftNavLayout'
 		}
 	},
@@ -57,8 +57,8 @@ export default {
 		id: 'linked-lists',
 		page: {
 			key: 'linked-lists',
-			type: 'Snippets',
 			title: 'Linked Lists',
+			contentType: 'Snippets',
 			baseLayout: 'LeftNavLayout'
 		}
 	},
@@ -66,8 +66,8 @@ export default {
 		id: 'algorithms',
 		page: {
 			key: 'algorithms',
-			type: 'Snippets',
 			title: 'Algorithms',
+			contentType: 'Snippets',
 			baseLayout: 'LeftNavLayout'
 		}
 	},
@@ -75,8 +75,8 @@ export default {
 		id: 'promises',
 		page: {
 			key: 'promises',
-			type: 'Snippets',
 			title: 'Promises',
+			contentType: 'Snippets',
 			baseLayout: 'LeftNavLayout'
 		}
 	},
@@ -84,8 +84,8 @@ export default {
 		id: 'classes',
 		page: {
 			key: 'classes',
-			type: 'Snippets',
 			title: 'Classes',
+			contentType: 'Snippets',
 			baseLayout: 'LeftNavLayout'
 		}
 	},
@@ -93,8 +93,8 @@ export default {
 		id: 'format-messages',
 		page: {
 			key: 'format-messages',
-			type: 'Snippets',
 			title: 'Format Messages',
+			contentType: 'Snippets',
 			baseLayout: 'LeftNavLayout'
 		}
 	},
@@ -102,8 +102,8 @@ export default {
 		id: 'factory',
 		page: {
 			key: 'factory',
-			type: 'Snippets',
 			title: 'Factory Pattern',
+			contentType: 'Snippets',
 			baseLayout: 'LeftNavLayout'
 		}
 	}

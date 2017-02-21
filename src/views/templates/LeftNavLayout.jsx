@@ -12,7 +12,7 @@ function LeftNav({ route, routes, user, errors, page, layoutClass }) {
 			<LoginForm user={ user } errors={ errors } />
 			<Navigation linkList= { linkList } routes={ routes } />
 			<div className={ `content ${layoutClass }`}>
-				{ React.createElement(ContentTypes[page.type], {
+				{ React.createElement(ContentTypes[page.contentType], {
 					title: page.title,
 					model: page.content
 				}) }

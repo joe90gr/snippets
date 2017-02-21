@@ -11,7 +11,7 @@ function RightNav({ route, routes, user, errors, page, layoutClass }) {
 		<div id={ route.id }>
 			<LoginForm user={ user } errors={ errors } />
 			<div className={ `content ${layoutClass }`}>
-				{ React.createElement(ContentTypes[page.type], {
+				{ React.createElement(ContentTypes[page.contentType], {
 					title: page.title,
 					model: page.content
 				}) }

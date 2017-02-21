@@ -7,17 +7,17 @@ class ContentStore extends AbstractStore {
 		super();
 		this.use = [ 'routingStore' ];
 
-		this._page = deserializedState.page || { title: '', type: '', baseLayout: '', key: '' };
+		this._page = deserializedState.page || { title: '', contentType: '', baseLayout: '', key: '' };
 	}
 
 	page() {
-		const { title, key, type, baseLayout } = this._page;
-		let page = { title, type, baseLayout };
+		const { title, key, contentType, baseLayout } = this._page;
+		let page = { title, contentType, baseLayout };
 
-		if (type === 'component') {
+		if (contentType === 'component') {
 			// component rendering
 		} else {
-			page.content = contentRepository[type][key];
+			page.content = contentRepository[contentType][key];
 		}
 
 		return page;
