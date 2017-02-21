@@ -6,9 +6,9 @@ import Navigation from 'views/components/Navigation';
 import LoginForm from 'views/LoginForm';
 import ContentTypes from '../contentTypes/ContentTypes';
 
-function RightNav({ routes, user, errors, page, layoutClass }) {
+function RightNav({ route, routes, user, errors, page, layoutClass }) {
 	return (
-		<div>
+		<div id={ route.id }>
 			<LoginForm user={ user } errors={ errors } />
 			<div className={ `content ${layoutClass }`}>
 				{ React.createElement(ContentTypes[page.type], {
@@ -23,6 +23,7 @@ function RightNav({ routes, user, errors, page, layoutClass }) {
 
 RightNav.displayName = 'RightNav';
 RightNav.propTypes = {
+	route: React.PropTypes.object,
 	routes: React.PropTypes.object,
 	user: React.PropTypes.object,
 	errors: React.PropTypes.string,

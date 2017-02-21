@@ -6,9 +6,9 @@ import Navigation from 'views/components/Navigation';
 import LoginForm from 'views/LoginForm';
 import ContentTypes from '../contentTypes/ContentTypes';
 
-function LeftNav({ routes, user, errors, page, layoutClass }) {
+function LeftNav({ route, routes, user, errors, page, layoutClass }) {
 	return (
-		<div>
+		<div id={ route.id }>
 			<LoginForm user={ user } errors={ errors } />
 			<Navigation linkList= { linkList } routes={ routes } />
 			<div className={ `content ${layoutClass }`}>
@@ -23,6 +23,7 @@ function LeftNav({ routes, user, errors, page, layoutClass }) {
 
 LeftNav.displayName = 'LeftNav';
 LeftNav.propTypes = {
+	route: React.PropTypes.object,
 	routes: React.PropTypes.object,
 	user: React.PropTypes.object,
 	errors: React.PropTypes.string,
