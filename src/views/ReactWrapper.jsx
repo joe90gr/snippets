@@ -8,9 +8,9 @@ import Layouts from './templates/Layouts';
 
 function ReactWrapper(props) {
 	const { page } = props;
-	const _props = assign({}, props, { layoutClass: hyphenate(page.layout) });
+	const _props = assign({}, props, { layoutClass: hyphenate(page.baseLayout) });
 
-	return (React.createElement(Layouts[page.layout], _props));
+	return (React.createElement(Layouts[page.baseLayout], _props));
 }
 
 ReactWrapper.displayName = 'reactWrapper';

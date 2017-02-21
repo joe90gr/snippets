@@ -12,7 +12,7 @@ export default {
 			key: 'examples',
 			type: 'Snippets',
 			title: 'Examples',
-			layout: 'LeftNavLayout'
+			baseLayout: 'LeftNavLayout'
 		}
 	},
 	'/snippets': {
@@ -22,7 +22,7 @@ export default {
 			key: 'testing-url',
 			type: 'ExternalContent',
 			title: 'Testing',
-			layout: 'RightNavLayout'
+			baseLayout: 'RightNavLayout'
 		}
 	},
 	'/snippets/:snippet': {

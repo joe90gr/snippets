@@ -5,7 +5,7 @@ export default {
 			key: 'more-examples',
 			type: 'Snippets',
 			title: 'More Examples',
-			layout: 'LeftNavLayout'
+			baseLayout: 'LeftNavLayout'
 		}
 	},
 	'iterators': {
@@ -14,7 +14,7 @@ export default {
 			key: 'iterators',
 			type: 'Snippets',
 			title: 'Iterators',
-			layout: 'LeftNavLayout'
+			baseLayout: 'LeftNavLayout'
 		}
 	},
 	'lists': {
@@ -23,7 +23,7 @@ export default {
 			key: 'lists',
 			type: 'Snippets',
 			title: 'Lists',
-			layout: 'LeftNavLayout'
+			baseLayout: 'LeftNavLayout'
 		}
 	},
 	'hashmap': {
@@ -32,7 +32,7 @@ export default {
 			key: 'hashmap',
 			type: 'Snippets',
 			title: 'Hash Tables',
-			layout: 'LeftNavLayout'
+			baseLayout: 'LeftNavLayout'
 		}
 	},
 	'stack': {
@@ -41,7 +41,7 @@ export default {
 			key: 'hashmap',
 			type: 'Snippets',
 			title: 'Stack',
-			layout: 'LeftNavLayout'
+			baseLayout: 'LeftNavLayout'
 		}
 	},
 	'queue': {
@@ -50,7 +50,7 @@ export default {
 			key: 'queue',
 			type: 'Snippets',
 			title: 'Queues',
-			layout: 'LeftNavLayout'
+			baseLayout: 'LeftNavLayout'
 		}
 	},
 	'linked-lists': {
@@ -59,7 +59,7 @@ export default {
 			key: 'linked-lists',
 			type: 'Snippets',
 			title: 'Linked Lists',
-			layout: 'LeftNavLayout'
+			baseLayout: 'LeftNavLayout'
 		}
 	},
 	'algorithms': {
@@ -68,7 +68,7 @@ export default {
 			key: 'algorithms',
 			type: 'Snippets',
 			title: 'Algorithms',
-			layout: 'LeftNavLayout'
+			baseLayout: 'LeftNavLayout'
 		}
 	},
 	'promises': {
@@ -77,7 +77,7 @@ export default {
 			key: 'promises',
 			type: 'Snippets',
 			title: 'Promises',
-			layout: 'LeftNavLayout'
+			baseLayout: 'LeftNavLayout'
 		}
 	},
 	'classes': {
@@ -86,7 +86,7 @@ export default {
 			key: 'classes',
 			type: 'Snippets',
 			title: 'Classes',
-			layout: 'LeftNavLayout'
+			baseLayout: 'LeftNavLayout'
 		}
 	},
 	'format-messages': {
@@ -95,7 +95,7 @@ export default {
 			key: 'format-messages',
 			type: 'Snippets',
 			title: 'Format Messages',
-			layout: 'LeftNavLayout'
+			baseLayout: 'LeftNavLayout'
 		}
 	},
 	'factory': {
@@ -104,7 +104,7 @@ export default {
 			key: 'factory',
 			type: 'Snippets',
 			title: 'Factory Pattern',
-			layout: 'LeftNavLayout'
+			baseLayout: 'LeftNavLayout'
 		}
 	}
 };
