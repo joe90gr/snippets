@@ -7,10 +7,10 @@ import SubscribeToStores from 'views/viewControllers/SubscribeToStores';
 import Layouts from './templates/Layouts';
 
 function ReactWrapper(props) {
-	const { page } = props;
-	const _props = assign({}, props, { layoutClass: hyphenate(page.baseLayout) });
+	const { page: { baseLayout } } = props;
+	const _props = assign({}, props, { layoutClass: hyphenate(baseLayout) });
 
-	return (React.createElement(Layouts[page.baseLayout], _props));
+	return (React.createElement(Layouts[baseLayout], _props));
 }
 
 ReactWrapper.displayName = 'reactWrapper';
