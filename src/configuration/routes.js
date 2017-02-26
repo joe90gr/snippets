@@ -41,14 +41,16 @@ export default {
 		method: 'get',
 		type: 'xhrRequest',
 		action: UserAction.invalidateUser
-	}, 404: {
+	},
+	404: {
 		id: 'error404',
 		errorPage: function (req, res, next) {
 			var err = new Error('Not Found');
 			err.status = 404;
 			next(err);
 		}
-	}, 500: {
+	},
+	500: {
 		id: 'error500',
 		errorPage: function (err, req, res, next) {
 			res.status(err.status || 500).send(ReactDom.renderToString(<ErrorView message={ err.status || 500 } error={ err } />));
