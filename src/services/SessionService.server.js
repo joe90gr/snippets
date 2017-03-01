@@ -1,5 +1,4 @@
-import assign from 'object-assign';
-import { isAuthenticated } from 'services/authenticationService';
+import { authenticateUser } from 'services/authService';
 
 function invalidatedUserSession() {
 	return {
@@ -26,22 +25,34 @@ function populateUserSession(req, userData) {
 }
 
 class SessionService {
-	constructor() {
-	}
+	constructor() {}
 
 	loginRequest(req, res, cb) {
-		let submittedCredentials = {
-			userName: req.body.userName,
-			password: req.body.password
-		};
-		let _onSuccess = this._onSuccess.bind(this, req, res, cb);
-		let _onFail = this._onFail.bind(this, req, res, cb);
+		const { userName, password } = req.body;
 
 		if (!req.session.user) {
 			req.session.user = invalidatedUserSession();
 		}
 
-		isAuthenticated(submittedCredentials).then(_onSuccess, _onFail);
+		authenticateUser({ userName, password }).then(_onSuccess, _onFail);
+
+		function _onSuccess(userData) {
+			req.session.isAuthenticated = true;
+			populateUserSession(req, userData);
+
+			cb(null, req.session.user);
+
+			res.json(req.session.user);
+		}
+
+		function _onFail(userData) {
+			req.session.user = invalidatedUserSession();
+			req.session.user.error = userData.error;
+
+			cb({ error: userData.code }, null);
+
+			res.json(req.session.user);
+		}
 	}
 
 	logoutRequest(req, res, cb) {
@@ -53,24 +64,6 @@ class SessionService {
 		if (!req.overide) {
 			res.json(req.session.user);
 		}
-	}
-
-	_onSuccess(req, res, cb, userData) {
-		req.session.isAuthenticated = true;
-		populateUserSession(req, userData);
-
-		cb(null, req.session.user);
-
-		res.json(req.session.user);
-	}
-
-	_onFail(req, res, cb, userData) {
-		req.session.user = invalidatedUserSession();
-		req.session.user.error = userData.error;
-
-		cb({ error: userData.code }, null);
-
-		res.json(req.session.user);
 	}
 }
 

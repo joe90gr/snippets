@@ -25,12 +25,9 @@ export function dbQuery(query) {
 	return new Promise(function (resolve, reject) {
 		connection.query(query, function (err, rows, fields) {
 			connection.end();
+
 			if (!err) {
-				resolve({
-					err: err,
-					rows: rows,
-					fields: fields
-				});
+				resolve({ err, rows, fields });
 			} else {
 				reject(err);
 			}
