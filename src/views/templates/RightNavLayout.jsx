@@ -6,10 +6,19 @@ import Navigation from 'views/components/Navigation';
 import LoginForm from 'views/LoginForm';
 import ContentTypes from '../contentTypes/ContentTypes';
 
+import LazilyLoad, { importLazy, LazilyLoadFactory } from 'views/viewControllers/LazilyLoad';
+
 function RightNav({ route, routes, user, errors, page: { title, content, contentType }, layoutClass }) {
 	return (
 		<div id={ route.id }>
 			<LoginForm user={ user } errors={ errors } />
+			<LazilyLoad modules={{ Test: () => importLazy( import('views/Test')) }}>
+				{
+					({ Test }) => (
+						<Test/>
+					)
+				}
+			</LazilyLoad>
 			<div className={ `content ${layoutClass}`}>
 				{ React.createElement(ContentTypes[contentType], {
 					title,
