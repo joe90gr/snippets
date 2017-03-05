@@ -1,4 +1,4 @@
-import { LinkedList } from '../lib/linkedList.js';
+import { LinkedList } from '../lib/LinkedList.js';
 
 export function linkedLists(printHTML) {
 	var cities = new LinkedList();

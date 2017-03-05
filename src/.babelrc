@@ -5,7 +5,6 @@
 	],
 	"plugins": [
 		["module-resolver", {
-				"root": ["./src"],
 				"alias": {
 					"src": "./src" ,
 					"actions": "./src/actions",
@@ -20,6 +19,7 @@
 					"views": "./src/views",
 				}
 			}
-		]
+		],
+		"dynamic-import-webpack"
 	]
 }

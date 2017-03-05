@@ -7,7 +7,7 @@ function Body() {
 			<div className="react-root">
 				<ReactWrapper />
 			</div>
-			<script type="text/javascript" src="/js/main.js" />
+			<script type="text/javascript" src="/js/bundles/bundle.js" />
 		</body>
 	);
 }

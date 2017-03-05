@@ -57,14 +57,18 @@ module.exports = function (config) {
 		webpack: {
 			devtool: 'inline-source-map', // just do inline source maps instead of the default
 			module: {
-				loaders: [
+				rules: [
 					{
-						test: '',
-						loader: 'babel-loader',
-						exclude: '',
-						query: {
-							presets: [ 'airbnb' ]
-						}
+						test: /.jsx?$/,
+						exclude: [ /node_modules/ ],
+						use: [
+							{
+								loader: 'babel-loader',
+								options: {
+									presets: [ 'airbnb' ]
+								}
+							}
+						]
 					},
 					{
 						test: /\.json$/,
@@ -80,7 +84,7 @@ module.exports = function (config) {
 				'cheerio': 'window'
 			},
 			resolve: {
-				extensions: [ '', '.js', '.jsx' ]
+				extensions: [ '.js', '.jsx' ]
 			}
 		},
 

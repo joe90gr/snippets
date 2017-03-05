@@ -2,11 +2,5 @@
 	"presets": [
 	  "es2015",
 	  "react"
-	],
-	"plugins": [
-		["webpack-alias", {
-				"config": "${PWD}/webpack.config.js"
-			}
-		]
 	]
 }
