@@ -1,4 +1,5 @@
 import React from 'react';
+import Snippets from 'views/components/Snippets';
 
 import { arraysOne } from 'common/dataStructures/arrays.js';
 import { iteratorForEach, iteratorEvery, iteratorSome, iteratorReduce } from 'common/dataStructures/iterators.js';
@@ -14,25 +15,19 @@ import { testBedAlgorithm, bubbleSort, graphAlgorithm } from 'common/algorithms/
 import { factory } from 'common/patterns/factory.js';
 import { examples, example1, example2, example3, example4 } from 'common/reactExamples/examples.js';
 
-import LoginForm from 'views/LoginForm';
-
 export default {
-	Snippets: {
-		'examples': [ arraysOne ],
-		'iterators': [ iteratorForEach, iteratorEvery, iteratorSome, iteratorReduce ],
-		'lists': [ adtListAppendRemove, adtListNextPrevious, adtListIterateFoward, adtListIterateBackward ],
-		'hashmap': [ hashMaps, hashMapIntegers ],
-		'queue': [ queues, dancers, radixSort, priorityQueue ],
-		'linked-lists': [ linkedLists, circularLinkedList ],
-		'stack': [ pushToStack, palinDromes ],
-		'promises': [ promises, promisesOne, promisesTwo ],
-		'classes': [ classInheritance ],
-		'format-messages': [ formatMessages ],
-		'algorithms': [ testBedAlgorithm, bubbleSort, graphAlgorithm ],
-		'factory': [ factory ],
-		'more-examples': [ examples, example1, example2, example3, example4 ]
-	},
-	ExternalContent: {
-		'testing-url': <LoginForm user={ { name: '' } }/>
-	}
+	'testing-url': <h1>NATIVE COMPONENT</h1>,
+	'examples': <Snippets title={ 'Examples' } model={ [ arraysOne ] } />,
+	'iterators': <Snippets title={ 'Iterators' } model={ [ iteratorForEach, iteratorEvery, iteratorSome, iteratorReduce ] } />,
+	'lists': <Snippets title={ 'Lists' } model={ [ adtListAppendRemove, adtListNextPrevious, adtListIterateFoward, adtListIterateBackward ] } />,
+	'hashmap': <Snippets title={ 'Hash Tables' } model={ [ hashMaps, hashMapIntegers ] } />,
+	'queue': <Snippets title={ 'Queues' } model={ [ queues, dancers, radixSort, priorityQueue ] } />,
+	'linked-lists': <Snippets title={ 'Linked Lists' } model={ [ linkedLists, circularLinkedList ] } />,
+	'stack': <Snippets title={ 'Stack' } model={ [ pushToStack, palinDromes ] } />,
+	'promises': <Snippets title={ 'Promises' } model={ [ promises, promisesOne, promisesTwo ] } />,
+	'classes': <Snippets title={ 'Classes' } model={ [ classInheritance ] } />,
+	'format-messages': <Snippets title={ 'Format Messages' } model={ [ formatMessages ] } />,
+	'algorithms': <Snippets title={ 'Algorithms' } model={ [ testBedAlgorithm, bubbleSort, graphAlgorithm ] } />,
+	'factory': <Snippets title={ 'Factory Pattern' } model={ [ factory ] } />,
+	'more-examples': <Snippets title={ 'More Examples' } model={ [ examples, example1, example2, example3, example4 ] } />
 };

@@ -1,26 +1,16 @@
 import contentConstants from 'constants/ContentConstants';
 import AbstractStore from './AbstractStore';
-import contentRepository from 'common/contentRepository';
 
 class ContentStore extends AbstractStore {
 	constructor(deserializedState) {
 		super();
 		this.use = [ 'routingStore' ];
 
-		this._page = deserializedState.page || { title: '', contentType: '', baseLayout: '', key: '' };
+		this._page = deserializedState.page || { contentType: '', baseLayout: '', key: '' };
 	}
 
 	page() {
-		const { title, key, contentType, baseLayout } = this._page;
-		let page = { title, contentType, baseLayout };
-
-		if (contentType === 'component') {
-			// component rendering
-		} else {
-			page.content = contentRepository[contentType][key];
-		}
-
-		return page;
+		return this._page;
 	}
 
 	_setPageContent(page) {

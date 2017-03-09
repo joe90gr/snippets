@@ -3,8 +3,6 @@ export default {
 		id: 'more-examples',
 		page: {
 			key: 'more-examples',
-			title: 'More Examples',
-			contentType: 'Snippets',
 			baseLayout: 'LeftNavLayout'
 		}
 	},
@@ -12,8 +10,6 @@ export default {
 		id: 'iterators',
 		page: {
 			key: 'iterators',
-			title: 'Iterators',
-			contentType: 'Snippets',
 			baseLayout: 'LeftNavLayout'
 		}
 	},
@@ -21,8 +17,6 @@ export default {
 		id: 'lists',
 		page: {
 			key: 'lists',
-			title: 'Lists',
-			contentType: 'Snippets',
 			baseLayout: 'LeftNavLayout'
 		}
 	},
@@ -30,8 +24,6 @@ export default {
 		id: 'hashmap',
 		page: {
 			key: 'hashmap',
-			title: 'Hash Tables',
-			contentType: 'Snippets',
 			baseLayout: 'LeftNavLayout'
 		}
 	},
@@ -39,8 +31,6 @@ export default {
 		id: 'stack',
 		page: {
 			key: 'stack',
-			title: 'Stack',
-			contentType: 'Snippets',
 			baseLayout: 'LeftNavLayout'
 		}
 	},
@@ -48,8 +38,6 @@ export default {
 		id: 'queue',
 		page: {
 			key: 'queue',
-			title: 'Queues',
-			contentType: 'Snippets',
 			baseLayout: 'LeftNavLayout'
 		}
 	},
@@ -57,8 +45,6 @@ export default {
 		id: 'linked-lists',
 		page: {
 			key: 'linked-lists',
-			title: 'Linked Lists',
-			contentType: 'Snippets',
 			baseLayout: 'LeftNavLayout'
 		}
 	},
@@ -66,8 +52,6 @@ export default {
 		id: 'algorithms',
 		page: {
 			key: 'algorithms',
-			title: 'Algorithms',
-			contentType: 'Snippets',
 			baseLayout: 'LeftNavLayout'
 		}
 	},
@@ -75,8 +59,6 @@ export default {
 		id: 'promises',
 		page: {
 			key: 'promises',
-			title: 'Promises',
-			contentType: 'Snippets',
 			baseLayout: 'LeftNavLayout'
 		}
 	},
@@ -84,8 +66,6 @@ export default {
 		id: 'classes',
 		page: {
 			key: 'classes',
-			title: 'Classes',
-			contentType: 'Snippets',
 			baseLayout: 'LeftNavLayout'
 		}
 	},
@@ -93,8 +73,6 @@ export default {
 		id: 'format-messages',
 		page: {
 			key: 'format-messages',
-			title: 'Format Messages',
-			contentType: 'Snippets',
 			baseLayout: 'LeftNavLayout'
 		}
 	},
@@ -102,8 +80,6 @@ export default {
 		id: 'factory',
 		page: {
 			key: 'factory',
-			title: 'Factory Pattern',
-			contentType: 'Snippets',
 			baseLayout: 'LeftNavLayout'
 		}
 	}

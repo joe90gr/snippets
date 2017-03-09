@@ -1,14 +1,13 @@
 import React from 'react';
 
+import contentRepository from 'common/contentRepository';
 import linkList from 'configuration/main-navigation';
-
 import Navigation from 'views/components/Navigation';
 import LoginForm from 'views/LoginForm';
-import ContentTypes from '../contentTypes/ContentTypes';
 
 import LazilyLoad, { importLazy, LazilyLoadFactory } from 'views/viewControllers/LazilyLoad';
 
-function RightNav({ route, routes, user, errors, page: { title, content, contentType }, layoutClass }) {
+function RightNav({ route, routes, user, errors, page: { key }, layoutClass }) {
 	return (
 		<div id={ route.id }>
 			<LoginForm user={ user } errors={ errors } />
@@ -20,10 +19,7 @@ function RightNav({ route, routes, user, errors, page: { title, content, content
 				}
 			</LazilyLoad>
 			<div className={ `content ${layoutClass}`}>
-				{ React.createElement(ContentTypes[contentType], {
-					title,
-					model: content
-				}) }
+				{ contentRepository[key] }
 			</div>
 			<Navigation linkList= { linkList } routes={ routes } />
 		</div>
