@@ -36,10 +36,12 @@ export default function SubscribeToStores(Component, storeManifest) {
 					let storeInstance = useStore(store);
 
 					if (storeInstance) {
-						if (this._isFunction(storeInstance[storeProperty])) {
-							storeStates[storeProperty] = storeInstance[storeProperty]();
+						const storeInstancePropState = storeInstance.getState()[storeProperty];
+
+						if (this._isFunction(storeInstancePropState)) {
+							storeStates[storeProperty] = storeInstancePropState();
 						} else {
-							storeStates[storeProperty] = storeInstance[storeProperty];
+							storeStates[storeProperty] = storeInstancePropState;
 						}
 					} else {
 						throw new Error(`${store} does not exist in the repository`);

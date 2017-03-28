@@ -18,22 +18,6 @@ class UserSessionStore extends AbstractStore {
 		this.user = deserializedState.user || this.blankUser;
 	}
 
-	user() {
-		return this.user;
-	}
-
-	isAuthenticated() {
-		return this.user.status.loggedIn;
-	}
-
-	hasErrors() {
-		return !!this.user.error;
-	}
-
-	errors() {
-		return this.user.error;
-	}
-
 	_setInitialSessionData(userSession) {
 		this.user = userSession || this.blankUser;
 	}
@@ -44,6 +28,15 @@ class UserSessionStore extends AbstractStore {
 
 	_updateUserError(user) {
 		this.user.error = user;
+	}
+
+	getState() {
+		return {
+			user: this.user,
+			isAuthenticated: this.user.status.loggedIn,
+			hasErrors: !!this.user.error,
+			errors: this.user.error
+		};
 	}
 
 	serialize() {

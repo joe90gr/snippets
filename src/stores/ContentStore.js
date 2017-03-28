@@ -9,16 +9,16 @@ class ContentStore extends AbstractStore {
 		this._page = deserializedState.page || { contentType: '', baseLayout: '', key: '' };
 	}
 
-	page() {
-		return this._page;
-	}
-
 	_setPageContent(page) {
 		this._page = page;
 	}
 
-	serialize() {
+	getState() {
 		return { page: this._page };
+	}
+
+	serialize() {
+		return this.getState();
 	}
 
 	_onDispatch(action) {

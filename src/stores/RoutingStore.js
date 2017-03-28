@@ -7,26 +7,23 @@ class RoutingStore extends AbstractStore {
 	constructor(deserializedState) {
 		super();
 
-		this._route = deserializedState.route || '';
+		this._route = deserializedState.route || { id: '' };
 		this._routes = routes;
-	}
-
-	route() {
-		return this._route;
-	}
-
-	routes() {
-		return this._routes;
 	}
 
 	_setRoute(route) {
 		this._route = route;
 	}
 
-	serialize() {
+	getState() {
 		return {
-			route: this.route()
+			route: this._route,
+			routes: this._routes
 		};
+	}
+
+	serialize() {
+		return { route: this._route };
 	}
 
 	_onDispatch(action) {

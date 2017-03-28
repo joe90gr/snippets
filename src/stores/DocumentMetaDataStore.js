@@ -7,16 +7,12 @@ class DocumentMetaDataStore extends AbstractStore {
 		this.use = [ 'routingStore' ];
 	}
 
-	pageTitle() {
-		return this.routingStore.route().id;
-	}
-
-	styleSheetPath() {
-		return '/styles/style.css';
-	}
-
-	serialisedScripts() {
-		return JSON.stringify(serialize());
+	getState() {
+		return {
+			pageTitle: this.routingStore.getState().route.id,
+			styleSheetPath: '/styles/style.css',
+			serialisedScripts: JSON.stringify(serialize())
+		};
 	}
 
 	_onDispatch() {
