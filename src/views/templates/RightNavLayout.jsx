@@ -11,7 +11,7 @@ function RightNav({ route, routes, user, errors, page: { key }, layoutClass }) {
 	return (
 		<div id={ route.id }>
 			<LoginForm user={ user } errors={ errors } />
-			<LazilyLoad modules={{ Test: () => importLazy( import('views/Test')) }}>
+			<LazilyLoad modules={{ Test: () => importLazy( import('common/components/async/Test')) }}>
 				{
 					({ Test }) => (
 						<Test/>

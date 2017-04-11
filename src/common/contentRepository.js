@@ -1,5 +1,5 @@
 import React from 'react';
-import Snippets from 'views/components/Snippets';
+import Snippets from 'common/components/Snippets';
 
 import { arraysOne } from 'common/dataStructures/arrays.js';
 import { iteratorForEach, iteratorEvery, iteratorSome, iteratorReduce } from 'common/dataStructures/iterators.js';
