@@ -7,8 +7,8 @@ describe('Given the ..', () => {
 	var MockStoreClassConstructor = sinon.spy();
 	var MockSerialize = sinon.spy();
 
-	var MOCK_SERIALIZED_OBJECT1 = { test1: 'test MockStoreClass1' };
-	var MOCK_SERIALIZED_OBJECT2 = { test2: 'test MockStoreClass2' };
+	var MOCK_STATE_OBJECT1 = { test1: 'test MockStoreClass1' };
+	var MOCK_STATE_OBJECT2 = { test2: 'test MockStoreClass2' };
 
 	var MockService1 = class MockService1 {
 		constructor() {
@@ -21,15 +21,21 @@ describe('Given the ..', () => {
 		constructor() {
 			MockStoreClassConstructor();
 		}
+		getState() {
+			return MOCK_STATE_OBJECT2;
+		}
 		serialize() {
 			MockSerialize();
-			return MOCK_SERIALIZED_OBJECT1;
+			return MOCK_STATE_OBJECT1;
 		}
 		_onDispatch() {}
 	};
 	var MockStoreClass2 = class MockStoreClass2 {
+		getState() {
+			return MOCK_STATE_OBJECT2;
+		}
 		serialize() {
-			return MOCK_SERIALIZED_OBJECT2;
+			return MOCK_STATE_OBJECT2;
 		}
 		_onDispatch() {}
 	};
@@ -103,8 +109,8 @@ describe('Given the ..', () => {
 		describe('when serialized is called', () => {
 			it('should return the serialized objects only from stores that implement serialize method', () => {
 				expect(serialize()).to.eql({
-					mockStoreClass1: MOCK_SERIALIZED_OBJECT1,
-					mockStoreClass2: MOCK_SERIALIZED_OBJECT2
+					mockStoreClass1: MOCK_STATE_OBJECT1,
+					mockStoreClass2: MOCK_STATE_OBJECT2
 				});
 			});
 
