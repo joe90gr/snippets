@@ -54,5 +54,9 @@ export default {
 	'/snippets': {
 		title: 'Snippets',
 		external: false
+	},
+	'/pong-game': {
+		title: 'Pong Game',
+		external: false
 	}
 };

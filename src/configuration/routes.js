@@ -26,6 +26,14 @@ export default {
 		method: 'get',
 		pages: snippetPages
 	},
+	'/pong-game': {
+		id: 'pong',
+		method: 'get',
+		page: {
+			key: 'pong-game',
+			baseLayout: 'LeftNavLayout'
+		}
+	},
 	'/login': {
 		id: 'login',
 		method: 'post',

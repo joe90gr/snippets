@@ -14,9 +14,11 @@ import { formatMessages } from 'common/formatMessage/formatMessages.js';
 import { testBedAlgorithm, bubbleSort, graphAlgorithm } from 'common/algorithms/algorithms.js';
 import { factory } from 'common/patterns/factory.js';
 import { examples, example1, example2, example3, example4 } from 'common/reactExamples/examples.js';
+import Pong from 'common/html5CanvasEngines/Pong';
 
 export default {
 	'testing-url': <h1>NATIVE COMPONENT</h1>,
+	'pong-game': <Pong/>,
 	'examples': <Snippets title={ 'Examples' } model={ [ arraysOne ] } />,
 	'iterators': <Snippets title={ 'Iterators' } model={ [ iteratorForEach, iteratorEvery, iteratorSome, iteratorReduce ] } />,
 	'lists': <Snippets title={ 'Lists' } model={ [ adtListAppendRemove, adtListNextPrevious, adtListIterateFoward, adtListIterateBackward ] } />,
