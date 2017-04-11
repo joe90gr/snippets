@@ -4,31 +4,31 @@ import { useStore } from 'src/registry';
 import deepEqual from 'deep-equal';
 
 export default function SubscribeToStores(Component, storeManifest) {
-	return React.createClass({
-		displayName: 'SubscribeToStores',
-
-		getInitialState() {
-			return this.getStateFromStores(this.props);
-		},
+	return class SubscribeToStores extends React.Component {
+		constructor(props) {
+			super(props);
+			this.storeUpdateHandlerContext = this.storeUpdateHandler.bind(this);
+			this.state = this._getStateFromStores(this.props);
+		}
 
 		componentDidMount() {
-			Object.keys(storeManifest).forEach(store => useStore(store).addChangeListener(this.storeUpdateHandler));
-		},
+			Object.keys(storeManifest).forEach(store => useStore(store).addChangeListener(this.storeUpdateHandlerContext));
+		}
 
 		componentWillUnmount() {
-			Object.keys(storeManifest).forEach(store => useStore(store).removeChangeListener(this.storeUpdateHandler));
-		},
+			Object.keys(storeManifest).forEach(store => useStore(store).removeChangeListener(this.storeUpdateHandlerContext));
+		}
 
 		storeUpdateHandler() {
-			const stateFromStores = this.getStateFromStores(this.props);
+			const stateFromStores = this._getStateFromStores(this.props);
 			const isEqual = deepEqual(this.state, stateFromStores);
 
-			if (this.isMounted() && !isEqual) {
+			if (!isEqual) {
 				this.setState(stateFromStores);
 			}
-		},
+		}
 
-		getStateFromStores() {
+		_getStateFromStores() {
 			var storeStates = {};
 
 			Object.keys(storeManifest).forEach(store => {
@@ -50,15 +50,14 @@ export default function SubscribeToStores(Component, storeManifest) {
 			});
 
 			return storeStates;
-		},
+		}
 
 		_isFunction(item) {
 			return typeof item === 'function';
-		},
+		}
 
 		render() {
 			return <Component {...this.props} {...this.state} />;
 		}
-	});
+	};
 }
-

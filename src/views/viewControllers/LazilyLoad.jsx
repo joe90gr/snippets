@@ -1,7 +1,6 @@
 import React from 'react';
 
 class LazilyLoad extends React.Component {
-
 	constructor() {
 		super(...arguments);
 		this.state = { isLoaded: false };
