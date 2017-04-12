@@ -6,52 +6,52 @@ export function examples() {
 }
 
 export function example1() {
-	var TodoList = React.createClass({
-		displayName: 'TodoList',
+	function TodoList({ joe }) {
+		const createItem = function (itemText, index) {
+			return <li key={'list-' + index}>{index + 1} : {itemText} </li>;
+		};
 
-		render: function () {
-			var createItem = function (itemText, index) {
-				return <li key={'list-' + index}>{index + 1} : {itemText} </li>;
-			};
+		return <ul>{joe.map(createItem)}</ul>;
+	}
 
-			return <ul>{this.props.joe.map(createItem)}</ul>;
-		}
-	});
+	TodoList.displayName = 'TodoList';
 
 	return <TodoList joe={ [ 'Joe', 'Bharathy', 'Simon', 'Murali', 'Sai', 'Leila', 'Emanuele', 'Chris' ] } />;
 }
 
 export function example2() {
-	var Clock = React.createClass({
-		displayName: 'Clock',
+	class Clock extends React.Component {
+		constructor(props) {
+			super(props);
+			this.tickContext = this.tick.bind(this);
+			this.state = { time: this._getTime() };
+		}
 
-		getInitialState: function () {
-			return { time: this._getTime() };
-		},
-
-		tick: function () {
+		tick() {
 			this.setState({ time: this._getTime() });
-		},
+		}
 
-		componentDidMount: function () {
-			this.interval = setInterval(this.tick, 1000);
-		},
+		componentDidMount() {
+			this.interval = setInterval(this.tickContext, 1000);
+		}
 
-		componentWillUnmount: function () {
+		componentWillUnmount() {
 			clearInterval(this.interval);
-		},
+		}
 
-		render: function () {
+		render() {
 			return (
 				<div>Time is: {this.state.time}</div>
 			);
-		},
+		}
 
 		_getTime() {
 			var date = new Date();
 			return date.getHours() + ':' + date.getMinutes() + '.' + date.getSeconds();
 		}
-	});
+	}
+
+	Clock.displayName = Clock;
 
 	return React.createElement(Clock, null);
 }
