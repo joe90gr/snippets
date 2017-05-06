@@ -62,6 +62,13 @@ export default {
 			baseLayout: 'LeftNavLayout'
 		}
 	},
+	'generators': {
+		id: 'generators',
+		page: {
+			key: 'generators',
+			baseLayout: 'LeftNavLayout'
+		}
+	},
 	'classes': {
 		id: 'classes',
 		page: {

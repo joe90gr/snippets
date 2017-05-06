@@ -31,6 +31,10 @@ export default {
 		title: 'Promises',
 		external: false
 	},
+	'/snippets/generators': {
+		title: 'Generators',
+		external: false
+	},
 	'/snippets/classes': {
 		title: 'Classes',
 		external: false

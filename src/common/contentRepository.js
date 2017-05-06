@@ -9,6 +9,7 @@ import { queues, dancers, radixSort, priorityQueue } from 'common/dataStructures
 import { linkedLists, circularLinkedList } from 'common/dataStructures/linkedLists.js';
 import { pushToStack, palinDromes } from 'common/dataStructures/stacks.js';
 import { promises, promisesOne, promisesTwo } from 'common/esSixFeatures/promises.js';
+import { generators } from 'common/esSixFeatures/generators.js';
 import { classInheritance } from 'common/esSixFeatures/classes.js';
 import { formatMessages } from 'common/formatMessage/formatMessages.js';
 import { testBedAlgorithm, bubbleSort, graphAlgorithm } from 'common/algorithms/algorithms.js';
@@ -27,6 +28,7 @@ export default {
 	'linked-lists': <Snippets title={ 'Linked Lists' } model={ [ linkedLists, circularLinkedList ] } />,
 	'stack': <Snippets title={ 'Stack' } model={ [ pushToStack, palinDromes ] } />,
 	'promises': <Snippets title={ 'Promises' } model={ [ promises, promisesOne, promisesTwo ] } />,
+	'generators': <Snippets title={ 'generators' } model={ [ generators ] } />,
 	'classes': <Snippets title={ 'Classes' } model={ [ classInheritance ] } />,
 	'format-messages': <Snippets title={ 'Format Messages' } model={ [ formatMessages ] } />,
 	'algorithms': <Snippets title={ 'Algorithms' } model={ [ testBedAlgorithm, bubbleSort, graphAlgorithm ] } />,
