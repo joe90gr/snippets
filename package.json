@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./lib/createServer.js",
+    "start": "node ./lib/app.js",
     "serve": "babel src --out-dir lib & gulp build & webpack && npm start"
   },
   "dependencies": {
