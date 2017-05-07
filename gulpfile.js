@@ -1,10 +1,11 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
+var site = 'app-site';
 var Server = require('karma').Server;
 
 gulp.task('sass', function () {
-	gulp.src('./public/styles/scss/style.scss')
+	gulp.src('./src/' + site + '/styles/scss/style.scss')
 		.pipe(sourcemaps.init())
 		.pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
 		.pipe(sourcemaps.write())
