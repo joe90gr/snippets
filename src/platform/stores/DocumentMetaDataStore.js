@@ -1,5 +1,5 @@
 import AbstractStore from './AbstractStore';
-import { serialize } from 'src/registry';
+import { serialize } from 'platform/registry';
 
 class DocumentMetaDataStore extends AbstractStore {
 	constructor() {

@@ -1,6 +1,6 @@
 import serviceRepository from 'utils/ServiceRepository';
 import storeRepository from 'utils/StoreRepository';
-import { useService, useStore, serialize } from 'src/registry';
+import { useService, useStore, serialize } from 'platform/registry';
 
 describe('Given the ..', () => {
 	var MockServiceClassConstructor = sinon.spy();

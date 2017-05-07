@@ -1,4 +1,4 @@
-import { useService } from 'src/registry';
+import { useService } from 'platform/registry';
 
 export default {
 	navigateTo: function (route) {

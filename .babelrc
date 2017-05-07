@@ -1,0 +1,25 @@
+{
+	"presets": [
+	  "es2015",
+	  "react"
+	],
+	"plugins": [
+		["module-resolver", {
+				"alias": {
+					"platform": "./src/platform/" ,
+					"actions": "./src/platform/actions",
+					"common": "./src/common",
+					"configuration": "./src/platform//configuration",
+					"constants": "./src/platform/constants",
+					'contribution': './src/platform/contribution',
+					"mixins": "./src/platform/mixins",
+					"services": "./src/platform/services",
+					"stores": "./src/platform/stores",
+					"utils": "./src/platform/utils",
+					"views": "./src/platform/views",
+				}
+			}
+		],
+		"dynamic-import-webpack"
+	]
+}

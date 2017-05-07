@@ -4,10 +4,11 @@ import http from 'http';
 import https from 'https';
 
 export default function (app) {
+	const site = 'app-site';
 	const debug = _debug('gulp-browserify-react:server');
 	const https_options = {
-		key: fs.readFileSync('./certificates/14961049-localhost.key'),
-		cert: fs.readFileSync('./certificates/14961049-localhost.cert')
+		key: fs.readFileSync(`./src/${site}/certificates/14961049-localhost.key`),
+		cert: fs.readFileSync(`./src/${site}/certificates/14961049-localhost.cert`)
 	};
 	const port = normalizePort(process.env.PORT || '3000');
 	app.set('port', port);
