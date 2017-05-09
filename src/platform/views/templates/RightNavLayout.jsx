@@ -1,9 +1,9 @@
 import React from 'react';
 
-import contentRepository from 'common/contentRepository';
+import contentRepository from 'common/content/contentRepository';
 import linkList from 'configuration/main-navigation';
-import Navigation from 'views/components/Navigation';
-import LoginForm from 'views/LoginForm';
+import Navigation from 'common/components/Navigation';
+import LoginForm from 'common/components/LoginForm';
 
 import LazilyLoad, { importLazy, LazilyLoadFactory } from 'views/viewControllers/LazilyLoad';
 

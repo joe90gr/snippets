@@ -4,7 +4,7 @@ import { hyphenate } from 'utils/utilFunctions';
 
 import SubscribeToStores from 'views/viewControllers/SubscribeToStores';
 
-import Layouts from './templates/Layouts';
+import Layouts from '../templates/Layouts';
 
 function ReactWrapper(props) {
 	const { page: { baseLayout } } = props;

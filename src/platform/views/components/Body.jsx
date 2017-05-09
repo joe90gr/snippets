@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactWrapper from '../ReactWrapper';
+import ReactWrapper from './ReactWrapper';
 
 function Body() {
 	return (

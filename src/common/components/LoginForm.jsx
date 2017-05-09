@@ -2,7 +2,7 @@ import React from 'react';
 
 import userAction from 'actions/UserAction';
 
-import AccessControl from './components/AccessControl';
+import AccessControl from './AccessControl';
 
 function LoginForm({ user: { name }, errors }) {
 	let username, password;

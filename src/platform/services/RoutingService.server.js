@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom/server';
 
-import Index from 'views/Index';
+import Index from 'views/components/Index';
 import { resolveDeepPages, transformPathToKey } from 'utils/utilFunctions';
 import routes from 'configuration/routes';
 import UserAction from 'actions/UserAction';

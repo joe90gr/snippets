@@ -1,6 +1,6 @@
 import React from 'react';
-import Head from './components/Head';
-import Body from './components/Body';
+import Head from './Head';
+import Body from './Body';
 
 function Index() {
 	return (

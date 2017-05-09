@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDom from 'react-dom/server';
 import snippetPages from 'configuration/snippet-routes';
 import UserAction from 'actions/UserAction';
-import ErrorView from 'views/Error';
+import ErrorView from 'views/components/Error';
 
 export default {
 	'/': {

@@ -1,5 +1,5 @@
 import React from 'react';
-import PongEngine from 'common/lib/PongCanvasEngine';
+import PongEngine from 'common/content/lib/PongCanvasEngine';
 
 class Pong extends React.Component {
 	constructor() {
