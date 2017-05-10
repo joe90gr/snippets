@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStore } from 'platform/registry';
+import { useStore } from 'utils/registry';
 
 import deepEqual from 'deep-equal';
 

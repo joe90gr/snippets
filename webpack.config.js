@@ -18,10 +18,7 @@ module.exports = {
 				exclude: [ /node_modules/ ],
 				use: [
 					{
-						loader: 'babel-loader',
-						options: {
-							presets: [ 'es2015', 'react' ]
-						}
+						loader: 'babel-loader'
 					}
 				]
 			}
@@ -41,7 +38,7 @@ module.exports = {
 			'mixins': path.resolve(__dirname, 'src/platform/mixins'),
 			'services': path.resolve(__dirname, 'src/platform/services'),
 			'stores': path.resolve(__dirname, 'src/platform/stores'),
-			'utils': path.resolve(__dirname, 'src/platform/utils'),
+			'utils': path.resolve(__dirname, 'src/utils'),
 			'views': path.resolve(__dirname, 'src/platform/views')
 		}
 	},

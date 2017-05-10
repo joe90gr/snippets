@@ -6,7 +6,7 @@ import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import session from 'express-session';
-import { express, router } from './utils/express-utils';
+import { express, router } from 'utils/express-utils';
 import createServer from './createServer';
 
 var app = express();

@@ -1,6 +1,6 @@
 import Dispatcher from 'utils/Dispatcher';
 import UserConstants from 'constants/UserConstants';
-import { useService } from 'platform/registry';
+import { useService } from 'utils/registry';
 
 export default {
 	initiateUser: function (req, res) {

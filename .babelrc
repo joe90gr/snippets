@@ -15,7 +15,7 @@
 					"mixins": "./src/platform/mixins",
 					"services": "./src/platform/services",
 					"stores": "./src/platform/stores",
-					"utils": "./src/platform/utils",
+					"utils": "./src/utils",
 					"views": "./src/platform/views",
 				}
 			}
