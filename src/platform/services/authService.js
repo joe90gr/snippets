@@ -1,4 +1,4 @@
-import { dbQuery } from 'services/mysqlConnectionService';
+import { dbQuery } from 'platform/services/mysqlConnectionService';
 
 export function authenticateUser(credentials) {
 	const ERROR_INVALID_CREDENTIALS = { error: 'Invalid Credentials' };

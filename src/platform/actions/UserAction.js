@@ -1,5 +1,5 @@
 import Dispatcher from 'utils/Dispatcher';
-import UserConstants from 'constants/UserConstants';
+import UserConstants from 'platform/constants/UserConstants';
 import { useService } from 'utils/registry';
 
 export default {

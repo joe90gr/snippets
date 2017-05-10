@@ -1,4 +1,4 @@
-import userConstants from 'constants/UserConstants';
+import userConstants from 'platform/constants/UserConstants';
 import AbstractStore from './AbstractStore';
 
 class UserSessionStore extends AbstractStore {

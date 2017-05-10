@@ -1,7 +1,7 @@
-import routingConstants from 'constants/RoutingConstants';
+import routingConstants from 'platform/constants/RoutingConstants';
 import AbstractStore from './AbstractStore';
 
-import routes from 'configuration/routes';
+import routes from 'platform/configuration/routes';
 
 class RoutingStore extends AbstractStore {
 	constructor(deserializedState) {

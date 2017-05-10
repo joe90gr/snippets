@@ -7,16 +7,8 @@
 		["module-resolver", {
 				"alias": {
 					"platform": "./src/platform/" ,
-					"actions": "./src/platform/actions",
 					"common": "./src/common",
-					"configuration": "./src/platform//configuration",
-					"constants": "./src/platform/constants",
-					'contribution': './src/platform/contribution',
-					"mixins": "./src/platform/mixins",
-					"services": "./src/platform/services",
-					"stores": "./src/platform/stores",
-					"utils": "./src/utils",
-					"views": "./src/platform/views",
+					"utils": "./src/utils"
 				}
 			}
 		],

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import InjectActions from 'views/viewControllers/InjectActions';
+import InjectActions from 'platform/views/viewControllers/InjectActions';
 
-import NavigateAction from 'actions/NavigateActionCreator';
+import NavigateAction from 'platform/actions/NavigateActionCreator';
 
 export function Link({ NavigateAction: { navigateTo }, to, external, children }) {
 	function clickFunction(e) {

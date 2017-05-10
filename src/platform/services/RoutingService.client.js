@@ -1,7 +1,7 @@
 import { resolveDeepPages, transformPathValueWithKeys, transformKeyToPath } from 'utils/utilFunctions';
-import routes from 'configuration/routes';
-import RoutingAction from 'actions/RoutingAction';
-import ContentAction from 'actions/ContentAction';
+import routes from 'platform/configuration/routes';
+import RoutingAction from 'platform/actions/RoutingAction';
+import ContentAction from 'platform/actions/ContentAction';
 
 class RoutingService {
 	constructor(director) {

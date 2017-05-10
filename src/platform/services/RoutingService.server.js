@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDom from 'react-dom/server';
 
-import Index from 'views/components/Index';
+import Index from 'platform/views/components/Index';
 import { resolveDeepPages, transformPathToKey } from 'utils/utilFunctions';
-import routes from 'configuration/routes';
-import UserAction from 'actions/UserAction';
-import RoutingAction from 'actions/RoutingAction';
-import ContentAction from 'actions/ContentAction';
+import routes from 'platform/configuration/routes';
+import UserAction from 'platform/actions/UserAction';
+import RoutingAction from 'platform/actions/RoutingAction';
+import ContentAction from 'platform/actions/ContentAction';
 
 class RoutingService {
 	constructor(expressRouter) {

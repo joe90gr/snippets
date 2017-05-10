@@ -1,4 +1,4 @@
-import { authenticateUser } from 'services/authService';
+import { authenticateUser } from 'platform/services/authService';
 
 function invalidatedUserSession() {
 	return {

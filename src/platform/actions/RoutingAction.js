@@ -1,5 +1,5 @@
 import Dispatcher from 'utils/Dispatcher';
-import RoutingConstants from 'constants/RoutingConstants';
+import RoutingConstants from 'platform/constants/RoutingConstants';
 
 export default {
 	routeTo: function (data) {

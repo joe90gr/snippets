@@ -30,16 +30,8 @@ module.exports = {
 		alias: {
 			'director': path.resolve(__dirname, 'node_modules/director/build/director.js'),
 			'platform': path.resolve(__dirname, 'src/platform'),
-			'actions': path.resolve(__dirname, 'src/platform/actions'),
 			'common': path.resolve(__dirname, 'src/common'),
-			'configuration': path.resolve(__dirname, 'src/platform/configuration'),
-			'constants': path.resolve(__dirname, 'src/platform/constants'),
-			'contribution': path.resolve(__dirname, 'src/platform/contribution'),
-			'mixins': path.resolve(__dirname, 'src/platform/mixins'),
-			'services': path.resolve(__dirname, 'src/platform/services'),
-			'stores': path.resolve(__dirname, 'src/platform/stores'),
-			'utils': path.resolve(__dirname, 'src/utils'),
-			'views': path.resolve(__dirname, 'src/platform/views')
+			'utils': path.resolve(__dirname, 'src/utils')
 		}
 	},
 	plugins: [

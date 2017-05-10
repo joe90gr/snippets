@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDom from 'react-dom/server';
-import snippetPages from 'configuration/snippet-routes';
-import UserAction from 'actions/UserAction';
-import ErrorView from 'views/components/Error';
+import snippetPages from 'platform/configuration/snippet-routes';
+import UserAction from 'platform/actions/UserAction';
+import ErrorView from 'platform/views/components/Error';
 
 export default {
 	'/': {

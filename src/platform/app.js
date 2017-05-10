@@ -1,5 +1,5 @@
-import 'contribution/serviceRegistration.server';
-import 'contribution/storeRegistration';
+import 'platform/contribution/serviceRegistration.server';
+import 'platform/contribution/storeRegistration';
 import path from 'path';
 import favicon from 'serve-favicon';
 import logger from 'morgan';

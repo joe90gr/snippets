@@ -1,5 +1,5 @@
 import React from 'react';
-import SubscribeToStores from 'views/viewControllers/SubscribeToStores';
+import SubscribeToStores from 'platform/views/viewControllers/SubscribeToStores';
 
 function Head({ pageTitle, styleSheetPath, serialisedScripts }) {
 	function getSerializedScript(serialisedScripts) {

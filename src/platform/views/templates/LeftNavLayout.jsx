@@ -1,7 +1,7 @@
 import React from 'react';
 
 import contentRepository from 'common/content/contentRepository';
-import linkList from 'configuration/main-navigation';
+import linkList from 'platform/configuration/main-navigation';
 import Navigation from 'common/components/Navigation';
 import LoginForm from 'common/components/LoginForm';
 

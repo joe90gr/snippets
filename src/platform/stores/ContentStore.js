@@ -1,4 +1,4 @@
-import contentConstants from 'constants/ContentConstants';
+import contentConstants from 'platform/constants/ContentConstants';
 import AbstractStore from './AbstractStore';
 
 class ContentStore extends AbstractStore {

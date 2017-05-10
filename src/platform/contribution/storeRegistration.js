@@ -1,9 +1,9 @@
 import storeRepository from 'utils/StoreRepository';
 
-import DocumentMetaDataStore from 'stores/DocumentMetaDataStore';
-import RoutingStore from 'stores/RoutingStore';
-import ContentStore from 'stores/ContentStore';
-import UserSessionStore from 'stores/UserSessionStore';
+import DocumentMetaDataStore from 'platform/stores/DocumentMetaDataStore';
+import RoutingStore from 'platform/stores/RoutingStore';
+import ContentStore from 'platform/stores/ContentStore';
+import UserSessionStore from 'platform/stores/UserSessionStore';
 
 storeRepository
 	.register(DocumentMetaDataStore)

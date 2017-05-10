@@ -2,7 +2,7 @@ import React from 'react';
 import assign from 'object-assign';
 import { hyphenate } from 'utils/utilFunctions';
 
-import SubscribeToStores from 'views/viewControllers/SubscribeToStores';
+import SubscribeToStores from 'platform/views/viewControllers/SubscribeToStores';
 
 import Layouts from '../templates/Layouts';
 
