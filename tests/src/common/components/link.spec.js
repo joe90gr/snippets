@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { Link } from 'views/components/Link.jsx';
+import { Link } from 'common/components/Link.jsx';
 
 const TO = '/route1';
 const TITLE = 'My Link Title';

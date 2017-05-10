@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Navigation from 'views/components/Navigation.jsx';
+import Navigation from 'common/components/Navigation.jsx';
 
 const LINKS = {
 	'/': {

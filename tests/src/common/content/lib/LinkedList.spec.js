@@ -1,4 +1,4 @@
-import { LinkedList } from 'common/lib/LinkedList.js';
+import { LinkedList } from 'common/content/lib/LinkedList.js';
 
 const FOUR_TIMES = 4;
 const BY_TWO = 2;
