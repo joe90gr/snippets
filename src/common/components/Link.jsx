@@ -1,11 +1,11 @@
 import React from 'react';
 import { bool, string, object } from 'prop-types';
 
-import InjectActions from 'platform/views/viewControllers/InjectActions';
-
 import NavigateAction from 'platform/actions/NavigateActionCreator';
 
-export function Link({ NavigateAction: { navigateTo }, to, external, children }) {
+export function Link({ to, external, children }) {
+	const { navigateTo } = NavigateAction;
+
 	function clickFunction(e) {
 		if (!external) {
 			e.preventDefault();
@@ -26,4 +26,4 @@ Link.propTypes = {
 	NavigateAction: object
 };
 
-export default InjectActions(Link, { NavigateAction });
+export default Link;
