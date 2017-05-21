@@ -1,4 +1,6 @@
 import React from 'react';
+import { object } from 'prop-types';
+
 import Link from './Link';
 
 function Navigation({ linkList = {} }) {
@@ -16,8 +18,6 @@ function Navigation({ linkList = {} }) {
 }
 
 Navigation.displayName = 'Navigation';
-Navigation.propTypes = {
-	linkList: React.PropTypes.object
-};
+Navigation.propTypes = { linkList: object };
 
 export default Navigation;

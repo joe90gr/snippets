@@ -1,4 +1,5 @@
 import React from 'react';
+import { bool, string, object } from 'prop-types';
 
 import InjectActions from 'platform/views/viewControllers/InjectActions';
 
@@ -19,10 +20,10 @@ export function Link({ NavigateAction: { navigateTo }, to, external, children })
 
 Link.displayName = 'Link';
 Link.propTypes = {
-	children: React.PropTypes.string,
-	to: React.PropTypes.string,
-	external: React.PropTypes.bool,
-	NavigateAction: React.PropTypes.object
+	children: string,
+	to: string,
+	external: bool,
+	NavigateAction: object
 };
 
 export default InjectActions(Link, { NavigateAction });

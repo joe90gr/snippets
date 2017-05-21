@@ -1,4 +1,5 @@
 import React from 'react';
+import { string, object } from 'prop-types';
 
 import userAction from 'platform/actions/UserAction';
 
@@ -55,8 +56,8 @@ function LoginForm({ user: { name }, errors }) {
 
 LoginForm.displayName ='LoginForm';
 LoginForm.propTypes = {
-	user: React.PropTypes.object,
-	errors: React.PropTypes.string
+	user: object,
+	errors: string
 };
 
 export default LoginForm;

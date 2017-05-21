@@ -1,4 +1,6 @@
 import React from 'react';
+import { string } from 'prop-types';
+
 import events from 'utils/events';
 import PrintLine from './PrintLine';
 
@@ -29,8 +31,6 @@ class PrintConsole extends React.Component {
 }
 
 PrintConsole.displayName = 'PrintConsole';
-PrintConsole.propTypes = {
-	context: React.PropTypes.string
-};
+PrintConsole.propTypes = { context: string };
 
 export default PrintConsole;

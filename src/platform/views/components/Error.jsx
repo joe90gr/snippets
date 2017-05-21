@@ -1,4 +1,5 @@
 import React from 'react';
+import { string, object } from 'prop-types';
 
 function Error({ title = 'ERROR', message, error }) {
 	return (
@@ -20,9 +21,9 @@ function Error({ title = 'ERROR', message, error }) {
 
 Error.displayName ='Error';
 Error.propTypes = {
-	title: React.PropTypes.string,
-	message: React.PropTypes.string,
-	error: React.PropTypes.object
+	title: string,
+	message: string,
+	error: object
 };
 
 export default Error;

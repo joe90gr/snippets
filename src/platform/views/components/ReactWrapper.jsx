@@ -1,4 +1,5 @@
 import React from 'react';
+import { object } from 'prop-types';
 import assign from 'object-assign';
 import { hyphenate } from 'utils/utilFunctions';
 
@@ -13,8 +14,8 @@ function ReactWrapper(props) {
 
 ReactWrapper.displayName = 'reactWrapper';
 ReactWrapper.propTypes = {
-	route: React.PropTypes.object,
-	page: React.PropTypes.object
+	route: object,
+	page: object
 };
 
 export default ReactWrapper;

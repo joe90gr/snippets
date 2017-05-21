@@ -1,4 +1,5 @@
 import React from 'react';
+import { array } from 'prop-types';
 
 function PrintLine({ items }) {
 	return (
@@ -13,8 +14,6 @@ function PrintLine({ items }) {
 }
 
 PrintLine.displayName = 'PrintLine';
-PrintLine.propTypes = {
-	items: React.PropTypes.array
-};
+PrintLine.propTypes = { items: array };
 
 export default PrintLine;

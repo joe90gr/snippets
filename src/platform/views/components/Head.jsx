@@ -1,4 +1,5 @@
 import React from 'react';
+import { string } from 'prop-types';
 import SubscribeToStores from 'platform/views/viewControllers/SubscribeToStores';
 
 function Head({ pageTitle, styleSheetPath, serialisedScripts }) {
@@ -17,10 +18,9 @@ function Head({ pageTitle, styleSheetPath, serialisedScripts }) {
 
 Head.displayName = 'Head';
 Head.propTypes = {
-	pageTitle: React.PropTypes.string,
-	styleSheetPath: React.PropTypes.string,
-	serialisedScripts: React.PropTypes.string
-
+	pageTitle: string,
+	styleSheetPath: string,
+	serialisedScripts: string
 };
 
 export default SubscribeToStores(Head, {

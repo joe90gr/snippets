@@ -1,4 +1,6 @@
 import React from 'react';
+import { array, string } from 'prop-types';
+
 import PrintConsole from '../components/PrintConsole/PrintConsole';
 // import events from 'utils/events';
 
@@ -45,8 +47,8 @@ function Snippets({ title, model }) {
 
 Snippets.displayName = 'Snippets';
 Snippets.propTypes = {
-	title: React.PropTypes.string,
-	model: React.PropTypes.array
+	title: string,
+	model: array
 };
 
 export default Snippets;

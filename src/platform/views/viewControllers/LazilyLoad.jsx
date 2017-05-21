@@ -1,4 +1,5 @@
 import React from 'react';
+import { object, func } from 'prop-types';
 
 class LazilyLoad extends React.Component {
 	constructor() {
@@ -54,8 +55,8 @@ class LazilyLoad extends React.Component {
 
 LazilyLoad.displayName = 'LazilyLoad';
 LazilyLoad.propTypes = {
-	children: React.PropTypes.func.isRequired,
-	modules: React.PropTypes.object
+	children: func.isRequired,
+	modules: object
 };
 
 export const LazilyLoadFactory = (Component, modules) => {

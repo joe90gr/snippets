@@ -1,4 +1,6 @@
 import React from 'react';
+import { bool, object } from 'prop-types';
+
 import SubscribeToStores from 'platform/views/viewControllers/SubscribeToStores';
 
 function AccessControl({ children, loggedIn, isAuthenticated }) {
@@ -11,9 +13,9 @@ function AccessControl({ children, loggedIn, isAuthenticated }) {
 
 AccessControl.displayName = 'AccessControl';
 AccessControl.propTypes = {
-	children: React.PropTypes.object,
-	loggedIn: React.PropTypes.bool,
-	isAuthenticated: React.PropTypes.bool
+	children: object,
+	loggedIn: bool,
+	isAuthenticated: bool
 };
 
 export default SubscribeToStores(AccessControl, {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { string, object } from 'prop-types';
 
 import contentRepository from 'common/content/contentRepository';
 import linkList from 'platform/configuration/main-navigation';
@@ -19,12 +20,12 @@ function LeftNav({ route, routes, user, errors, page: { key }, layoutClass }) {
 
 LeftNav.displayName = 'LeftNav';
 LeftNav.propTypes = {
-	route: React.PropTypes.object,
-	routes: React.PropTypes.object,
-	user: React.PropTypes.object,
-	errors: React.PropTypes.string,
-	page: React.PropTypes.object,
-	layoutClass: React.PropTypes.string
+	route: object,
+	routes: object,
+	user: object,
+	errors: string,
+	page: object,
+	layoutClass: string
 };
 
 export default LeftNav;
