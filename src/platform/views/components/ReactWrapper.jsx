@@ -2,8 +2,6 @@ import React from 'react';
 import assign from 'object-assign';
 import { hyphenate } from 'utils/utilFunctions';
 
-import SubscribeToStores from 'platform/views/viewControllers/SubscribeToStores';
-
 import Layouts from '../templates/Layouts';
 
 function ReactWrapper(props) {
@@ -19,8 +17,4 @@ ReactWrapper.propTypes = {
 	page: React.PropTypes.object
 };
 
-export default SubscribeToStores(ReactWrapper, {
-	userSessionStore: [ 'user', 'errors' ],
-	routingStore: [ 'route', 'routes' ],
-	contentStore: [ 'page' ]
-});
+export default ReactWrapper;

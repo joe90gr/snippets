@@ -1,11 +1,11 @@
 import React from 'react';
-import ReactWrapper from './ReactWrapper';
+import AppContainer from 'platform/views/containers/AppContainer';
 
 function Body() {
 	return (
 		<body>
 			<div className="react-root">
-				<ReactWrapper />
+				<AppContainer />
 			</div>
 			<script type="text/javascript" src="/js/bundles/bundle.js" />
 		</body>

@@ -3,10 +3,11 @@ import { useStore } from 'utils/registry';
 
 import deepEqual from 'deep-equal';
 
-export default function SubscribeToStores(Component, storeManifest) {
-	return class SubscribeToStores extends React.Component {
+export default function (Component, storeManifest) {
+	class SubscribeToStores extends React.Component {
 		constructor(props) {
 			super(props);
+
 			this.storeUpdateHandlerContext = this.storeUpdateHandler.bind(this);
 			this.state = this._getStateFromStores(this.props);
 		}
@@ -59,5 +60,9 @@ export default function SubscribeToStores(Component, storeManifest) {
 		render() {
 			return <Component {...this.props} {...this.state} />;
 		}
-	};
+	}
+
+	SubscribeToStores.displayName = `SubscribeToStores-${ Component.displayName }`;
+
+	return SubscribeToStores;
 }
