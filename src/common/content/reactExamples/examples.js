@@ -51,7 +51,7 @@ export function example2() {
 		}
 	}
 
-	Clock.displayName = Clock;
+	Clock.displayName = 'Clock';
 
 	return React.createElement(Clock, null);
 }
