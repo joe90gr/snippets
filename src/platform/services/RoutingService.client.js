@@ -1,17 +1,18 @@
 import { resolveDeepPages, transformPathValueWithKeys, transformKeyToPath } from 'utils/utilFunctions';
-import routes from 'platform/configuration/routes';
+
 import RoutingAction from 'platform/actions/RoutingAction';
 import ContentAction from 'platform/actions/ContentAction';
 
 class RoutingService {
-	constructor(director) {
+	constructor(director, configService) {
+		const routes = configService.fetchConfigs().routes;
 		this._bindEvents = { routes: routes };
 
 		Object.keys(routes).forEach((route) => {
 			const { method, pages, page, action } = routes[route];
 
 			if (pages || page) {
-				const callback = new this._handleRoute(route);
+				const callback = new this._handleRoute(route, routes);
 
 				this._bindEvents[route] = callback.fn;
 			} else if (!action) {
@@ -25,7 +26,7 @@ class RoutingService {
 		this._router.init();
 	}
 
-	_handleRoute(path) {
+	_handleRoute(path, routes) {
 		this.fn = (...params) => {
 			const _path= transformKeyToPath(path, params);
 			const keyValueParams = transformPathValueWithKeys(path, params);

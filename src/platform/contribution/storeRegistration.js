@@ -1,13 +1,18 @@
 import storeRepository from 'utils/StoreRepository';
 
+import ConfigStore from 'platform/stores/ConfigStore';
 import DocumentMetaDataStore from 'platform/stores/DocumentMetaDataStore';
 import RoutingStore from 'platform/stores/RoutingStore';
 import ContentStore from 'platform/stores/ContentStore';
 import UserSessionStore from 'platform/stores/UserSessionStore';
 
-storeRepository
-	.register(DocumentMetaDataStore)
-	.register(RoutingStore)
-	.register(ContentStore)
-	.register(UserSessionStore)
-	.bindStoreUsages();
+export default function () {
+	storeRepository
+		.register(ConfigStore)
+		.register(DocumentMetaDataStore)
+		.register(RoutingStore)
+		.register(ContentStore)
+		.register(UserSessionStore)
+		.bindStoreUsages();
+}
+

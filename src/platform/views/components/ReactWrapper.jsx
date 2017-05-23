@@ -14,6 +14,7 @@ function ReactWrapper(props) {
 
 ReactWrapper.displayName = 'reactWrapper';
 ReactWrapper.propTypes = {
+	config: object,
 	route: object,
 	page: object
 };

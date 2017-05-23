@@ -1,14 +1,11 @@
 import routingConstants from 'platform/constants/RoutingConstants';
 import AbstractStore from './AbstractStore';
 
-import routes from 'platform/configuration/routes';
-
 class RoutingStore extends AbstractStore {
 	constructor(deserializedState) {
 		super();
 
 		this._route = deserializedState.route || { id: '' };
-		this._routes = routes;
 	}
 
 	_setRoute(route) {
@@ -17,8 +14,7 @@ class RoutingStore extends AbstractStore {
 
 	getState() {
 		return {
-			route: this._route,
-			routes: this._routes
+			route: this._route
 		};
 	}
 

@@ -2,13 +2,12 @@ import React from 'react';
 import { string, object } from 'prop-types';
 
 import contentRepository from 'common/content/contentRepository';
-import linkList from 'platform/configuration/main-navigation';
 import Navigation from 'common/components/Navigation';
 import LoginForm from 'common/components/LoginForm';
 
 import LazilyLoad, { importLazy, LazilyLoadFactory } from 'platform/views/viewControllers/LazilyLoad';
 
-function RightNav({ route, routes, user, errors, page: { key }, layoutClass }) {
+function RightNav({ route, user, errors, page: { key }, layoutClass, config: { mainNavigation, routes } }) {
 	return (
 		<div id={ route.id }>
 			<LoginForm user={ user } errors={ errors } />
@@ -22,7 +21,7 @@ function RightNav({ route, routes, user, errors, page: { key }, layoutClass }) {
 			<div className={ `content ${layoutClass}`}>
 				{ contentRepository[key] }
 			</div>
-			<Navigation linkList= { linkList } routes={ routes } />
+			<Navigation linkList= { mainNavigation } routes={ routes } />
 		</div>
 	);
 }
@@ -34,7 +33,8 @@ RightNav.propTypes = {
 	user: object,
 	errors: string,
 	page: object,
-	layoutClass: string
+	layoutClass: string,
+	config: object
 };
 
 export default RightNav;

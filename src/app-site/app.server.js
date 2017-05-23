@@ -1,5 +1,6 @@
-import 'platform/contribution/serviceRegistration.server';
-import 'platform/contribution/storeRegistration';
+import config from './configuration/config';
+import serviceContext from 'platform/contribution/serviceRegistration.server';
+import storeContext from 'platform/contribution/storeRegistration';
 import path from 'path';
 import favicon from 'serve-favicon';
 import logger from 'morgan';
@@ -10,6 +11,9 @@ import { express, router } from 'utils/express-utils';
 import createServer from 'platform/createServer';
 
 var app = express();
+
+serviceContext(config);
+storeContext();
 createServer(app);
 
 // uncomment after placing your favicon in /public

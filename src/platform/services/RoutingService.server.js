@@ -3,15 +3,17 @@ import ReactDom from 'react-dom/server';
 
 import Index from 'platform/views/components/Index';
 import { resolveDeepPages, transformPathToKey } from 'utils/utilFunctions';
-import routes from 'platform/configuration/routes';
+
 import UserAction from 'platform/actions/UserAction';
 import RoutingAction from 'platform/actions/RoutingAction';
 import ContentAction from 'platform/actions/ContentAction';
 
 class RoutingService {
-	constructor(expressRouter) {
-		Object.keys(routes).forEach((route) => {
-			const { method, page, pages, action, errorPage } = routes[route];
+	constructor(expressRouter, configService) {
+		this._routes = configService.fetchConfigs().routes;
+
+		Object.keys(this._routes).forEach((route) => {
+			const { method, page, pages, action, errorPage } = this._routes[route];
 
 			if (page || pages) {
 				expressRouter[method](route, this._handleRoute.bind(this));
@@ -26,7 +28,7 @@ class RoutingService {
 
 	_handleRoute(req, res) {
 		const path = transformPathToKey(req.path, req.params);
-		const { page, id } = resolveDeepPages(routes, path, req.params);
+		const { page, id } = resolveDeepPages(this._routes, path, req.params);
 
 		UserAction.initiateUser(req, res);
 		RoutingAction.routeTo({

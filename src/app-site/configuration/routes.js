@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom/server';
-import snippetPages from 'platform/configuration/snippet-routes';
+import snippetPages from './snippet-routes';
 import UserAction from 'platform/actions/UserAction';
 import ErrorView from 'platform/views/components/Error';
 
