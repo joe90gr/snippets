@@ -11,6 +11,10 @@ class PrintConsole extends React.Component {
 		this.state = { items: [] };
 	}
 
+	shouldComponentUpdate(nextProps, nextState) {
+		return false;
+	}
+
 	componentDidMount() {
 		events.on(this.props.context, this._onChange.bind(this));
 	}
