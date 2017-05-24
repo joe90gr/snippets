@@ -20,6 +20,10 @@ export default function (Component, storeManifest) {
 			Object.keys(storeManifest).forEach(store => useStore(store).removeChangeListener(this.storeUpdateHandlerContext));
 		}
 
+		shouldComponentUpdate(nextProps, nextState) {
+			return nextState !== this.state;
+		}
+
 		storeUpdateHandler() {
 			const stateFromStores = this._getStateFromStores(this.props);
 			const isEqual = deepEqual(this.state, stateFromStores);
