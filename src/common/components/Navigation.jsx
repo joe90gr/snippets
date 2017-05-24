@@ -3,18 +3,30 @@ import { object } from 'prop-types';
 
 import Link from './Link';
 
-function Navigation({ linkList = {} }) {
-	return (
-		<ul className="links">
-			{Object.keys(linkList).map((route, index) => {
-				const { title, external } = linkList[route];
+class Navigation extends React.Component {
+	constructor(props) {
+		super(props);
+	}
 
-				return (
-					<li key={`link-${index + 1}`}><Link to={ route } external={ external }>{ title }</Link></li>
-				);
-			})}
-		</ul>
-	);
+	shouldComponentUpdate(nextProps, nextState) {
+		return nextProps.linkList !== this.props.linkList;
+	}
+
+	render() {
+		const { linkList = {} } = this.props;
+
+		return (
+			<ul className="links">
+				{Object.keys(linkList).map((route, index) => {
+					const { title, external } = linkList[route];
+
+					return (
+						<li key={`link-${index + 1}`}><Link to={ route } external={ external }>{ title }</Link></li>
+					);
+				})}
+			</ul>
+		);
+	}
 }
 
 Navigation.displayName = 'Navigation';
