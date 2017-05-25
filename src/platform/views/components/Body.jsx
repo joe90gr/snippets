@@ -1,11 +1,11 @@
 import React from 'react';
-import Root from 'platform/views/components/Root';
+import AppContainer from 'platform/views/containers/AppContainer';
 
 function Body() {
 	return (
 		<body>
 			<div className="react-root">
-				<Root />
+				<AppContainer />
 			</div>
 			<script type="text/javascript" src="/js/bundles/bundle.js" />
 		</body>
