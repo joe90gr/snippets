@@ -1,3 +1,4 @@
+import configConstants from 'platform/constants/ConfigConstants';
 import AbstractStore from './AbstractStore';
 
 class ConfigStore extends AbstractStore {
@@ -13,7 +14,7 @@ class ConfigStore extends AbstractStore {
 
 	_onDispatch(action) {
 		switch (action.actionType) {
-			case 'LOAD_CONFIG':
+			case configConstants.LOAD_CONFIG:
 				this._config = action.data;
 				break;
 			default:

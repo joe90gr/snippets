@@ -1,4 +1,5 @@
 import Dispatcher from 'utils/Dispatcher';
+import configConstants from 'platform/constants/ConfigConstants';
 
 import { useService } from 'utils/registry';
 
@@ -7,7 +8,7 @@ export default {
 		const configService = useService('configService');
 
 		Dispatcher.dispatch({
-			actionType: 'LOAD_CONFIG',
+			actionType: configConstants.LOAD_CONFIG,
 			data: configService.fetchConfigs()
 		});
 	}
