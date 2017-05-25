@@ -12,7 +12,7 @@ class PrintConsole extends React.Component {
 	}
 
 	shouldComponentUpdate(nextProps, nextState) {
-		return false;
+		return nextState.items !== this.state.items;
 	}
 
 	componentDidMount() {
