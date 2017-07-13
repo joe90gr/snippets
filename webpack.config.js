@@ -2,7 +2,7 @@ var path = require('path');
 var site = 'app-site';
 
 module.exports = {
-	entry: './src/' + site + '/app.client.js',
+	entry: [ 'babel-polyfill', './src/' + site + '/app.client.js' ],
 	output: {
 		path: __dirname + '/public/js/bundles',
 		filename: 'bundle.js',
