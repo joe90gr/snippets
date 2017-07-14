@@ -13,7 +13,7 @@ const spec = {
 
 export const storeStubs = {
 	configStore: [ 'config' ],
-	userSessionStore: [ 'user', 'errors' ],
+	userSessionStore: [ 'user', 'errors', 'isAuthenticated' ],
 	routingStore: [ 'route' ],
 	contentStore: [ 'page' ]
 };

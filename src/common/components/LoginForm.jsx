@@ -1,9 +1,7 @@
 import React from 'react';
-import { string, object } from 'prop-types';
+import { string, object, bool } from 'prop-types';
 
 import userAction from 'platform/actions/UserAction';
-
-import AccessControl from './AccessControl';
 
 class LoginForm extends React.Component {
 	constructor(props) {
@@ -27,37 +25,47 @@ class LoginForm extends React.Component {
 		userAction.invalidateUser();
 	}
 
-	shouldComponentUpdate(nextProps, nextState) {
+	shouldComponentUpdate(nextProps) {
 		return nextProps.user !== this.props.user;
 	}
 
-	render() {
-		const { user: { name }, errors } = this.props;
+	login() {
+		return (
+			<div>
+				<h1>Hello Guest</h1>
+				<form method="get" action="/login" onSubmit={ (e) => this._onSubmitLogin(e) }>
+					<input type="text" ref={(value) => {
+						this._username = value;
+					}} defaultValue="joe90" />
+					<input type="text" ref={(value) => {
+						this._password = value;
+					}} defaultValue="1q2w3e4r" />
+					<button type="submit">Login</button>
+				</form>
+			</div>
+		);
+	}
+
+	logout() {
+		const { user: { name } } = this.props;
 
 		return (
 			<div>
-				<AccessControl loggedIn={ false }>
-					<div>
-						<h1>Hello Guest</h1>
-						<form method="get" action="/login" onSubmit={ (e) => this._onSubmitLogin(e) }>
-							<input type="text" ref={(value) => {
-								this._username = value;
-							}} defaultValue="joe" />
-							<input type="text" ref={(value) => {
-								this._password = value;
-							}} defaultValue="1234" />
-							<button type="submit">Login</button>
-						</form>
-					</div>
-				</AccessControl>
-				<AccessControl loggedIn>
-					<div>
-						<h1>Hello { name }</h1>
-						<form method="get" action="/logout" onSubmit={ (e) => this._onSubmitLogout(e) }>
-							<button type="submit">Logout</button>
-						</form>
-					</div>
-				</AccessControl>
+				<h1>Hello { name }</h1>
+				<form method="get" action="/logout" onSubmit={ (e) => this._onSubmitLogout(e) }>
+					<button type="submit">Logout</button>
+				</form>
+			</div>
+		);
+	}
+
+	render() {
+		const { isAuthenticated, errors } = this.props;
+
+		return (
+			<div>
+				{ !isAuthenticated && this.login() }
+				{ isAuthenticated && this.logout() }
 				<p>{ errors }</p>
 			</div>
 		);
@@ -67,7 +75,8 @@ class LoginForm extends React.Component {
 LoginForm.displayName ='LoginForm';
 LoginForm.propTypes = {
 	user: object,
-	errors: string
+	errors: string,
+	isAuthenticated: bool
 };
 
 export default LoginForm;
