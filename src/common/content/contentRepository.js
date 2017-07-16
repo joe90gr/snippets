@@ -16,10 +16,12 @@ import { testBedAlgorithm, bubbleSort, graphAlgorithm } from 'common/content/alg
 import { factory } from 'common/content/patterns/factory.js';
 import { examples, example1, example2, example3, example4 } from 'common/content/reactExamples/examples.js';
 import Pong from 'common/content/html5CanvasEngines/Pong';
+import ThreeDAnimations from 'common/content/3d-examples/ThreeDAnimations';
 
 export default {
 	'testing-url': <h1>NATIVE COMPONENT</h1>,
 	'pong-game': <Pong/>,
+	'three-d-animations': <ThreeDAnimations/>,
 	'examples': <Snippets title={ 'Examples' } model={ [ arraysOne ] } />,
 	'iterators': <Snippets title={ 'Iterators' } model={ [ iteratorForEach, iteratorEvery, iteratorSome, iteratorReduce ] } />,
 	'lists': <Snippets title={ 'Lists' } model={ [ adtListAppendRemove, adtListNextPrevious, adtListIterateFoward, adtListIterateBackward ] } />,

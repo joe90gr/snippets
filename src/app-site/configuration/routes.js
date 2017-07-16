@@ -34,6 +34,14 @@ export default {
 			baseLayout: 'LeftNavLayout'
 		}
 	},
+	'/three-d-animations': {
+		id: 'three-d-animations',
+		method: 'get',
+		page: {
+			key: 'three-d-animations',
+			baseLayout: 'LeftNavLayout'
+		}
+	},
 	'/login': {
 		id: 'login',
 		method: 'post',

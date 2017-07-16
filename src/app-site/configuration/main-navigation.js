@@ -62,5 +62,9 @@ export default {
 	'/pong-game': {
 		title: 'Pong Game',
 		external: false
+	},
+	'/three-d-animations': {
+		title: '3D Animations',
+		external: false
 	}
 };
