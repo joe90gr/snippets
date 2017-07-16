@@ -11,7 +11,7 @@ function Head({ pageTitle, styleSheetPath, serialisedScripts }) {
 		<head>
 			<title>{ pageTitle }</title>
 			<link rel="stylesheet" href={ styleSheetPath } />
-			<script src="js/three.min.js"></script>
+			<script src="/js/three.min.js"></script>
 			<script data-embedded id="serialised" dangerouslySetInnerHTML={ getSerializedScript(serialisedScripts) }/>
 		</head>
 	);
