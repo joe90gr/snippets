@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "baseUrl": ".",
+        "paths": {
+            "platform/*": ["./src/platform/*"] ,
+			"common/*": ["./src/common/*"],
+			"utils*/": ["./src/utils/*"]
+        }
+    }
+}
