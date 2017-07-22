@@ -1,13 +1,15 @@
 const arr = [];
 
-export function hasPressedKey(key) {
-	return arr[arr.indexOf(key)] === key;
-}
-
-export function registerKeyPress(key) {
+function registerKeyPress(key) {
 	if (arr.indexOf(key) === -1) {
 		arr.push(key);
 	}
+}
+
+export function hasPressedKey(keyCode, key) {
+	registerKeyPress(keyCode);
+
+	return arr[arr.indexOf(key)] === key;
 }
 
 export function unregisterKeyPress(key) {

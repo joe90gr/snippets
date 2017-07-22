@@ -1,4 +1,9 @@
-import { hasPressedKey, registerKeyPress, unregisterKeyPress, registerHandlers, unregisterHandlers } from '../lib/keyPressHelper';
+import {
+	hasPressedKey,
+	unregisterKeyPress,
+	registerHandlers,
+	unregisterHandlers
+} from '../lib/keyPressHelper';
 
 export default class CubeAnimation {
 	constructor() {
@@ -74,29 +79,32 @@ export default class CubeAnimation {
 	keyHandlerDown(event) {
 		const { keyCode } = event;
 
-		registerKeyPress(keyCode);
-
-		if (hasPressedKey(39)) {
+		if (hasPressedKey(keyCode, 39)) {
 			this.x -= 3;
 			this.camera.position.x = this.x;
 		}
-		if (hasPressedKey(37)) {
+
+		if (hasPressedKey(keyCode, 37)) {
 			this.x += 3;
 			this.camera.position.x = this.x;
 		}
-		if (hasPressedKey(38)) {
+
+		if (hasPressedKey(keyCode, 38)) {
 			this.y -= 3;
 			this.camera.position.y = this.y;
 		}
-		if (hasPressedKey(40)) {
+
+		if (hasPressedKey(keyCode, 40)) {
 			this.y += 3;
 			this.camera.position.y = this.y;
 		}
-		if (hasPressedKey(188)) {
+
+		if (hasPressedKey(keyCode, 188)) {
 			this.z -= 6;
 			this.camera.position.z = this.z;
 		}
-		if (hasPressedKey(190)) {
+
+		if (hasPressedKey(keyCode, 190)) {
 			this.z += 6;
 			this.camera.position.z = this.z;
 		}
