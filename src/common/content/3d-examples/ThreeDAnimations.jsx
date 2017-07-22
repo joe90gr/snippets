@@ -2,8 +2,8 @@ import React from 'react';
 import ThreeEngine from 'common/content/lib/CubeAnimation';
 
 class ThreeDAnimations extends React.Component {
-	constructor(props) {
-		super(props);
+	constructor() {
+		super(...arguments);
 	}
 
 	componentDidMount() {

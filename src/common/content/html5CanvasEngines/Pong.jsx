@@ -4,12 +4,12 @@ import PongEngine from 'common/content/lib/PongCanvasEngine';
 class Pong extends React.Component {
 	constructor() {
 		super(...arguments);
-
-		this.pongEngine = new PongEngine();
 	}
 
 	componentDidMount() {
-		this.pongEngine.initialise(this.canvas);
+		this.pongEngine = new PongEngine(this.canvas);
+
+		this.pongEngine.initialise();
 	}
 
 	componentWillUnmount() {
@@ -18,9 +18,9 @@ class Pong extends React.Component {
 
 	render() {
 		return (
-			<canvas width={ 470 } height={ 640 } ref={(node) => {
-				this.canvas = node;
-			}}>Canvas Not Supported</canvas>
+			<canvas width={ 470 } height={ 640 } ref={(node) => this.canvas = node}>
+				Canvas Not Supported
+			</canvas>
 		);
 	}
 }

@@ -1,8 +1,34 @@
+import {
+	hasPressedKey,
+	unregisterKeyPress,
+	registerHandlers,
+	unregisterHandlers
+} from '../lib/keyPressHelper';
+
 const BALL_RADIUS = 10;
 const PADDLE_WIDTH = 100;
 const PADDLE_HEIGHT = 20;
 
 export default class Pong {
+	constructor(canvas) {
+		this.canvas = canvas;
+		this.ctx = this.canvas.getContext('2d');
+		this.ball = {};
+		this.topPaddle = {};
+		this.bottomPaddle = {};
+		this.ball.x = 160;
+		this.ball.y = 240;
+		this.ball.xspeed = 2;
+		this.ball.yspeed = 4;
+		this.bottomPaddle.x = 0;
+		this.bottomPaddle.y = 620;
+		this.topPaddle.x = 0;
+		this.topPaddle.y = 0;
+		this.Animate = this.Animate.bind(this);
+		this.keyHandlerUp = this.keyHandlerUp.bind(this);
+		this.keyHandlerDown = this.keyHandlerDown.bind(this);
+	}
+
 	drawBackground() {
 		const { width, height } = this.canvas;
 
@@ -45,8 +71,6 @@ export default class Pong {
 
 		if ((this.ball.y + BALL_RADIUS) >= this.bottomPaddle.y) {
 			if (this.bottomPaddle.x <= this.ball.x && this.ball.x <= (this.bottomPaddle.x + PADDLE_WIDTH)) {
-				console.log('bottomPaddle hit', this.ball.x, this.ball.y, this.bottomPaddle.x, this.bottomPaddle.y);
-
 				this.ball.yspeed = this.ball.yspeed * -1;
 				this.ball.y = this.bottomPaddle.y - BALL_RADIUS;
 				return;
@@ -55,8 +79,6 @@ export default class Pong {
 
 		if ((this.ball.y - BALL_RADIUS) <= (this.topPaddle.y + PADDLE_HEIGHT)) {
 			if (this.topPaddle.x <= this.ball.x && this.ball.x <= (this.topPaddle.x + PADDLE_WIDTH)) {
-				console.log('topPaddle hit', this.ball.x, this.ball.y, this.topPaddle.x, this.topPaddle.y);
-
 				this.ball.yspeed = this.ball.yspeed * -1;
 				this.ball.y = this.topPaddle.y + BALL_RADIUS + PADDLE_HEIGHT;
 				return;
@@ -114,7 +136,7 @@ export default class Pong {
 		}
 	}
 
-	pongGame() {
+	Animate() {
 		this.keyboardEvents();
 		this.computerAI();
 		this.drawBackground();
@@ -122,46 +144,36 @@ export default class Pong {
 		this.drawBottomPaddle();
 		this.drawBall();
 		this.hitDetect();
+
+		return requestAnimationFrame(this.Animate);
 	}
 
-	keypressHandler(event) {
+	keyHandlerUp(event) {
 		const { keyCode } = event;
-		console.log(keyCode);
+		unregisterKeyPress(keyCode);
+	}
 
-		if (keyCode === 39) {
+	keyHandlerDown(event) {
+		const { keyCode } = event;
+
+		if (hasPressedKey(keyCode, 39)) {
 			this.rightArrowHit = true;
 		}
 
-		if (keyCode === 37) {
+		if (hasPressedKey(keyCode, 37)) {
 			this.leftArrowHit = true;
 		}
 	}
 
-	initialise(canvas) {
-		this.canvas = canvas;
-		this.keyHandler = this.keypressHandler.bind(this);
+	initialise() {
+		registerHandlers(this.keyHandlerUp, this.keyHandlerDown);
 
-		document.addEventListener('keydown', this.keyHandler, false);
-
-		this.ctx = this.canvas.getContext('2d');
-		this.ball = {};
-		this.topPaddle = {};
-		this.bottomPaddle = {};
-		this.ball.x = 160;
-		this.ball.y = 240;
-		this.ball.xspeed = 2;
-		this.ball.yspeed = 4;
-		this.bottomPaddle.x = 0;
-		this.bottomPaddle.y = 620;
-		this.topPaddle.x = 0;
-		this.topPaddle.y = 0;
-
-		this.timer = setInterval(this.pongGame.bind(this), 1000/60);
+		this.animationFrame = this.Animate();
 	}
 
 	destroy() {
-		document.removeEventListener('keydown', this.keyHandler, false);
-		clearTimeout(this.timer);
+		unregisterHandlers(this.keyHandlerUp, this.keyHandlerDown);
+		cancelAnimationFrame(this.animationFrame);
 	}
 }
 

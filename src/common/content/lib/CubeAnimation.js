@@ -65,10 +65,11 @@ export default class CubeAnimation {
 	}
 
 	animate(cube, scene, camera, renderer) {
-		requestAnimationFrame(this.animate);
 		cube.rotation.y += Math.PI / 100;
 		cube.rotation.x += Math.PI / 200;
 		renderer.render(scene, camera);
+
+		return requestAnimationFrame(this.animate);
 	}
 
 	keyHandlerUp(event) {
@@ -127,11 +128,12 @@ export default class CubeAnimation {
 
 		this._setCameraPosition(this.camera, this.x, this.y, this.z);
 		this.animate = this.animate.bind(this, cube, scene, this.camera, renderer);
-		this.animate(cube, scene, this.camera, renderer);
+		this.animationFrame = this.animate(cube, scene, this.camera, renderer);
 	}
 
 	destroy() {
 		unregisterHandlers(this.keyHandlerUp, this.keyHandlerDown);
+		cancelAnimationFrame(this.animationFrame);
 	}
 }
 
