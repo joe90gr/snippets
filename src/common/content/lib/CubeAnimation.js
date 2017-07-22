@@ -1,11 +1,14 @@
+import { hasPressedKey, registerKeyPress, unregisterKeyPress, registerHandlers, unregisterHandlers } from '../lib/keyPressHelper';
+
 export default class CubeAnimation {
-	constructor () {
+	constructor() {
 		this.animate = this.animate.bind(this);
-		this.keyHandler = this.keyHandler.bind(this);
-		this.element
+		this.keyHandlerUp = this.keyHandlerUp.bind(this);
+		this.keyHandlerDown = this.keyHandlerDown.bind(this);
+		this.element = undefined;
 	}
 
-	_createScene (sceneObjects, width, height) {
+	_createScene(sceneObjects) {
 		const scene = new THREE.Scene();
 
 		this._addElementsToScene(scene, sceneObjects);
@@ -23,7 +26,7 @@ export default class CubeAnimation {
 	}
 
 	_createShape() {
-		const geometry = new THREE.TorusGeometry(100, 40, 100, 100);
+		const geometry = new THREE.TorusGeometry(140, 40, 100, 100);
 		const material = new THREE.MeshStandardMaterial();
 		const cube = new THREE.Mesh(geometry, material);
 
@@ -47,7 +50,7 @@ export default class CubeAnimation {
 	_addElementsToScene(scene, elements) {
 		elements.forEach((element) => {
 			scene.add(element);
-		})
+		});
 	}
 
 	_setCameraPosition(camera, x, y, z) {
@@ -63,34 +66,39 @@ export default class CubeAnimation {
 		renderer.render(scene, camera);
 	}
 
-	keyHandler(event) {
+	keyHandlerUp(event) {
+		const { keyCode } = event;
+		unregisterKeyPress(keyCode);
+	}
+
+	keyHandlerDown(event) {
 		const { keyCode } = event;
 
-		switch(keyCode) {
-			case 39:
-				this.x -= 3;
-				this.camera.position.x = this.x;
-				break;
-			case 37:
-				this.x += 3;
-				this.camera.position.x = this.x;
-				break;
-			case 38:
-				this.y -= 3;
-				this.camera.position.y = this.y;
-				break;
-			case 40:
-				this.y += 3;
-				this.camera.position.y = this.y;
-				break;
-			case 188:
-				this.z -= 6;
-				this.camera.position.z = this.z;
-				break;
-			case 190:
-				this.z += 6;
-				this.camera.position.z = this.z;
-				break;
+		registerKeyPress(keyCode);
+
+		if (hasPressedKey(39)) {
+			this.x -= 3;
+			this.camera.position.x = this.x;
+		}
+		if (hasPressedKey(37)) {
+			this.x += 3;
+			this.camera.position.x = this.x;
+		}
+		if (hasPressedKey(38)) {
+			this.y -= 3;
+			this.camera.position.y = this.y;
+		}
+		if (hasPressedKey(40)) {
+			this.y += 3;
+			this.camera.position.y = this.y;
+		}
+		if (hasPressedKey(188)) {
+			this.z -= 6;
+			this.camera.position.z = this.z;
+		}
+		if (hasPressedKey(190)) {
+			this.z += 6;
+			this.camera.position.z = this.z;
 		}
 	}
 
@@ -99,10 +107,10 @@ export default class CubeAnimation {
 		const height = 470;
 		const light = this._createLight();
 		const cube = this._createShape();
-		const renderer = this._setSceneSize(element, width, height)
-		const scene = this._createScene ([cube, light ], width, height);
+		const renderer = this._setSceneSize(element, width, height);
+		const scene = this._createScene([ cube, light ]);
 
-		document.addEventListener('keydown', this.keyHandler, false);
+		registerHandlers(this.keyHandlerUp, this.keyHandlerDown);
 
 		this.x = 0;
 		this.y = 0;
@@ -115,7 +123,7 @@ export default class CubeAnimation {
 	}
 
 	destroy() {
-		document.removeEventListener('keydown', this.keyHandler, false);
+		unregisterHandlers(this.keyHandlerUp, this.keyHandlerDown);
 	}
 }
 

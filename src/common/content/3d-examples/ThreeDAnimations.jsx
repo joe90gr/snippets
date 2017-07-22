@@ -1,8 +1,6 @@
 import React from 'react';
 import ThreeEngine from 'common/content/lib/CubeAnimation';
 
-const { addOns } = React;
-
 class ThreeDAnimations extends React.Component {
 	constructor(props) {
 		super(props);
@@ -11,7 +9,7 @@ class ThreeDAnimations extends React.Component {
 	componentDidMount() {
 		this.threeEngine = new ThreeEngine();
 
-		this.threeEngine.initialise(this.element);
+		this.threeEngine.initialise(this.node);
 	}
 
 	componentWillUnmount() {
@@ -19,12 +17,7 @@ class ThreeDAnimations extends React.Component {
 	}
 
 	render() {
-		return (
-			<div ref={(node) => {
-				this.element = node;
-			}}>
-			</div>
-		);
+		return (<div ref={(node) => this.node = node}></div>);
 	}
 }
 
