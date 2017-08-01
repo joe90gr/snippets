@@ -9,7 +9,7 @@ import { queues, dancers, radixSort, priorityQueue } from 'common/content/dataSt
 import { linkedLists, circularLinkedList } from 'common/content/dataStructures/linkedLists.js';
 import { pushToStack, palinDromes } from 'common/content/dataStructures/stacks.js';
 import { promises, promisesOne, promisesTwo } from 'common/content/esSixFeatures/promises.js';
-import { generators } from 'common/content/esSixFeatures/generators.js';
+import { generators, generatorsWithPromises, asyncAwait } from 'common/content/esSixFeatures/generators.js';
 import { classInheritance } from 'common/content/esSixFeatures/classes.js';
 import { formatMessages } from 'common/content/formatMessage/formatMessages.js';
 import { testBedAlgorithm, bubbleSort, graphAlgorithm } from 'common/content/algorithms/algorithms.js';
@@ -30,7 +30,7 @@ export default {
 	'linked-lists': <Snippets title={ 'Linked Lists' } model={ [ linkedLists, circularLinkedList ] } />,
 	'stack': <Snippets title={ 'Stack' } model={ [ pushToStack, palinDromes ] } />,
 	'promises': <Snippets title={ 'Promises' } model={ [ promises, promisesOne, promisesTwo ] } />,
-	'generators': <Snippets title={ 'generators' } model={ [ generators ] } />,
+	'generators': <Snippets title={ 'generators' } model={ [ generators, generatorsWithPromises, asyncAwait ] } />,
 	'classes': <Snippets title={ 'Classes' } model={ [ classInheritance ] } />,
 	'format-messages': <Snippets title={ 'Format Messages' } model={ [ formatMessages ] } />,
 	'algorithms': <Snippets title={ 'Algorithms' } model={ [ testBedAlgorithm, bubbleSort, graphAlgorithm ] } />,
