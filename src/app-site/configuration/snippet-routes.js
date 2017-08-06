@@ -89,5 +89,12 @@ export default {
 			key: 'factory',
 			baseLayout: 'LeftNavLayout'
 		}
+	},
+	'background-sync': {
+		id: 'background-sync',
+		page: {
+			key: 'background-sync',
+			baseLayout: 'LeftNavLayout'
+		}
 	}
 };

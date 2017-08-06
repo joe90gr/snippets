@@ -66,5 +66,9 @@ export default {
 	'/three-d-animations': {
 		title: '3D Animations',
 		external: false
+	},
+	'/snippets/background-sync': {
+		title: 'Background Sync',
+		external: false
 	}
 };

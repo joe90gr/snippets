@@ -14,6 +14,7 @@ import { classInheritance } from 'common/content/esSixFeatures/classes.js';
 import { formatMessages } from 'common/content/formatMessage/formatMessages.js';
 import { testBedAlgorithm, bubbleSort, graphAlgorithm } from 'common/content/algorithms/algorithms.js';
 import { factory } from 'common/content/patterns/factory.js';
+import { backgroundSync } from 'common/content/progressive-apps/background-sync.js';
 import { examples, example1, example2, example3, example4 } from 'common/content/reactExamples/examples.js';
 import Pong from 'common/content/html5CanvasEngines/Pong';
 import ThreeDAnimations from 'common/content/3d-examples/ThreeDAnimations';
@@ -35,5 +36,6 @@ export default {
 	'format-messages': <Snippets title={ 'Format Messages' } model={ [ formatMessages ] } />,
 	'algorithms': <Snippets title={ 'Algorithms' } model={ [ testBedAlgorithm, bubbleSort, graphAlgorithm ] } />,
 	'factory': <Snippets title={ 'Factory Pattern' } model={ [ factory ] } />,
+	'background-sync': <Snippets title={ 'Progressive Web Apps' } model={ [ backgroundSync ] } />,
 	'more-examples': <Snippets title={ 'More Examples' } model={ [ examples, example1, example2, example3, example4 ] } />
 };
