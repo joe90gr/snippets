@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
+    "babel-eslint": "^8.2.2",
     "babel-loader": "^7.1.1",
     "babel-plugin-dynamic-import-webpack": "^1.0.1",
     "babel-plugin-module-resolver": "^2.3.0",
@@ -43,6 +44,8 @@
     "babelify": "^7.3.0",
     "chai": "^3.5.0",
     "enzyme": "^2.7.1",
+    "eslint": "^4.18.2",
+    "eslint-plugin-react": "^7.7.0",
     "gulp": "^3.9.1",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^2.2.0",
